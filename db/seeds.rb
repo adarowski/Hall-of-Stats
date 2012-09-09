@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+Player.transaction do
+  CSV.parse(File.open("hall-of-stats-new.csv"), headers: true).each do |row|
+    player = row.to_hash
+
+    player['id'] = player.delete('player_id')
+
+    player['hos'] = true if player['hos'].try(:strip) == 'hos'
+    player['hof'] = true if player['hof'].try(:strip) == 'hof'
+
+    Player.create!(player, as: :admin).id
+  end
+end
