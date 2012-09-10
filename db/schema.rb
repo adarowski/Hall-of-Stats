@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906005702) do
+ActiveRecord::Schema.define(:version => 20120909194053) do
 
   create_table "players", :id => false, :force => true do |t|
     t.string   "id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120906005702) do
     t.decimal  "waa_tot"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "photo_path"
   end
 
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true

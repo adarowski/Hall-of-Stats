@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+      %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+        %title Hall of Stats
+        = stylesheet_link_tag    "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+  %body{body_attributes}
+    #layout
+
+      = yield
+
+      %footer
+        %p
+          The Hall of Stats was built by
+          %a{:href => "http://darowski.com"} Adam Darowski
+          and
+          = succeed "." do
+            %a{:href => "http://semanticart.com"} Jeffrey Chupp
+        %p
+          The Hall of Stats is based on WAR data provided by
+          = succeed "." do
+            %a{:href => "http://baseball-reference.com"} Baseball-Reference
+          Seriously, Baseball-Reference is awesome for providing all of their WAR data, free of charge.
+        %p
+          Follow the Hall of Stats on Twitter at
+          = succeed "." do
+            %a{:href => "http://twitter.com/hallofstats"} @HallOfStats

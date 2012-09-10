@@ -1,2 +1,10 @@
 module ApplicationHelper
+  def body_attributes
+    case [params[:controller], params[:action]].join('#')
+    when 'players#index'
+      {class: 'home'}
+    when 'players#show'
+      {class: 'player', id: @player.id}
+    end
+  end
 end

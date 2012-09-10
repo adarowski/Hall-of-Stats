@@ -1,0 +1,549 @@
+$text_font: "Helvetica Neue", serif
+$blue_color: #000033
+$brown_color: #4C230E
+$default_color: $blue_color
+
+=border_radius($radius)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+=box_shadow($color, $values)
+  -webkit-box-shadow: $color $values
+  -moz-box-shadow: $color $values
+  box-shadow: $color $values
+
+=off_left
+  position: absolute
+  left: -9999px
+
+=multi_paragraphs
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+=respond-to($device)
+
+  @if $device == handheld
+    @media only screen and (min-width : 320px)
+      @content
+
+  @if $device == handheld-landscape
+    @media only screen and (min-width : 320px) and (orientation : landscape)
+      @content
+
+  @if $device == handheld-portrait
+    @media only screen and (max-width : 320px) and (orientation : landscape)
+      @content
+  
+  @if $device == tablet
+    @media only screen and (min-width : 600px)
+      @content
+
+  @if $device == tablet-landscape
+    @media only screen and (min-width : 600px) and (orientation : landscape)
+      @content
+
+  @if $device == tablet-portrait
+    @media only screen and (min-width : 600px) and (orientation : portrait)
+      @content
+
+  @if $device == tablet-large
+    @media only screen and (min-width : 768px)
+      @content
+
+  @if $device == tablet-large-landscape
+    @media only screen and (min-width : 768px) and (orientation : landscape)
+      @content
+
+  @if $device == tablet-large-portrait
+    @media only screen and (min-width : 768px) and (orientation : portrait)
+      @content
+
+  @if $device == desktop
+    @media only screen and (min-width : 1224px)
+      @content
+
+  @if $device == desktop-large
+    @media only screen and (min-width : 1824px)
+      @content
+  
+  @if $device == retina-display
+    @media only screen and (-webkit-min-device-pixel-ratio: 2)
+      @content
+
+body
+  &:after
+    display: none
+    +respond-to(handheld)
+      content: 'handheld'
+    +respond-to(tablet)
+      content: 'tablet'
+    +respond-to(tablet-large)
+      content: 'tablet-large'
+    +respond-to(desktop)
+      content: 'desktop'
+    +respond-to(desktop-large)
+      content: 'desktop-large'
+
+
+html
+  @media only screen and (max-width : 480px)
+    -webkit-text-size-adjust: none
+
+*
+  -webkit-box-sizing: border-box
+
+body
+  font-family: $text_font
+  background: #666
+  font-size: 16px
+  line-height: 1.5
+  margin: 0
+  color: #222
+
+header, footer, section
+  display: block
+
+a
+  font-weight: bold
+  text-decoration: none
+  &:link, &:visited
+    color: lighten($default_color, 15%)
+  &:hover, &:active
+    color: lighten($default_color, 50%)
+
+#layout
+  background: #FFF url(old_mathematics.png) 0 0
+  max-width: 640px
+  margin: 0 auto
+  +box_shadow(#333, 0 0 10px)
+
+.player
+  header
+    background-color: $default_color
+    padding: 4px 10px
+    position: relative
+    h1
+      margin: 0
+      display: inline-block
+      font-size: 120%
+      a
+        &:link, &:visited, &:hover, &:active
+          color: #FFF
+  
+  #show-about
+    position: absolute
+    top: 8px
+    right: 10px
+    display: inline-block
+    color: #FFF
+    &:after
+      content: '▼'
+      font-size: 60%
+      margin-left: 5px
+
+.home
+  header
+    position: relative
+    overflow: hidden
+    max-height: 600px
+    #branding
+      border-top: 1px solid fade_out($default_color, .5)
+      background-color: fade_out($default_color, .6)
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      z-index: 1
+    h1
+      font-size: 200%
+      color: white
+      padding: 8px
+      margin: 0
+      line-height: 1
+      z-index: 2
+      position: relative
+    p
+      color: white
+      padding: 0 10px
+      font-size: 80%
+      @media only screen and (min-width : 640px)
+        font-size: 100%
+      margin: 0 0 10px
+      z-index: 2
+      position: relative
+    img
+      width: 100%
+      height: auto
+      display: block
+    #photo-hint
+      background-color: fade_out(black, 0.4)
+      color: white
+      z-index: 2
+      position: absolute
+      top: 0
+      right: 0
+      padding: 2px 5px
+      font-size: 70%
+      +border_radius(0 0 0 4px)
+      @media only screen and (min-width : 640px)
+        font-size: 85%
+      a
+        color: white
+
+#player-id
+  background-color: fade_out($default_color, 0.8)
+  min-height: 170px
+  position: relative
+  padding:
+    left: 10px
+    right: 125px
+
+  img
+    background-color: white
+    position: absolute
+    top: 10px
+    right: 10px
+    padding: 3px
+    border: 1px solid #DDD
+    +border_radius(5px)
+    +box_shadow(#666, 0 0 8px)
+
+  h2
+    font-size: 130%
+    margin: 0
+    line-height: 1
+    padding: 10px 0 4px
+    @media only screen and (min-width : 640px)
+      font-size: 220%
+    span
+      display: block
+      font-size: 150%
+      @media only screen and (min-width : 640px)
+        font-size: 100%
+        display: inline
+  dl
+    margin: 0
+    .hall-rating
+      position: relative
+      font-weight: bold
+      color: white
+      margin-top: 10px
+      padding: 2px 10px
+      display: inline-block
+      font-size: 85%
+      @media only screen and (min-width : 640px)
+        font-size: 100%
+    dt
+      +off_left
+      &.hall-rating
+        left: 0
+        background-color: fade_out($default_color, 0.5)
+        margin-left: -10px
+    dd
+      margin: 0
+      &.position
+        font-size: 110%
+        @media only screen and (min-width : 640px)
+          font-size: 130%
+      &.years
+        font-size: 85%
+        @media only screen and (min-width : 640px)
+          font-size: 100%
+        &:before
+          content: "("
+        &:after
+          content: ")"
+      &.hall-rating
+        background-color: fade_out($default_color, 0.2)
+        +border_radius(0 10px 10px 0)
+
+#value-breakdown
+  dl
+    margin: 0
+    font-size: 85%
+    @media only screen and (min-width : 640px)
+      font-size: 100%
+    dt
+      +off_left
+    dd
+      display: inline-block
+      color: white
+      margin: 0
+      padding: 2px
+      font-weight: bold
+      &.peak
+        background-color: fade_out($default_color, 0.2)
+        padding-left: 10px
+        &:after
+          content: " Peak"
+          font-weight: normal
+          font-size: 80%
+          text-transform: uppercase
+      &.longevity
+        background-color: fade_out($default_color, 0.5)
+        text-align: right
+        padding-right: 10px
+        &:after
+          content: " Longevity"
+          font-weight: normal
+          font-size: 80%
+          text-transform: uppercase
+
+#bio
+  padding: 10px
+  font-size: 85%
+  @media only screen and (min-width : 640px)
+    font-size: 100%
+  p
+    +multi_paragraphs
+
+#section-padding
+  padding: 10px
+
+#stats-summary
+  @extend #section-padding
+
+#similar-players
+  @extend #section-padding
+
+#search
+  @extend #section-padding
+  input[type=search]
+    font-size: 100%
+    width: 100%
+
+#similar-players
+  th, td
+    &:first-child
+      text-align: left
+    &:last-child
+      text-align: right
+
+#intro
+  @extend #section-padding
+  font-size: 85%
+  border-top: 3px solid fade_out($default_color, 0.8)
+  @media only screen and (min-width : 640px)
+    font-size: 100%
+  p
+    +multi_paragraphs
+    margin: 10px 0
+    &:first-child
+      font-size: 120%
+      font-weight: bold
+
+#list-of-bios
+  @extend #section-padding
+  h2
+    font-size: 100%
+  ul
+    font-size: 85%
+    list-style: none
+    padding: 0
+    margin: 0
+    @media only screen and (min-width : 640px)
+      font-size: 100%
+  li
+    border-top: 1px solid fade_out($default_color, 0.95)
+  a
+    display: block
+    padding: 5px 0
+
+  span
+    font-weight: normal
+    color: #666
+
+#list-of-articles
+  @extend #list-of-bios
+
+table
+  width: 100%
+  font-size: 85%
+  border-left: 1px solid #aaa
+  border-right: 1px solid #aaa
+  border-top: 1px solid #aaa
+  border-collapse: collapse
+  @media only screen and (min-width : 640px)
+    font-size: 100%
+  th, td
+    padding: 2px 4px
+    background-color: white
+    border-bottom: 1px solid #aaa
+    text-align: center
+    vertical-align: top
+  .current
+    th, td
+      background-color: fade_out($default_color, 0.95)
+  thead
+    th
+      background-color: fade_out($default_color, 0.8)
+  caption
+    text-align: left
+    font-weight: bold
+    padding-bottom: 5px
+    small
+      color: #666
+      font-size: 85%
+      font-weight: normal
+      @media only screen and (min-width : 640px)
+        font-size: 100%
+  &#win-value
+    th
+      width: 25%
+  &#run-value
+    position: relative
+    margin: 10px 0
+    th
+      width: 20%
+      &:before
+        content: ""
+        display: block
+        width: 19%
+        background-color: fade_out($default_color, 0.2)
+        position: absolute
+        bottom: 100%
+      &:first-child:before
+        left: .5%
+      &:nth-child(2):before
+        left: 20.5%
+      &:nth-child(3):before
+        left: 40.5%
+      &:nth-child(4):before
+        left: 60.5%
+      &:nth-child(5):before
+        left: 80.5%
+      
+  &#run-value, &#win-value
+    caption
+      +off_left
+
+footer
+  background-color: fade_out($default_color, 0.8)
+  padding: 10px 10px 40px
+  margin-top: 20px
+  p
+    +multi_paragraphs
+    font-size: 75%
+    margin: 10px 0
+    @media only screen and (min-width : 640px)
+      font-size: 85%
+    &:first-child
+      font-weight: bold
+
+#about
+  +border_radius(5px)
+  margin: 5px 0
+  padding: 10px 
+  background-color: fade_out(white, 0.2)
+  font-size: 80%
+  @media only screen and (min-width : 640px)
+    font-size: 90%
+  p
+    +multi_paragraphs
+
+section#inductees
+  position: relative
+  h2
+    background-color: fade_out($default_color, .4)
+    margin: 0
+    padding: 4px 8px
+    font-size: 85%
+    position: relative
+    color: white
+    @media only screen and (min-width : 640px)
+      font-size: 100%
+  #about-hall-rating
+    position: absolute
+    top: 4px
+    right: 8px
+    color: white
+    font-size: 85%
+    @media only screen and (min-width : 640px)
+      font-size: 100%
+    &:after
+      content: "?"
+      display: inline-block
+      font-size: 80%
+      background-color: white
+      color: fade_out($default_color, .4)
+      +border_radius(50px)
+      padding: 0 5px
+      margin-left: 5px
+  #player-list
+    list-style: none
+    padding: 0
+    margin: 0
+    li
+      position: relative
+      background-color: fade_out($default_color, .95)
+      margin: 0
+      line-height: 1
+      margin-bottom: 1px
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        background-color: fade_out($default_color, .9)
+        z-index: 1
+      &:hover
+        &:after
+          background-color: fade_out($default_color, .85)
+        a:link, a:visited
+          color: black
+      span
+        position: absolute
+        top: 10px
+        right: 10px
+        font-weight: normal
+        color: #222
+      strong
+        display: block
+      em
+        display: block
+        font-size: 75%
+        font-weight: normal
+        color: #666
+        padding-top: 3px
+        font-style: normal
+      a
+        display: block
+        padding: 10px
+        position: relative
+        z-index: 2
+
+
+
+// PLAYER-SPECIFIC STYLES
+
+#munsoth01
+  table#run-value
+    margin-top: 123.8px + 10px
+    margin-bottom: 8.3px
+    th
+      &:first-child:before
+        height: 123.8px
+      &:nth-child(2):before
+        height: 11.3px
+      &:nth-child(3):before
+        height: 8.3px
+        top: 100%
+        bottom: auto
+      &:nth-child(4):before
+        height: 31.5px
+      &:nth-child(5):before
+        height: 66.8px
+  .peak
+    width: 54%
+  .longevity
+    width: 46%
+
+li
+  &#ruthba01:after
+    width: 100%
+  &#munsoth01:after
+    width: 25%

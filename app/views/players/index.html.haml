@@ -1,0 +1,73 @@
+%header
+  #branding
+    %h1 The Hall of Stats
+    %p An alternate Hall of Fame populated by a mathematical formula.
+  = image_tag 'photos/dahlen.jpg'
+  %span#photo-hint
+    That’s
+    = succeed "." do
+      %a{:href => "player.html"} Bill Dahlen
+%section#search
+  %input{:placeholder => "Search for any MLB player…", :results => "5", :type => "search"}/
+%section#intro
+  %p They say, “It’s the Hall of Fame, not the Hall of Stats.”
+  %p But what if it was?
+  %p
+    The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on
+    = succeed "." do
+      %a{:href => "#"} a mathematical formula
+  %p You decide which Hall is better…
+%section#inductees
+  %h2 208 Inductees
+  %a#about-hall-rating{:href => "#"} Hall Rating
+  %ol#player-list
+    %li#ruthba01.rf
+      = link_to player_path('ruthba01') do
+        %strong Babe Ruth
+        %em RF, 1914–1935
+        %span 407
+    %li#munsoth01.c
+      = link_to player_path('munsoth01') do
+        %strong Thurman Munson
+        %em C, 1969–1979
+        %span 101
+%section#list-of-articles
+  %h2 Articles
+  %ul
+    %li
+      %a{:href => "#"}
+        Biographies published for Babe Ruth and Thurman Munson
+        %span 9/1/2012
+    %li
+      %a{:href => "#"}
+        The Koufaxian Wes Ferrell
+        %span 9/1/2012
+    %li
+      %a{:href => "#"}
+        Adjusting for Catchers
+        %span 9/1/2012
+    %li
+      %a{:href => "#"}
+        How this Hall was Built
+        %span 9/1/2012
+    %li
+      %a{:href => "#"}
+        Welcome to the Hall of Stats
+        %span 9/1/2012
+    %li
+      %a{:href => "#"} Show More…
+%section#list-of-bios
+  %h2 Players with Biographies
+  %ul
+    %li
+      %a{:href => "#"} Babe Ruth
+    %li
+      %a{:href => "#"} Thurman Munson
+    %li
+      %a{:href => "#"} Babe Ruth
+    %li
+      %a{:href => "#"} Thurman Munson
+    %li
+      %a{:href => "#"} Babe Ruth
+    %li
+      %a{:href => "#"} Show all 56…

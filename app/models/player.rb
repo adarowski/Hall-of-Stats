@@ -8,4 +8,8 @@ class Player < ActiveRecord::Base
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot,
     as: :admin
+
+  def name
+    [first_name, last_name].join(' ')
+  end
 end
