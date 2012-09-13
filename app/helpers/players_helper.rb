@@ -1,9 +1,18 @@
 module PlayersHelper
   POSITIONS = {
-    'c' => 'Catcher'
+    'c' => 'Catcher',
+    '1b' => 'First Base',
+    '2b' => 'Second Base',
+    '3b' => 'Third Base',
+    'ss' => 'Shortstop',
+    'lf' => 'Left Field',
+    'cf' => 'Center Field',
+    'rf' => 'Right Field',
+    'dh' => 'Designated Hitter',
+    'p' => 'Pitcher'
   }
 
   def position(player)
-    POSITIONS[player.position] || "Don't yet have a lookup for #{player.position}"
+    POSITIONS[player.position]
   end
 end

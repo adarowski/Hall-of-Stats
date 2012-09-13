@@ -15,18 +15,20 @@
     %dd.position= position(@player)
     %dt.years Years
     %dd.years 1969–1979
-    %dt.hall-rating Hall Rating
-    %dd.hall-rating= @player.hall_rating
+    %dt.hall-rating<> Hall Rating
+    %dd.hall-rating= @player.hall_rating.round
 
   - if @player.photo_path.present?
     = image_tag @player.photo_path, alt: "#{@player.name} Photo"
 
 %section#value-breakdown
   %dl
-    %dt.peak Peak
-    %dd.peak #{@player.peak_pct}%
-    %dt.longevity Longevity
-    %dd.longevity #{@player.longevity_pct}%
+    %dt.peak<> Peak
+    %dd.peak{style: "width:#{@player.peak_pct}%"}
+      #{@player.peak_pct}%
+    %dt.longevity<> Longevity
+    %dd.longevity{style: "width:#{@player.longevity_pct}%"}
+      #{@player.longevity_pct}%
 
 %section#stats-summary
   %table#win-value
@@ -47,10 +49,11 @@
             WAA
     %tbody
       %tr
-        %td 43.3
-        %td 25.6
+        %td= @player.war_tot
+        %td= @player.waa_tot
+        %td= @player.waa0_tot
         %td= @player.war162_tot
-        %td 30.2
+
   %table#run-value
     %caption Run-Value Statistics
     %thead

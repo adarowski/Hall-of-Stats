@@ -36,7 +36,7 @@ $default_color: $blue_color
   @if $device == handheld-portrait
     @media only screen and (max-width : 320px) and (orientation : landscape)
       @content
-  
+
   @if $device == tablet
     @media only screen and (min-width : 600px)
       @content
@@ -68,7 +68,7 @@ $default_color: $blue_color
   @if $device == desktop-large
     @media only screen and (min-width : 1824px)
       @content
-  
+
   @if $device == retina-display
     @media only screen and (-webkit-min-device-pixel-ratio: 2)
       @content
@@ -132,7 +132,7 @@ a
       a
         &:link, &:visited, &:hover, &:active
           color: #FFF
-  
+
   #show-about
     position: absolute
     top: 8px
@@ -415,7 +415,7 @@ table
         left: 60.5%
       &:nth-child(5):before
         left: 80.5%
-      
+
   &#run-value, &#win-value
     caption
       +off_left
@@ -436,7 +436,7 @@ footer
 #about
   +border_radius(5px)
   margin: 5px 0
-  padding: 10px 
+  padding: 10px
   background-color: fade_out(white, 0.2)
   font-size: 80%
   @media only screen and (min-width : 640px)
@@ -537,11 +537,6 @@ section#inductees
         height: 31.5px
       &:nth-child(5):before
         height: 66.8px
-  .peak
-    width: 54%
-  .longevity
-    width: 46%
-
 li
   &#ruthba01:after
     width: 100%
