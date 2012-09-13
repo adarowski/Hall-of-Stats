@@ -107,72 +107,23 @@
       was also finished as an above-average starter, but did hang on for six seasons and provide some value above replacement.
     %p Given his talent level at age 32, it’s not a stretch to say Munson had another good season or two in him. If he had a couple more partial seasons after that, then 2000 hits would have been easily attainable. 50 WAR would not have been a stretch. Add in his 1976 MVP Award, seven All Star nods, a Rookie of the Year Award, three Gold Gloves, two World Series rings, and a .373/.417/.493 line in the World Series, and you would have yourself a pretty easy Hall of Famer.
     %p Instead, Munson is The Great Underrated Yankee.
+
 %section#similar-players
   %table
     %caption
-      Catchers
+      = position(@player)
       %small in the Hall of Stats
     %thead
       %tr
         %th Players
         %th Hall Rating
     %tbody
-      %tr
-        %th
-          %a{href: "#"} Johnny Bench
-        %td 180
-      %tr
-        %th
-          %a{href: "#"} Gary Carter
-        %td 165
-      %tr
-        %th
-          %a{href: "#"} Carlton Fisk
-        %td 155
-      %tr
-        %th
-          %a{href: "#"} Mike Piazza
-        %td 145
-      %tr
-        %th
-          %a{href: "#"} Yogi Berra
-        %td 134
-      %tr
-        %th
-          %a{href: "#"} Bill Dickey
-        %td 126
-      %tr
-        %th
-          %a{href: "#"} Gabby Hartnett
-        %td 120
-      %tr
-        %th
-          %a{href: "#"} Mickey Cochrane
-        %td 118
-      %tr
-        %th
-          %a{href: "#"} Buck Ewing
-        %td 115
-      %tr
-        %th
-          %a{href: "#"} Joe Torre
-        %td 111
-      %tr
-        %th
-          %a{href: "#"} Ted Simmons
-        %td 111
-      %tr
-        %th
-          %a{href: "#"} Gene Tenace
-        %td 103
-      %tr
-        %th
-          %a{href: "#"} Charlie Bennett
-        %td 101
-      %tr.current
-        %th
-          %a{href: "#"} Thurman Munson
-        %td 101
+      - players_by_position(@player.position).each do |player|
+        %tr{class: ("current" if @player.id == player.id)}
+          %th
+            %a{href: player_path(player)}= player.name
+          %td= player.hall_rating.round
+
 %section#list-of-articles
   %h2 Related Articles
   %ul

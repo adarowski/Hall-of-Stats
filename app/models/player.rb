@@ -9,6 +9,12 @@ class Player < ActiveRecord::Base
     :war162_p, :waa_p, :war_tot, :waa_tot,
     as: :admin
 
+  scope :of_position, lambda{|position_abbrev|
+    where(position: position_abbrev)
+  }
+
+  scope :by_rank, order("hall_rating desc")
+
   def name
     [first_name, last_name].join(' ')
   end

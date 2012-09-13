@@ -15,4 +15,8 @@ module PlayersHelper
   def position(player)
     POSITIONS[player.position]
   end
+
+  def players_by_position(position)
+    Player.of_position(position).by_rank.select("id, first_name, last_name, hall_rating")
+  end
 end
