@@ -36,14 +36,7 @@ describe PlayerDecorator do
 
   def ranked_players_for_position(position)
     3.times.map do |i|
-      player = Player.new
-
-      player.position    = position
-      player.hall_rating = i + 1
-      player.id          = [position, i].join('-')
-      player.save!
-
-      player
+      create(:player, hos: true, position: position, hall_rating: i + 1)
     end
   end
 end

@@ -30,4 +30,5 @@ group :test do
   gem 'rb-fsevent'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
 end
