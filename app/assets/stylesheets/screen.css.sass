@@ -274,9 +274,12 @@ a
       margin: 0
       padding: 2px
       font-weight: bold
+      white-space: nowrap
       &.peak
         background-color: fade_out($default_color, 0.2)
         padding-left: 10px
+        z-index: 1
+        position: relative
         &:after
           content: " Peak"
           font-weight: normal
