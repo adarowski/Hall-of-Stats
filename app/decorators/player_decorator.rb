@@ -1,4 +1,6 @@
-module PlayersHelper
+class PlayerDecorator < Draper::Base
+  decorates :player
+
   POSITIONS = {
     'c' => 'Catcher',
     '1b' => 'First Base',
@@ -12,11 +14,17 @@ module PlayersHelper
     'p' => 'Pitcher'
   }
 
-  def position(player)
+  def name
+    [first_name, last_name].join(' ')
+  end
+
+  def position_name
     POSITIONS[player.position]
   end
 
-  def players_by_position(position)
-    Player.of_position(position).by_rank.select("id, first_name, last_name, hall_rating")
+  def players_of_same_position
+    Player.of_position(player.position).
+      by_rank.
+      select("id, CONCAT_WS(' ', first_name, last_name) as name, hall_rating")
   end
 end

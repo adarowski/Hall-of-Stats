@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  set_primary_key :id
+  self.primary_key = :id
 
   # admins can do whatever they want
   attr_accessible :eligibility, :first_name, :hall_rating, :hof, :hos, :id,
@@ -14,8 +14,4 @@ class Player < ActiveRecord::Base
   }
 
   scope :by_rank, order("hall_rating desc")
-
-  def name
-    [first_name, last_name].join(' ')
-  end
 end

@@ -12,7 +12,7 @@
     %span= @player.last_name
   %dl
     %dt.postion Position
-    %dd.position= position(@player)
+    %dd.position= @player.position_name
     %dt.years Years
     %dd.years 1969–1979
     %dt.hall-rating<> Hall Rating
@@ -111,14 +111,14 @@
 %section#similar-players
   %table
     %caption
-      = position(@player)
+      = @player.position_name
       %small in the Hall of Stats
     %thead
       %tr
         %th Players
         %th Hall Rating
     %tbody
-      - players_by_position(@player.position).each do |player|
+      - @player.players_of_same_position.each do |player|
         %tr{class: ("current" if @player.id == player.id)}
           %th
             %a{href: player_path(player)}= player.name

@@ -7,6 +7,8 @@ gem 'thin'
 gem 'pg'
 gem 'haml'
 
+gem 'draper'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,7 +20,14 @@ end
 
 gem 'jquery-rails'
 
-group :development do
+group :development, :test do
   gem 'debugger'
   gem "rspec-rails", "~> 2.0"
+end
+
+group :test do
+  gem 'listen', git: 'git://github.com/guard/listen.git'
+  gem 'rb-fsevent'
+  gem 'guard'
+  gem 'guard-rspec'
 end

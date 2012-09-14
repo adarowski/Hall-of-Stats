@@ -3,6 +3,6 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @player = Player.find(params[:id])
+    @player = PlayerDecorator.new(Player.find(params[:id]))
   end
 end
