@@ -14,4 +14,6 @@ class Player < ActiveRecord::Base
   }
 
   scope :by_rank, order("hall_rating desc")
+
+  scope :in_hos, where(hos: true)
 end

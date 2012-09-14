@@ -25,6 +25,7 @@ class PlayerDecorator < Draper::Base
   def players_of_same_position
     Player.of_position(player.position).
       by_rank.
+      in_hos.
       select("id, CONCAT_WS(' ', first_name, last_name) as name, hall_rating")
   end
 end
