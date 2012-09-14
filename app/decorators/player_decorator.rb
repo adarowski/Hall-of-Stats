@@ -14,6 +14,11 @@ class PlayerDecorator < Draper::Base
     'p' => 'Pitcher'
   }
 
+  # don't use the helper so that we can be called from PlayerLinker
+  def link
+    %(<a href="/player/#{id}">#{name}</a>)
+  end
+
   def name
     [first_name, last_name].join(' ')
   end
