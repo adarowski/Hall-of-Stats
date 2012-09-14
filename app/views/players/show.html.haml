@@ -1,10 +1,49 @@
-- styles do
+- content_for(:header_styles) do
   %style{:type => 'text/css'}
     :sass
       .peak
         width: #{@player.peak_pct}%
       .longevity
         width: #{@player.longevity_pct}%
+      table#run-value
+        margin-top: #{@player.max_runs_x}
+        margin-bottom: #{@player.max_runs_x}
+        th
+          &:first-child:before
+            @if #{@player.runs_bat} < 0
+              height: #{@player.runs_bat.abs}px
+              top: 100%
+              bottom: auto
+            @else
+              height: #{@player.runs_bat}px
+          &:nth-child(2):before
+            @if #{@player.runs_br} < 0
+              height: #{@player.runs_br.abs}px
+              top: 100%
+              bottom: auto
+            @else
+              height: #{@player.runs_br}px
+          &:nth-child(3):before
+            @if #{@player.runs_dp} < 0
+              height: #{@player.runs_dp.abs}px
+              top: 100%
+              bottom: auto
+            @else
+              height: #{@player.runs_dp}px
+          &:nth-child(4):before
+            @if #{@player.runs_defense} < 0
+              height: #{@player.runs_defense.abs}px
+              top: 100%
+              bottom: auto
+            @else
+              height: #{@player.runs_defense}px
+          &:nth-child(5):before
+            @if #{@player.runs_totalpos} < 0
+              height: #{@player.runs_totalpos.abs}px
+              top: 100%
+              bottom: auto
+            @else
+              height: #{@player.runs_totalpos}px
 
 %header
   %h1
