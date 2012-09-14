@@ -34,7 +34,7 @@ class PlayerDecorator < Draper::Base
       select("id, CONCAT_WS(' ', first_name, last_name) as name, hall_rating")
   end
 
-  def max_runs_x
-    [ runs_bat, runs_br, runs_dp, runs_defense, runs_totalpos, 0].max
+  def runs_x
+    [ runs_bat, runs_br, runs_dp, runs_defense, runs_totalpos, 0]
   end
 end

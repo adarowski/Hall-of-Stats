@@ -6,8 +6,8 @@
       .longevity
         width: #{@player.longevity_pct}%
       table#run-value
-        margin-top: #{@player.max_runs_x}
-        margin-bottom: #{@player.max_runs_x}
+        margin-top: #{@player.runs_x.max}
+        margin-bottom: #{@player.runs_x.min}
         th
           &:first-child:before
             @if #{@player.runs_bat} < 0
