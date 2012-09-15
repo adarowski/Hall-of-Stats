@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914001909) do
+ActiveRecord::Schema.define(:version => 20120915184341) do
 
   create_table "players", :id => false, :force => true do |t|
     t.string   "id"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20120914001909) do
     t.decimal  "wwar"
     t.decimal  "hall_rating"
     t.string   "position"
-    t.boolean  "hos"
-    t.boolean  "hof"
+    t.boolean  "hos",           :default => false
+    t.boolean  "hof",           :default => false
     t.string   "eligibility"
     t.integer  "peak_pct"
     t.integer  "longevity_pct"
@@ -42,11 +42,10 @@ ActiveRecord::Schema.define(:version => 20120914001909) do
     t.decimal  "waa_p"
     t.decimal  "war_tot"
     t.decimal  "waa_tot"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "photo_path"
-    t.text     "editable_bio"
-    t.text     "rendered_bio"
+    t.text     "bio"
   end
 
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true

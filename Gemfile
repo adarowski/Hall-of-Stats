@@ -6,6 +6,7 @@ gem 'thin'
 
 gem 'pg'
 gem 'haml'
+gem 'redcarpet'
 
 gem 'draper'
 

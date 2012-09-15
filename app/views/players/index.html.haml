@@ -8,8 +8,10 @@
     = succeed "." do
       = link_to player_path('dahlebi01') do
         Bill Dahlen
+
 %section#search
   %input{:placeholder => "Search for any MLB player…", :results => "5", :type => "search"}/
+
 %section#intro
   %p They say, “It’s the Hall of Fame, not the Hall of Stats.”
   %p But what if it was?
@@ -18,6 +20,7 @@
     = succeed "." do
       %a{:href => "#"} a mathematical formula
   %p You decide which Hall is better…
+
 %section#inductees
   %h2 208 Inductees
   %a#about-hall-rating{:href => "#"} Hall Rating
@@ -30,6 +33,7 @@
             #{player.last_name}
           %em #{player.position}, 1914–1935
           %span #{player.hall_rating.round}
+
 %section#list-of-articles
   %h2 Articles
   %ul
@@ -55,6 +59,7 @@
         %span 9/1/2012
     %li
       %a{:href => "#"} Show More…
+
 %section#list-of-bios
   %h2 Players with Biographies
   %ul

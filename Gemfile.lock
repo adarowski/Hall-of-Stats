@@ -112,6 +112,7 @@ GEM
     rb-fsevent (0.9.1)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.1.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -164,6 +165,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.8)
   rb-fsevent
+  redcarpet
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   thin

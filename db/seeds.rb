@@ -14,3 +14,7 @@ Player.transaction do
     Player.create!(player, as: :admin).id
   end
 end
+
+munson = Player.find('munsoth01')
+munson.bio = File.read("#{Rails.root}/spec/support/fixtures/bio.markdown").strip
+munson.save!

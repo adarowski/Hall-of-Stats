@@ -16,7 +16,7 @@ class PlayerDecorator < Draper::Base
 
   # don't use the helper so that we can be called from PlayerLinker
   def link
-    %(<a href="/player/#{id}">#{name}</a>)
+    "/player/#{id}"
   end
 
   def name
@@ -36,5 +36,17 @@ class PlayerDecorator < Draper::Base
 
   def runs_x
     [ runs_bat, runs_br, runs_dp, runs_defense, runs_totalpos, 0]
+  end
+
+  def possessive_name
+    if name.ends_with?('s')
+      name + "'"
+    else
+      name + "'s"
+    end
+  end
+
+  def view_player_text
+    "View #{possessive_name} page"
   end
 end

@@ -1,0 +1,46 @@
+%style{:type => 'text/css'}
+  :sass
+    .peak
+      width: #{@player.peak_pct}%
+    .longevity
+      width: #{@player.longevity_pct}%
+
+    table#run-value
+      margin-top: (#{player.runs_x.max.round}/2) + 10px
+      margin-bottom: (#{player.runs_x.min.abs.round}/2) + px
+      th
+        &:first-child:before
+          @if #{player.runs_bat} < 0
+            height: (#{player.runs_bat.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            height: (#{player.runs_bat.round}/2) + px
+        &:nth-child(2):before
+          @if #{player.runs_br} < 0
+            height: (#{player.runs_br.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            height: (#{player.runs_br.round}/2) + px
+        &:nth-child(3):before
+          @if #{player.runs_dp} < 0
+            height: (#{player.runs_dp.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            height: (#{player.runs_dp.round}/2) + px
+        &:nth-child(4):before
+          @if #{player.runs_defense} < 0
+            height: (#{player.runs_defense.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            height: (#{player.runs_defense.round}/2) + px
+        &:nth-child(5):before
+          @if #{player.runs_totalpos} < 0
+            height: (#{player.runs_totalpos.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            height: (#{player.runs_totalpos.round}/2) + px

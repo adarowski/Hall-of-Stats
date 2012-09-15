@@ -1,54 +1,5 @@
 - content_for(:header_styles) do
-  %style{:type => 'text/css'}
-    :sass
-      table#run-value
-        margin-top: (#{@player.runs_x.max.round}/2) + 10px
-        margin-bottom: (#{@player.runs_x.min.abs.round}/2) + px
-        th
-          &:first-child:before
-            @if #{@player.runs_bat} < 0
-              height: (#{@player.runs_bat.abs.round}/2) + px
-              top: 100%
-              bottom: auto
-            @else
-              height: (#{@player.runs_bat.round}/2) + px
-          &:nth-child(2):before
-            @if #{@player.runs_br} < 0
-              height: (#{@player.runs_br.abs.round}/2) + px
-              top: 100%
-              bottom: auto
-            @else
-              height: (#{@player.runs_br.round}/2) + px
-          &:nth-child(3):before
-            @if #{@player.runs_dp} < 0
-              height: (#{@player.runs_dp.abs.round}/2) + px
-              top: 100%
-              bottom: auto
-            @else
-              height: (#{@player.runs_dp.round}/2) + px
-          &:nth-child(4):before
-            @if #{@player.runs_defense} < 0
-              height: (#{@player.runs_defense.abs.round}/2) + px
-              top: 100%
-              bottom: auto
-            @else
-              height: (#{@player.runs_defense.round}/2) + px
-          &:nth-child(5):before
-            @if #{@player.runs_totalpos} < 0
-              height: (#{@player.runs_totalpos.abs.round}/2) + px
-              top: 100%
-              bottom: auto
-            @else
-              height: (#{@player.runs_totalpos.round}/2) + px
-
-- if @player.peak_pct
-  - content_for(:header_styles) do
-    %style{:type => 'text/css'}
-      :sass
-        .peak
-          width: #{@player.peak_pct}%
-        .longevity
-          width: #{@player.longevity_pct}%
+  = render 'player_specific_styles', player: @player
 
 %header
   %h1
@@ -128,37 +79,16 @@
         %td= @player.runs_defense.round
         %td= @player.runs_totalpos.round
 
-%section#bio
-  %p
-    Thurman Munson is a rarity—a Yankee who is underrated by the baseball world at large. Munson’s life tragically ended when a small plane he was piloting crashed in August of 1979. While Munson was entering the decline phase of his career at the time of the accident, he was still a league-average hitting catcher (with strong on-base skills but diminished power) with above-average defense. That was and will always be a valuable commodity.
-    %a#show-bio{href: "#"} Read more…
-  #expanded-bio{style: "display: none;"}
-    %p Munson is a borderline Hall of Fame candidate simply based on the value he provided before he died. If you give him any additional credit for what might have been, he becomes a sure thing. When a player was tragically taken from us before his career was over and he still provided enough value to justify induction, he becomes an easy choice for me.
-    %p
-      In this sense, Munson is similar to
-      = succeed "." do
-        %a{href: "#"} Sandy Koufax
-      Koufax’s numbers alone make him borderline Hall-worthy. But the fact that he got to that level during an abbreviated career makes his case that much better. Munson objectively has a Hall Rating of 101, but subjectively it could be much higher.
-    %p What heights could Munson have reached if not for the accident? Munson was an elite catcher from ages 23 to 30. In his age 31 and 32 seasons, he had slumped to simply above-average. It was during his age 32 season that his life was cut short. Munson played during a golden era of catchers—another reason he is underrated. How much value did Munson’s elite peers provide after their age 32 seasons?
-    %p
-      Tigers catcher
-      %a{href: "#"} Bill Freehan
-      is one of the best comparisons for Munson. Freehan’s last season as a top catcher, coincidentally, was his age 32 season. He was an average catcher one year after that and below average in his final season (at age 34).
-      %a{href: "#"} Ted Simmons
-      was a very valuable catcher in his age 33 season. But after that, he fell apart. He hung on for five more seasons, but likely hurt his Hall of Fame case more than he helped.
-      %a{href: "#"} Gene Tenace
-      was also very valuable at age 33. Despite playing sparingly in St. Louis during his age 34 and 35 seasons, Tenace was brilliant (his on-base skills were severely underrated). He was below average at age 36, but in a small sample size (78 plate appearances).
-    %p
-      Not one of those three catchers made it into the Hall of Fame. Three of Munson’s peers did, however. Among those,
-      %a{href: "#"} Carlton Fisk
-      was a freak, adding 26.5 WAR after his age 32 season (peaking at 4.7 WAR at age 42).
-      = succeed "," do
-        %a{href: "#"} Johnny Bench
-      interestingly, was more or less done at age 32. He provided just 1.9 WAR over three abbreviated seasons after that.
-      %a{href: "#"} Gary Carter
-      was also finished as an above-average starter, but did hang on for six seasons and provide some value above replacement.
-    %p Given his talent level at age 32, it’s not a stretch to say Munson had another good season or two in him. If he had a couple more partial seasons after that, then 2000 hits would have been easily attainable. 50 WAR would not have been a stretch. Add in his 1976 MVP Award, seven All Star nods, a Rookie of the Year Award, three Gold Gloves, two World Series rings, and a .373/.417/.493 line in the World Series, and you would have yourself a pretty easy Hall of Famer.
-    %p Instead, Munson is The Great Underrated Yankee.
+- if @player.bio.present?
+  - bio = BioFormatter.new(@player.bio)
+
+  %section#bio
+    = raw bio.lead_in
+
+    - if bio.body.present?
+      #expanded-bio{style: "display: none;"}
+        = raw bio.body
+
 
 - if @player.hos
   %section#similar-players
