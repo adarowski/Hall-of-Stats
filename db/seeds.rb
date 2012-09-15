@@ -9,7 +9,7 @@ Player.transaction do
     player['hos'] = true if player['hos'].try(:strip) == 'hos'
     player['hof'] = true if player['hof'].try(:strip) == 'hof'
 
-    player['position'] = 'p' if player['position'] = 'rp'
+    player['position'] = 'p' if player['position'] == 'rp'
 
     Player.create!(player, as: :admin).id
   end
