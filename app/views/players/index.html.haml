@@ -6,7 +6,8 @@
   %span#photo-hint
     That’s
     = succeed "." do
-      %a{:href => "player.html"} Bill Dahlen
+      = link_to player_path('dahlebi01') do
+        Bill Dahlen
 %section#search
   %input{:placeholder => "Search for any MLB player…", :results => "5", :type => "search"}/
 %section#intro
