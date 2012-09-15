@@ -3,13 +3,13 @@ class PlayerDecorator < Draper::Base
 
   POSITIONS = {
     'c' => 'Catcher',
-    '1b' => 'First Base',
-    '2b' => 'Second Base',
-    '3b' => 'Third Base',
+    '1b' => 'First Baseman',
+    '2b' => 'Second Baseman',
+    '3b' => 'Third Baseman',
     'ss' => 'Shortstop',
-    'lf' => 'Left Field',
-    'cf' => 'Center Field',
-    'rf' => 'Right Field',
+    'lf' => 'Left Fielder',
+    'cf' => 'Center Fielder',
+    'rf' => 'Right Fielder',
     'dh' => 'Designated Hitter',
     'p' => 'Pitcher'
   }

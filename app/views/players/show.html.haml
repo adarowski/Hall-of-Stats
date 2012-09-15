@@ -155,21 +155,22 @@
     %p Given his talent level at age 32, it’s not a stretch to say Munson had another good season or two in him. If he had a couple more partial seasons after that, then 2000 hits would have been easily attainable. 50 WAR would not have been a stretch. Add in his 1976 MVP Award, seven All Star nods, a Rookie of the Year Award, three Gold Gloves, two World Series rings, and a .373/.417/.493 line in the World Series, and you would have yourself a pretty easy Hall of Famer.
     %p Instead, Munson is The Great Underrated Yankee.
 
-%section#similar-players
-  %table
-    %caption
-      = @player.position_name
-      %small in the Hall of Stats
-    %thead
-      %tr
-        %th Players
-        %th Hall Rating
-    %tbody
-      - @player.players_of_same_position.each do |player|
-        %tr{class: ("current" if @player.id == player.id)}
-          %th
-            %a{href: player_path(player)}= player.name
-          %td= player.hall_rating.round
+- if @player.hos
+  %section#similar-players
+    %table
+      %caption
+        = @player.position_name.pluralize
+        %small in the Hall of Stats
+      %thead
+        %tr
+          %th Players
+          %th Hall Rating
+      %tbody
+        - @player.players_of_same_position.each do |player|
+          %tr{class: ("current" if @player.id == player.id)}
+            %th
+              %a{href: player_path(player)}= player.name
+            %td= player.hall_rating.round
 
 %section#list-of-articles
   %h2 Related Articles
