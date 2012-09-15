@@ -22,16 +22,14 @@
   %h2 208 Inductees
   %a#about-hall-rating{:href => "#"} Hall Rating
   %ol#player-list
-    %li#ruthba01.rf
-      = link_to player_path('ruthba01') do
-        %strong Babe Ruth
-        %em RF, 1914–1935
-        %span 407
-    %li#munsoth01.c
-      = link_to player_path('munsoth01') do
-        %strong Thurman Munson
-        %em C, 1969–1979
-        %span 101
+    - Player.in_hos.each do |player|
+      %li{id: player.id, class: player.position}
+        = link_to player_path(player.id) do
+          %strong
+            #{player.first_name}
+            #{player.last_name}
+          %em #{player.position}, 1914–1935
+          %span #{player.hall_rating.round}
 %section#list-of-articles
   %h2 Articles
   %ul

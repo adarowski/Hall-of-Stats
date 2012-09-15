@@ -513,6 +513,7 @@ section#inductees
         color: #666
         padding-top: 3px
         font-style: normal
+        text-transform: uppercase
       a
         display: block
         padding: 10px
@@ -523,8 +524,422 @@ section#inductees
 
 // PLAYER-SPECIFIC STYLES
 
-li
-  &#ruthba01:after
-    width: 100%
-  &#munsoth01:after
-    width: 25%
+$max_hall_rating: 401.5
+
+=bar_width($hall_rating)
+  width: ($hall_rating/$max_hall_rating)*100%
+
+#ruthba01:after
+  +bar_width(401.5)
+#bondsba01:after
+  +bar_width(361.5)
+#youngcy01:after
+  +bar_width(342.1)
+#mayswi01:after
+  +bar_width(334.9)
+#johnswa01:after
+  +bar_width(334.2)
+#cobbty01:after
+  +bar_width(317.4)
+#aaronha01:after
+  +bar_width(295.7)
+#clemero02:after
+  +bar_width(291.0)
+#hornsro01:after
+  +bar_width(289.6)
+#wagneho01:after
+  +bar_width(282.7)
+#willite01:after
+  +bar_width(279.5)
+#speaktr01:after
+  +bar_width(278.3)
+#musiast01:after
+  +bar_width(262.6)
+#collied01:after
+  +bar_width(251.5)
+#alexape01:after
+  +bar_width(250.4)
+#gehrilo01:after
+  +bar_width(240.4)
+#nichoki01:after
+  +bar_width(239.3)
+#mantlmi01:after
+  +bar_width(237.1)
+#grovele01:after
+  +bar_width(229.2)
+#henderi01:after
+  +bar_width(227.3)
+#ottme01:after
+  +bar_width(225.7)
+#schmimi01:after
+  +bar_width(225.7)
+#lajoina01:after
+  +bar_width(225.0)
+#seaveto01:after
+  +bar_width(216.2)
+#ansonca01:after
+  +bar_width(215.7)
+#robinfr02:after
+  +bar_width(208.1)
+#mathech01:after
+  +bar_width(207.6)
+#foxxji01:after
+  +bar_width(204.8)
+#morgajo02:after
+  +bar_width(202.0)
+#matheed01:after
+  +bar_width(189.7)
+#clemero01:after
+  +bar_width(187.9)
+#boggswa01:after
+  +bar_width(185.4)
+#ripkeca01:after
+  +bar_width(185.2)
+#blylebe01:after
+  +bar_width(184.6)
+#kalinal01:after
+  +bar_width(184.1)
+#niekrph01:after
+  +bar_width(183.5)
+#connoro01:after
+  +bar_width(183.5)
+#yastrca01:after
+  +bar_width(181.1)
+#benchjo01:after
+  +bar_width(180.2)
+#broutda01:after
+  +bar_width(179.1)
+#brettge01:after
+  +bar_width(177.7)
+#spahnwa01:after
+  +bar_width(172.7)
+#keefeti01:after
+  +bar_width(172.5)
+#schilcu01:after
+  +bar_width(170.6)
+#gibsobo01:after
+  +bar_width(168.5)
+#planked01:after
+  +bar_width(167.6)
+#perryga01:after
+  +bar_width(167.3)
+#dimagjo01:after
+  +bar_width(166.6)
+#davisge01:after
+  +bar_width(165.0)
+#cartega01:after
+  +bar_width(164.5)
+#bagweje01:after
+  +bar_width(162.3)
+#clarkjo01:after
+  +bar_width(162.0)
+#carltst01:after
+  +bar_width(161.1)
+#gehrich01:after
+  +bar_width(157.1)
+#carewro01:after
+  +bar_width(154.9)
+#fiskca01:after
+  +bar_width(154.6)
+#jenkife01:after
+  +bar_width(153.5)
+#roberro01:after
+  +bar_width(152.3)
+#vaughar01:after
+  +bar_width(149.9)
+#walkela01:after
+  +bar_width(149.2)
+#rosepe01:after
+  +bar_width(148.6)
+#delahed01:after
+  +bar_width(147.6)
+#smithoz01:after
+  +bar_width(145.6)
+#robinbr01:after
+  +bar_width(145.3)
+#piazzmi01:after
+  +bar_width(144.9)
+#applilu01:after
+  +bar_width(144.1)
+#mizejo01:after
+  +bar_width(143.7)
+#mccorji01:after
+  +bar_width(143.7)
+#wallabo01:after
+  +bar_width(142.7)
+#dahlebi01:after
+  +bar_width(142.5)
+#larkiba01:after
+  +bar_width(142.1)
+#whitalo01:after
+  +bar_width(141.9)
+#jacksre01:after
+  +bar_width(141.5)
+#trammal01:after
+  +bar_width(141.1)
+#yountro01:after
+  +bar_width(140.5)
+#ryanno01:after
+  +bar_width(139.7)
+#molitpa01:after
+  +bar_width(139.7)
+#grichbo01:after
+  +bar_width(138.9)
+#radboch01:after
+  +bar_width(138.5)
+#wanerpa01:after
+  +bar_width(138.2)
+#santoro01:after
+  +bar_width(137.4)
+#friscfr01:after
+  +bar_width(137.4)
+#galvipu01:after
+  +bar_width(137.2)
+#brownke01:after
+  +bar_width(136.1)
+#heilmha01:after
+  +bar_width(135.3)
+#hubbeca01:after
+  +bar_width(135.3)
+#berrayo01:after
+  +bar_width(133.8)
+#glassja01:after
+  +bar_width(133.6)
+#reuscri01:after
+  +bar_width(133.0)
+#martied01:after
+  +bar_width(132.3)
+#rusieam01:after
+  +bar_width(131.9)
+#crawfsa01:after
+  +bar_width(131.4)
+#hamilbi01:after
+  +bar_width(131.0)
+#bondto01:after
+  +bar_width(130.9)
+#walshed01:after
+  +bar_width(130.2)
+#boudrlo01:after
+  +bar_width(130.2)
+#loftoke01:after
+  +bar_width(129.6)
+#simmoal01:after
+  +bar_width(129.3)
+#sandbry01:after
+  +bar_width(129.1)
+#snidedu01:after
+  +bar_width(129.0)
+#jacksjo01:after
+  +bar_width(128.6)
+#tiantlu01:after
+  +bar_width(127.3)
+#vanceda01:after
+  +bar_width(127.2)
+#raineti01:after
+  +bar_width(127.0)
+#coneda01:after
+  +bar_width(126.8)
+#clarkfr01:after
+  +bar_width(126.7)
+#dickebi01:after
+  +bar_width(126.1)
+#fellebo01:after
+  +bar_width(126.1)
+#newhoha01:after
+  +bar_width(126.0)
+#biggicr01:after
+  +bar_width(125.9)
+#buffich01:after
+  +bar_width(125.5)
+#gwynnto01:after
+  +bar_width(125.4)
+#bankser01:after
+  +bar_width(125.3)
+#robinja02:after
+  +bar_width(124.7)
+#mccovwi01:after
+  +bar_width(124.6)
+#mullato01:after
+  +bar_width(124.4)
+#cronijo01:after
+  +bar_width(124.2)
+#alomaro01:after
+  +bar_width(124.2)
+#palmeji01:after
+  +bar_width(123.6)
+#randowi01:after
+  +bar_width(123.4)
+#smithre06:after
+  +bar_width(123.2)
+#nettlgr01:after
+  +bar_width(122.9)
+#lyonste01:after
+  +bar_width(122.5)
+#mcgwima01:after
+  +bar_width(122.3)
+#bakerfr01:after
+  +bar_width(122.0)
+#covelst01:after
+  +bar_width(121.8)
+#willivi01:after
+  +bar_width(121.8)
+#palmera01:after
+  +bar_width(121.3)
+#murraed02:after
+  +bar_width(121.0)
+#spaldal01:after
+  +bar_width(120.9)
+#eckerde01:after
+  +bar_width(120.8)
+#bellbu01:after
+  +bar_width(120.6)
+#hartnga01:after
+  +bar_width(120.4)
+#evansdw01:after
+  +bar_width(120.3)
+#saberbr01:after
+  +bar_width(120.1)
+#dawsoan01:after
+  +bar_width(119.6)
+#reesepe01:after
+  +bar_width(119.3)
+#carutbo01:after
+  +bar_width(118.2)
+#bunniji01:after
+  +bar_width(118.1)
+#cochrmi01:after
+  +bar_width(117.8)
+#greenha01:after
+  +bar_width(117.3)
+#ashburi01:after
+  +bar_width(117.1)
+#wadderu01:after
+  +bar_width(116.5)
+#gordojo01:after
+  +bar_width(116.3)
+#whitede01:after
+  +bar_width(115.7)
+#bandosa01:after
+  +bar_width(115.3)
+#ewingbu01:after
+  +bar_width(115.3)
+#boyerke01:after
+  +bar_width(114.8)
+#mathebo01:after
+  +bar_width(114.6)
+#faberre01:after
+  +bar_width(114.5)
+#allendi01:after
+  +bar_width(114.4)
+#gosligo01:after
+  +bar_width(113.9)
+#maricju01:after
+  +bar_width(113.8)
+#sosasa01:after
+  +bar_width(113.8)
+#hernake01:after
+  +bar_width(113.5)
+#drysddo01:after
+  +bar_width(113.4)
+#griffcl01:after
+  +bar_width(113.3)
+#burkeje01:after
+  +bar_width(113.0)
+#welchmi01:after
+  +bar_width(112.1)
+#brownmo01:after
+  +bar_width(111.9)
+#mcginjo01:after
+  +bar_width(111.7)
+#sislege01:after
+  +bar_width(111.7)
+#winfida01:after
+  +bar_width(111.4)
+#stiebda01:after
+  +bar_width(111.3)
+#bondsbo01:after
+  +bar_width(111.2)
+#torrejo01:after
+  +bar_width(110.6)
+#simmote01:after
+  +bar_width(110.6)
+#killeha01:after
+  +bar_width(110.0)
+#appieke01:after
+  +bar_width(109.7)
+#adamsba01:after
+  +bar_width(109.7)
+#willibi01:after
+  +bar_width(109.6)
+#wynnji01:after
+  +bar_width(109.4)
+#mageesh01:after
+  +bar_width(109.1)
+#shockur01:after
+  +bar_width(108.1)
+#ferrewe01:after
+  +bar_width(107.9)
+#cicoted01:after
+  +bar_width(107.6)
+#becklja01:after
+  +bar_width(107.6)
+#wheatza01:after
+  +bar_width(107.3)
+#suttodo01:after
+  +bar_width(107.2)
+#lemonch01:after
+  +bar_width(107.0)
+#terrybi01:after
+  +bar_width(106.5)
+#quinnja01:after
+  +bar_width(106.0)
+#finlech01:after
+  +bar_width(105.6)
+#wilheho01:after
+  +bar_width(105.5)
+#johnsbo01:after
+  +bar_width(104.7)
+#evansda01:after
+  +bar_width(104.3)
+#fordwh01:after
+  +bar_width(103.9)
+#wynnea01:after
+  +bar_width(103.6)
+#medwijo01:after
+  +bar_width(103.1)
+#stargwi01:after
+  +bar_width(102.9)
+#kingsi01:after
+  +bar_width(102.9)
+#tenacge01:after
+  +bar_width(102.9)
+#wardjo01:after
+  +bar_width(102.6)
+#flickel01:after
+  +bar_width(102.3)
+#tinkejo01:after
+  +bar_width(102.2)
+#johnto01:after
+  +bar_width(101.5)
+#bennech01:after
+  +bar_width(101.4)
+#dobyla01:after
+  +bar_width(101.2)
+#clarkwi02:after
+  +bar_width(101.1)
+#daviswi02:after
+  +bar_width(101.0)
+#piercbi02:after
+  +bar_width(100.9)
+#coopewi01:after
+  +bar_width(100.8)
+#kellyki01:after
+  +bar_width(100.6)
+#munsoth01:after
+  +bar_width(100.6)
+#woodwi01:after
+  +bar_width(100.5)
+#koufasa01:after
+  +bar_width(100.5)
+#hershor01:after
+  +bar_width(100.0)
