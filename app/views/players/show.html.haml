@@ -17,7 +17,7 @@
     %dt.postion Position
     %dd.position= @player.position_name
     %dt.years Years
-    %dd.years 1969–1979
+    %dd.years #{@player.first_year}–#{@player.last_year}
     %dt.hall-rating<> Hall Rating
     %dd.hall-rating= @player.hall_rating.round
 
