@@ -25,7 +25,7 @@
   %h2 208 Inductees
   %a#about-hall-rating{:href => "#"} Hall Rating
   %ol#player-list
-    - Player.in_hos.each do |player|
+    - Player.in_hos.sort_by{|player| player.hall_rating}.reverse.each do |player|
       %li{id: player.id, class: player.position}
         = link_to player_path(player.id) do
           %strong
