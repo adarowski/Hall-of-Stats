@@ -17,4 +17,7 @@ class Player < ActiveRecord::Base
   scope :by_rank, order("hall_rating desc")
 
   scope :in_hos, where(hos: true)
+  def name
+    [first_name, last_name].join(' ')
+  end
 end

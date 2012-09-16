@@ -1,14 +1,6 @@
 require 'spec_helper'
 
 describe PlayerDecorator do
-  subject(:decorator) { PlayerDecorator.new(player) }
-
-  describe '#name' do
-    let(:player) { mock(first_name: 'Babe', last_name: 'Ruth') }
-
-    its(:name) { should == 'Babe Ruth' }
-  end
-
   describe '#position_name' do
     it "converts the abbreviated position to words" do
       PlayerDecorator.new(mock(position: 'c')).position_name.should == 'Catcher'

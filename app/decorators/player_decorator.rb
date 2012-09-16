@@ -1,6 +1,8 @@
 class PlayerDecorator < Draper::Base
   decorates :player
 
+  delegate :name, to: :player
+
   POSITIONS = {
     'c' => 'Catcher',
     '1b' => 'First Baseman',
@@ -19,10 +21,6 @@ class PlayerDecorator < Draper::Base
     "/player/#{id}"
   end
 
-  def name
-    [first_name, last_name].join(' ')
-  end
-
   def position_name
     POSITIONS[player.position]
   end
@@ -31,7 +29,7 @@ class PlayerDecorator < Draper::Base
     Player.of_position(player.position).
       by_rank.
       in_hos.
-      select("id, CONCAT_WS(' ', first_name, last_name) as name, hall_rating")
+      select("id, first_name, last_name, hall_rating")
   end
 
   def runs_x

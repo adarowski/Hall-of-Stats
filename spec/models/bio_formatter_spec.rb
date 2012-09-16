@@ -13,7 +13,7 @@ describe BioFormatter do
     context "when there is a player to link" do
       before do
         Player.should_receive(:where).with(id: ['youngcy01']).and_return [
-           mock(id: 'youngcy01', first_name: 'Cy', last_name: 'Young')
+           build(:player, id: 'youngcy01', first_name: 'Cy', last_name: 'Young')
         ]
       end
 
@@ -94,13 +94,13 @@ describe BioFormatter do
     ]
 
     Player.should_receive(:where).with(id: expected_ids).and_return [
-      mock(id: 'koufasa01', first_name: 'Sandy', last_name: 'Koufax'),
-      mock(id: 'freehbi01', first_name: 'Bill', last_name: 'Freehan'),
-      mock(id: 'simmote01', first_name: 'Ted', last_name: 'Simmons'),
-      mock(id: 'tenacge01', first_name: 'Gene', last_name: 'Tenace'),
-      mock(id: 'fiskca01', first_name: 'Carlton', last_name: 'Fisk'),
-      mock(id: 'benchjo01', first_name: 'Johnny', last_name: 'Bench'),
-      mock(id: 'cartega01', first_name: 'Gary', last_name: 'Carter')
+      build(:player, id: 'koufasa01', first_name: 'Sandy', last_name: 'Koufax'),
+      build(:player, id: 'freehbi01', first_name: 'Bill', last_name: 'Freehan'),
+      build(:player, id: 'simmote01', first_name: 'Ted', last_name: 'Simmons'),
+      build(:player, id: 'tenacge01', first_name: 'Gene', last_name: 'Tenace'),
+      build(:player, id: 'fiskca01', first_name: 'Carlton', last_name: 'Fisk'),
+      build(:player, id: 'benchjo01', first_name: 'Johnny', last_name: 'Bench'),
+      build(:player, id: 'cartega01', first_name: 'Gary', last_name: 'Carter')
     ]
   end
 end
