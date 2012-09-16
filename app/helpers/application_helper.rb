@@ -7,4 +7,8 @@ module ApplicationHelper
       {class: 'player', id: @player.id}
     end
   end
+
+  def safe_id(id)
+    id.gsub(/'/, '')
+  end
 end

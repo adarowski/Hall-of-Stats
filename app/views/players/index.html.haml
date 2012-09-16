@@ -25,12 +25,11 @@
   %h2 208 Inductees
   %a#about-hall-rating{:href => "#"} Hall Rating
   %ol#player-list
-    - Player.in_hos.by_rank.each do |player|
-      %li{id: player.id, class: player.position}
-        = link_to player_path(player.id) do
+    - @players_in_hos.each do |player|
+      %li{id: safe_id(player.id), class: player.position}
+        = link_to player_path(player) do
           %strong
-            #{player.first_name}
-            #{player.last_name}
+            #{player.name}
           %em #{player.position}, 1914–1935
           %span #{player.hall_rating.round}
 
@@ -63,15 +62,6 @@
 %section#list-of-bios
   %h2 Players with Biographies
   %ul
-    %li
-      %a{:href => "#"} Babe Ruth
-    %li
-      %a{:href => "#"} Thurman Munson
-    %li
-      %a{:href => "#"} Babe Ruth
-    %li
-      %a{:href => "#"} Thurman Munson
-    %li
-      %a{:href => "#"} Babe Ruth
-    %li
-      %a{:href => "#"} Show all 56…
+    - @players_with_bios.each do |player|
+      %li
+        = link_to player.name, player_path(player)

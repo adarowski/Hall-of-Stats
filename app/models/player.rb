@@ -17,6 +17,9 @@ class Player < ActiveRecord::Base
   scope :by_rank, order("hall_rating desc")
 
   scope :in_hos, where(hos: true)
+
+  scope :with_bio, where("bio is not null and bio != ''")
+
   def name
     [first_name, last_name].join(' ')
   end
