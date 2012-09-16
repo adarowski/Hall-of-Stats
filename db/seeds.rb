@@ -19,3 +19,7 @@ end
 munson = Player.find('munsoth01')
 munson.bio = File.read("#{Rails.root}/spec/support/fixtures/bio.markdown").strip
 munson.save!
+
+if AdminUser.where(email: 'admin@example.com').blank?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end

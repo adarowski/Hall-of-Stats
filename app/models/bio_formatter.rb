@@ -51,8 +51,8 @@ class BioFormatter
       if player
         $1 << %([#{player.name}](#{player.link} "#{player.view_player_text}"))
       else
-        warn "could not find #{$match}"
-        $0
+        warn "could not find #{match}"
+        match
       end
     end
   end
