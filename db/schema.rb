@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915184341) do
+ActiveRecord::Schema.define(:version => 20120916145344) do
 
   create_table "players", :id => false, :force => true do |t|
     t.string   "id"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(:version => 20120915184341) do
     t.datetime "updated_at",                       :null => false
     t.string   "photo_path"
     t.text     "bio"
+    t.integer  "first_year"
+    t.integer  "last_year"
+    t.integer  "runs_pitch"
+    t.string   "img_url"
   end
 
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true

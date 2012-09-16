@@ -6,12 +6,13 @@ Player.transaction do
 
     player['id'] = player.delete('player_id')
 
-    player['hos'] = true if player['hos'].try(:strip) == 'hos'
-    player['hof'] = true if player['hof'].try(:strip) == 'hof'
-
+    # normalize some data
+    player['hos'] = true     if player['hos'].try(:strip) == 'hos'
+    player['hof'] = true     if player['hof'].try(:strip) == 'hof'
     player['position'] = 'p' if player['position'] == 'rp'
 
-    Player.create!(player, as: :admin).id
+    record = Player.find_or_initialize_by_id(player['id'])
+    record.update_attributes!(player, as: :admin)
   end
 end
 
