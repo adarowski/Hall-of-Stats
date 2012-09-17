@@ -14,10 +14,12 @@
     = @player.first_name
     %span= @player.last_name
   %dl
-    %dt.postion Position
-    %dd.position= @player.position_name
-    %dt.years Years
-    %dd.years #{@player.first_year}–#{@player.last_year}
+    - if @player.position_name
+      %dt.postion Position
+      %dd.position= @player.position_name
+    - if @player.first_year
+      %dt.years Years
+      %dd.years #{@player.first_year}–#{@player.last_year}
     %dt.hall-rating<> Hall Rating
     %dd.hall-rating= @player.hall_rating.round
 
