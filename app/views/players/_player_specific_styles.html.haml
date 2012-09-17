@@ -1,10 +1,13 @@
+- if @player.peak_pct
+  %style{:type => 'text/css'}
+    :sass
+      .peak
+        width: #{@player.peak_pct}%
+      .longevity
+        width: #{@player.longevity_pct}%
+
 %style{:type => 'text/css'}
   :sass
-    .peak
-      width: #{@player.peak_pct}%
-    .longevity
-      width: #{@player.longevity_pct}%
-
     table#run-value
       margin-top: (#{player.runs_x.max.round}/2) + 10px
       margin-bottom: (#{player.runs_x.min.abs.round}/2) + px

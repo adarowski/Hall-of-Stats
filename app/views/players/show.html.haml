@@ -9,6 +9,7 @@
     %p
       Welcome to the Hall of Stats—an alternate Hall of Fame populated by a mathematical formula.
       %a{href: "/about"} Read more…
+
 %section#player-id
   %h2
     = @player.first_name
@@ -26,14 +27,15 @@
   - if @player.photo_path.present?
     = image_tag @player.photo_path, alt: "#{@player.name} Photo"
 
-%section#value-breakdown
-  %dl
-    %dt.peak<> Peak
-    %dd.peak
-      #{@player.peak_pct}%
-    %dt.longevity<> Longevity
-    %dd.longevity
-      #{@player.longevity_pct}%
+- if @player.peak_pct
+  %section#value-breakdown
+    %dl
+      %dt.peak<> Peak
+      %dd.peak
+        #{@player.peak_pct}%
+      %dt.longevity<> Longevity
+      %dd.longevity
+        #{@player.longevity_pct}%
 
 %section#stats-summary
   %table#win-value
