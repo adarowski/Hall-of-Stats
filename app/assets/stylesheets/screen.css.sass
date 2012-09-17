@@ -53,7 +53,7 @@ a
 
 #layout
   background: #FFF url(/assets/old_mathematics.png) 0 0
-  max-width: 640px
+  max-width: 480px
   margin: 0 auto
   +box_shadow(#333, 0 0 10px)
 
@@ -106,8 +106,6 @@ a
       color: white
       padding: 0 10px
       font-size: 80%
-      @media only screen and (min-width : 640px)
-        font-size: 100%
       margin: 0 0 10px
       z-index: 2
       position: relative
@@ -125,8 +123,11 @@ a
       padding: 2px 5px
       font-size: 70%
       +border_radius(0 0 0 4px)
-      @media only screen and (min-width : 640px)
-        font-size: 85%
+      @media only screen and (min-width : 480px)
+        font-size: 90%
+        padding:
+          left: 10px
+          right: 10px
       a
         color: white
 
@@ -153,12 +154,12 @@ a
     margin: 0
     line-height: 1
     padding: 10px 0 4px
-    @media only screen and (min-width : 640px)
+    @media only screen and (min-width : 480px)
       font-size: 220%
     span
       display: block
       font-size: 150%
-      @media only screen and (min-width : 640px)
+      @media only screen and (min-width : 480px)
         font-size: 100%
         display: inline
   dl
@@ -171,8 +172,6 @@ a
       padding: 2px 10px
       display: inline-block
       font-size: 85%
-      @media only screen and (min-width : 640px)
-        font-size: 100%
     dt
       +off_left
       &.hall-rating
@@ -183,12 +182,12 @@ a
       margin: 0
       &.position
         font-size: 110%
-        @media only screen and (min-width : 640px)
-          font-size: 130%
+        @media only screen and (min-width : 480px)
+          font-size: 140%
       &.years
         font-size: 85%
-        @media only screen and (min-width : 640px)
-          font-size: 100%
+        @media only screen and (min-width : 480px)
+          font-size: 110%
         &:before
           content: "("
         &:after
@@ -201,8 +200,6 @@ a
   dl
     margin: 0
     font-size: 85%
-    @media only screen and (min-width : 640px)
-      font-size: 100%
     dt
       +off_left
     dd
@@ -235,8 +232,6 @@ a
 #bio
   padding: 10px
   font-size: 85%
-  @media only screen and (min-width : 640px)
-    font-size: 100%
   p
     +multi_paragraphs
 
@@ -266,8 +261,6 @@ a
   @extend #section-padding
   font-size: 85%
   border-top: 3px solid fade_out($default_color, 0.8)
-  @media only screen and (min-width : 640px)
-    font-size: 100%
   p
     +multi_paragraphs
     margin: 10px 0
@@ -284,8 +277,6 @@ a
     list-style: none
     padding: 0
     margin: 0
-    @media only screen and (min-width : 640px)
-      font-size: 100%
   li
     border-top: 1px solid fade_out($default_color, 0.95)
   a
@@ -306,8 +297,6 @@ table
   border-right: 1px solid #aaa
   border-top: 1px solid #aaa
   border-collapse: collapse
-  @media only screen and (min-width : 640px)
-    font-size: 100%
   th, td
     padding: 2px 4px
     background-color: white
@@ -328,8 +317,6 @@ table
       color: #666
       font-size: 85%
       font-weight: normal
-      @media only screen and (min-width : 640px)
-        font-size: 100%
   &#win-value
     th
       width: 25%
@@ -368,8 +355,6 @@ footer
     +multi_paragraphs
     font-size: 75%
     margin: 10px 0
-    @media only screen and (min-width : 640px)
-      font-size: 85%
     &:first-child
       font-weight: bold
 
@@ -379,8 +364,6 @@ footer
   padding: 10px
   background-color: fade_out(white, 0.2)
   font-size: 80%
-  @media only screen and (min-width : 640px)
-    font-size: 90%
   p
     +multi_paragraphs
 
@@ -393,16 +376,12 @@ section#inductees
     font-size: 85%
     position: relative
     color: white
-    @media only screen and (min-width : 640px)
-      font-size: 100%
   #about-hall-rating
     position: absolute
     top: 4px
     right: 8px
     color: white
     font-size: 85%
-    @media only screen and (min-width : 640px)
-      font-size: 100%
     &:after
       content: "?"
       display: inline-block
