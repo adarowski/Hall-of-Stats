@@ -1,4 +1,8 @@
 ActiveAdmin.register Player do
+  controller do
+    with_role :admin
+  end
+
   index do
     column :first_name
     column :last_name
