@@ -33,7 +33,7 @@ class PlayerDecorator < Draper::Base
   end
 
   def runs_x
-    [ runs_bat, runs_br, runs_dp, runs_defense, runs_totalpos, 0]
+    [ runs_bat, runs_br, runs_dp, runs_defense, runs_totalpos, runs_pitch, 0]
   end
 
   def possessive_name

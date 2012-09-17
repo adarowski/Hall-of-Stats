@@ -65,16 +65,19 @@
     %caption Run-Value Statistics
     %thead
       %tr
-        %th
+        %th.bat
           %abbr{title: "WAR Batting Runs"} Bat
-        %th
+        %th.run
           %abbr{title: "WAR Baserunning Runs"} Run
-        %th
+        %th.dp
           %abbr{title: "WAR Double Play Runs"} DP
-        %th
+        %th.fld
           %abbr{title: "WAR Fielding Runs"} Fld
-        %th
+        %th.pos
           %abbr{title: "WAR Position Runs"} Pos
+        - if @player.runs_pitch
+          %th.pit
+            %abbr{title: "WAR Pitching Runs"} Pit
     %tbody
       %tr
         %td= @player.runs_bat.round
@@ -82,6 +85,8 @@
         %td= @player.runs_dp.round
         %td= @player.runs_defense.round
         %td= @player.runs_totalpos.round
+        - if @player.runs_pitch
+          %td= @player.runs_pitch.round
 
 - if @player.bio.present?
   - bio = BioFormatter.new(@player.bio)
