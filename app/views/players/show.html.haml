@@ -24,7 +24,7 @@
     %dt.hall-rating<> Hall Rating
     %dd.hall-rating= @player.hall_rating.round
 
-  - if @player.photo_path.present?
+  - if @player.has_photo?
     = image_tag @player.photo_path, alt: "#{@player.name} Photo"
 
 - if @player.peak_pct

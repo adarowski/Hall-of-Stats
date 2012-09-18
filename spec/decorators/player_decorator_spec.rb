@@ -26,6 +26,27 @@ describe PlayerDecorator do
     end
   end
 
+  describe 'body_classes' do
+    it "respects hof" do
+      PlayerDecorator.new(build(:player, hof: false)).body_classes.should_not include('hof')
+      PlayerDecorator.new(build(:player, hof: true)).body_classes.should include('hof')
+    end
+
+    it "respects hos" do
+      PlayerDecorator.new(build(:player, hos: false)).body_classes.should_not include('hos')
+      PlayerDecorator.new(build(:player, hos: true)).body_classes.should include('hos')
+    end
+
+    it "respects has_photo?" do
+      PlayerDecorator.new(build(:player, photo_path: '')).body_classes.should_not include('photo')
+      PlayerDecorator.new(build(:player, photo_path: 'something')).body_classes.should include('photo')
+    end
+
+    it "includes player" do
+      PlayerDecorator.new(build(:player)).body_classes.should include('player')
+    end
+  end
+
   def ranked_players_for_position(position)
     3.times.map do |i|
       create(:player, hos: true, position: position, hall_rating: i + 1)

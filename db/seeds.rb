@@ -18,6 +18,7 @@ end
 
 munson = Player.find('munsoth01')
 munson.bio = File.read("#{Rails.root}/spec/support/fixtures/bio.markdown").strip
+munson.photo_path = 'thumbs/munsoth01.jpg'
 munson.save!
 
 if AdminUser.where(email: 'admin@example.com').blank?

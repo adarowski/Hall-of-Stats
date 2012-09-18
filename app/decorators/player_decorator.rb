@@ -47,4 +47,19 @@ class PlayerDecorator < Draper::Base
   def view_player_text
     "View #{possessive_name} page"
   end
+
+  def has_photo?
+    photo_path.present?
+  end
+
+  def body_classes
+    classes = ['player']
+
+    classes << 'hof' if player.hof
+    classes << 'hos' if player.hos
+
+    classes << 'photo' if has_photo?
+
+    classes
+  end
 end

@@ -4,7 +4,7 @@ module ApplicationHelper
     when 'players#index'
       {class: 'home'}
     when 'players#show'
-      {class: 'player', id: @player.id}
+      {class: @player.body_classes.join(' '), id: @player.id}
     end
   end
 
