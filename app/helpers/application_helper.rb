@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def safe_id(id)
-    id.gsub(/'/, '')
+    id.gsub(/['\.]/, '')
   end
 end
