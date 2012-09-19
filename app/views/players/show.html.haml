@@ -85,17 +85,17 @@
       <strong>#{@player.hall_rating.round}</strong>,
       = succeed "." do
         - if @player.id == "ruthba01"
-          making him not only a member of the Hall of Stats, but the very best player of all time
+          making him not only a member of the Hall of Stats—but the very best player of all time
         - elsif @player.hall_rating > 180
-          making him not only a member of the Hall of Stats, but one of the very best players of all time
+          making him not only a member of the Hall of Stats—but one of the very best players of all time
         - elsif @player.hall_rating > 130
           making him (quite comfortably) a member of the Hall of Stats
         - elsif @player.hall_rating > 110
           making him a member of the Hall of Stats
         - elsif @player.hall_rating > 100
-          making him a member of the Hall of Stats, but one who sits very close to the borderline
+          making him a member of the Hall of Stats—but one who sits very close to the borderline
         - elsif @player.hall_rating > 90
-          making him close to the borderline, but on the outside of the Hall of Stats
+          making him close to the borderline—but on the outside of the Hall of Stats
         - elsif @player.hall_rating > 80
           making him relatively close to the Hall of Stats borderline, but stil significantly short of induction
         - elsif @player.hall_rating > 60

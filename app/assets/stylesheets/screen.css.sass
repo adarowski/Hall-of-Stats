@@ -211,8 +211,6 @@ header.generic
       padding: 2px 10px
       font-weight: bold
       white-space: nowrap
-      overflow: hidden
-      text-overflow: ellipsis
       &.peak
         background-color: fade_out($default_color, 0.2)
         z-index: 1
@@ -225,6 +223,8 @@ header.generic
       &.longevity
         background-color: fade_out($default_color, 0.5)
         text-align: right
+        overflow: hidden
+        text-overflow: ellipsis
         &:after
           content: " Longevity"
           font-weight: normal
