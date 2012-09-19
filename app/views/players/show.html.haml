@@ -1,14 +1,7 @@
 - content_for(:header_styles) do
   = render 'player_specific_styles', player: @player
 
-%header
-  %h1
-    %a{href: "/"} Hall of Stats
-  %a#show-about{href: "#"} About
-  #about{style: "display: none;"}
-    %p
-      Welcome to the Hall of Stats—an alternate Hall of Fame populated by a mathematical formula.
-      %a{href: "/about"} Read more…
+= render 'shared/header'
 
 %section#player-id
   %h2

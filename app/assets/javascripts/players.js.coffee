@@ -1,7 +1,7 @@
 $ ->
   $("#show-about").click (e) ->
     event.preventDefault()
-    $("#about").toggle()
+    $("#about-expanded").toggle()
 
   $("#show-bio").click (e) ->
     event.preventDefault()

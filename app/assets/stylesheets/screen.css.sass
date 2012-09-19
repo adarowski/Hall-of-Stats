@@ -58,29 +58,28 @@ a
   margin: 0 auto
   +box_shadow(#333, 0 0 10px)
 
-.player
-  header
-    background-color: $default_color
-    padding: 4px 10px
-    position: relative
-    h1
-      margin: 0
-      display: inline-block
-      font-size: 120%
-      a
-        &:link, &:visited, &:hover, &:active
-          color: #FFF
-
-  #show-about
-    position: absolute
-    top: 8px
-    right: 10px
+header.generic
+  background-color: $default_color
+  padding: 4px 10px
+  position: relative
+  h1
+    margin: 0
     display: inline-block
-    color: #FFF
-    &:after
-      content: '▼'
-      font-size: 60%
-      margin-left: 5px
+    font-size: 120%
+    a
+      &:link, &:visited, &:hover, &:active
+        color: #FFF
+
+#show-about
+  position: absolute
+  top: 8px
+  right: 10px
+  display: inline-block
+  color: #FFF
+  &:after
+    content: '▼'
+    font-size: 60%
+    margin-left: 5px
 
 .home
   header
@@ -308,7 +307,7 @@ table
     vertical-align: top
   .current
     th, td
-      background-color: fade_out($default_color, 0.95)
+      background-color: fade_out($good_color, 0.9)
   thead
     th
       background-color: fade_out($default_color, 0.8)
@@ -361,7 +360,7 @@ footer
     &:first-child
       font-weight: bold
 
-#about
+#about-expanded
   +border_radius(5px)
   margin: 5px 0
   padding: 10px
@@ -369,6 +368,9 @@ footer
   font-size: 80%
   p
     +multi_paragraphs
+
+#about
+  padding: 0 10px 10px
 
 section#inductees
   position: relative
@@ -385,15 +387,6 @@ section#inductees
     right: 8px
     color: white
     font-size: 85%
-    &:after
-      content: "?"
-      display: inline-block
-      font-size: 80%
-      background-color: white
-      color: fade_out($default_color, .4)
-      +border_radius(50px)
-      padding: 0 5px
-      margin-left: 5px
   #player-list
     list-style: none
     padding: 0
@@ -414,7 +407,7 @@ section#inductees
         z-index: 1
       &:hover
         &:after
-          background-color: fade_out($good_color, .9)
+          background-color: fade_out($default_color, .85)
         a:link, a:visited
           color: black
       span
