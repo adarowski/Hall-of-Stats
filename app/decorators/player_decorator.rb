@@ -57,7 +57,7 @@ class PlayerDecorator < Draper::Base
   end
 
   def has_photo?
-    photo_path.present?
+    img_url.present?
   end
 
   def body_classes
