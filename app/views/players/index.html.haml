@@ -15,14 +15,13 @@
   %p They say, “It’s the Hall of Fame, not the Hall of Stats.”
   %p But what if it was?
   %p
-    The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on
+    The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on a mathematical formula called
     = succeed "." do
-      %a{:href => "about/"} a mathematical formula
+      %a{:href => "about/"} Hall Rating
   %p You decide which Hall is better…
 
 %section#inductees
   %h2 208 Inductees
-  %a#about-hall-rating{:href => "#"} Hall Rating
   %ol#player-list
     - @players_in_hos.each do |player|
       %li{id: safe_id(player.id), class: player.position}
