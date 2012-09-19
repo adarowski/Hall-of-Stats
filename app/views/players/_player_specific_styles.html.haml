@@ -1,13 +1,13 @@
 %style{:type => 'text/css'}
   :sass
-    $red_color: #900
+    $bad_color: #900
     table#run-value
       margin-top: (#{player.runs_x.max.round}/2) + 10px
       margin-bottom: (#{player.runs_x.min.abs.round}/2) + px
       th
         &.bat:before
           @if #{player.runs_bat} < 0
-            background-color: fade_out($red_color, 0.2)
+            background-color: fade_out($bad_color, 0.2)
             height: (#{player.runs_bat.abs.round}/2) + px
             top: 100%
             bottom: auto
@@ -15,7 +15,7 @@
             height: (#{player.runs_bat.round}/2) + px
         &.run:before
           @if #{player.runs_br} < 0
-            background-color: fade_out($red_color, 0.2)
+            background-color: fade_out($bad_color, 0.2)
             height: (#{player.runs_br.abs.round}/2) + px
             top: 100%
             bottom: auto
@@ -23,7 +23,7 @@
             height: (#{player.runs_br.round}/2) + px
         &.dp:before
           @if #{player.runs_dp} < 0
-            background-color: fade_out($red_color, 0.2)
+            background-color: fade_out($bad_color, 0.2)
             height: (#{player.runs_dp.abs.round}/2) + px
             top: 100%
             bottom: auto
@@ -31,7 +31,7 @@
             height: (#{player.runs_dp.round}/2) + px
         &.fld:before
           @if #{player.runs_defense} < 0
-            background-color: fade_out($red_color, 0.2)
+            background-color: fade_out($bad_color, 0.2)
             height: (#{player.runs_defense.abs.round}/2) + px
             top: 100%
             bottom: auto
@@ -39,19 +39,12 @@
             height: (#{player.runs_defense.round}/2) + px
         &.pos:before
           @if #{player.runs_totalpos} < 0
-            background-color: fade_out($red_color, 0.2)
+            background-color: fade_out($bad_color, 0.2)
             height: (#{player.runs_totalpos.abs.round}/2) + px
             top: 100%
             bottom: auto
           @else
             height: (#{player.runs_totalpos.round}/2) + px
-
-  - if @player.peak_pct
-    :sass
-      .peak
-        width: #{@player.peak_pct}%
-      .longevity
-        width: #{@player.longevity_pct}%
 
   - if @player.runs_pitch
     :sass
@@ -72,10 +65,17 @@
             left: 83.8%
           &.pit:before
             @if #{player.runs_pitch} < 0
-              background-color: fade_out($red_color, 0.2)
+              background-color: fade_out($bad_color, 0.2)
               height: (#{player.runs_pitch.abs.round}/2) + px
               top: 100%
               bottom: auto
             @else
-              @if #{player.runs_pitch} < 0
+              @if #{player.runs_pitch} > 0
                 height: (#{player.runs_pitch.round}/2) + px
+
+  - if @player.peak_pct
+    :sass
+      .peak
+        width: #{@player.peak_pct}%
+      .longevity
+        width: #{@player.longevity_pct}%

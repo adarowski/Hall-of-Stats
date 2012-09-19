@@ -1,6 +1,7 @@
 $text_font: "Helvetica Neue", serif
 $blue_color: #003
-$green_color: #060
+$good_color: #060
+$bad_color: #900
 $brown_color: #4C230E
 $default_color: $blue_color
 
@@ -176,7 +177,7 @@ a
       +off_left
       &.hall-rating
         left: 0
-        background-color: fade_out($default_color, 0.5)
+        background-color: fade_out($default_color, 0.2)
         margin-left: -10px
     dd
       margin: 0
@@ -193,8 +194,10 @@ a
         &:after
           content: ")"
       &.hall-rating
-        background-color: fade_out($default_color, 0.2)
+        background-color: fade_out($bad_color, 0.2)
         +border_radius(0 10px 10px 0)
+        .hos &
+          background-color: fade_out($good_color, 0.2)
 
 #value-breakdown
   dl
@@ -329,7 +332,7 @@ table
         content: ""
         display: block
         width: 19%
-        background-color: fade_out($green_color, 0.2)
+        background-color: fade_out($good_color, 0.2)
         position: absolute
         bottom: 100%
       &:first-child:before
@@ -411,7 +414,7 @@ section#inductees
         z-index: 1
       &:hover
         &:after
-          background-color: fade_out($default_color, .85)
+          background-color: fade_out($good_color, .9)
         a:link, a:visited
           color: black
       span
