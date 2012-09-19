@@ -54,6 +54,55 @@
         %td= @player.war162_tot
         %td= @player.waa0_tot
 
+  %a#show-more-stats{href: '#'} About the stats
+  #more-stats{style: 'display: none;'}
+    %p
+      #{@player.first_name} #{@player.last_name} was worth a total of <strong>#{@player.war_tot}</strong> Wins Above Replacement
+      = succeed "." do
+        - if @player.ip_outs > 0
+          (#{@player.war_p} as a pitcher and #{@player.war_pos} as a position player)
+      He was also worth a total of <strong>#{@player.waa_tot}</strong> Wins Above Average
+      = succeed "." do
+        - if @player.ip_outs > 0
+          (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a position player)
+    %p
+      After adjusting for length of schedule, catchers, and relief pitchers, the #{@player.war_tot} WAR becomes
+      <strong>#{@player.war162_tot}</strong> <em>adj</em>WAR. Then, WAA is adjusted by ignoring negative seasons
+      (thus, truly capturing a player’s peak seasons) and making similar adjustments for catchers and relief pitchers.
+      Additionally, in the event that a player’s WAR and WAA are very similar (a phenomenon that you can see with
+      pitcher’s hitting value and players from weaker leagues like the Union Association), the WAA is ignored.
+      After these adjustments, the #{@player.waa_tot} WAA becomes <strong>#{@player.waa0_tot}</strong> <em>adj</em>WAA.
+
+    %p
+      Then, the <em>adj</em>WAR and <em>adj</em>WAA are combined, but with extra weighting given to <em>adj</em>WAA.
+      Specifically, the formula is #{@player.war162_tot} + (#{@player.waa0_tot}*1.68). This gives #{@player.last_name}
+      <strong>#{@player.wwar}</strong> wWAR.
+
+    %p
+      Finally, in order to make the Hall of Stats borderline more intuitive, the wWAR value is normalized so that 100
+      represents the borderline. This is called Hall Rating and it works similarly to OPS+ or wRC+ (anyone above 100
+      is in the Hall of Stats—anyone below is out). #{@player.first_name} #{@player.last_name} has a Hall Rating of
+      <strong>#{@player.hall_rating.round}</strong>,
+      = succeed "." do
+        - if @player.id == "ruthba01"
+          making him not only a member of the Hall of Stats, but the very best player of all time
+        - elsif @player.hall_rating > 180
+          making him not only a member of the Hall of Stats, but one of the very best players of all time
+        - elsif @player.hall_rating > 130
+          making him (quite comfortably) a member of the Hall of Stats
+        - elsif @player.hall_rating > 110
+          making him a member of the Hall of Stats
+        - elsif @player.hall_rating > 100
+          making him a member of the Hall of Stats, but one who sits very close to the borderline
+        - elsif @player.hall_rating > 90
+          making him close to the borderline, but on the outside of the Hall of Stats
+        - elsif @player.hall_rating > 80
+          making him relatively close to the Hall of Stats borderline, but stil significantly short of induction
+        - elsif @player.hall_rating > 60
+          leaving him short of induction to the Hall of Stats
+        - else
+          leaving him nowhere close to induction to the Hall of Stats
+
   %table#run-value
     %caption Run-Value Statistics
     %thead

@@ -349,6 +349,26 @@ table
     caption
       +off_left
 
+#show-more-stats
+  display: block
+  margin-top: 5px
+  font-size: 75%
+  &:after
+    content: '▼'
+    font-size: 70%
+    margin-left: 3px
+
+#more-stats
+  background-color: white
+  font-size: 75%
+  padding: 10px
+  border:
+    width: 0 1px 1px 1px
+    style: solid
+    color: #aaa
+  p
+    +multi_paragraphs
+
 footer
   background-color: fade_out($default_color, 0.8)
   padding: 10px 10px 40px
