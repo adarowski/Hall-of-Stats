@@ -45,14 +45,6 @@
             bottom: auto
           @else
             height: (#{player.runs_totalpos.round}/2) + px
-        &.pit:before
-          @if #{player.runs_pitch} < 0
-            background-color: fade_out($red_color, 0.2)
-            height: (#{player.runs_pitch.abs.round}/2) + px
-            top: 100%
-            bottom: auto
-          @else
-            height: (#{player.runs_pitch.round}/2) + px
 
   - if @player.peak_pct
     :sass
@@ -78,3 +70,12 @@
             left: 67.2%
           &.pit:before
             left: 83.8%
+          &.pit:before
+            @if #{player.runs_pitch} < 0
+              background-color: fade_out($red_color, 0.2)
+              height: (#{player.runs_pitch.abs.round}/2) + px
+              top: 100%
+              bottom: auto
+            @else
+              @if #{player.runs_pitch} < 0
+                height: (#{player.runs_pitch.round}/2) + px
