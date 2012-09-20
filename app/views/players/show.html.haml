@@ -47,6 +47,10 @@
           %abbr{title: "Adjusted Wins Above Average"}
             %em> adj
             WAA
+    %tfoot
+      %tr
+        %td{colspan: 4}
+          %a#show-more-stats{href: '#'} About the stats
     %tbody
       %tr
         %td= @player.war_tot
@@ -54,17 +58,26 @@
         %td= @player.war162_tot
         %td= @player.waa0_tot
 
-  %a#show-more-stats{href: '#'} About the stats
   #more-stats{style: 'display: none;'}
     %p
-      #{@player.first_name} #{@player.last_name} was worth a total of <strong>#{@player.war_tot}</strong> Wins Above Replacement
+      Over the course of his career, #{@player.first_name} #{@player.last_name}
+      = succeed '.' do
+        - if @player.ip_outs > @player.pa
+          pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
+          - if @player.pa > 0
+            and made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
+        - else
+          made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
+          - if @player.ip_outs > 0
+            and pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
       = succeed "." do
+        #{@player.last_name} was worth <strong>#{@player.war_tot}</strong> Wins Above Replacement
         - if @player.ip_outs > 0
-          (#{@player.war_p} as a pitcher and #{@player.war_pos} as a position player)
-      He was also worth a total of <strong>#{@player.waa_tot}</strong> Wins Above Average
+          (#{@player.war_p} as a pitcher and #{@player.war_pos} as a hitter)
       = succeed "." do
+        He was also worth <strong>#{@player.waa_tot}</strong> Wins Above Average
         - if @player.ip_outs > 0
-          (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a position player)
+          (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a hitter)
     %p
       After adjusting for length of schedule, catchers, and relief pitchers, the #{@player.war_tot} WAR becomes
       <strong>#{@player.war162_tot}</strong> <em>adj</em>WAR. Then, WAA is adjusted by ignoring negative seasons
@@ -102,6 +115,11 @@
           leaving him short of induction to the Hall of Stats
         - else
           leaving him nowhere close to induction to the Hall of Stats
+
+    %p
+      Want even more detail about the formula? See the
+      = succeed '.' do
+        = link_to "About page", "/about"
 
   %table#run-value
     %caption Run-Value Statistics

@@ -6,7 +6,7 @@ $ ->
   $("#show-more-stats").click (e) ->
     event.preventDefault()
     $("#more-stats").toggle()
-    $(this).hide()
+    $("#win-value tfoot").hide()
 
   $("#show-bio").click (e) ->
     event.preventDefault()
