@@ -30,7 +30,14 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
+- if @player.bio.present?
+  - bio = BioFormatter.new(@player.bio)
+
+  %section#bio
+    = raw bio
+
 %section#stats-summary
+
   %table#win-value
     %caption Win-Value Statistics
     %thead
@@ -147,17 +154,6 @@
         %td= @player.runs_totalpos.round
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
-
-- if @player.bio.present?
-  - bio = BioFormatter.new(@player.bio)
-
-  %section#bio
-    = raw bio.lead_in
-
-    - if bio.body.present?
-      #expanded-bio{style: "display: none;"}
-        = raw bio.body
-
 
 - if @player.hos
   %section#similar-players
