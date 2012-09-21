@@ -21,7 +21,9 @@
   %p You decide which Hall is better…
 
 %section#inductees
-  %h2 208 Inductees
+  %h2
+    = @players_in_hos.count
+    Inductees
   %ol#player-list
     - @players_in_hos.each do |player|
       %li{id: safe_id(player.id), class: player.position}
