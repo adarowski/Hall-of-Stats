@@ -11,6 +11,8 @@ Player.transaction do
     player['hof'] = true     if player['hof'].try(:strip) == 'hof'
     player['position'] = 'p' if player['position'] == 'rp'
 
+    player['image_url'].delete if player['image_url'].blank?
+
     record = Player.find_or_initialize_by_id(player['id'])
     record.update_attributes!(player, as: :admin)
   end
