@@ -6,4 +6,8 @@ class PlayersController < ApplicationController
   def show
     @player = PlayerDecorator.new(Player.find(params[:id]))
   end
+
+  def autocomplete
+    render json: Player.name_like(params[:name])
+  end
 end
