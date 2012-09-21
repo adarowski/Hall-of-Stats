@@ -28,12 +28,12 @@
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
 
-#bio-preview {
+#markdown-preview {
   width: 100%;
-  margin-top: 20px;
+  clear: left;
   display: block;
 
   p {
-    margin-bottom: 4px;
+    margin: 10px 0;
   }
 }
