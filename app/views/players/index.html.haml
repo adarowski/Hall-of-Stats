@@ -56,10 +56,3 @@
         %span 9/1/2012
     %li
       %a{:href => "#"} Show More…
-
-%section#list-of-bios
-  %h2 Players with Biographies
-  %ul
-    - @players_with_bios.each do |player|
-      %li
-        = link_to player.name, player_path(player)
