@@ -21,6 +21,7 @@ $ ->
         success: (data) ->
           response( $.map(data, (item) ->
             { label: item.full_name, value: item.id }))
+    minLength: 2,
     select: (event, ui) ->
       event.target.value = ''
       document.location.href = '/player/' + ui.item.value
