@@ -1,3 +1,4 @@
+# coding: UTF-8
 require 'spec_helper'
 
 describe BioFormatter do
@@ -20,6 +21,20 @@ describe BioFormatter do
       it "transforms player ids into linked text" do
         input = "I once knew a man named @youngcy01 who could pitch a storm."
         expected = %(I once knew a man named [Cy Young](/player/youngcy01 "View Cy Young's page") who could pitch a storm.)
+
+        BioFormatter.new(input).linked_text.should == expected
+      end
+
+      it "works for strings that begin with a player id" do
+        input = "@youngcy01 drives a Dodge Stratus!"
+        expected = %([Cy Young](/player/youngcy01 "View Cy Young's page") drives a Dodge Stratus!)
+
+        BioFormatter.new(input).linked_text.should == expected
+      end
+
+      it "works for strings that have player ids butted up against other text" do
+        input = "don't shoot me —@youngcy01 is my homey!"
+        expected = %(don't shoot me —[Cy Young](/player/youngcy01 "View Cy Young's page") is my homey!)
 
         BioFormatter.new(input).linked_text.should == expected
       end
