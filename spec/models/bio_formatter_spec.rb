@@ -44,38 +44,12 @@ describe BioFormatter do
     end
   end
 
-  describe '#lead_in' do
-    context "with only one paragraph" do
-      let(:linker) { BioFormatter.new("\n\nSome content.\n\n") }
-
-      it "is the marked-down version of the first paragraph" do
-        linker.lead_in.should == "<p>Some content.</p>\n"
-      end
-    end
-
+  describe '#to_s' do
     context "with multiple paragraphs" do
       let(:linker) { BioFormatter.new("\n\nSome content.\n\nMore content.\n\nFinal line.") }
 
-      it "is the marked-down version of the first paragraph and a read more link" do
-        linker.lead_in.should == %(<p>Some content. <a href="#" id="show-bio">Read more&hellip;</a></p>\n)
-      end
-    end
-  end
-
-  describe '#body' do
-    context "with only one paragraph" do
-      let(:linker) { BioFormatter.new("\n\nSome content.\n\n") }
-
-      it "is nil" do
-        linker.body.should be_nil
-      end
-    end
-
-    context "with multiple paragraphs" do
-      let(:linker) { BioFormatter.new("\n\nSome content.\n\nMore content.\n\nFinal line.") }
-
-      it "is the marked-down version of everything after the first paragraph" do
-        linker.body.should == "<p>More content.</p>\n\n<p>Final line.</p>\n"
+      it "is the marked-down version of everything" do
+        linker.to_s.should == "<p>Some content.</p>\n\n<p>More content.</p>\n\n<p>Final line.</p>\n"
       end
     end
   end

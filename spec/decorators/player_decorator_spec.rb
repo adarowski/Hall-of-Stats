@@ -38,8 +38,8 @@ describe PlayerDecorator do
     end
 
     it "respects has_photo?" do
-      PlayerDecorator.new(build(:player, photo_path: '')).body_classes.should_not include('photo')
-      PlayerDecorator.new(build(:player, photo_path: 'something')).body_classes.should include('photo')
+      PlayerDecorator.new(build(:player, img_url: '')).body_classes.should_not include('photo')
+      PlayerDecorator.new(build(:player, img_url: 'something')).body_classes.should include('photo')
     end
 
     it "includes player" do

@@ -13,9 +13,8 @@ ActiveAdmin.register Player do
     default_actions
   end
 
-  collection_action :preview_bio, :method => :post do
-    bio = BioFormatter.new(params[:bio])
-    render text: bio.lead_in + bio.body
+  collection_action :preview_markdown, :method => :post do
+    render text: BioFormatter.new(params[:markdown])
   end
 
   show do

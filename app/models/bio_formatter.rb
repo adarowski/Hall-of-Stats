@@ -6,12 +6,8 @@ class BioFormatter
     @input = input.strip
   end
 
-  def lead_in
-    @lead_in ||= md_lead_in
-  end
-
-  def body
-    @body ||= md_body
+  def to_s
+    mark_down(linked_text)
   end
 
   def linked_text
@@ -19,25 +15,6 @@ class BioFormatter
   end
 
   private
-
-  def md_lead_in
-    lead_in_content, body_content = link_text.split("\n\n", 2)
-
-    if lead_in_content.present?
-      if body_content.present?
-        lead_in_content << READ_MORE_LINK
-      end
-      mark_down(lead_in_content)
-    end
-  end
-
-  def md_body
-    body_content = link_text.split("\n\n", 2)[1]
-
-    if body_content.present?
-      mark_down(body_content)
-    end
-  end
 
   def link_text
     player_ids = @input.scan(REGEX).map(&:last).uniq

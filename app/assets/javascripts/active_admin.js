@@ -1,2 +1,2 @@
 //= require active_admin/base
-//= require bio_preview
+//= require markdown_preview
