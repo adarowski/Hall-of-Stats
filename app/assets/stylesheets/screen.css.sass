@@ -133,11 +133,11 @@ header.generic
 
 #player-id
   background-color: fade_out($default_color, 0.8)
-  min-height: 170px
   position: relative
-  padding:
-    left: 10px
-    right: 125px
+  padding: 0 10px
+  .photo &
+    min-height: 170px
+    padding-right: 125px
 
   img
     background-color: white
@@ -150,25 +150,31 @@ header.generic
     +box_shadow(#666, 0 0 8px)
 
   h2
-    font-size: 130%
     margin: 0
     line-height: 1
     padding: 10px 0 4px
-    @media only screen and (min-width : 480px)
-      font-size: 220%
-    span
-      display: block
-      font-size: 150%
+    .photo &
+      font-size: 130%
       @media only screen and (min-width : 480px)
-        font-size: 100%
-        display: inline
+        font-size: 200%
+    @media only screen and (min-width : 480px)
+      font-size: 200%
+    span
+      display: inline
+      .photo &
+        font-size: 150%
+        display: block
+        @media only screen and (min-width : 480px)
+          display: inline
+          font-size: 100%
+
   dl
     margin: 0
     .hall-rating
       position: relative
       font-weight: bold
       color: white
-      margin-top: 10px
+      margin: 10px 0 20px
       padding: 2px 10px
       display: inline-block
       font-size: 85%
@@ -360,7 +366,7 @@ table
 
 #more-stats
   background-color: white
-  font-size: 75%
+  font-size: 80%
   padding: 10px
   border:
     width: 0 1px 1px 1px
