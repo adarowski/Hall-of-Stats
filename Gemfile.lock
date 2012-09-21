@@ -177,6 +177,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    stamp (0.2.0)
     thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -213,5 +214,6 @@ DEPENDENCIES
   redcarpet
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
+  stamp
   thin
   uglifier (>= 1.0.3)

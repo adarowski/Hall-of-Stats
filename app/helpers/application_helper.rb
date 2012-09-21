@@ -5,6 +5,8 @@ module ApplicationHelper
       {class: 'home'}
     when 'players#show'
       {class: @player.body_classes.join(' '), id: @player.id}
+    when 'articles#show'
+      {class: 'article'}
     when 'about#index'
       {class: 'about'}
     end

@@ -34,27 +34,12 @@
           %span #{player.hall_rating.round}
 
 %section#list-of-articles
-  %h2 Articles
+  %h2 Latest Articles
   %ul
-    %li
-      %a{:href => "#"}
-        Biographies published for Babe Ruth and Thurman Munson
-        %span 9/1/2012
-    %li
-      %a{:href => "#"}
-        The Koufaxian Wes Ferrell
-        %span 9/1/2012
-    %li
-      %a{:href => "#"}
-        Adjusting for Catchers
-        %span 9/1/2012
-    %li
-      %a{:href => "#"}
-        How this Hall was Built
-        %span 9/1/2012
-    %li
-      %a{:href => "#"}
-        Welcome to the Hall of Stats
-        %span 9/1/2012
-    %li
-      %a{:href => "#"} Show More…
+    - @articles.each do |article|
+      %li
+        = link_to article_path(article) do
+          = article.title
+          %span
+            •
+            = article.published_at.stamp("Jan 1, 2012")

@@ -6,5 +6,6 @@ Hos::Application.routes.draw do
   match '/player/:id', to: 'players#show', as: :player
   match '/autocomplete', to: 'players#autocomplete'
   resources :about
+  resources :articles
   root to: 'players#index'
 end
