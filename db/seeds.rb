@@ -18,11 +18,6 @@ Player.transaction do
   end
 end
 
-munson = Player.find('munsoth01')
-munson.bio = File.read("#{Rails.root}/spec/support/fixtures/bio.markdown").strip
-munson.photo_path = 'thumbs/munsoth01.jpg'
-munson.save!
-
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
