@@ -9,11 +9,14 @@ class PlayerDecorator < Draper::Base
     '2b' => 'Second Baseman',
     '3b' => 'Third Baseman',
     'ss' => 'Shortstop',
+    'if' => 'Infielder',
+    'of' => 'Outielder',
     'lf' => 'Left Fielder',
     'cf' => 'Center Fielder',
     'rf' => 'Right Fielder',
     'dh' => 'Designated Hitter',
-    'p' => 'Pitcher'
+    'p' => 'Pitcher',
+    'npos' => 'No Position'
   }
 
   # don't use the helper so that we can be called from PlayerLinker
