@@ -69,7 +69,7 @@
     %p
       Over the course of his career, #{@player.first_name} #{@player.last_name}
       = succeed '.' do
-        - if @player.ip_outs > @player.pa
+        - if @player.position == "p"
           pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
           - if @player.pa > 0
             and made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
@@ -79,18 +79,24 @@
             and pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
       = succeed "." do
         #{@player.last_name} was worth <strong>#{@player.war_tot}</strong> Wins Above Replacement
-        - if @player.ip_outs > 0
-          (#{@player.war_p} as a pitcher and #{@player.war_pos} as a hitter)
-      = succeed "." do
-        He was also worth <strong>#{@player.waa_tot}</strong> Wins Above Average
-        - if @player.ip_outs > 0
-          (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a hitter)
+        - if @player.ip_outs > 0 && @player.pa > 0
+          - if @player.position == "p"
+            (#{@player.war_p} as a pitcher and #{@player.war_pos} as a hitter)
+          - else
+            (#{@player.war_pos} as a hitter and #{@player.war_p} as a pitcher)
+        and <strong>#{@player.waa_tot}</strong> Wins Above Average
+        - if @player.ip_outs > 0 && @player.pa > 0
+          - if @player.position == "p"
+            (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a hitter)
+          - else
+            (#{@player.waa_pos} as a hitter and #{@player.waa_p} as a pitcher)
     %p
       After adjusting for length of schedule, catchers, and relief pitchers, the #{@player.war_tot} WAR becomes
       <strong>#{@player.war162_tot}</strong> <em>adj</em>WAR. Then, WAA is adjusted by ignoring negative seasons
       (thus, truly capturing a player’s peak seasons) and making similar adjustments for catchers and relief pitchers.
-      Additionally, in the event that a player’s WAR and WAA are very similar (a phenomenon that you can see with
-      pitcher’s hitting value and players from weaker leagues like the Union Association), the WAA is ignored.
+      - if @player.position == "p" || @player.last_year < 1900
+        Additionally, in the event that a player’s WAR and WAA are very similar (a phenomenon that you can see with
+        pitcher’s hitting value and players from weaker leagues like the Union Association), the WAA is ignored.
       After these adjustments, the #{@player.waa_tot} WAA becomes <strong>#{@player.waa0_tot}</strong> <em>adj</em>WAA.
 
     %p
