@@ -109,25 +109,50 @@
       represents the borderline. This is called Hall Rating and it works similarly to OPS+ or wRC+ (anyone above 100
       is in the Hall of Stats—anyone below is out). #{@player.first_name} #{@player.last_name} has a Hall Rating of
       <strong>#{@player.hall_rating.round}</strong>,
-      = succeed "." do
-        - if @player.id == "ruthba01"
-          making him not only a member of the Hall of Stats—but the very best player of all time
-        - elsif @player.hall_rating > 180
-          making him not only a member of the Hall of Stats—but one of the very best players of all time
-        - elsif @player.hall_rating > 130
-          making him (quite comfortably) a member of the Hall of Stats
-        - elsif @player.hall_rating > 110
-          making him a member of the Hall of Stats
-        - elsif @player.hall_rating > 100
-          making him a member of the Hall of Stats—but one who sits very close to the borderline
-        - elsif @player.hall_rating > 90
-          making him close to the borderline—but on the outside of the Hall of Stats
-        - elsif @player.hall_rating > 80
-          making him relatively close to the Hall of Stats borderline, but stil significantly short of induction
-        - elsif @player.hall_rating > 60
-          leaving him short of induction to the Hall of Stats
-        - else
-          leaving him nowhere close to induction to the Hall of Stats
+      - if @player.last_year > 2007
+        = succeed "." do
+          - if @player.hall_rating > 180
+            meaning he will not only be in the Hall of Stats when eligible—he will rate as one of the very best players of all time.
+          - elsif @player.hall_rating > 110
+            meaning he will be in the Hall of Stats when eligible
+          - elsif @player.hall_rating > 100
+            meaning he will be in the Hall of Stats when eligible—but very close to the borderline
+          - elsif @player.hall_rating > 90
+            meaning he will not be in the Hall of Stats when eligible—but he would be close
+          - elsif @player.hall_rating > 80
+            meaning he will significantly short of the Hall of Stats when eligible
+          - elsif @player.hall_rating > 60
+            meaning he will not be in the Hall of Stats when eligible
+          - else
+            leaving him nowhere close to induction to the Hall of Stats when eligible
+      - elsif @player.last_year > 2009
+        = succeed "." do
+          - if @player.hall_rating > 180
+            meaning he would not only be in the Hall of Stats if his career ended today—he would rate as one of the very best players of all time.
+          - elsif @player.hall_rating > 110
+            meaning he would be in the Hall of Stats if his career ended today
+          - elsif @player.hall_rating > 100
+            meaning he would be in the Hall of Stats if his career ended today—but very close to the borderline
+          - elsif @player.hall_rating > 90
+            meaning he would not be in the Hall of Stats if his career ended today—but he would be close
+          - else
+            meaning he would not be in the Hall of Stats if his career ended today
+      - else
+        = succeed "." do
+          - if @player.id == "ruthba01"
+            making him not only a member of the Hall of Stats—but the very best player of all time
+          - elsif @player.hall_rating > 180
+            making him not only a member of the Hall of Stats—but one of the very best players of all time
+          - elsif @player.hall_rating > 110
+            making him a member of the Hall of Stats
+          - elsif @player.hall_rating > 100
+            making him a member of the Hall of Stats—but one who sits very close to the borderline
+          - elsif @player.hall_rating > 90
+            making him close to the Hall of Stats borderline—but still on the outside
+          - elsif @player.hall_rating > 60
+            leaving him short of induction to the Hall of Stats
+          - else
+            leaving him nowhere close to induction to the Hall of Stats
 
     %p
       Want even more detail about the formula? See the
