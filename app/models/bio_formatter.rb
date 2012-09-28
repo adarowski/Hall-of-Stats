@@ -1,6 +1,5 @@
 class BioFormatter
   REGEX = /(^|[\W])(@(.+?\d+))/
-  READ_MORE_LINK = %( <a href="#" id="show-bio">Read more&hellip;</a>)
 
   def initialize(input)
     @input = input.strip
