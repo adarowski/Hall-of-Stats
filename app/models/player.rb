@@ -28,4 +28,8 @@ class Player < ActiveRecord::Base
   def name
     [first_name, last_name].join(' ')
   end
+
+  def years_played
+    [first_year, last_year].uniq.join('-')
+  end
 end
