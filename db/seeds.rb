@@ -7,8 +7,9 @@ Player.transaction do
     player['id'] = player.delete('player_id')
 
     # normalize some data
-    player['hos'] = true     if player['hos'].try(:strip) == 'hos'
-    player['hof'] = true     if player['hof'].try(:strip) == 'hof'
+    player['hos'] = (player['hos'].try(:strip) == 'hos')
+    player['hof'] = (player['hof'].try(:strip) == 'hof')
+
     player['position'] = 'p' if player['position'] == 'rp'
 
     player.delete('image_url') if player['image_url'].blank?
