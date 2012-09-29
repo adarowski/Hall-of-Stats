@@ -30,7 +30,7 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
-- if @player.bio.present?
+- if @player.bio?
   %section#bio
     = raw BioFormatter.new(@player.bio, @player.id)
 

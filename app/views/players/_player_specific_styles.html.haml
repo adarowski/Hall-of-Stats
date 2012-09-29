@@ -46,7 +46,7 @@
           @else
             height: (#{player.runs_totalpos.round}/2) + px
 
-  - if @player.runs_pitch
+  - if player.runs_pitch
     :sass
       $bad_color: #900
       table#run-value
@@ -74,9 +74,9 @@
               @if #{player.runs_pitch} > 0
                 height: (#{player.runs_pitch.round}/2) + px
 
-  - if @player.peak_pct
+  - if player.peak_pct
     :sass
       .peak
-        width: #{@player.peak_pct}%
+        width: #{player.peak_pct}%
       .longevity
-        width: #{@player.longevity_pct}%
+        width: #{player.longevity_pct}%
