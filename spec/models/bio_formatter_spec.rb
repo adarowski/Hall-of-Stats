@@ -57,6 +57,17 @@ describe BioFormatter do
         BioFormatter.new(input).linked_text.strip.should == expected.strip
       end
     end
+
+    context "with... context :/" do
+      before { mock_many_players }
+
+      it "uses the context player's name and links other players" do
+        input = File.read("#{Rails.root}/spec/support/fixtures/bio.markdown")
+        expected = File.read("#{Rails.root}/spec/support/fixtures/bio.processed.context.markdown")
+
+        BioFormatter.new(input, 'koufasa01').linked_text.strip.should == expected.strip
+      end
+    end
   end
 
   describe '#to_s' do
