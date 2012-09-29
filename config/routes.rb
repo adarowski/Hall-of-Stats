@@ -3,7 +3,7 @@ Hos::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  match '/player/:id', to: 'players#show', as: :player
+  match '/player/:id', to: 'players#show', as: :player, constraints: { id: /.*/ }
   match '/autocomplete', to: 'players#autocomplete'
   resources :about
   resources :articles
