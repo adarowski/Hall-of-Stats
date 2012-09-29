@@ -30,7 +30,7 @@
         = link_to player_path(player) do
           %strong
             #{player.name}
-          %em #{player.position}, #{player.first_year}–#{player.last_year}
+          %em #{player.position}, #{player.years_played}
           %span #{player.hall_rating.round}
 
 %section#list-of-articles
