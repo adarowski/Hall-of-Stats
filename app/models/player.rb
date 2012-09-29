@@ -19,10 +19,8 @@ class Player < ActiveRecord::Base
   scope :in_hos, where(hos: true)
 
   scope :name_like, lambda {|name|
-    name = "#{name}%"
     select("concat(first_name, ' ', last_name) as full_name, id").
-      where("first_name ilike ? or last_name ilike ? or concat(first_name, ' ', last_name) ilike ?",
-            name, name, name)
+      where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name", name: "#{name}%")
   }
 
   def name
