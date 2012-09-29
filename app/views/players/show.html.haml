@@ -13,7 +13,7 @@
       %dd.position= @player.position_name
     - if @player.first_year
       %dt.years Years
-      %dd.years #{@player.first_year}–#{@player.last_year}
+      %dd.years #{@player.years_played}
     %dt.hall-rating<> Hall Rating
     %dd.hall-rating= @player.hall_rating.round
 
