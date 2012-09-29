@@ -31,10 +31,8 @@
         #{@player.longevity_pct}%
 
 - if @player.bio.present?
-  - bio = BioFormatter.new(@player.bio)
-
   %section#bio
-    = raw bio
+    = raw BioFormatter.new(@player.bio, @player.id)
 
 %section#stats-summary
 

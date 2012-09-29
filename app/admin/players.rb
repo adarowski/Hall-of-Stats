@@ -14,7 +14,7 @@ ActiveAdmin.register Player do
   end
 
   collection_action :preview_markdown, :method => :post do
-    render text: BioFormatter.new(params[:markdown])
+    render text: BioFormatter.new(params[:markdown], params[:context])
   end
 
   show do
