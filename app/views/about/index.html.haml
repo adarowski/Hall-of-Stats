@@ -5,15 +5,26 @@
   %header
     %h2 About the Hall of Stats
 
+  - content = capture_haml do
+    :plain
+      The Hall of Fame, in its intended form, is a beautiful thing. The plaque room is a wonderful celebration of the game’s great players.
 
-  %p The Hall of Fame, in its intended form, is a beautiful thing. The plaque room is a wonderful celebration of the game’s great players.
-  %p The problem is, it is now irrelevant.
-  %p Let’s take a player like Alan Trammell. Trammell, now on his 12th ballot, is struggling to get into the Hall of Fame. It looks like his case will go to the Veterans Committee. Does he stack up to Honus Wagner and Cal Ripken? No, he doesn’t. But should he have to? Is he clearly ahead of the Rabbit Maranville, Phil Rizzuto, and Travis Jackson? Yes. How about Joe Tinker, Joe Sewell, and Dave Bancroft? Yes, yes, and yes. All six are in the Hall of Fame. Alan Trammell was better than all of them (and more).
-  %p I can respect a Hall of Fame that enshrines both Alan Trammell and Rabbit Maranville. Everyone makes mistakes. But now, voters are so worried about the already watered-down Hall standards that they’re keeping deserving candidates out. And a Hall of Fame than enshrines Maranville but shuns Trammell is no Hall of Fame at all.
-  %p You can’t put everyone who was better than Maranville into the Hall of Fame. If you’re going to do that, you’d better start writing plaque bios for Jim Fregosi and Toby Harrah. But to hold every new candidate up against only the elite players creates this weird Hall of Fame where every decent player from the first half of the century gets in while hardly anyone from the second half manages to.
-  %p It’s an absolute mess—and the only way to fix it is to start over. The Hall of Fame doesn’t have the ability to do that, so I’m doing it myself.
-  %p
-    %strong They say, “It’s the Hall of Fame, not the Hall of Stats.”
-  %p But what if it was?
-  %p The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on a mathematical formula called Hall Rating.
-  %p You decide which Hall is better…
+      The problem is, it is now irrelevant.
+
+      Let’s take a player like @trammal01. Trammell, now on his 12th ballot, is struggling to get into the Hall of Fame. It looks like his case will go to the Veterans Committee. Does he stack up to Honus Wagner and Cal Ripken? No, he doesn’t. But should he have to? Is he clearly ahead of the Rabbit Maranville, Phil Rizzuto, and Travis Jackson? Yes. How about Joe Tinker, Joe Sewell, and Dave Bancroft? Yes, yes, and yes. All six are in the Hall of Fame. Alan Trammell was better than all of them (and more).
+
+      I can respect a Hall of Fame that enshrines both Alan Trammell and Rabbit Maranville. Everyone makes mistakes. But now, voters are so worried about the already watered-down Hall standards that they’re keeping deserving candidates out. And a Hall of Fame than enshrines Maranville but shuns Trammell is no Hall of Fame at all.
+
+      You can’t put everyone who was better than Maranville into the Hall of Fame. If you’re going to do that, you’d better start writing plaque bios for Jim Fregosi and Toby Harrah. But to hold every new candidate up against only the elite players creates this weird Hall of Fame where every decent player from the first half of the century gets in while hardly anyone from the second half manages to.
+
+      It’s an absolute mess—and the only way to fix it is to start over. The Hall of Fame doesn’t have the ability to do that, so I’m doing it myself.
+
+      **They say, “It’s the Hall of Fame, not the Hall of Stats.”**
+
+      But what if it was?
+
+      The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on a mathematical formula called Hall Rating.
+
+      You decide which Hall is better…
+
+  = raw BioFormatter.new(content)
