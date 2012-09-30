@@ -184,7 +184,7 @@
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
 
-- if @player.hos
+- if @player.hos == true
   %section#similar-players
     %table
       %caption
@@ -196,6 +196,57 @@
           %th Hall Rating
       %tbody
         - @player.players_of_same_position.each do |player|
+          %tr{class: ("current" if @player.id == player.id)}
+            %th
+              %a{href: player_path(player)}= player.name
+            %td= player.hall_rating.round
+
+- elsif @player.hos == false && @player.hof == true
+  %section#similar-players
+    %table
+      %caption
+        Players Bumped
+        %small from the Hall of Fame
+      %thead
+        %tr
+          %th Players
+          %th Hall Rating
+      %tbody
+        - @player.players_bumped_from_hof.each do |player|
+          %tr{class: ("current" if @player.id == player.id)}
+            %th
+              %a{href: player_path(player)}= player.name
+            %td= player.hall_rating.round
+
+- elsif @player.hos == false && @player.hof == true
+  %section#similar-players
+    %table
+      %caption
+        Players Bumped
+        %small from the Hall of Fame
+      %thead
+        %tr
+          %th Players
+          %th Hall Rating
+      %tbody
+        - @player.players_bumped_from_hof.each do |player|
+          %tr{class: ("current" if @player.id == player.id)}
+            %th
+              %a{href: player_path(player)}= player.name
+            %td= player.hall_rating.round
+
+- elsif @player.hos == false && @player.hof == false && @player.hall_rating > 100
+  %section#similar-players
+    %table
+      %caption
+        Future Inductees
+        %small to the Hall of Stats (when eligible)
+      %thead
+        %tr
+          %th Players
+          %th Hall Rating
+      %tbody
+        - @player.players_in_future_hos.each do |player|
           %tr{class: ("current" if @player.id == player.id)}
             %th
               %a{href: player_path(player)}= player.name

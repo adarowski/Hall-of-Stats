@@ -17,6 +17,10 @@ class Player < ActiveRecord::Base
   scope :by_rank, order("hall_rating desc")
 
   scope :in_hos, where(hos: true)
+  scope :in_hof, where(hof: true)
+  scope :not_in_hos, where(hos: false)
+  scope :not_in_hof, where(hof: false)
+  scope :hall_worthy, where("hall_rating > 100")
 
   scope :name_like, lambda {|name|
     select("concat(first_name, ' ', last_name) as full_name, id").
