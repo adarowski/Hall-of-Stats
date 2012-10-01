@@ -9,13 +9,8 @@ $ ->
 
   $("#show-more-stats").click (e) ->
     event.preventDefault()
-    $("#more-stats").toggle()
+    $("#more-stats").slideToggle()
     $("#win-value tfoot").hide()
-
-  $("#show-bio").click (e) ->
-    event.preventDefault()
-    $("#expanded-bio").toggle()
-    $(this).hide()
 
   $('input.autocomplete').autocomplete(
     source: (request, response) ->

@@ -25,6 +25,11 @@ $default_color: $blue_color
   &:last-child
     margin-bottom: 0
 
+=add_arrow
+  &:after
+    content: '▼'
+    font-size: 65%
+    margin-left: .25em
 
 html
   @media only screen and (max-width : 480px)
@@ -76,10 +81,7 @@ header.generic
   right: 10px
   display: inline-block
   color: #FFF
-  &:after
-    content: '▼'
-    font-size: 60%
-    margin-left: .5em
+  +add_arrow
 
 .home
   header
@@ -357,10 +359,7 @@ table
 
 #show-more-stats
   display: inline-block
-  &:after
-    content: '▼'
-    font-size: 70%
-    margin-left: 3px
+  +add_arrow
 
 #more-stats
   background-color: white
@@ -415,10 +414,7 @@ section#inductees
       &:link, &:visited, &:hover, &:active
         display: inline-block
         color: white
-        &:after
-          content: '▼'
-          font-size: 65%
-          margin-left: .5em
+        +add_arrow
 
   #player-list
     list-style: none
