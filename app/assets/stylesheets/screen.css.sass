@@ -214,13 +214,14 @@ header.generic
       display: inline-block
       color: white
       margin: 0
-      padding: 2px 10px
+      padding: 2px 0
       font-weight: bold
       white-space: nowrap
       &.peak
         background-color: fade_out($default_color, 0.2)
         z-index: 1
         position: relative
+        text-indent: 10px
         &:after
           content: " Peak"
           font-weight: normal
@@ -231,6 +232,7 @@ header.generic
         text-align: right
         overflow: hidden
         text-overflow: ellipsis
+        padding-right: 10px
         &:after
           content: " Longevity"
           font-weight: normal
