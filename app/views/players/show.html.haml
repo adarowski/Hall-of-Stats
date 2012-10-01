@@ -8,7 +8,7 @@
     = @player.first_name
     %span= @player.last_name
   %dl
-    - if @player.position_name
+    - unless @player.position == "npos"
       %dt.postion Position
       %dd.position= @player.position_name
     - if @player.years_played
