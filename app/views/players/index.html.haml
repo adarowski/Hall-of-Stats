@@ -22,8 +22,68 @@
 
 %section#inductees
   %h2
-    = @players_in_hos.count
-    Inductees
+    %a#show-filters{href: '#'}
+      = @players_in_hos.count
+      Inductees
+  #filters{style: 'display: none;'}
+    %ul
+      %li
+        %a#show-all{href: '#show-all'}
+          %span #{@players_in_hos.count}
+          Inductees
+      %li
+        %a#show-added{:href => "#show-added"}
+          %span 69
+          Added to the Hall of Fame
+      %li
+        %a#show-removed{:href => "#show-removed"}
+          %span 69
+          Removed from the Hall of Fame
+      %li
+        %a#show-upcoming{:href => "#show-upcoming"}
+          %span 32
+          Worthy but Not Yet Eligible
+      %li
+        %a#show-p{:href => "#show-p"}
+          %span
+          Pitchers
+      %li
+        %a#show-c{:href => "#show-c"}
+          %span
+          Catchers
+      %li
+        %a#show-1b{:href => "#show-1b"}
+          %span
+          First Basemen
+      %li
+        %a#show-2b{:href => "#show-2b"}
+          %span
+          Second Basemen
+      %li
+        %a#show-3b{:href => "#show-3b"}
+          %span
+          Third Basemen
+      %li
+        %a#show-ss{:href => "#show-ss"}
+          %span
+          Shortstops
+      %li
+        %a#show-lf{:href => "#show-lf"}
+          %span
+          Left Fielders
+      %li
+        %a#show-cf{:href => "#show-cf"}
+          %span
+          Center Fielders
+      %li
+        %a#show-rf{:href => "#show-rf"}
+          %span
+          Right Fielders
+      %li
+        %a#show-dh{:href => "#show-dh"}
+          %span
+          Designated Hitters
+
   %ol#player-list
     - @players_in_hos.each do |player|
       %li{id: safe_id(player.id), class: player.position}

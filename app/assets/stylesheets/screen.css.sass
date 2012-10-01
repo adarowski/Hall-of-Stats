@@ -79,7 +79,7 @@ header.generic
   &:after
     content: '▼'
     font-size: 60%
-    margin-left: 5px
+    margin-left: .5em
 
 .home
   header
@@ -389,7 +389,7 @@ footer
   margin: 5px 0
   padding: 10px
   background-color: fade_out(white, 0.2)
-  font-size: 80%
+  font-size: 85%
   p
     +multi_paragraphs
 
@@ -402,7 +402,7 @@ section#inductees
     background-color: fade_out($default_color, .4)
     margin: 0
     padding: 4px 8px
-    font-size: 85%
+    font-size: 100%
     position: relative
     color: white
     &:after
@@ -411,6 +411,15 @@ section#inductees
       top: 4px
       right: 8px
       color: white
+    a
+      &:link, &:visited, &:hover, &:active
+        display: inline-block
+        color: white
+        &:after
+          content: '▼'
+          font-size: 65%
+          margin-left: .5em
+
   #player-list
     list-style: none
     padding: 0
@@ -455,6 +464,29 @@ section#inductees
         padding: 10px
         position: relative
         z-index: 2
+
+#filters
+  position: absolute
+  z-index: 3
+  background-color: fade_out($default_color, .1)
+  width: 100%
+  ul
+    list-style: none
+    margin: 0
+    padding: 10px
+  li
+    padding: 2px 0
+  a
+    &:link, &:visited, &:hover, &:active
+      color: white
+  span
+    color: black
+    background-color: #FFC
+    display: inline-block
+    padding: 0 4px
+    font-size: 75%
+    +border_radius(4px)
+    margin-right: .25em
 
 article
   &.long-form

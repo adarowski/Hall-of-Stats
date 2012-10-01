@@ -1,7 +1,11 @@
 $ ->
   $("#show-about").click (e) ->
     event.preventDefault()
-    $("#about-expanded").toggle()
+    $("#about-expanded").slideToggle()
+
+  $("#show-filters").click (e) ->
+    event.preventDefault()
+    $("#filters").slideToggle()
 
   $("#show-more-stats").click (e) ->
     event.preventDefault()
