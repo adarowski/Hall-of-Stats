@@ -35,14 +35,21 @@ class PlayerDecorator < Draper::Base
       select("id, first_name, last_name, hall_rating")
   end
 
-  def players_bumped_from_hof
+  def players_added
+    Player.not_in_hof.
+      in_hos.
+      by_rank.
+      select("id, first_name, last_name, hall_rating")
+  end
+
+  def players_removed
     Player.in_hof.
       not_in_hos.
       by_rank.
       select("id, first_name, last_name, hall_rating")
   end
 
-  def players_in_future_hos
+  def players_upcoming
     Player.not_in_hof.
       not_in_hos.
       hall_worthy.

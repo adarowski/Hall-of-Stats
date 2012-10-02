@@ -84,7 +84,7 @@
           %span 2
           Designated Hitters
 
-  %ol#player-list
+  %ol#hos-list.player-list
     - @players_in_hos.each do |player|
       %li{id: safe_id(player.id), class: player.position}
         = link_to player_path(player) do
