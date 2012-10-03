@@ -212,7 +212,7 @@
           %th Players
           %th Hall Rating
       %tbody
-        - @player.players_bumped_from_hof.each do |player|
+        - @player.players_removed.each do |player|
           %tr{class: ("current" if @player.id == player.id)}
             %th
               %a{href: player_path(player)}= player.name
