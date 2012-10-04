@@ -2,6 +2,26 @@
 require 'spec_helper'
 
 describe BioFormatter do
+  describe 'mentioned_players' do
+    subject(:mentioned_players) { BioFormatter.new(input).mentioned_players }
+
+    context "when there are mentions of players" do
+      let(:input) { "let's talk about @koufasa01 and @tenacge01" }
+      before do
+        Player.should_receive(:where).with(id: ['koufasa01', 'tenacge01']).
+          and_return([:player_1, :player_2])
+      end
+
+      it { should == [:player_1, :player_2] }
+    end
+
+    context "when there are no mentions of players" do
+      let(:input) { "hello there sally" }
+
+      it { should == [] }
+    end
+  end
+
   describe 'linked_text' do
     context "when there is nothing to link" do
       it "returns the original text if nothing can be linked" do

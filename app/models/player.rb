@@ -29,6 +29,8 @@ class Player < ActiveRecord::Base
 
   scope :front_page, where("hof is true or hos is true or (hos is false and hall_rating > 100)")
 
+  has_and_belongs_to_many :articles
+
   def name
     [first_name, last_name].join(' ')
   end

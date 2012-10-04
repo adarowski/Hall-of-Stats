@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921223918) do
+ActiveRecord::Schema.define(:version => 20121004015215) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(:version => 20120921223918) do
     t.datetime "published_at"
   end
 
+  create_table "articles_players", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.string  "player_id"
+  end
+
+  add_index "articles_players", ["article_id", "player_id"], :name => "index_articles_players_on_article_id_and_player_id"
+
   create_table "players", :id => false, :force => true do |t|
     t.string   "id"
     t.string   "first_name"
@@ -64,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20120921223918) do
     t.decimal  "wwar"
     t.decimal  "hall_rating"
     t.string   "position"
-    t.boolean  "hos",           :default => false
-    t.boolean  "hof",           :default => false
+    t.boolean  "hos"
+    t.boolean  "hof"
     t.string   "eligibility"
     t.integer  "peak_pct"
     t.integer  "longevity_pct"
@@ -84,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20120921223918) do
     t.decimal  "waa_p"
     t.decimal  "war_tot"
     t.decimal  "waa_tot"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "photo_path"
     t.text     "bio"
     t.integer  "first_year"

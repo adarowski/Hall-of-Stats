@@ -14,12 +14,15 @@ class BioFormatter
     @linked_text ||= link_text
   end
 
+  def mentioned_players
+    player_ids = @input.scan(REGEX).map(&:last).uniq
+    Player.where(id: player_ids)
+  end
+
   private
 
   def link_text
-    player_ids = @input.scan(REGEX).map(&:last).uniq
-
-    players = Hash[Player.where(id: player_ids).map do |player|
+    players = Hash[mentioned_players.map do |player|
       [player.id, PlayerDecorator.new(player)]
     end]
 
