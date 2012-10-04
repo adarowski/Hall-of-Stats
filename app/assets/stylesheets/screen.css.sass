@@ -31,6 +31,13 @@ $default_color: $blue_color
     font-size: 65%
     margin-left: .25em
 
+=photo_framed
+  background-color: white
+  padding: 3px
+  border: 1px solid #DDD
+  +border_radius(5px)
+  +box_shadow(#666, 0 0 8px)
+
 html
   @media only screen and (max-width : 480px)
     -webkit-text-size-adjust: none
@@ -142,14 +149,10 @@ header.generic
     padding-right: 125px
 
   img
-    background-color: white
     position: absolute
     top: 10px
     right: 10px
-    padding: 3px
-    border: 1px solid #DDD
-    +border_radius(5px)
-    +box_shadow(#666, 0 0 8px)
+    +photo_framed
 
   h2
     margin: 0
@@ -506,6 +509,10 @@ article
         color: #666
         font-size: 80%
         margin: 5px 0
+    img
+      +photo_framed
+      float: left
+      margin: 0 20px 20px 0
 
 
 .ui-autocomplete
