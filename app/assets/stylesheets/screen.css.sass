@@ -44,7 +44,9 @@ html
     -webkit-text-size-adjust: none
 
 *
+  -moz-box-sizing: border-box
   -webkit-box-sizing: border-box
+  box-sizing: border-box
 
 body
   font-family: $text_font
@@ -223,6 +225,7 @@ header.generic
       padding: 2px 0
       font-weight: bold
       white-space: nowrap
+      vertical-align: top
       &.peak
         background-color: fade_out($default_color, 0.2)
         z-index: 1
