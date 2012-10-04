@@ -8,8 +8,7 @@
     = succeed "." do
       = link_to "Christy Mathewson", player_path('mathech01')
 
-%section#search
-  %input.autocomplete{:placeholder => "Search for any MLB player…", :results => "5", :type => "search"}/
+= render 'shared/search'
 
 %section#intro
   %p They say, “It’s the Hall of Fame, not the Hall of Stats.”
