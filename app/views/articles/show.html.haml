@@ -6,6 +6,6 @@
     %h2= @article.title
     %span= @article.published_at.stamp("Jan 1, 2012")
 
-  = raw BioFormatter.new(@article.body)
+  = raw @article.formatted_body
 
 = render 'shared/search'

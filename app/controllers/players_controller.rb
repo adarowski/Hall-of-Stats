@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @players= Player.front_page.by_rank
-    @articles = Article.published.order("published_at desc")
+    @articles = Article.published.by_published_at
   end
 
   def show

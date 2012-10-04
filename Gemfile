@@ -9,6 +9,7 @@ gem 'haml'
 gem 'redcarpet'
 
 gem 'draper'
+gem 'nokogiri'
 
 gem 'activeadmin'
 

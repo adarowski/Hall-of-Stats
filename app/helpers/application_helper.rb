@@ -24,4 +24,20 @@ module ApplicationHelper
       player.hall_worthy? && !player.hos ? "upcoming" : nil,
     ]
   end
+
+  def absolutize(content)
+    doc = Nokogiri::XML(content.to_s)
+
+    host = Rails.env.production? ? "http://#{request.host}" : "http://#{request.host}:#{request.port}"
+
+    doc.css('img').each do |img|
+      img['src'] = "#{host}#{img['src']}"
+    end
+
+    doc.css('a').each do |a|
+      a['href'] = "#{host}#{a['href']}"
+    end
+
+    doc.to_xml
+  end
 end

@@ -256,7 +256,7 @@
   %section#list-of-articles
     %h2 Related Articles
     %ul
-      - @player.articles.published.order("published_at desc").each do |article|
+      - @player.articles.published.by_published_at.each do |article|
         %li
           = link_to article_path(article) do
             = article.title
