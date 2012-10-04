@@ -10,15 +10,15 @@ for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
 
 $ ->
   $("#show-about").click (e) ->
-    event.preventDefault()
+    e.preventDefault()
     $("#about-expanded").slideToggle()
 
   $("#show-filters").click (e) ->
-    event.preventDefault()
+    e.preventDefault()
     $("#filters").slideToggle()
 
   $("#show-more-stats").click (e) ->
-    event.preventDefault()
+    e.preventDefault()
     $("#more-stats").slideToggle()
     $("#win-value tfoot").hide()
 
