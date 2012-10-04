@@ -31,9 +31,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'listen', git: 'git://github.com/guard/listen.git'
-  gem 'rb-fsevent'
+  gem 'factory_girl_rails'
+  gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'factory_girl_rails'
+  gem 'listen', git: 'git://github.com/guard/listen.git'
+  gem 'rb-fsevent'
 end
