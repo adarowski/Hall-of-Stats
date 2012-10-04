@@ -1,3 +1,13 @@
+filters = {
+  'show-all': '.hos'
+  'show-added': '.hos.not-hof'
+  'show-removed': '.hof.not-hos'
+  'show-upcoming': '.upcoming.not-hos'
+}
+
+for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
+  filters["show-#{position}"] = ".hos.#{position}"
+
 $ ->
   $("#show-about").click (e) ->
     event.preventDefault()
@@ -26,3 +36,19 @@ $ ->
       document.location.href = '/player/' + ui.item.value
       false
   )
+
+  filterPlayers = (kind) ->
+    listItems = $('.player-list li')
+    listItems.hide()
+    listItems.filter(filters[kind]).show()
+
+  $('#filters a').click (e) ->
+    e.preventDefault()
+
+    filterPlayers(this.id)
+
+    $('#show-filters').text(this.text)
+    $("#filters").slideToggle()
+
+  # set our default filter
+  filterPlayers('show-all')

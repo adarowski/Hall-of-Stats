@@ -15,4 +15,13 @@ module ApplicationHelper
   def safe_id(id)
     id.gsub(/['\.]/, '')
   end
+
+  def filter_data(player)
+    [
+      player.position,
+      player.hof ? "hof" : "not-hof",
+      player.hos ? "hos" : "not-hos",
+      player.hall_worthy? && !player.hos ? "upcoming" : nil,
+    ]
+  end
 end

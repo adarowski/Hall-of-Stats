@@ -27,11 +27,17 @@ class Player < ActiveRecord::Base
       where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name", name: "#{name}%")
   }
 
+  scope :front_page, where("hof is true or hos is true or (hos is false and hall_rating > 100)")
+
   def name
     [first_name, last_name].join(' ')
   end
 
   def years_played
     [first_year, last_year].uniq.join('-')
+  end
+
+  def hall_worthy?
+    hall_rating > 100
   end
 end

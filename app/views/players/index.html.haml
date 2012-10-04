@@ -23,13 +23,13 @@
 %section#inductees
   %h2
     %a#show-filters{href: '#'}
-      = @players_in_hos.count
+      = Player.in_hos.count
       Inductees
   #filters{style: 'display: none;'}
     %ul
       %li
         %a#show-all{href: '#show-all'}
-          %span #{@players_in_hos.count}
+          %span #{Player.in_hos.count}
           Inductees
       %li
         %a#show-added{:href => "#show-added"}
@@ -85,8 +85,8 @@
           Designated Hitters
 
   %ol#hos-list.player-list
-    - @players_in_hos.each do |player|
-      %li{id: safe_id(player.id), class: player.position}
+    - @players.each do |player|
+      %li{id: safe_id(player.id), class: filter_data(player)}
         = link_to player_path(player) do
           %strong
             #{player.name}
