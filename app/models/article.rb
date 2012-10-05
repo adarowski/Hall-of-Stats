@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
   has_and_belongs_to_many :players
 
   def formatted_body
-    BioFormatter.new(body)
+    BioFormatter.new(body).to_s
   end
 
   private
