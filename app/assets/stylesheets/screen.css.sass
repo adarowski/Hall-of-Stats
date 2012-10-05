@@ -268,6 +268,13 @@ header.generic
   input[type=search]
     font-size: 100%
     width: 100%
+    +border_radius(0)
+    -webkit-appearance: none
+    border: 1px solid #ccc
+    padding: 2px
+    font-family: $text_font
+    position: relative
+    z-index: 3
 
 #similar-players
   th, td
@@ -528,11 +535,13 @@ article
       padding: 2px 10px
       font-size: 20px
 
-
-
 .ui-autocomplete
-  background-color: white
-  border: 1px solid #ccc
+  +box_shadow(#666, 0 0 8px)
+  background-color: fade_out(white, .05)
+  border:
+    style: solid
+    color: #ccc
+    width: 0 1px 1px
   margin: 0
   padding: 10px
   z-index: 2 !important
@@ -541,6 +550,19 @@ article
     list-style: none
     padding: 0
     margin: 0
+    a
+      display: block
+      border-top: 1px solid #EEE
+      cursor: pointer
+      padding: 2px 0
+    &:first-child a
+      border-top: 0
+      padding-top: 0
+    span
+      color: #999
+      font-size: 14px
+      font-weight: normal
+      padding-left: 5px
 
 // PLAYER-SPECIFIC STYLES
 
