@@ -218,23 +218,6 @@
               %a{href: player_path(player)}= player.name
             %td= player.hall_rating.round
 
-- elsif @player.hos == false && @player.hof == true
-  %section#similar-players
-    %table
-      %caption
-        Players Bumped
-        %small from the Hall of Fame
-      %thead
-        %tr
-          %th Players
-          %th Hall Rating
-      %tbody
-        - @player.players_removed.each do |player|
-          %tr{class: ("current" if @player.id == player.id)}
-            %th
-              %a{href: player_path(player)}= player.name
-            %td= player.hall_rating.round
-
 - elsif @player.hos == false && @player.hof == false && @player.hall_rating > 100
   %section#similar-players
     %table
