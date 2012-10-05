@@ -34,7 +34,8 @@ describe BioFormatter do
     context "when there is a player to link" do
       before do
         Player.should_receive(:where).with(id: ['youngcy01']).and_return [
-           build(:player, id: 'youngcy01', first_name: 'Cy', last_name: 'Young')
+           build(:player, id: 'youngcy01', first_name: 'Cy', last_name: 'Young',
+                 war_tot: BigDecimal.new(1.33, 3), img_url: '/images/players/youngcy01.jpg')
         ]
       end
 
@@ -63,6 +64,12 @@ describe BioFormatter do
         input = "Email adam@darowski.com about @youngcy01."
         expected = %(Email adam@darowski.com about [Cy Young](/player/youngcy01 "View Cy Young's page").)
 
+        BioFormatter.new(input).linked_text.should == expected
+      end
+
+      it "should be able to insert data requested for a player via the @id:data format" do
+        input = "As opposed to @youngcy01, whose war_tot was @youngcy01:war_tot. Here's a picture of him: @youngcy01:img_url"
+        expected = %(As opposed to [Cy Young](/player/youngcy01 "View Cy Young's page"), whose war_tot was 1.33. Here's a picture of him: /images/players/youngcy01.jpg)
         BioFormatter.new(input).linked_text.should == expected
       end
     end

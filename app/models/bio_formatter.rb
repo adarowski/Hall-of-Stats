@@ -1,5 +1,5 @@
 class BioFormatter
-  REGEX = /(^|[\W])(@(.+?\d+))/
+  REGEX = /(^|[\W])(@(.+?\d+))(:\w+)?/
 
   def initialize(input, context = nil)
     @input = input.strip
@@ -15,7 +15,7 @@ class BioFormatter
   end
 
   def mentioned_players
-    player_ids = @input.scan(REGEX).map(&:last).uniq
+    player_ids = @input.scan(REGEX).map{|m| m[2]}.uniq
     Player.where(id: player_ids)
   end
 
@@ -29,8 +29,12 @@ class BioFormatter
     @input.gsub(REGEX) do |match|
       player = players[$3]
       if player
-        if player.id == @context
-          $1 << player.name
+        field_index = match.index(':').try(:+, 1)
+        if !field_index.nil?
+          field = match[field_index..-1]
+          $1 << player.send(field).to_s
+        elsif player.id == @context
+            $1 << player.name
         else
           $1 << %([#{player.name}](#{player.link} "#{player.view_player_text}"))
         end
