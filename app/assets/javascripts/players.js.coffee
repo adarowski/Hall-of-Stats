@@ -29,7 +29,9 @@ $ ->
         data: 'name=' + request.term,
         success: (data) ->
           response( $.map(data, (item) ->
-            { label: item.full_name, value: item.id }))
+            label = "#{item.full_name}"
+            label += " (#{item.years_played})" if item.years_played != ""
+            { label: label, value: item.id }))
     minLength: 2,
     select: (event, ui) ->
       event.target.value = ''

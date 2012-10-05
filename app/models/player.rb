@@ -23,7 +23,7 @@ class Player < ActiveRecord::Base
   scope :hall_worthy, where("hall_rating > 100")
 
   scope :name_like, lambda {|name|
-    select("concat(first_name, ' ', last_name) as full_name, id").
+    select("concat(first_name, ' ', last_name) as full_name, id, first_year, last_year").
       where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name", name: "#{name}%")
   }
 
