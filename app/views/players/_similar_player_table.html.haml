@@ -1,0 +1,15 @@
+%section#similar-players
+  %table
+    %caption
+      = captions.first
+      %small= captions.last
+    %thead
+      %tr
+        %th Players
+        %th Hall Rating
+    %tbody
+      - @player.send(kind).each do |player|
+        %tr{class: ("current" if @player.id == player.id)}
+          %th
+            %a{href: player_path(player)}= player.name
+          %td= player.hall_rating.round

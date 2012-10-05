@@ -42,4 +42,12 @@ class Player < ActiveRecord::Base
   def hall_worthy?
     hall_rating > 100
   end
+
+  def upcoming?
+    !hos && !hof && hall_worthy?
+  end
+
+  def removed?
+    !hos && hof
+  end
 end

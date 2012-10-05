@@ -184,56 +184,14 @@
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
 
-- if @player.hos == true
-  %section#similar-players
-    %table
-      %caption
-        = @player.position_name.pluralize
-        %small in the Hall of Stats
-      %thead
-        %tr
-          %th Players
-          %th Hall Rating
-      %tbody
-        - @player.players_of_same_position.each do |player|
-          %tr{class: ("current" if @player.id == player.id)}
-            %th
-              %a{href: player_path(player)}= player.name
-            %td= player.hall_rating.round
+- if @player.hos
+  = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
 
-- elsif @player.hos == false && @player.hof == true
-  %section#similar-players
-    %table
-      %caption
-        Players Removed
-        %small from the Hall of Fame
-      %thead
-        %tr
-          %th Players
-          %th Hall Rating
-      %tbody
-        - @player.players_removed.each do |player|
-          %tr{class: ("current" if @player.id == player.id)}
-            %th
-              %a{href: player_path(player)}= player.name
-            %td= player.hall_rating.round
+- elsif @player.removed?
+  = render 'similar_player_table', kind: :players_removed, captions: ["Players Removed", "from the Hall of Fame"]
 
-- elsif @player.hos == false && @player.hof == false && @player.hall_rating > 100
-  %section#similar-players
-    %table
-      %caption
-        Future Inductees
-        %small to the Hall of Stats (when eligible)
-      %thead
-        %tr
-          %th Players
-          %th Hall Rating
-      %tbody
-        - @player.players_upcoming.each do |player|
-          %tr{class: ("current" if @player.id == player.id)}
-            %th
-              %a{href: player_path(player)}= player.name
-            %td= player.hall_rating.round
+- elsif @player.upcoming?
+  = render 'similar_player_table', kind: :players_upcoming, captions: ["Future Inductees", "to the Hall of Stats (when eligible)"]
 
 - if @player.articles.published.any?
   %section#list-of-articles
