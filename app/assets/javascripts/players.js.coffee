@@ -23,6 +23,7 @@ $ ->
     $("#win-value tfoot").hide()
 
   $('input.autocomplete').autocomplete(
+    html: true,
     source: (request, response) ->
       $.ajax '/autocomplete',
         type: 'POST',
@@ -30,7 +31,7 @@ $ ->
         success: (data) ->
           response( $.map(data, (item) ->
             label = "#{item.full_name}"
-            label += " (#{item.years_played})" if item.years_played != ""
+            label += " <span class='years-played'> (#{item.years_played})</span>" if item.years_played != ""
             { label: label, value: item.id }))
     minLength: 2,
     select: (event, ui) ->
