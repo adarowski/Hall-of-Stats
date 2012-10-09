@@ -5,11 +5,14 @@
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
     %title Hall of Stats
     %link{href: 'http://fonts.googleapis.com/css?family=Lora', rel: 'stylesheet', type: 'text/css'}
-    = stylesheet_link_tag    "application", :media => "all"
+    %link{href: '/articles.rss', rel: 'alternate', type: 'application/rss+xml'}
+
+    = stylesheet_link_tag "application", :media => "all"
     = yield :header_styles
     = auto_discovery_link_tag(:rss, articles_url(format: "rss"))
     = javascript_include_tag "application"
     = csrf_meta_tags
+
   %body{body_attributes}
     #layout
 
