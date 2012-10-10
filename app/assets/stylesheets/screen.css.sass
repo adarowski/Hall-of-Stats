@@ -263,17 +263,24 @@ header.generic
   @extend #section-padding
 
 #search
-  @extend #section-padding
   input[type=search]
     font-size: 100%
     width: 100%
     +border_radius(0)
     -webkit-appearance: none
-    border: 1px solid #ccc
-    padding: 2px
+    border: 0
+    border-top: 3px solid fade_out($default_color, 0.8)
+    padding: 10px
+    margin: 0
     font-family: $text_font
     position: relative
-    z-index: 3
+    .home &
+      border-top: none
+  input[type=search]::-webkit-search-decoration,
+  input[type=search]::-webkit-search-cancel-button,
+  input[type=search]::-webkit-search-results-button,
+  input[type=search]::-webkit-search-results-decoration
+    -webkit-appearance: none
 
 #similar-players
   th, td
@@ -392,7 +399,6 @@ table
 footer
   background-color: fade_out($default_color, 0.8)
   padding: 10px 10px 40px
-  margin-top: 20px
   p
     +multi_paragraphs
     font-size: 75%
@@ -523,8 +529,8 @@ article
         font-size: 80%
         margin: 5px 0
     figure
-      float: left
-      margin: 1em 25px 1em 0
+      float: right
+      margin: 1em 0 1em 25px
       width: 98px
       text-align: center
       figcaption
@@ -538,16 +544,13 @@ article
       font-size: 20px
 
 .ui-autocomplete
-  +box_shadow(#666, 0 0 8px)
+  border-top: 3px solid fade_out($default_color, 0.8)
+  border-bottom: 3px solid fade_out($default_color, 0.8)
   background-color: fade_out(white, .05)
-  border:
-    style: solid
-    color: #ccc
-    width: 0 1px 1px
   margin: 0
-  padding: 10px
+  padding: 5px
   z-index: 2 !important
-  max-width: 460px
+  max-width: 480px
   li
     list-style: none
     padding: 0
@@ -556,7 +559,7 @@ article
       display: block
       border-top: 1px solid #EEE
       cursor: pointer
-      padding: 2px 0
+      padding: 5px
     &:first-child a
       border-top: 0
       padding-top: 0
