@@ -15,7 +15,10 @@
       %dt.years Years
       %dd.years #{@player.years_played}
     %dt.hall-rating<> Hall Rating
-    %dd.hall-rating= @player.hall_rating.round
+    - unless @player.hall_rating > 99 && @player.hos == false
+      %dd.hall-rating= @player.hall_rating.round
+    - else
+      %dd.hall-rating= @player.hall_rating
 
   - if @player.has_photo?
     = image_tag "thumbs/#{@player.id}.jpg", alt: "#{@player.name} Photo", width: '90', height: '135', :class => 'portrait'
