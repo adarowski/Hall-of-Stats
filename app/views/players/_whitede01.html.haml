@@ -1,0 +1,15 @@
+- content_for(:header_styles) do
+  %style{:type => 'text/css'}
+    :sass
+      #branding
+        border-top: 1px solid fade_out(black, 0.7)
+        background-color: fade_out(black, 0.8)
+      #photo-hint
+        background-color: fade_out(black, 0.7)
+
+
+= image_tag 'photos/whitede01.jpg', alt: 'Deacon White Photo', width: '480'
+%span#photo-hint
+  That’s
+  = succeed "." do
+    = link_to "Deacon White", player_path('whitede01')
