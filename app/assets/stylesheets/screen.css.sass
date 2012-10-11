@@ -266,7 +266,7 @@ header.generic
     +border_radius(0)
     -webkit-appearance: none
     border: 0
-    border-top: 3px solid fade_out($default_color, 0.8)
+    border-top: 2px solid fade_out($default_color, 0.8)
     padding: 10px
     margin: 0
     font-family: $text_font
@@ -289,7 +289,7 @@ header.generic
 #intro
   @extend #section-padding
   font-size: 85%
-  border-top: 3px solid fade_out($default_color, 0.8)
+  border-top: 2px solid fade_out($default_color, 0.8)
   p
     +multi_paragraphs
     margin: 10px 0
@@ -363,6 +363,7 @@ table
         background-color: fade_out($good_color, 0.2)
         position: absolute
         bottom: 100%
+        +border_radius(3px 3px 0 0)
       &:first-child:before
         left: .5%
       &:nth-child(2):before
@@ -459,6 +460,7 @@ section#inductees
         height: 100%
         background-color: fade_out($default_color, .9)
         z-index: 1
+        +border_radius(0 4px 4px 0)
       &:hover
         &:after
           background-color: fade_out($default_color, .85)
@@ -494,7 +496,7 @@ section#inductees
   ul
     list-style: none
     margin: 0
-    padding: 10px
+    padding: 5px 10px 10px
   li
     padding: 2px 0
   a
