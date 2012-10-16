@@ -32,6 +32,13 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
+- if @player.alt_hof?
+  %section#hof-status
+    #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
+    - if @player.alt_hof == 'nl'
+      Major League
+    player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+
 - if @player.bio?
   %section#bio
     = raw BioFormatter.new(@player.bio, @player.id)

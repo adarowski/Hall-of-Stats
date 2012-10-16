@@ -19,6 +19,13 @@ class PlayerDecorator < Draper::Base
     'npos' => 'No Position'
   }
 
+  ALT_HOFS = {
+    'mgr' => 'Manager',
+    'pioneer' => 'Pioneer/Executive',
+    'ump' => 'Umpire',
+    'nl' => 'Negro League player'
+  }
+
   # don't use the helper so that we can be called from PlayerLinker
   def link
     "/player/#{id}"
@@ -26,6 +33,10 @@ class PlayerDecorator < Draper::Base
 
   def position_name
     POSITIONS[player.position]
+  end
+
+  def alt_hof_name
+    ALT_HOFS[player.alt_hof]
   end
 
   def players_of_same_position
