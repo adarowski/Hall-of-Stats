@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004015215) do
+ActiveRecord::Schema.define(:version => 20121016171144) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20121004015215) do
     t.integer  "last_year"
     t.integer  "runs_pitch"
     t.string   "img_url"
+    t.string   "alt_hof"
   end
 
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true
