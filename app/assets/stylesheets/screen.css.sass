@@ -503,8 +503,15 @@ section#inductees
   li
     padding: 2px 0
   a
-    &:link, &:visited, &:hover, &:active
+    display: block
+    &:link, &:visited
       color: white
+    &:hover, &:active
+      color: fade_out(white, .2)
+    &#show-p, &#show-added
+      border-top: 1px solid fade_out(white, .8)
+      padding-top: 4px
+      margin-top: 4px
   span
     color: black
     background-color: #FFC
