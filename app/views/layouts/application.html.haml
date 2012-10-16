@@ -31,11 +31,6 @@
           Follow
           %a{:href => "http://twitter.com/hallofstats"} @HallOfStats
           on Twitter.
-        %p
-          The Hall of Stats is based on WAR data provided by
-          = succeed "." do
-            %a{:href => "http://baseball-reference.com"} Baseball-Reference
-          Seriously, Baseball-Reference is awesome for providing all of their WAR data, free of charge.
         - if @player && @player.has_photo?
           %p
             %a{href: @player.img_url} #{@player.name} photo
