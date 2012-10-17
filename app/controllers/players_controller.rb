@@ -12,6 +12,6 @@ class PlayersController < ApplicationController
   end
 
   def autocomplete
-    render json: Player.name_like(params[:name]).map{|p| {full_name: p.full_name, id: p.id, years_played: p.years_played} }
+    render json: Player.name_like(params[:name]).by_rank.map{|p| {full_name: p.full_name, id: p.id, years_played: p.years_played} }
   end
 end
