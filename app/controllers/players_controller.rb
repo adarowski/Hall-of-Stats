@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
     @articles = Article.published.by_published_at
     # Defaults to Christy Mathewson if we haven't set cover models.
     # Because he's so dreamy.
-    @cover_model = PlayerDecorator.new(Player.cover_models.order('RANDOM()').first || Player.find('mathech01'))
+    @cover_model = PlayerDecorator.new(Player.find('mathech01'))
   end
 
   def show
