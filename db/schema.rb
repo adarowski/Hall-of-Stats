@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016171144) do
+ActiveRecord::Schema.define(:version => 20121017164924) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20121016171144) do
     t.decimal  "waa_p"
     t.decimal  "war_tot"
     t.decimal  "waa_tot"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "photo_path"
     t.text     "bio"
     t.integer  "first_year"
@@ -100,8 +100,10 @@ ActiveRecord::Schema.define(:version => 20121016171144) do
     t.integer  "runs_pitch"
     t.string   "img_url"
     t.string   "alt_hof"
+    t.boolean  "cover_model",   :default => false
   end
 
+  add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true
 
 end

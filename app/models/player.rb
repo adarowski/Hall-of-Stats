@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
     :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
-    :last_year, :runs_pitch, :img_url, :photo_path, :alt_hof,
+    :last_year, :runs_pitch, :img_url, :photo_path, :alt_hof, :cover_model,
     as: :admin
 
   scope :of_position, lambda{|position_abbrev|
@@ -28,6 +28,8 @@ class Player < ActiveRecord::Base
   }
 
   scope :front_page, where("hof is true or hos is true or (hos is false and hall_rating > 100)")
+
+  scope :cover_models, where('cover_model is true')
 
   has_and_belongs_to_many :articles
 

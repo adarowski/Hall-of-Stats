@@ -73,6 +73,7 @@ ActiveAdmin.register Player do
 
       f.input :img_url
       f.input :photo_path
+      f.input :cover_model
 
       f.input :bio
     end
