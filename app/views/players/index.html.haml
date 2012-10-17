@@ -40,6 +40,18 @@
         %a#show-upcoming{:href => "#show-upcoming"}
           %span 32
           Not Yet Eligible but Hall-Worthy
+      %li
+        %a#show-active-but-worthy{:href => '#show-active-but-worthy'}
+          %span 40
+          Active but Hall-Worthy
+      %li
+        %a#show-active-and-close{:href => '#show-active-and-close'}
+          %span 40
+          Active and Close
+      %li
+        %a#show-close-call{:href => '#show-close-call'}
+          %span 40
+          Close Calls
 
   %ol#hos-list.player-list
     - @players.each do |player|

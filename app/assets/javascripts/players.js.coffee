@@ -3,6 +3,9 @@ filters = {
   'show-added': '.hos.not-hof'
   'show-removed': '.hof.not-hos'
   'show-upcoming': '.upcoming.not-hos'
+  'show-active-but-worthy': '.active-but-worthy.not-hos'
+  'show-active-and-close': '.active-and-close.not-hos'
+  'show-close-call': '.close-call.not-hos'
 }
 
 for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
