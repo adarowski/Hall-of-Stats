@@ -30,7 +30,7 @@ $default_color: $blue_color
   &:after
     content: '▼'
     font-size: 65%
-    margin-left: .25em
+    margin-left: .4em
 
 .portrait
   border: 4px solid #EEE
@@ -90,8 +90,10 @@ header.generic
   top: 8px
   right: 10px
   display: inline-block
-  color: #FFF
+  color: fade_out(white, 0.4)
   +add_arrow
+  &:hover
+    color: white
 
 .home
   header
@@ -238,6 +240,7 @@ header.generic
         overflow: hidden
         text-overflow: ellipsis
         padding-right: 10px
+        text-indent: 2px
         &:after
           content: " Longevity"
           font-weight: normal
@@ -545,12 +548,21 @@ article
       figcaption
         font-size: 70%
     h3
-      margin:
-        left: -10px
-        right: -10px
+      margin: 10px -10px
       background-color: fade_out($default_color, 0.8)
       padding: 2px 10px
       font-size: 20px
+    h4
+      font-size: 110%
+      margin: 10px 0
+    ul
+      padding-left: 24px
+    li
+      margin-top: 5px
+      &:first-child
+        margin-top: 0
+      > ul
+        margin-top: 5px
 
 .ui-autocomplete
   border-top: 3px solid fade_out($default_color, 0.8)
@@ -577,6 +589,22 @@ article
       font-size: 14px
       font-weight: normal
       padding-left: 5px
+
+.banner
+  position: relative
+  width: 100%
+  margin: 0
+  img
+    max-width: 100%
+    display: block
+  figcaption
+    position: absolute
+    bottom: 10px
+    left: 10px
+    font-size: 70%
+  a
+    &:link, &:visited, &:hover, &:active
+      color: black
 
 // PLAYER-SPECIFIC STYLES
 

@@ -1,5 +1,10 @@
 = render 'shared/header'
 
+%figure.banner
+  %img{:src => "/assets/photos/foxx.jpg"}/
+  %figcaption
+    %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
+
 %article{class: 'long-form'}
 
   %header
@@ -7,12 +12,11 @@
 
   - content = capture_haml do
     :plain
-
       When the Hall of Fame ballot comes out each year, the debates start. Columnists compare today’s players to those of a “better time” and lament about the weakening of the Hall of Fame’s purity. The thing is, that “purity” doesn’t actually exist.
 
       For every @ruthba01, @cobbty01, @youngcy01, and @johnswa01 in the Hall of Fame there’s a @mccarto01, @wanerll01, @haineje01, and @marquru01.
 
-      There’s a huge gap between Babe Ruth and Tommy McCarthy. How do you determine what “Hall-worthy” really is then? If you enshrine every player better than McCarthy, your Hall of Fame will have a population of ###. If you hold everyone to the same standards as Babe Ruth—or even @gwynnto01—you won’t be adding Hall of Famers very often.
+      There’s a huge gap between Babe Ruth and Tommy McCarthy. How do you determine what “Hall-worthy” really is then? If you enshrine every player better than McCarthy, your Hall of Fame will have a population of 1,478. If you hold everyone to the same standards as Babe Ruth—or even @gwynnto01—you won’t be adding Hall of Famers very often.
 
       And what fun is a Hall of Fame if you’re only honoring a few players?
 
@@ -32,7 +36,29 @@
 
       ### The Formula ###
 
-      *Stuff about the formula goes here.*
+      The Hall of Stats is populated by a mathematical formula based on the Baseball-Reference version of Wins Above Replacement (WAR). A previous version of the Hall of Stats was called the Hall of wWAR. wWAR stands for "weighted WAR", which basically means the formula starts with WAR and applies a series of weights. wWAR is still a big part of the Hall of Stats, but it now has a completely different formula.
+
+      <code>wWAR = adjWAR + (1.68*adjWAA)</code>
+
+      Before I go into what adjWAR and adjWAA are (and where the 1.68 comes from), I want to explain what Hall Rating is.
+
+      #### Hall Rating ####
+
+      Hall Rating is simply wWAR expressed in a more intuitive way. The Hall of Stats borderline for induction is represented by a Hall Rating of 100. This is similar to how 100 represents league average in OPS+ or wRC+.
+
+      You could say that @ruthba01's career (Hall Rating of @ruthba01:hall_rating) is worth induction four times over.
+
+      #### adjWAR (Adjusted Wins Above Replacement) ####
+
+      adjWAR attempts to capture the value of the player above a replacement player. It starts with a player's WAR and features a series of adjustments:
+
+      * Position player WAR is adjusted for schedule length. In this case, a hitter gets more credit for a 3.0 WAR season during a 80-game schedule than he does for the same WAR in a 162-game season.
+        * This same adjustment is not given for pitchers, since shorter schedules allowed pitchers to be used more often. The exception is strike- or war-shortened years (where both pitchers and hitters are given an adjustment for how long the schedule would have been).
+        * It is important to note that this adjustment is made based on the schedule length and not the number of games the player appeared in. A player who appeared in 120 games of a 162-game schedule does not receive any extra credit.
+        * Players are not given 100% of the credit for games they did not play. Instead, they are awarded the average of their actual WAR and their projected WAR. This helps us from over-adjusting for 19th century players.
+      * Catchers receive a generous positional adjustment from WAR. But this adjustment only rewards them for time actually spent on the field. Catchers play fewer games in a season and have shorter careers. Therefore, catchers are given an extra 20% boost. Without this adjustment, there would be very few catchers in the Hall of Stats. And that just wouldn't be right.
+      * Relievers are similar to catchers in that they get a boost from WAR (via the leverage index), but it is not nearly enough to bring their WAR values close to their starting counterparts. I'm actually not sure what type of adjustment relievers should get (if any). Without an adjustment, we would have no relievers in the Hall of Stats. I decided to simply use the same adjustment I used for catchers. This helped @wilheho01 gain induction while @gossari01 fell short).
+
 
   = raw BioFormatter.new(content)
 
