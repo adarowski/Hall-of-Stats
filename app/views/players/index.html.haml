@@ -22,46 +22,12 @@
         %a#show-all{href: '#show-all'}
           %span #{Player.in_hos.count}
           Inductees
-      %li
-        %a#show-p{:href => "#show-p"}
-          %span 74
-          Pitchers
-      %li
-        %a#show-c{:href => "#show-c"}
-          %span 14
-          Catchers
-      %li
-        %a#show-1b{:href => "#show-1b"}
-          %span 21
-          First Basemen
-      %li
-        %a#show-2b{:href => "#show-2b"}
-          %span 14
-          Second Basemen
-      %li
-        %a#show-3b{:href => "#show-3b"}
-          %span 13
-          Third Basemen
-      %li
-        %a#show-ss{:href => "#show-ss"}
-          %span 17
-          Shortstops
-      %li
-        %a#show-lf{:href => "#show-lf"}
-          %span 20
-          Left Fielders
-      %li
-        %a#show-cf{:href => "#show-cf"}
-          %span 13
-          Center Fielders
-      %li
-        %a#show-rf{:href => "#show-rf"}
-          %span 20
-          Right Fielders
-      %li
-        %a#show-dh{:href => "#show-dh"}
-          %span 2
-          Designated Hitters
+      - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+        %li
+          %a{id: "show-#{position}", href: '#show-p'}
+            %span= Player.in_hos.of_position(position).count
+            = PlayerDecorator::POSITIONS[position].pluralize
+
       %li
         %a#show-added{:href => "#show-added"}
           %span 69
