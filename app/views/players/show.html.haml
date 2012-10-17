@@ -101,22 +101,15 @@
       After adjusting for length of schedule, catchers, and relief pitchers, the #{@player.war_tot} WAR becomes
       <strong>#{@player.war162_tot}</strong> <em>adj</em>WAR. Then, WAA is adjusted by ignoring negative seasons
       (thus, truly capturing a player’s peak seasons) and making similar adjustments for catchers and relief pitchers.
-      - if @player.position == "p" || @player.last_year < 1900
-        Additionally, in the event that a player’s WAR and WAA are very similar (a phenomenon that you can see with
-        pitcher’s hitting value and players from weaker leagues like the Union Association), the WAA is ignored.
       After these adjustments, the #{@player.waa_tot} WAA becomes <strong>#{@player.waa0_tot}</strong> <em>adj</em>WAA.
 
     %p
       Then, the <em>adj</em>WAR and <em>adj</em>WAA are combined, but with extra weighting given to <em>adj</em>WAA.
-      Specifically, the formula is #{@player.war162_tot} + (#{@player.waa0_tot}*1.68). This gives #{@player.last_name}
-      <strong>#{@player.wwar}</strong> wWAR.
-
+      This gives #{@player.last_name} <strong>#{@player.wwar}</strong> wWAR. wWAR is then converted to Hall Rating. 
+      A Hall Rating of 100 represents the Hall of Stats borderline (similar to OPS+ or wRC+, where 100 represents league average).
     %p
-      Finally, in order to make the Hall of Stats borderline more intuitive, the wWAR value is normalized so that 100
-      represents the borderline. This is called Hall Rating and it works similarly to OPS+ or wRC+ (anyone above 100
-      is in the Hall of Stats—anyone below is out). #{@player.first_name} #{@player.last_name} has a Hall Rating of
-      <strong>#{@player.hall_rating.round}</strong>,
-      - if @player.last_year > 2007
+      #{@player.first_name} #{@player.last_name} has a Hall Rating of <strong>#{@player.hall_rating.round}</strong>,
+      - if @player.eligibility == "upcoming"
         = succeed "." do
           - if @player.hall_rating > 180
             meaning he will not only be in the Hall of Stats when eligible—he will rate as one of the very best players of all time.
@@ -125,14 +118,14 @@
           - elsif @player.hall_rating > 100
             meaning he will be in the Hall of Stats when eligible—but very close to the borderline
           - elsif @player.hall_rating > 90
-            meaning he will not be in the Hall of Stats when eligible—but he would be close
+            meaning he will not be in the Hall of Stats when eligible—but he will be close
           - elsif @player.hall_rating > 80
-            meaning he will significantly short of the Hall of Stats when eligible
+            meaning he will fall significantly short of the Hall of Stats when eligible
           - elsif @player.hall_rating > 60
             meaning he will not be in the Hall of Stats when eligible
           - else
             leaving him nowhere close to induction to the Hall of Stats when eligible
-      - elsif @player.last_year > 2009
+      - elsif @player.eligibility == "active"
         = succeed "." do
           - if @player.hall_rating > 180
             meaning he would not only be in the Hall of Stats if his career ended today—he would rate as one of the very best players of all time.
