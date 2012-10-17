@@ -18,8 +18,8 @@ class Player < ActiveRecord::Base
 
   scope :in_hos, where(hos: true)
   scope :in_hof, where(hof: true)
-  scope :not_in_hos, where(hos: false)
-  scope :not_in_hof, where(hof: false)
+  scope :not_in_hos, where('hos is not true')
+  scope :not_in_hof, where('hof is not true')
   scope :hall_worthy, where("hall_rating > 100")
 
   scope :name_like, lambda {|name|
@@ -30,6 +30,10 @@ class Player < ActiveRecord::Base
   scope :front_page, where("hof is true or hos is true or (hos is false and hall_rating > 100)")
 
   scope :cover_models, where('cover_model is true')
+
+  scope :added, not_in_hof.in_hos
+  scope :removed, in_hof.not_in_hos
+  scope :upcoming, not_in_hof.not_in_hos.hall_worthy
 
   has_and_belongs_to_many :articles
 

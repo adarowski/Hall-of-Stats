@@ -30,15 +30,15 @@
 
       %li
         %a#show-added{:href => "#show-added"}
-          %span 69
+          %span= Player.added.count
           Added to the Hall
       %li
         %a#show-removed{:href => "#show-removed"}
-          %span 69
+          %span= Player.removed.count
           Removed from the Hall
       %li
         %a#show-upcoming{:href => "#show-upcoming"}
-          %span 32
+          %span= Player.upcoming.count
           Not Yet Eligible but Hall-Worthy
       %li
         %a#show-active-but-worthy{:href => '#show-active-but-worthy'}
