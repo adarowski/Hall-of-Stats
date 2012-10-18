@@ -37,7 +37,9 @@
 
       ### The Formula ###
 
-      The Hall of Stats is populated by a mathematical formula based on the [Baseball-Reference](http://baseball-reference.com) version of Wins Above Replacement (WAR). A previous version of the Hall of Stats was called the [Hall of wWAR](http://darowski.com/hall-of-wwar). wWAR stands for “weighted Wins Above Replacement”, which basically means the formula starts with WAR and applies a series of weights. wWAR is still a big part of the Hall of Stats, but it now has a completely different formula.
+      The Hall of Stats is populated by a mathematical formula based on the [Baseball-Reference](http://baseball-reference.com) versions of Wins Above Average (WAA) and Wins Above Replacement (WAR). WAA combines all aspects of a player’s game—hitting, pitching, baserunning, fielding, positional value, and more—and estimates how many more wins that player was worth than an *average* player. WAR takes that a step further and estimates how many more wins the player is worth than a *replacement* player. (I wrote an article with more detail about [Wins Above Average vs. Wins Above Replacement](http://www.highheatstats.com/2012/07/wins-above-replacement-war-vs-wins-above-average-waa/).)
+
+      The precursor to the Hall of Stats was called the [Hall of wWAR](http://darowski.com/hall-of-wwar). wWAR stands for “weighted Wins Above Replacement”, which basically means the formula starts with WAR and applies a series of weights. wWAR is still a big part of the Hall of Stats, but it now has a completely different formula.
 
           wWAR = adjWAR + (1.68*adjWAA)
 
@@ -45,9 +47,9 @@
 
       #### Hall Rating ####
 
-      Hall Rating is simply wWAR expressed in a more intuitive way. The Hall of Stats borderline for induction is represented by a Hall Rating of 100. This is similar to how 100 represents league average in OPS+ or wRC+.
+      Hall Rating is simply wWAR expressed in a more intuitive way (you’ll see Hall Rating displayed on the Hall of Stats, but not wWAR). The Hall of Stats borderline for induction is represented by a Hall Rating of 100. This is similar to how 100 represents league average in OPS+ or wRC+.
 
-      You could say that @ruthba01’s career (with a Hall Rating of @ruthba01:hall_rating) is worth induction four times over.
+      With a Hall Rating of @ruthba01:hall_rating, you could say that @ruthba01’s career was worth about four Hall of Fame careers. Meanwhile, @piercbi02 essentially sits on the Hall of Stats borderline with a Hall Rating of @piercbi02:hall_rating. Hall of Famer @brocklo01 is not included in the Hall of Stats becuase his Hall Rating is just @brocklo01:hall_rating.
 
       #### adjWAR <span>(Adjusted Wins Above Replacement)</span> ####
 
@@ -92,31 +94,25 @@
 
       *Note that each of these bios was written by Adam so he could gush about some of his favorite people.*
 
-      <figure><img src="/assets/photos/darowski.jpg" class="portrait" /></figure>
-
       #### Adam Darowski ####
 
       Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog). A Massachusetts native, Adam tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski).
-
-      <figure><img src="/assets/photos/chupp.jpg" class="portrait" /></figure>
 
       #### Jeffrey Chupp ####
 
       A former co-worker of Adam’s at PatientsLikeMe, Jeffrey is currently a Rails developer for [Terrible Labs](http://terriblelabs.com). Adam and Jeffrey previously collaborated on the [Red Sox Hall of wWAR](http://redsox.hallofstats.com/), a [Baseball Hack Day](http://baseballhackday.com/) project. Jeffrey is simply the Babe Ruth of Rails developers. There is nobody better. You can follow Jeffrey on Twitter at [@semanticart](http://twitter.com/semanticart).
 
-      <figure><img src="/assets/photos/berkowitz.jpg" class="portrait" /></figure>
-
       #### Michael Berkowitz ####
 
-      If Jeffrey is the Babe Ruth of Rails developers, then Michael is the Albert Pujols (on his way to becoming one of the very best ever). A current co-worker of Adam’s at PatientsLikeMe, Michael is also a [singer/songwriter](http://www.myspace.com/michaelberkowitz). You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
+      If Jeffrey is the Babe Ruth of Rails developers, then Michael is the Mike Trout. A current co-worker of Adam’s at PatientsLikeMe, Michael is also a [singer/songwriter](http://www.myspace.com/michaelberkowitz). You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
 
-      ***
+      ### The Tech ###
 
       Adam developed the concept of the Hall of Stats, researched, crunched numbers, designed, and styled. Jeffrey took Adam’s designs and numbers and actually built the site (while helping Adam learn to be a little more self-sufficient along the way). Jeffrey also handled most of the Javascript duties. Michael helped Jeffrey out with some smaller coding projects.
 
       The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), and [CoffeeScript](http://coffeescript.org/).
 
-      ***
+      ### Thank You ###
 
       **Thank You** to my three favorite Seans—**Sean Forman** of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Finally, a huge thank you to Jeffrey and Michael for helping me build the site of my dreams.
 
