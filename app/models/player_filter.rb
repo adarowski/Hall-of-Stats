@@ -28,7 +28,7 @@ module PlayerFilter
   end
 
   def self.upcoming
-    rating_above?(100) && not_hos? && @player.eligibility == 'upcoming' ? 'upcoming' : nil
+    rating_above?(100) && not_hos? && !@player.hof && @player.eligibility == 'upcoming' ? 'upcoming' : nil
   end
 
   def self.active_but_worthy
@@ -51,7 +51,6 @@ module PlayerFilter
     @player.hall_rating > rating
   end
 
-  #def self.rating_above_and_not_hos?(rating)
   def self.not_hos?
     !@player.hos
   end
