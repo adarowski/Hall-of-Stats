@@ -24,33 +24,26 @@
           Inductees
       - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
         %li
-          %a{id: "show-#{position}", href: '#show-p'}
+          %a{id: "show-#{position}", href: "#show-#{position}"}
             %span= Player.in_hos.of_position(position).count
             = PlayerDecorator::POSITIONS[position].pluralize
-
-      %li
-        %a#show-added{:href => "#show-added"}
-          %span= Player.added.count
-          Added to the Hall
-      %li
-        %a#show-removed{:href => "#show-removed"}
-          %span= Player.removed.count
-          Removed from the Hall
-      %li
-        %a#show-upcoming{:href => "#show-upcoming"}
-          %span= Player.upcoming.count
-          Not Yet Eligible but Hall-Worthy
+      - non_position_filters.each do |key, text|
+        %li
+          - dash_key = key.to_s.gsub(/_/, '-')
+          %a{id: "show-#{dash_key}", href: "#show-#{dash_key}"}
+            %span= Player.send(key).count
+            = text
       %li
         %a#show-active-but-worthy{:href => '#show-active-but-worthy'}
-          %span 40
+          %span= Player.active_but_worthy.count
           Active but Hall-Worthy
       %li
         %a#show-active-and-close{:href => '#show-active-and-close'}
-          %span 40
+          %span= Player.active_and_close.count
           Active and Close
       %li
         %a#show-close-call{:href => '#show-close-call'}
-          %span 40
+          %span= Player.close_call.count
           Close Calls
 
   %ol#hos-list.player-list

@@ -27,4 +27,11 @@ module ApplicationHelper
   def absolutize(content)
     Absolutizer.absolutize_html(content, host_href)
   end
+
+  def non_position_filters
+    { added: 'Added to the Hall',
+      removed: 'Removed from the Hall',
+      upcoming: 'Not Yet Eligible but Hall-Worthy',
+    }
+  end
 end
