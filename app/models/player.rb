@@ -38,7 +38,7 @@ class Player < ActiveRecord::Base
   scope :added, not_in_hof.in_hos
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
-  scope :active_but_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
+  scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
   scope :active_and_close, not_in_hos.hall_rating_above(80).where("eligibility = 'active'")
   scope :close_call, not_in_hos.hall_rating_above(90).where("eligibility != 'active'")
 

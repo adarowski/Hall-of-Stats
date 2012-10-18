@@ -9,7 +9,7 @@ describe PlayerFilter do
   subject(:filter) { PlayerFilter }
 
   it { filter.filters_for(player_one).should == %w( p not-hof hos ) }
-  it { filter.filters_for(player_two).should == %w( 1b not-hof not-hos active-and-close ) }
-  it { filter.filters_for(player_three).should == %w( c not-hof not-hos upcoming close-call ) }
-  it { filter.filters_for(player_four).should == %w( p not-hof not-hos active-but-worthy active-and-close ) }
+  it { filter.filters_for(player_two).should == %w( 1b not-hof not-hos ) }
+  it { filter.filters_for(player_three).should == %w( c not-hof not-hos upcoming ) }
+  it { filter.filters_for(player_four).should == %w( p not-hof not-hos active-and-worthy ) }
 end

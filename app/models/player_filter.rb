@@ -7,9 +7,7 @@ module PlayerFilter
       hof,
       hos,
       upcoming,
-      active_but_worthy,
-      active_and_close,
-      close_call
+      active_and_worthy
     ].compact
   end
 
@@ -31,16 +29,8 @@ module PlayerFilter
     rating_above?(100) && not_hos? && !@player.hof && @player.eligibility == 'upcoming' ? 'upcoming' : nil
   end
 
-  def self.active_but_worthy
-    active? && rating_above?(100) && not_hos? ? 'active-but-worthy' : nil
-  end
-
-  def self.active_and_close
-    active? && rating_above?(80) && not_hos? ? 'active-and-close' : nil
-  end
-
-  def self.close_call
-    !active? && rating_above?(90) && not_hos? ? 'close-call' : nil
+  def self.active_and_worthy
+    active? && rating_above?(100) && not_hos? ? 'active-and-worthy' : nil
   end
 
   def self.active?
