@@ -33,18 +33,6 @@
           %a{id: "show-#{dash_key}", href: "#show-#{dash_key}"}
             %span= Player.send(key).count
             = text
-      %li
-        %a#show-active-but-worthy{:href => '#show-active-but-worthy'}
-          %span= Player.active_but_worthy.count
-          Active but Hall-Worthy
-      %li
-        %a#show-active-and-close{:href => '#show-active-and-close'}
-          %span= Player.active_and_close.count
-          Active and Close
-      %li
-        %a#show-close-call{:href => '#show-close-call'}
-          %span= Player.close_call.count
-          Close Calls
 
   %ol#hos-list.player-list
     - @players.each do |player|
