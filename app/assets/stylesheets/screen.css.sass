@@ -81,6 +81,9 @@ hr
   max-width: 480px
   margin: 0 auto
   +box_shadow(#333, 0 0 10px)
+  .home &
+    @media only screen and (min-width: 640px)
+      max-width: 800px
 
 header.generic
   background-color: $default_color
@@ -108,7 +111,7 @@ header.generic
   header
     position: relative
     overflow: hidden
-    max-height: 600px
+    max-height: 700px
     h1
       font-size: 200%
       font-family: $title_font
@@ -119,6 +122,8 @@ header.generic
       line-height: 1
       z-index: 2
       position: relative
+      @media only screen and (min-width: 640px)
+        font-size: 360%
     p
       color: white
       padding: 0 10px
@@ -126,6 +131,8 @@ header.generic
       margin: 0 0 10px
       z-index: 2
       position: relative
+      @media only screen and (min-width: 640px)
+        font-size: 120%
     img
       width: 100%
       height: auto
@@ -171,7 +178,6 @@ header.generic
     background-color: fade_out(black, 0.4)
   .carutbo01 &, .johnswa01 &
     background-color: fade_out(black, 0.5)
-
 
 #player-id
   background-color: fade_out($default_color, 0.8)
@@ -331,6 +337,10 @@ header.generic
     &:first-child
       font-size: 120%
       font-weight: bold
+  @media only screen and (min-width: 640px)
+    float: right
+    width: 40%
+    border-top: 5px solid fade_out($default_color, 0.4)
 
 #list-of-bios
   @extend #section-padding
@@ -353,6 +363,9 @@ header.generic
 
 #list-of-articles
   @extend #list-of-bios
+  @media only screen and (min-width: 640px)
+    float: right
+    width: 40%
 
 table
   width: 100%
@@ -438,6 +451,10 @@ footer
     margin: 10px 0
     &:first-child
       font-weight: bold
+  .home &
+    @media only screen and (min-width: 640px)
+      border-top: 5px solid fade_out($default_color, 0.4)
+      clear: both
 
 #about-expanded
   +border_radius(5px)
@@ -522,6 +539,12 @@ section#inductees
         padding: 10px
         position: relative
         z-index: 2
+
+  @media only screen and (min-width: 640px)
+    float: left
+    width: 60%
+    border-right: 5px solid fade_out($default_color, .4)
+    min-height: 800px
 
 #filters
   position: absolute
