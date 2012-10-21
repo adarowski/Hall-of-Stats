@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017164924) do
+ActiveRecord::Schema.define(:version => 20121021125039) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -105,5 +105,17 @@ ActiveRecord::Schema.define(:version => 20121017164924) do
 
   add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true
+
+  create_table "similarity_scores", :id => false, :force => true do |t|
+    t.string   "player1_id", :null => false
+    t.string   "player2_id", :null => false
+    t.decimal  "score",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "similarity_scores", ["player1_id", "player2_id"], :name => "index_similarity_scores_on_player1_id_and_player2_id", :unique => true
+  add_index "similarity_scores", ["player1_id"], :name => "index_similarity_scores_on_player1_id"
+  add_index "similarity_scores", ["player2_id"], :name => "index_similarity_scores_on_player2_id"
 
 end
