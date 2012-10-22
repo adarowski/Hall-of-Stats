@@ -363,9 +363,10 @@ header.generic
 
 #list-of-articles
   @extend #list-of-bios
-  @media only screen and (min-width: 640px)
-    float: right
-    width: 40%
+  .home &
+    @media only screen and (min-width: 640px)
+      float: right
+      width: 40%
 
 table
   width: 100%
