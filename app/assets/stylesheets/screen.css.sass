@@ -84,7 +84,7 @@ hr
   +box_shadow(#333, 0 0 10px)
   .home &
     @media only screen and (min-width: 640px)
-      max-width: 800px
+      max-width: 768px
 
 header.generic
   background-color: $default_color
@@ -341,7 +341,6 @@ header.generic
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
-    border-top: 5px solid fade_out($default_color, 0.4)
 
 #list-of-bios
   @extend #section-padding
@@ -454,7 +453,6 @@ footer
       font-weight: bold
   .home &
     @media only screen and (min-width: 640px)
-      border-top: 5px solid fade_out($default_color, 0.4)
       clear: both
 
 #about-expanded
@@ -541,10 +539,12 @@ section#inductees
         position: relative
         z-index: 2
 
+    @media only screen and (min-width: 640px)
+      border-right: 2px solid fade_out($default_color, .8)
+
   @media only screen and (min-width: 640px)
     float: left
     width: 60%
-    border-right: 5px solid fade_out($default_color, .4)
     min-height: 800px
 
 #filters
