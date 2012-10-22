@@ -79,9 +79,11 @@ hr
 
 #layout
   background: #FFF url(/assets/old_mathematics.png) 0 0
-  max-width: 480px
+  max-width: 768px
   margin: 0 auto
   +box_shadow(#333, 0 0 10px)
+  .player &
+    max-width: 480px
   .home &
     @media only screen and (min-width: 640px)
       max-width: 768px
