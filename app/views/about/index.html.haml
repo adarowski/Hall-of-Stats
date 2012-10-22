@@ -1,14 +1,14 @@
 = render 'shared/header'
 
-%figure.banner
-  %img{:src => "/assets/photos/foxx.jpg"}/
-  %figcaption
-    %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
-
 %article{class: 'long-form'}
 
   %header
     %h2 About the Hall of Stats
+
+  %figure.banner
+    %img{:src => "/assets/photos/foxx.jpg"}/
+    %figcaption
+      %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
 
   - content = capture_haml do
     :plain
