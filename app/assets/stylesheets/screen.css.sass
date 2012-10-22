@@ -77,16 +77,19 @@ hr
   height: 1px
   background-color: fade_out($default_color, .8)
 
-#layout
-  background: #FFF url(/assets/old_mathematics.png) 0 0
+#layout, footer
   max-width: 768px
   margin: 0 auto
-  +box_shadow(#333, 0 0 10px)
   .player &
     max-width: 480px
   .home &
     @media only screen and (min-width: 640px)
       max-width: 768px
+
+#layout
+  background: #FFF url(/assets/old_mathematics.png) 0 0
+  +box_shadow(#333, 0 0 10px)
+  overflow: hidden
 
 header.generic
   background-color: $default_color
@@ -453,17 +456,15 @@ table
     +multi_paragraphs
 
 footer
-  background-color: fade_out($default_color, 0.8)
-  padding: 10px 10px 80px
+  color: #DDD
+  padding: 10px 0 80px
   p
     +multi_paragraphs
     font-size: 75%
     margin: 10px 0
-    &:first-child
-      font-weight: bold
-  .home &
-    @media only screen and (min-width: 640px)
-      clear: both
+  a
+    &:link, &:visited, &:hover, &:active
+      color: #FFF
 
 #about-expanded
   +border_radius(5px)
@@ -641,10 +642,16 @@ article
   background-color: fade_out(white, .05)
   margin: 0
   padding: 5px
-  z-index: 2 !important
-  max-width: 480px
+  z-index: 3 !important
+  max-width: 480px !important
   @media only screen and (min-width: 640px)
-    max-width: 458px
+    max-width: 768px !important
+  .home &
+    @media only screen and (min-width: 640px)
+      max-width: 460px !important
+  .player &
+    @media only screen and (min-width: 640px)
+      max-width: 480px !important
 
   li
     list-style: none

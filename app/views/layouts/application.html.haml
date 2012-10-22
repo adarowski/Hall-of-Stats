@@ -19,20 +19,20 @@
 
       = yield
 
-      %footer
+    %footer
+      %p
+        The Hall of Stats was built by
+        = succeed "," do
+          %a{:href => "http://darowski.com"} Adam Darowski
+        = succeed "," do
+          %a{:href => "http://semanticart.com"} Jeffrey Chupp
+        and
+        = succeed "." do
+          %a{:href => "http://twitter.com/hal678"} Michael Berkowitz
+        Follow
+        %a{:href => "http://twitter.com/hallofstats"} @HallOfStats
+        on Twitter.
+      - if @player && @player.has_photo?
         %p
-          The Hall of Stats was built by
-          = succeed "," do
-            %a{:href => "http://darowski.com"} Adam Darowski
-          = succeed "," do
-            %a{:href => "http://semanticart.com"} Jeffrey Chupp
-          and
-          = succeed "." do
-            %a{:href => "http://twitter.com/hal678"} Michael Berkowitz
-          Follow
-          %a{:href => "http://twitter.com/hallofstats"} @HallOfStats
-          on Twitter.
-        - if @player && @player.has_photo?
-          %p
-            %a{href: @player.img_url} #{@player.name} photo
-            used by permission.
+          %a{href: @player.img_url} #{@player.name} photo
+          used by permission.
