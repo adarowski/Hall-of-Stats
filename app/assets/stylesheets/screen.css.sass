@@ -321,6 +321,11 @@ header.generic
   input[type=search]::-webkit-search-results-decoration
     -webkit-appearance: none
 
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
+    float: left
+    width: 60%
+
 #similar-players
   th, td
     &:first-child
@@ -341,6 +346,7 @@ header.generic
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
+    border-top: 0
 
 #list-of-bios
   @extend #section-padding
@@ -634,6 +640,9 @@ article
   padding: 5px
   z-index: 2 !important
   max-width: 480px
+  @media only screen and (min-width: 640px)
+    max-width: 458px
+
   li
     list-style: none
     padding: 0
