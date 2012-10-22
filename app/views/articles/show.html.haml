@@ -4,7 +4,9 @@
 
   %header
     %h2= @article.title
-    %span= @article.published_at.stamp("Jan 1, 2012")
+    %span
+      = @article.published_at.stamp("Jan 1, 2012")
+      by Adam Darowski
 
   = raw @article.formatted_body
 
