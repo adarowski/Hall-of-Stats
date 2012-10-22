@@ -20,7 +20,8 @@
     - else
       %dd.hall-rating= @player.hall_rating.round
   - if @player.has_photo?
-    = image_tag "thumbs/#{@player.id}.jpg", alt: "#{@player.name} Photo", width: '90', height: '135', :class => 'portrait'
+    %figure.portrait
+      = image_tag "thumbs/#{@player.id}.jpg", alt: "#{@player.name} Photo", width: '90', height: '135'
 
 - if @player.peak_pct
   %section#value-breakdown

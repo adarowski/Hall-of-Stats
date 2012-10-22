@@ -32,7 +32,7 @@ $default_color: $blue_color
     font-size: 65%
     margin-left: .4em
 
-.portrait
+.portrait img
   border: 4px solid #EEE
   +border_radius(5px)
   +box_shadow(#666, 0 0 8px)
@@ -56,8 +56,9 @@ body
   margin: 0
   color: #222
 
-header, footer, section
+header, footer, section, figure
   display: block
+  margin: 0
 
 a
   font-weight: bold
@@ -187,7 +188,7 @@ header.generic
     min-height: 170px
     padding-right: 125px
 
-  img
+  .portrait
     position: absolute
     top: 10px
     right: 10px
@@ -592,7 +593,7 @@ article
         color: #666
         font-size: 80%
         margin: 5px 0
-    figure
+    .portrait
       float: right
       margin: 15px 0 15px 25px
       width: 98px
@@ -652,8 +653,6 @@ article
 
 .banner
   position: relative
-  width: 100%
-  margin: 0
   img
     max-width: 100%
     display: block
@@ -683,13 +682,13 @@ $max_hall_rating: 401.3
 #ruthba01:after
   +bar_width(401.3)
 #bondsba01:after
-  +bar_width(361.5)
+  +bar_width(361.6)
 #youngcy01:after
   +bar_width(342.1)
 #mayswi01:after
-  +bar_width(334.9)
+  +bar_width(334.8)
 #johnswa01:after
-  +bar_width(334.2)
+  +bar_width(334)
 #cobbty01:after
   +bar_width(317.3)
 #aaronha01:after
@@ -699,9 +698,9 @@ $max_hall_rating: 401.3
 #hornsro01:after
   +bar_width(289.6)
 #wagneho01:after
-  +bar_width(282.7)
+  +bar_width(282.6)
 #willite01:after
-  +bar_width(279.5)
+  +bar_width(279.4)
 #speaktr01:after
   +bar_width(278.3)
 #musiast01:after
@@ -709,7 +708,9 @@ $max_hall_rating: 401.3
 #collied01:after
   +bar_width(251.5)
 #alexape01:after
-  +bar_width(250.4)
+  +bar_width(250.3)
+#rodrial01:after
+  +bar_width(241)
 #gehrilo01:after
   +bar_width(240.4)
 #nichoki01:after
@@ -717,31 +718,39 @@ $max_hall_rating: 401.3
 #mantlmi01:after
   +bar_width(237.1)
 #grovele01:after
-  +bar_width(229.2)
+  +bar_width(229.3)
 #henderi01:after
   +bar_width(227.3)
 #ottme01:after
-  +bar_width(225.7)
+  +bar_width(225.8)
 #schmimi01:after
   +bar_width(225.7)
 #lajoina01:after
   +bar_width(225)
+#maddugr01:after
+  +bar_width(218.6)
 #seaveto01:after
   +bar_width(216.2)
 #ansonca01:after
   +bar_width(215.5)
+#johnsra05:after
+  +bar_width(215.1)
 #robinfr02:after
   +bar_width(208.1)
 #mathech01:after
-  +bar_width(207.6)
+  +bar_width(207.5)
 #foxxji01:after
   +bar_width(204.7)
 #morgajo02:after
   +bar_width(202)
+#pujolal01:after
+  +bar_width(198.6)
 #matheed01:after
   +bar_width(189.7)
 #clemero01:after
   +bar_width(187.9)
+#martipe02:after
+  +bar_width(186.2)
 #boggswa01:after
   +bar_width(185.3)
 #ripkeca01:after
@@ -749,29 +758,33 @@ $max_hall_rating: 401.3
 #blylebe01:after
   +bar_width(184.6)
 #kalinal01:after
-  +bar_width(184.1)
+  +bar_width(184.2)
 #niekrph01:after
   +bar_width(183.5)
 #connoro01:after
-  +bar_width(183.5)
+  +bar_width(183.3)
 #yastrca01:after
   +bar_width(181.1)
 #benchjo01:after
   +bar_width(180.2)
 #broutda01:after
-  +bar_width(179.1)
+  +bar_width(178.9)
 #brettge01:after
   +bar_width(177.7)
 #spahnwa01:after
-  +bar_width(172.7)
+  +bar_width(172.6)
 #keefeti01:after
   +bar_width(172.5)
 #schilcu01:after
   +bar_width(170.6)
+#griffke02:after
+  +bar_width(169.4)
+#jonesch06:after
+  +bar_width(168.9)
 #gibsobo01:after
   +bar_width(168.5)
 #planked01:after
-  +bar_width(167.6)
+  +bar_width(167.5)
 #perryga01:after
   +bar_width(167.3)
 #dimagjo01:after
@@ -781,9 +794,11 @@ $max_hall_rating: 401.3
 #cartega01:after
   +bar_width(164.5)
 #bagweje01:after
-  +bar_width(162.3)
+  +bar_width(162.1)
 #clarkjo01:after
   +bar_width(162)
+#mussimi01:after
+  +bar_width(161.9)
 #carltst01:after
   +bar_width(159.9)
 #gehrich01:after
@@ -795,37 +810,43 @@ $max_hall_rating: 401.3
 #jenkife01:after
   +bar_width(153.5)
 #roberro01:after
-  +bar_width(152.3)
+  +bar_width(152.2)
 #vaughar01:after
   +bar_width(149.9)
 #walkela01:after
-  +bar_width(149.2)
+  +bar_width(149.5)
 #rosepe01:after
   +bar_width(148.6)
+#rodriiv01:after
+  +bar_width(147.8)
 #delahed01:after
-  +bar_width(147.6)
+  +bar_width(147.5)
+#glavito02:after
+  +bar_width(147.2)
 #smithoz01:after
   +bar_width(145.6)
 #robinbr01:after
   +bar_width(145.3)
 #piazzmi01:after
-  +bar_width(144.9)
+  +bar_width(144.2)
 #applilu01:after
   +bar_width(144.1)
 #mizejo01:after
   +bar_width(143.7)
-#wallabo01:after
-  +bar_width(142.7)
 #dahlebi01:after
   +bar_width(142.5)
+#wallabo01:after
+  +bar_width(142.5)
 #larkiba01:after
-  +bar_width(142.1)
+  +bar_width(141.9)
 #whitalo01:after
   +bar_width(141.9)
 #jacksre01:after
   +bar_width(141.5)
 #trammal01:after
   +bar_width(141.1)
+#rolensc01:after
+  +bar_width(140.9)
 #yountro01:after
   +bar_width(140.5)
 #ryanno01:after
@@ -836,6 +857,8 @@ $max_hall_rating: 401.3
   +bar_width(138.9)
 #radboch01:after
   +bar_width(138.5)
+#hallaro01:after
+  +bar_width(138.3)
 #wanerpa01:after
   +bar_width(138.2)
 #santoro01:after
@@ -844,68 +867,84 @@ $max_hall_rating: 401.3
   +bar_width(137.4)
 #galvipu01:after
   +bar_width(137.2)
+#thomafr04:after
+  +bar_width(136.6)
 #brownke01:after
   +bar_width(135.9)
 #heilmha01:after
   +bar_width(135.3)
 #hubbeca01:after
   +bar_width(135.3)
+#smoltjo01:after
+  +bar_width(135.1)
 #berrayo01:after
   +bar_width(133.8)
 #glassja01:after
   +bar_width(133.4)
 #reuscri01:after
   +bar_width(133)
+#thomeji01:after
+  +bar_width(132.6)
 #martied01:after
   +bar_width(132.3)
 #rusieam01:after
   +bar_width(131.9)
 #crawfsa01:after
-  +bar_width(131.4)
-#hamilbi01:after
-  +bar_width(131)
+  +bar_width(131.3)
 #bondto01:after
   +bar_width(130.9)
-#walshed01:after
-  +bar_width(130.2)
+#hamilbi01:after
+  +bar_width(130.8)
 #boudrlo01:after
   +bar_width(130.2)
+#walshed01:after
+  +bar_width(130.2)
 #mccorji01:after
-  +bar_width(130.1)
+  +bar_width(130)
 #loftoke01:after
   +bar_width(129.6)
 #simmoal01:after
-  +bar_width(129.3)
+  +bar_width(129.4)
 #sandbry01:after
   +bar_width(129.1)
 #snidedu01:after
   +bar_width(129)
 #jacksjo01:after
   +bar_width(128.6)
+#jeterde01:after
+  +bar_width(127.9)
+#beltrca01:after
+  +bar_width(127.5)
+#ramirma02:after
+  +bar_width(127.3)
 #tiantlu01:after
   +bar_width(127.3)
 #vanceda01:after
-  +bar_width(127.2)
+  +bar_width(127.3)
 #raineti01:after
   +bar_width(127)
 #coneda01:after
   +bar_width(126.8)
 #clarkfr01:after
-  +bar_width(126.7)
+  +bar_width(126.6)
 #dickebi01:after
   +bar_width(126.1)
 #fellebo01:after
   +bar_width(126.1)
-#newhoha01:after
-  +bar_width(125.7)
-#biggicr01:after
+#riverma01:after
   +bar_width(125.9)
+#newhoha01:after
+  +bar_width(125.6)
+#jonesan01:after
+  +bar_width(125.5)
 #buffich01:after
   +bar_width(125.5)
 #gwynnto01:after
   +bar_width(125.4)
 #bankser01:after
   +bar_width(125.3)
+#biggicr01:after
+  +bar_width(125.2)
 #robinja02:after
   +bar_width(124.7)
 #mccovwi01:after
@@ -915,7 +954,7 @@ $max_hall_rating: 401.3
 #cronijo01:after
   +bar_width(124.2)
 #alomaro01:after
-  +bar_width(124.2)
+  +bar_width(124)
 #palmeji01:after
   +bar_width(123.6)
 #randowi01:after
@@ -925,17 +964,19 @@ $max_hall_rating: 401.3
 #nettlgr01:after
   +bar_width(122.9)
 #lyonste01:after
-  +bar_width(122.5)
+  +bar_width(122.4)
 #mcgwima01:after
+  +bar_width(122.3)
+#beltrad01:after
   +bar_width(122.3)
 #bakerfr01:after
   +bar_width(122)
 #covelst01:after
-  +bar_width(121.8)
+  +bar_width(121.9)
 #willivi01:after
   +bar_width(121.8)
 #palmera01:after
-  +bar_width(121.3)
+  +bar_width(121.2)
 #murraed02:after
   +bar_width(121)
 #spaldal01:after
@@ -950,43 +991,49 @@ $max_hall_rating: 401.3
   +bar_width(120.3)
 #saberbr01:after
   +bar_width(120.1)
+#heltoto01:after
+  +bar_width(119.7)
 #dawsoan01:after
   +bar_width(119.6)
 #reesepe01:after
   +bar_width(119.3)
-#carutbo01:after
-  +bar_width(118.2)
+#edmonji01:after
+  +bar_width(119.2)
+#utleych01:after
+  +bar_width(119)
 #bunniji01:after
   +bar_width(118.1)
+#carutbo01:after
+  +bar_width(118.1)
 #cochrmi01:after
-  +bar_width(117.8)
+  +bar_width(117.7)
 #greenha01:after
-  +bar_width(117.3)
+  +bar_width(117.2)
 #ashburi01:after
   +bar_width(117.1)
-#wadderu01:after
-  +bar_width(115.9)
 #gordojo01:after
   +bar_width(116.3)
+#wadderu01:after
+  +bar_width(116)
 #whitede01:after
   +bar_width(115.5)
 #bandosa01:after
   +bar_width(115.3)
-#ewingbu01:after
-  +bar_width(114.6)
 #boyerke01:after
   +bar_width(114.8)
-#mathebo01:after
+#ewingbu01:after
   +bar_width(114.6)
 #faberre01:after
-  +bar_width(114.5)
+  +bar_width(114.6)
+#mathebo01:after
+  +bar_width(114.6)
 #allendi01:after
   +bar_width(114.4)
 #gosligo01:after
   +bar_width(113.9)
-#maricju01:after
-  +bar_width(113.8)
 #sosasa01:after
+  +bar_width(113.8)
+#maricju01:after
   +bar_width(113.8)
 #hernake01:after
   +bar_width(113.5)
@@ -995,21 +1042,23 @@ $max_hall_rating: 401.3
 #griffcl01:after
   +bar_width(113.1)
 #burkeje01:after
-  +bar_width(112.8)
+  +bar_width(112.6)
+#sheffga01:after
+  +bar_width(112.3)
 #welchmi01:after
   +bar_width(112.1)
 #brownmo01:after
   +bar_width(111.9)
 #mcginjo01:after
   +bar_width(111.7)
-#sislege01:after
-  +bar_width(110.8)
 #winfida01:after
   +bar_width(111.4)
 #stiebda01:after
   +bar_width(111.3)
 #bondsbo01:after
   +bar_width(111.2)
+#sislege01:after
+  +bar_width(110.8)
 #torrejo01:after
   +bar_width(110.6)
 #simmote01:after
@@ -1019,52 +1068,66 @@ $max_hall_rating: 401.3
 #appieke01:after
   +bar_width(109.7)
 #adamsba01:after
-  +bar_width(109.7)
+  +bar_width(109.6)
 #willibi01:after
+  +bar_width(109.6)
+#abreubo01:after
   +bar_width(109.6)
 #wynnji01:after
   +bar_width(109.4)
 #mageesh01:after
   +bar_width(109.1)
+#guerrvl01:after
+  +bar_width(108.9)
 #orouji01:after
   +bar_width(107.9)
-#shockur01:after
-  +bar_width(107.9)
 #ferrewe01:after
-  +bar_width(107.9)
+  +bar_width(107.8)
+#shockur01:after
+  +bar_width(107.8)
 #cicoted01:after
   +bar_width(107.6)
 #becklja01:after
-  +bar_width(107.6)
+  +bar_width(107.4)
 #wheatza01:after
-  +bar_width(107.3)
+  +bar_width(107.2)
 #suttodo01:after
   +bar_width(107.2)
 #lemonch01:after
   +bar_width(107)
+#santajo02:after
+  +bar_width(107)
 #terrybi01:after
   +bar_width(106.5)
+#oswalro01:after
+  +bar_width(106.2)
 #quinnja01:after
-  +bar_width(106)
+  +bar_width(106.1)
 #finlech01:after
   +bar_width(105.6)
 #wilheho01:after
   +bar_width(105.5)
+#suzukic01:after
+  +bar_width(104.8)
 #johnsbo01:after
   +bar_width(104.7)
 #evansda01:after
   +bar_width(104.3)
+#hudsoti01:after
+  +bar_width(103.8)
 #fordwh01:after
-  +bar_width(103.9)
+  +bar_width(103.8)
+#pettian01:after
+  +bar_width(103.5)
 #wynnea01:after
-  +bar_width(103.6)
+  +bar_width(103.4)
 #medwijo01:after
   +bar_width(103.1)
+#tenacge01:after
+  +bar_width(102.9)
 #stargwi01:after
   +bar_width(102.9)
 #kingsi01:after
-  +bar_width(102.9)
-#tenacge01:after
   +bar_width(102.9)
 #wardjo01:after
   +bar_width(102.6)
@@ -1077,225 +1140,164 @@ $max_hall_rating: 401.3
 #bennech01:after
   +bar_width(101.4)
 #dobyla01:after
-  +bar_width(101.2)
+  +bar_width(101.3)
 #clarkwi02:after
   +bar_width(101.1)
+#sabatc01:after
+  +bar_width(101)
 #daviswi02:after
   +bar_width(101)
-#piercbi02:after
-  +bar_width(100.3)
 #coopewi01:after
-  +bar_width(100.8)
-#kellyki01:after
-  +bar_width(100.4)
+  +bar_width(100.7)
+#kentje01:after
+  +bar_width(100.6)
 #munsoth01:after
   +bar_width(100.6)
 #woodwi01:after
   +bar_width(100.5)
 #koufasa01:after
   +bar_width(100.5)
+#kellyki01:after
+  +bar_width(100.4)
+#piercbi02:after
+  +bar_width(100.3)
 #hershor01:after
   +bar_width(100)
-
-#jennihu01:after
-  +bar_width(86.2)
-#jackstr01:after
-  +bar_width(86.5)
-#rizzuph01:after
-  +bar_width(75.4)
-#bancrda01:after
-  +bar_width(92.9)
-#seweljo01:after
-  +bar_width(88.6)
-#aparilu01:after
-  +bar_width(92.4)
-#maranra01:after
-  +bar_width(70.9)
-#thompsa01:after
-  +bar_width(84.1)
-#youngro01:after
-  +bar_width(60.4)
-#kleinch01:after
-  +bar_width(85.2)
-#cuyleki01:after
-  +bar_width(86.8)
-#slaugen01:after
-  +bar_width(91.8)
-#keelewi01:after
-  +bar_width(96.9)
-#hoopeha01:after
-  +bar_width(81.8)
-#ricesa01:after
-  +bar_width(79)
-#mccarto01:after
-  +bar_width(26.2)
-#deandi01:after
-  +bar_width(92.8)
-#lemonbo01:after
-  +bar_width(75.3)
-#jossad01:after
-  +bar_width(84.3)
-#bendech01:after
-  +bar_width(89.7)
 #ruffire01:after
-  +bar_width(99.4)
-#suttebr01:after
-  +bar_width(53.1)
-#chesbja01:after
-  +bar_width(75)
-#gomezle01:after
-  +bar_width(73.6)
-#gossari01:after
-  +bar_width(87.6)
-#grimebu01:after
-  +bar_width(92.8)
-#rixeyep01:after
-  +bar_width(98)
-#hoytwa01:after
-  +bar_width(91.4)
-#fingero01:after
-  +bar_width(49.9)
-#hunteca01:after
-  +bar_width(61.4)
-#pennohe01:after
-  +bar_width(77.8)
-#haineje01:after
-  +bar_width(56.2)
-#marquru01:after
-  +bar_width(63.1)
-#kinerra01:after
-  +bar_width(91.1)
-#hafeych01:after
-  +bar_width(55.8)
-#kellejo01:after
-  +bar_width(96.8)
-#duffyhu01:after
-  +bar_width(75.2)
-#riceji01:after
-  +bar_width(81.9)
-#manushe01:after
-  +bar_width(75.6)
-#brocklo01:after
-  +bar_width(69.8)
-#wilsoha01:after
-  +bar_width(75.6)
-#puckeki01:after
-  +bar_width(92)
-#averiea01:after
-  +bar_width(86.5)
-#combsea01:after
-  +bar_width(73.8)
-#roushed01:after
-  +bar_width(85)
-#careyma01:after
-  +bar_width(94)
-#wanerll01:after
-  +bar_width(32.9)
-#bresnro01:after
-  +bar_width(92.1)
-#lombaer01:after
-  +bar_width(99)
-#camparo01:after
-  +bar_width(76.3)
-#ferreri01:after
-  +bar_width(49.3)
-#schalra01:after
-  +bar_width(47.9)
+  +bar_width(99.2)
 #colliji01:after
   +bar_width(99.1)
-#kellge01:after
-  +bar_width(64.4)
-#lindsfr01:after
-  +bar_width(49.6)
-#traynpi01:after
-  +bar_width(58.9)
-#doerrbo01:after
-  +bar_width(95.9)
-#eversjo01:after
-  +bar_width(86.8)
+#lombaer01:after
+  +bar_width(99)
 #hermabi01:after
   +bar_width(98.1)
-#lazzeto01:after
-  +bar_width(85.8)
+#rixeyep01:after
+  +bar_width(98)
+#keelewi01:after
+  +bar_width(96.9)
+#kellejo01:after
+  +bar_width(96.8)
+#doerrbo01:after
+  +bar_width(95.9)
 #mcphebi01:after
-  +bar_width(95.1)
-#foxne01:after
-  +bar_width(88.4)
-#schoere01:after
-  +bar_width(64.6)
-#mazerbi01:after
-  +bar_width(49.5)
-#chancfr01:after
-  +bar_width(93.2)
-#cepedor01:after
-  +bar_width(81)
+  +bar_width(94.9)
+#careyma01:after
+  +bar_width(94)
 #perezto01:after
   +bar_width(93.6)
+#chancfr01:after
+  +bar_width(93.1)
+#bancrda01:after
+  +bar_width(92.9)
+#deandi01:after
+  +bar_width(92.8)
+#grimebu01:after
+  +bar_width(92.7)
+#aparilu01:after
+  +bar_width(92.4)
+#bresnro01:after
+  +bar_width(92.1)
+#puckeki01:after
+  +bar_width(92)
+#slaugen01:after
+  +bar_width(91.8)
+#hoytwa01:after
+  +bar_width(91.5)
+#kinerra01:after
+  +bar_width(91.1)
+#bendech01:after
+  +bar_width(89.5)
+#seweljo01:after
+  +bar_width(88.6)
+#foxne01:after
+  +bar_width(88.4)
+#gossari01:after
+  +bar_width(87.6)
+#cuyleki01:after
+  +bar_width(86.8)
+#eversjo01:after
+  +bar_width(86.8)
+#averiea01:after
+  +bar_width(86.5)
+#jackstr01:after
+  +bar_width(86.5)
+#jennihu01:after
+  +bar_width(86.2)
+#lazzeto01:after
+  +bar_width(85.8)
+#kleinch01:after
+  +bar_width(85.2)
+#roushed01:after
+  +bar_width(85)
+#jossad01:after
+  +bar_width(84.3)
+#thompsa01:after
+  +bar_width(84)
+#riceji01:after
+  +bar_width(81.9)
+#hoopeha01:after
+  +bar_width(81.8)
+#cepedor01:after
+  +bar_width(81)
+#ricesa01:after
+  +bar_width(79)
+#pennohe01:after
+  +bar_width(77.8)
+#camparo01:after
+  +bar_width(76.3)
+#wilsoha01:after
+  +bar_width(75.6)
+#manushe01:after
+  +bar_width(75.6)
+#rizzuph01:after
+  +bar_width(75.4)
+#duffyhu01:after
+  +bar_width(75.2)
+#lemonbo01:after
+  +bar_width(75.1)
+#chesbja01:after
+  +bar_width(75)
+#combsea01:after
+  +bar_width(73.8)
+#gomezle01:after
+  +bar_width(73.7)
+#maranra01:after
+  +bar_width(70.9)
+#brocklo01:after
+  +bar_width(69.9)
+#schoere01:after
+  +bar_width(64.6)
+#kellge01:after
+  +bar_width(64.4)
+#marquru01:after
+  +bar_width(63.2)
+#hunteca01:after
+  +bar_width(61.4)
+#youngro01:after
+  +bar_width(60.4)
 #bottoji01:after
   +bar_width(59.7)
+#traynpi01:after
+  +bar_width(58.9)
+#haineje01:after
+  +bar_width(56.3)
+#hafeych01:after
+  +bar_width(55.8)
+#suttebr01:after
+  +bar_width(53.1)
+#fingero01:after
+  +bar_width(49.9)
+#lindsfr01:after
+  +bar_width(49.6)
+#mazerbi01:after
+  +bar_width(49.5)
+#ferreri01:after
+  +bar_width(49.2)
+#schalra01:after
+  +bar_width(47.9)
 #kellyge01:after
-  +bar_width(41)
-#rodrial01:after
-  +bar_width(240.8)
-#maddugr01:after
-  +bar_width(218.6)
-#johnsra05:after
-  +bar_width(215.1)
-#pujolal01:after
-  +bar_width(188.9)
-#martipe02:after
-  +bar_width(186.2)
-#griffke02:after
-  +bar_width(169.4)
-#jonesch06:after
-  +bar_width(163.3)
-#mussimi01:after
-  +bar_width(161.9)
-#rodriiv01:after
-  +bar_width(147.9)
-#glavito02:after
-  +bar_width(147.2)
-#rolensc01:after
-  +bar_width(139.8)
-#hallaro01:after
-  +bar_width(137.6)
-#thomafr04:after
-  +bar_width(136.8)
-#smoltjo01:after
-  +bar_width(135.1)
-#thomeji01:after
-  +bar_width(131.5)
-#jeterde01:after
-  +bar_width(127.7)
-#ramirma02:after
-  +bar_width(127.6)
-#jonesan01:after
-  +bar_width(125.2)
-#riverma01:after
-  +bar_width(125)
-#beltrca01:after
-  +bar_width(120.5)
-#heltoto01:after
-  +bar_width(119.3)
-#edmonji01:after
-  +bar_width(119)
-#utleych01:after
-  +bar_width(112.6)
-#sheffga01:after
-  +bar_width(112.5)
-#abreubo01:after
-  +bar_width(109.9)
-#guerrvl01:after
-  +bar_width(109.3)
-#beltrad01:after
-  +bar_width(107.6)
-#santajo02:after
-  +bar_width(107.3)
-#oswalro01:after
-  +bar_width(106.6)
-#kentje01:after
-  +bar_width(104.9)
-#suzukic01:after
-  +bar_width(103.4)
-#hudsoti01:after
-  +bar_width(101.9)
+  +bar_width(41.1)
+#wanerll01:after
+  +bar_width(32.9)
+#mccarto01:after
+  +bar_width(26.2)
