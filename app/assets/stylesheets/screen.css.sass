@@ -155,7 +155,7 @@ header.generic
   .whitede01 &, .kingsi01 &, .dahlebi01 &, .glassja01 &
     border-top: 1px solid fade_out(black, 0.7)
     background-color: fade_out(black, 0.8)
-  .ferrewe01 &, .robinja02 &, .cicoted01 &, .quinnja01 &, .shockur01 &
+  .ferrewe01 &, .robinja02 &, .cicoted01 &, .quinnja01 &, .shockur01 &, .whitalo01 &, .trammal01 &
     border-top: 1px solid fade_out(black, 0.4)
     background-color: fade_out(black, 0.5)
   .carutbo01 &, .johnswa01 &
@@ -168,9 +168,18 @@ header.generic
   position: absolute
   top: 0
   right: 0
+  bottom: auto
+  left: auto
   padding: 2px 5px
   font-size: 70%
   +border_radius(0 0 0 4px)
+  a
+    font-weight: bold
+  small
+    a
+      font-weight: normal
+      &:link, &:visited, &:hover, &:active
+        color: fade_out(white, 0.3)
   @media only screen and (min-width : 480px)
     font-size: 90%
     padding:
@@ -180,7 +189,7 @@ header.generic
     color: white
   .whitede01 &, .kingsi01 &, .dahlebi01 &, .glassja01 &
     background-color: fade_out(black, 0.7)
-  .ferrewe01 &, .robinja02 &, .cicoted01 &, , .quinnja01 &, .shockur01 &
+  .ferrewe01 &, .robinja02 &, .cicoted01 &, , .quinnja01 &, .shockur01 &, .whitalo01 &, .trammal01 &
     background-color: fade_out(black, 0.4)
   .carutbo01 &, .johnswa01 &
     background-color: fade_out(black, 0.5)
@@ -687,11 +696,10 @@ article
     bottom: 0
     left: 0
     font-size: 70%
-  a
-    display: inline-block
     padding: 2px 10px
     background-color: fade_out(black, 0.5)
     +border_radius(0 4px 0 0)
+  a
     font-weight: normal
     &:link, &:visited
       color: fade_out(white, 0.3)
