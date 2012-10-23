@@ -8,9 +8,11 @@ namespace :similarity do
       players = Player.all
     end
     players.each_with_index do |p1, idx|
+      print "processing #{p1.name} (#{idx+1}/#{players.size})..."
       players[(idx+1)..-1].each do |p2|
         SimilarityScore.record_similarity(p1, p2)
       end
+      puts "Done."
     end
   end
 
