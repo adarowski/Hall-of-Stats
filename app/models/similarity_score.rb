@@ -5,15 +5,11 @@ class SimilarityScore < ActiveRecord::Base
   has_and_belongs_to_many :player2s, class_name: 'Player'
 
   def self.calculator(player1, player2)
-    # actual equation goes here.
-    1
+    SimilarityCalculator.new(player1, player2).score
   end
 
   def self.record_similarity(player1, player2)
-    if  score_for(player1, player2).present?
-      puts "skipping...exists already"
-    else
-      puts "creating..."
+    unless score_for(player1, player2).present?
       create(player1_id: player1.id, player2_id: player2.id, score: calculator(player1, player2))
     end
   end

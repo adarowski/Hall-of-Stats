@@ -14,6 +14,8 @@ class Player < ActiveRecord::Base
     where(position: position_abbrev)
   }
 
+  scope :for_similarity_test, where('pa > 5000 OR ip_outs > 5000')
+
   scope :by_rank, order("hall_rating desc")
 
   scope :in_hos, where(hos: true)
