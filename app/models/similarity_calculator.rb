@@ -13,7 +13,7 @@ class SimilarityCalculator
     runs_pitch +
     waa0_tot(8.4) +
     war162_tot(5) +
-    ip_outs(0.2) +
+    ip_outs(0.05) +
     pa(0.05)
   end
 
