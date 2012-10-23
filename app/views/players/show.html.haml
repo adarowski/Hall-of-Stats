@@ -187,6 +187,22 @@
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
 
+- if SimilarityScore.for_player(@player).any?
+  %section#similar-players
+    %table
+      %caption Similar Players
+      %thead
+        %tr
+          %th Players
+          %th Similarity
+      %tbody
+        - SimilarityScore.for_player(@player).limit(20).each do |score|
+          - player = score.players.find{|p| p.id != @player.id}
+          %tr
+            %th
+              %a{href: player_path(player)}= player.name
+            %td= score.score.round(2)
+
 - if @player.hos
   = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
 
