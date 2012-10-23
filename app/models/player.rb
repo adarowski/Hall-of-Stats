@@ -66,7 +66,4 @@ class Player < ActiveRecord::Base
 
   has_and_belongs_to_many :similarity_scores, foreign_key: :player1_id
   has_and_belongs_to_many :similarity_scores, foreign_key: :player2_id
-  def similarity_to(other_player)
-    SimilarityScore.score_for(self, other_player)
-  end
 end

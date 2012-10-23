@@ -18,14 +18,4 @@ describe Player do
       its(:years_played) { should == '1985' }
     end
   end
-
-  describe "#similarity_to" do
-    let(:player1) { create :player }
-    let(:player2) { create :player }
-    before do
-      SimilarityScore.create(player1_id: player1.id, player2_id: player2.id, score: 3.0)
-    end
-    it { player1.similarity_to(player2).should == 3.0 }
-    it { player2.similarity_to(player1).should == 3.0 }
-  end
 end
