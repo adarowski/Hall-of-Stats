@@ -205,7 +205,11 @@
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
     %table
-      %caption Similar Players
+      %caption
+        Similar Players
+        %small
+          in terms of
+          %strong Value Provided
       %thead
         %tr
           %th Players
@@ -216,7 +220,7 @@
           %tr
             %th
               %a{href: player_path(player)}= player.name
-            %td= score.score.round(2)
+            %td= score.score.round
 
 - if @player.hos
   = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
