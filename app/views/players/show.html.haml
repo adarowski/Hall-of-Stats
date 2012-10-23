@@ -52,8 +52,8 @@
           - if @player.alt_hof?
             *
         - if @player.alt_hof?
-          #alt-hof-note
-            *#{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
+          %span#alt-hof-note
+            * #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
             - if @player.alt_hof == 'nl'
               Major League
             player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
