@@ -326,6 +326,9 @@ header.generic
   td
     text-align: right
 
+#related-players
+  @extend #similar-players
+
 #hos-inductee, #hof-inductee
   display: inline-block
   text-align: center
@@ -400,10 +403,11 @@ header.generic
     width: 40%
     border-top: 0
 
-#list-of-bios
+#list-of-articles
   @extend #section-padding
   h2
     font-size: 100%
+    margin: 0 0 10px
   ul
     font-size: 85%
     list-style: none
@@ -418,13 +422,11 @@ header.generic
   span
     font-weight: normal
     color: #666
-
-#list-of-articles
-  @extend #list-of-bios
   .home &
     @media only screen and (min-width: 640px)
       float: right
       width: 40%
+      border-top: 2px solid fade_out($default_color, .8)
 
 table
   width: 100%
