@@ -208,13 +208,12 @@
   %section#similar-players
     %table
       %caption
-        Similar to #{@player.first_name} #{@player.last_name}
-        %small
-          in terms of
-          %strong Value Provided
+        Similar in Value
+        %small to #{@player.first_name} #{@player.last_name}
       %thead
         %tr
           %th Players
+          %th Hall Rating
           %th Similarity
       %tbody
         - SimilarityScore.for_player(@player).limit(20).each do |score|
@@ -222,6 +221,7 @@
           %tr
             %th
               %a{href: player_path(player)}= player.name
+            %td= player.hall_rating.round
             %td= score.score.round
 
 - if @player.hos

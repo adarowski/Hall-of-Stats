@@ -316,6 +316,15 @@ header.generic
 
 #similar-players
   @extend #section-padding
+  thead
+    th
+      text-align: right
+      &:first-child
+        text-align: left
+  th
+    text-align: left
+  td
+    text-align: right
 
 #hos-inductee, #hof-inductee
   display: inline-block
@@ -375,13 +384,6 @@ header.generic
       border-right: 2px solid fade_out($default_color, .8)
       float: left
       width: 60%
-
-#similar-players
-  th, td
-    &:first-child
-      text-align: left
-    &:last-child
-      text-align: right
 
 #intro
   @extend #section-padding
