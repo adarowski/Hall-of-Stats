@@ -2,13 +2,23 @@
 
 %article{class: 'long-form'}
 
-  %header
+  %header#top
     %h2 About the Hall of Stats
 
   %figure.banner
     %img{:src => "/assets/photos/foxx.jpg"}/
     %figcaption
       %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
+
+  %nav.jump-menu
+    %strong Jump to:
+    %ol
+      %li= link_to "The Formula", "#formula"
+      %li= link_to "Similarity Scores", "#similarity"
+      %li= link_to "More About the Project", "#more"
+      %li= link_to "The Team", "#team"
+      %li= link_to "The Tech", "#tech"
+      %li= link_to "Thank You", "#thanks"
 
   - content = capture_haml do
     :plain
@@ -35,7 +45,7 @@
 
       You decide which Hall is better…
 
-      ### The Formula ###
+      <h3 id="formula">The Formula <a href="#top">Back to Top</a></h3>
 
       The Hall of Stats is populated by a mathematical formula based on the [Baseball-Reference](http://baseball-reference.com) versions of Wins Above Average (WAA) and Wins Above Replacement (WAR). WAA combines all aspects of a player’s game—hitting, pitching, baserunning, fielding, positional value, and more—and estimates how many more wins that player was worth than an *average* player. WAR takes that a step further and estimates how many more wins the player is worth than a *replacement* player. (I wrote an article with more detail about [Wins Above Average vs. Wins Above Replacement](http://www.highheatstats.com/2012/07/wins-above-replacement-war-vs-wins-above-average-waa/).)
 
@@ -79,7 +89,51 @@
 
       To get 1.68, I collected all Hall of Fame inductees (as of 2012) and divided their total WAR by their total WAA.
 
-      ### More About the Project ###
+      <h3 id="similarity">Similarity Scores <a href="#top">Back to Top</a></h3>
+
+      Baseball-Reference uses [Bill James’ similarity scores](http://www.baseball-reference.com/about/similarity.shtml) on their player pages. While Baseball-Reference and Bill James are both wonderful, I don’t think their similarity scores are all that useful.
+
+      What James’ scores show is that two players’ **raw numbers** were similar. Here’s an excerpt of the point system used to identify a pair of "similar" batters:
+
+      > * One point for each difference of 2 home runs.
+      > * One point for each difference of .001 in batting average.
+
+      The issue here is that these numbers are not adjusted for era. A .300 batting average with 8 home runs in the deadball era made you a star. A player with those same numbers in the steroid era actually may have been a below average player, depending on his position.
+
+      Speaking of position, here is part of James’ positional adjustment:
+
+      > * 240 - Catcher
+      > * 168 - Shortstop
+      > * 132 - Second Base
+
+      The 240-point adjustment is applied to all players who primarily caught, regardless of the time spent behind the plate or at other positions.
+
+      #### How We Do It ####
+
+      The Hall of Stats similarity scores are calculated with one thing in mind: **value**. We don’t care how many home runs a player hit or what they’re batting average was. We care how many runs above average a player’s total offensive game was. Similarly, we don’t care what a player’s primary position was. We care about the run values of the time he spent at each of his positions.
+
+      Our similarity scores are calculated using:
+
+      * WAR Batting Runs
+      * WAR Baserunning Runs
+      * WAR Double Play Runs
+      * WAR Defensive Runs
+      * WAR Positional Runs
+      * WAR Pitching Runs
+      * adjWAR
+      * adjWAA
+      * Plate Appearances
+      * Innings Pitched
+
+      The closer a pair’s score gets to zero, the more similar they are. Because most of the inputs are centered around league average, the better a player gets, the harder it is for him to have closely similar players. For example:
+
+      * @boyerke01 and @bandosa01 are very similar players (right down to three characters in their first name and five in their last). Their similarity score is 91. Once you see a pair of players of their caliber that close, you know they provided very similar value.
+      * @deerro01, on the other hand, has a score better than 91 with at least twenty players. Deer is closer to an average player and there at many more players at that part of the bell curve to be similar to.
+      * Lastly, there is basically no good comparison to @ruthba01. @bondsba01 is the closest with a staggering 976.
+
+      Special thanks to **Tim Vaughan** [(@MechanicalTim)](http://twitter.com/MechanicalTim) for giving us a crash course in how to calculate similarity scores.
+
+      <h3 id="more">More About the Project <a href="#top">Back to Top</a></h3>
 
       * All data is based on the [Baseball-Reference](http://baseball-reference.com) version of Wins Above Replacement (WAR). This version was originally created by Sean Smith (aka RallyMonkey) and made available at [BaseballProjection.com](http://baseballprojection.com).
       * I also utilized the [Sean Lahman Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/) for things not made available in Baseball-Reference’s WAR downloads.
@@ -90,13 +144,13 @@
       * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
       * The Hall of Stats only has a “player” designation while the Hall of Fame has other designations. For this reason, @spaldal01 is a Hall of Stats inductee while he is not considered a Hall of Fame *player* (he was inducted as a Pioneer/Executive).
 
-      ### The Team ###
+      <h3 id="team">The Team <a href="#top">Back to Top</a></h3>
 
       *Note that each of these bios was written by Adam so he could gush about some of his favorite people.*
 
       #### Adam Darowski ####
 
-      Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog). A Massachusetts native, Adam tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski).
+      Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog). Adam tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski).
 
       #### Jeffrey Chupp ####
 
@@ -106,15 +160,15 @@
 
       If Jeffrey is the Babe Ruth of Rails developers, then Michael is the Mike Trout. A current co-worker of Adam’s at PatientsLikeMe, Michael is also a [singer/songwriter](http://www.myspace.com/michaelberkowitz). You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
 
-      ### The Tech ###
+      <h3 id="tech">The Tech <a href="#top">Back to Top</a></h3>
 
-      Adam developed the concept of the Hall of Stats, researched, crunched numbers, designed, and styled. Jeffrey took Adam’s designs and numbers and actually built the site (while helping Adam learn to be a little more self-sufficient along the way). Jeffrey also handled most of the Javascript duties. Michael helped Jeffrey out with some smaller coding projects.
+      Adam developed the concept of the Hall of Stats, researched, crunched numbers, designed, and styled. Jeffrey took Adam’s designs and numbers and actually built the site (while helping Adam learn to be a little more self-sufficient along the way). Jeffrey also handled most of the Javascript duties. Michael took on special projects like similarity scores and player search while also helping Jeffrey out with some smaller coding projects.
 
       The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), and [CoffeeScript](http://coffeescript.org/).
 
-      ### Thank You ###
+      <h3 id="thanks">Thank You <a href="#top">Back to Top</a></h3>
 
-      **Thank You** to my three favorite Seans—**Sean Forman** of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Finally, a huge thank you to Jeffrey and Michael for helping me build the site of my dreams.
+      **Thank You** to my three favorite Seans—**Sean Forman** of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Thank you to thw brilliant readers of [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog) for providing wonderful feedback ever since I introduced wWAR. Finally, a huge thank you to Jeffrey and Michael (and Tim!) for helping me build the site of my dreams.
 
   = raw BioFormatter.new(content)
 
