@@ -204,6 +204,18 @@
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
 
+- if @player.articles.published.any?
+  %section#list-of-articles
+    %h2 Related Articles
+    %ul
+      - @player.articles.published.by_published_at.each do |article|
+        %li
+          = link_to article_path(article) do
+            = article.title
+            %span
+              •
+              = article.published_at.stamp("Jan 1, 2012")
+
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
     %table
@@ -223,18 +235,6 @@
               %a{href: player_path(player)}= player.name
             %td= player.hall_rating.round
             %td= score.score.round
-
-- if @player.articles.published.any?
-  %section#list-of-articles
-    %h2 Related Articles
-    %ul
-      - @player.articles.published.by_published_at.each do |article|
-        %li
-          = link_to article_path(article) do
-            = article.title
-            %span
-              •
-              = article.published_at.stamp("Jan 1, 2012")
 
 - if @player.hos
   = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]

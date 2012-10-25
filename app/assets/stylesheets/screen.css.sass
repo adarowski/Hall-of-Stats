@@ -60,6 +60,8 @@ body
   line-height: 1.5
   margin: 0
   color: #222
+  @media only screen and (max-width: 480px)
+    background-image: none
 
 header, footer, section, figure
   display: block
@@ -311,20 +313,26 @@ header.generic
   p
     +multi_paragraphs
   @media only screen and (min-width: 640px)
-    float: right
-    width: 40%
+    float: left
+    width: 60%
 
 #section-padding
   padding: 10px
+  h3
+    font-size: 85%
+    margin: 0 0 10px
+    small
+      color: #666
+      font-size: 85%
+      font-weight: normal
 
 #stats-summary
   @extend #section-padding
   @media only screen and (min-width: 640px)
-    border-right: 2px solid fade_out($default_color, .8)
     float: left
     width: 60%
 
-#similar-players
+#similar-players, #related-players
   @extend #section-padding
   thead
     th
@@ -333,32 +341,19 @@ header.generic
         text-align: left
   th
     text-align: left
+    span
+      font-weight: normal
+      font-size: 85%
   td
     text-align: right
+
+#similar-players
   @media only screen and (min-width: 640px)
-    border-right: 2px solid fade_out($default_color, .8)
-    float: left
-    width: 60%
+    padding: 0 0 0 60%
+    margin: 10px
 
 #related-players
-  @extend #section-padding
-  h3
-    font-size: 85%
-    margin: 0 0 10px
-    small
-      color: #666
-      font-size: 85%
-      font-weight: normal
-  ul
-    font-size: 80%
-    list-style: none
-    margin: 0
-    padding: 0
-    li
-      margin: 0 0 2px
-      padding: 0
   @media only screen and (min-width: 640px)
-    border-right: 2px solid fade_out($default_color, .8)
     float: left
     width: 60%
 
@@ -461,7 +456,6 @@ header.generic
       border-top: 2px solid fade_out($default_color, .8)
   .player &
     @media only screen and (min-width: 640px)
-      border-right: 2px solid fade_out($default_color, .8)
       float: left
       width: 60%
 
@@ -481,13 +475,15 @@ table
   .current
     th, td
       background-color: fade_out($good_color, 0.9)
+      a:link, a:visited
+        color: #000
   thead
     th
       background-color: fade_out($default_color, 0.8)
   caption
     text-align: left
     font-weight: bold
-    padding-bottom: 5px
+    padding-bottom: 10px
     small
       color: #666
       font-size: 85%
