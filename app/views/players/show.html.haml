@@ -33,33 +33,39 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
-- if @player.bio? || @player.eligibility == "eligible"
-  %section#bio
+%section#bio
+  #hof-status
     - if @player.eligibility == "eligible"
-      #hof-status
-        %span#hos-inductee<>
-          - if @player.hos?
-            %span.icon.icon-check
-          - else
-            %span.icon.icon-check-empty
-          Hall of Stats
-        %span#hof-inductee
-          - if @player.hof?
-            %span.icon.icon-check
-          - else
-            %span.icon.icon-check-empty
-          Hall of Fame
-          - if @player.alt_hof?
-            *
+      %span#hos-inductee<>
+        - if @player.hos?
+          %span.icon.icon-check
+        - else
+          %span.icon.icon-check-empty
+        Hall of Stats
+      %span#hof-inductee
+        - if @player.hof?
+          %span.icon.icon-check
+        - else
+          %span.icon.icon-check-empty
+        Hall of Fame
         - if @player.alt_hof?
-          %span#alt-hof-note
-            * #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
-            - if @player.alt_hof == 'nl'
-              Major League
-            player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+          *
+    - else
+      %span#not-eligible
+        %span.icon.icon-check-empty
+        Not Yet Eligible
+        - if @player.eligibility == "active"
+          (Active)
 
-    - if @player.bio?
-      = raw BioFormatter.new(@player.bio, @player.id)
+    - if @player.alt_hof?
+      %span#alt-hof-note
+        * #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
+        - if @player.alt_hof == 'nl'
+          Major League
+        player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+
+  - if @player.bio?
+    = raw BioFormatter.new(@player.bio, @player.id)
 
 %section#stats-summary
 
