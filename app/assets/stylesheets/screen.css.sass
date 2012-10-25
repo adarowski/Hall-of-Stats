@@ -85,11 +85,11 @@ hr
   background-color: fade_out($default_color, .8)
 
 #layout, footer
-  max-width: 768px
+  max-width: 770px
   margin: 0 auto
   .home &
     @media only screen and (min-width: 640px)
-      max-width: 768px
+      max-width: 770px
 
 #layout
   background: #FFF url(/assets/old_mathematics.png) 0 0
@@ -357,7 +357,7 @@ header.generic
     float: left
     width: 60%
 
-#hos-inductee, #hof-inductee
+#hos-inductee, #hof-inductee, #not-eligible
   display: inline-block
   text-align: center
   width: 50%
@@ -382,6 +382,11 @@ header.generic
   .hof &
     background-color: fade_out($good_color, .2)
     color: white
+
+#not-eligible
+  +border_radius(5px)
+  border-width: 1px
+  width: 100%
 
 #alt-hof-note
   display: block
@@ -539,7 +544,7 @@ table
 footer
   color: #DDD
   padding: 10px 0 100px
-  @media only screen and (max-width: 768px)
+  @media only screen and (max-width: 770px)
     padding:
       left: 10px
       right: 10px
@@ -734,7 +739,7 @@ article
   z-index: 3 !important
   max-width: 480px !important
   @media only screen and (min-width: 640px)
-    max-width: 768px !important
+    max-width: 770px !important
   .home &
     @media only screen and (min-width: 640px)
       max-width: 460px !important
