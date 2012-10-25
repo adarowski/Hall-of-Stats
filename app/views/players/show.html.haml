@@ -63,6 +63,8 @@
 
 %section#stats-summary
 
+  %h3 Career Statistics
+
   %table#win-value
     %caption Win-Value Statistics
     %thead
@@ -204,9 +206,18 @@
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
 
+- if @player.hos
+  = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
+
+- elsif @player.removed?
+  = render 'similar_player_table', kind: :players_removed, captions: ["Players Removed", "from the Hall of Fame"]
+
+- elsif @player.upcoming?
+  = render 'similar_player_table', kind: :players_upcoming, captions: ["Future Inductees", "to the Hall of Stats (when eligible)"]
+
 - if @player.articles.published.any?
   %section#list-of-articles
-    %h2 Related Articles
+    %h3 Articles Mentioning #{@player.first_name} #{@player.last_name}
     %ul
       - @player.articles.published.by_published_at.each do |article|
         %li
@@ -224,8 +235,9 @@
         %small to #{@player.first_name} #{@player.last_name}
       %thead
         %tr
-          %th Players
-          %th Hall Rating
+          %th
+            Player
+            %span (Hall Rating)
           %th Similarity
       %tbody
         - SimilarityScore.for_player(@player).limit(20).each do |score|
@@ -233,16 +245,7 @@
           %tr
             %th
               %a{href: player_path(player)}= player.name
-            %td= player.hall_rating.round
+              %span (#{player.hall_rating.round})
             %td= score.score.round
-
-- if @player.hos
-  = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
-
-- elsif @player.removed?
-  = render 'similar_player_table', kind: :players_removed, captions: ["Players Removed", "from the Hall of Fame"]
-
-- elsif @player.upcoming?
-  = render 'similar_player_table', kind: :players_upcoming, captions: ["Future Inductees", "to the Hall of Stats (when eligible)"]
 
 = render 'shared/search'
