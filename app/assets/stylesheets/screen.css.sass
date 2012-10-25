@@ -85,8 +85,6 @@ hr
 #layout, footer
   max-width: 768px
   margin: 0 auto
-  .player &
-    max-width: 480px
   .home &
     @media only screen and (min-width: 640px)
       max-width: 768px
@@ -220,8 +218,13 @@ header.generic
       font-size: 130%
       @media only screen and (min-width : 480px)
         font-size: 200%
+      @media only screen and (min-width : 640px)
+        font-size: 280%
     @media only screen and (min-width : 480px)
       font-size: 200%
+      font-family: $title_font
+    @media only screen and (min-width : 640px)
+      font-size: 280%
     span
       display: inline
       .photo &
@@ -307,12 +310,19 @@ header.generic
   font-size: 85%
   p
     +multi_paragraphs
+  @media only screen and (min-width: 640px)
+    float: right
+    width: 40%
 
 #section-padding
   padding: 10px
 
 #stats-summary
   @extend #section-padding
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
+    float: left
+    width: 60%
 
 #similar-players
   @extend #section-padding
@@ -325,9 +335,32 @@ header.generic
     text-align: left
   td
     text-align: right
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
+    float: left
+    width: 60%
 
 #related-players
-  @extend #similar-players
+  @extend #section-padding
+  h3
+    font-size: 85%
+    margin: 0 0 10px
+    small
+      color: #666
+      font-size: 85%
+      font-weight: normal
+  ul
+    font-size: 80%
+    list-style: none
+    margin: 0
+    padding: 0
+    li
+      margin: 0 0 2px
+      padding: 0
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
+    float: left
+    width: 60%
 
 #hos-inductee, #hof-inductee
   display: inline-block
@@ -418,7 +451,6 @@ header.generic
   a
     display: block
     padding: 5px 0
-
   span
     font-weight: normal
     color: #666
@@ -427,6 +459,11 @@ header.generic
       float: right
       width: 40%
       border-top: 2px solid fade_out($default_color, .8)
+  .player &
+    @media only screen and (min-width: 640px)
+      border-right: 2px solid fade_out($default_color, .8)
+      float: left
+      width: 60%
 
 table
   width: 100%
