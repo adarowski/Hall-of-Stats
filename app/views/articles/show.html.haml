@@ -1,3 +1,5 @@
+- content_for :title, @article.title
+
 = render 'shared/header'
 
 %article{class: 'long-form', id: "article-#{@article.id}"}

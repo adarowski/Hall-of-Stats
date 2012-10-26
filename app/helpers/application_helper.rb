@@ -35,4 +35,12 @@ module ApplicationHelper
       active_and_worthy:  'Active and Hall-Worthy'
     }
   end
+
+  def title_or_default
+    if content_for?(:title)
+      "Hall of Stats: #{content_for(:title)}"
+    else 
+      "Hall of Stats"
+    end
+  end
 end
