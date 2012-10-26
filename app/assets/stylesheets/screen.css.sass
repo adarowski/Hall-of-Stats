@@ -104,9 +104,13 @@ header.generic
     margin: 0
     display: inline-block
     font-size: 120%
+    font-family: $title_font
     a
       &:link, &:visited, &:hover, &:active
         color: #FFF
+        font-weight: normal
+        @media only screen and (min-width: 640px)
+          font-size: 120%
 
 #show-about
   position: absolute
@@ -117,6 +121,8 @@ header.generic
   +add_arrow
   &:hover
     color: white
+  @media only screen and (min-width: 640px)
+    top: 12px
 
 .home
   header
@@ -135,6 +141,7 @@ header.generic
       position: relative
       @media only screen and (min-width: 640px)
         font-size: 360%
+        font-weight: bold
     p
       color: white
       padding: 0 10px
