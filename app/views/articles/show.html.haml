@@ -12,27 +12,32 @@
 
   = raw @article.formatted_body
 
-  %hr
-  %a.twitter-share-button{"data-via" => "HallOfStats", :href => "https://twitter.com/share"} Tweet
+%section#social
+
+  %a.twitter-share-button{"data-via" => "HallOfStats", :href => "https://twitter.com/share", "data-count" => "none"} Tweet
   %script
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
-#disqus_thread
-:javascript
-  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  var disqus_shortname = 'hos-new'; // required: replace example with your forum shortname
+  .fb-like{"data-layout" => "button_count", "data-send" => "false", "data-show-faces" => "false", "data-width" => "200"}
 
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-%noscript
-  Please enable JavaScript to view the
-  %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
-%a.dsq-brlink{:href => "http://disqus.com"}
-  comments powered by
-  %span.logo-disqus Disqus
+%section#comments
+
+  #disqus_thread
+  :javascript
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hallofstats'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  %noscript
+    Please enable JavaScript to view the
+    %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
+  %a.dsq-brlink{:href => "http://disqus.com"}
+    comments powered by
+    %span.logo-disqus Disqus
 
 = render 'shared/search'
