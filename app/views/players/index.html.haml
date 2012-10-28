@@ -46,7 +46,9 @@
           %span #{player.hall_rating.round}
 
 %section#list-of-articles
-  %h2 Latest Articles
+  %h2
+    Latest Articles
+    = link_to " RSS", "/articles.rss", class: "icon-rss"
   %ul
     - @articles.each do |article|
       %li

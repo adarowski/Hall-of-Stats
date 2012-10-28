@@ -216,7 +216,9 @@
 
 - if @player.articles.published.any?
   %section#list-of-articles
-    %h3 Articles Mentioning #{@player.first_name} #{@player.last_name}
+    %h3
+      Articles Mentioning #{@player.first_name} #{@player.last_name}
+      = link_to " RSS", "/articles.rss", class: "icon-rss"
     %ul
       - @player.articles.published.by_published_at.each do |article|
         %li

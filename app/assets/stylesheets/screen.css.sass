@@ -441,6 +441,10 @@ header.generic
   h2
     font-size: 100%
     margin: 0 0 10px
+  h2, h3
+    a
+      margin-left: 5px
+      font-size: 12px
   ul
     font-size: 85%
     list-style: none
@@ -448,12 +452,12 @@ header.generic
     margin: 0
   li
     border-top: 1px solid fade_out($default_color, 0.95)
-  a
-    display: block
-    padding: 5px 0
-  span
-    font-weight: normal
-    color: #666
+    a
+      display: block
+      padding: 5px 0
+    span
+      font-weight: normal
+      color: #666
   .home &
     @media only screen and (min-width: 640px)
       border-top: 2px solid fade_out($default_color, .8)
