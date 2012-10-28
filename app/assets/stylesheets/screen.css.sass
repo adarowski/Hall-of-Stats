@@ -314,14 +314,22 @@ header.generic
           font-size: 80%
           text-transform: uppercase
 
+#bio, #stats-summary, #related-players, .player #list-of-articles,
+.home #search, #inductees
+  @media only screen and (min-width: 640px)
+    float: left
+    width: 60%
+
+#intro, .home #list-of-articles
+  @media only screen and (min-width: 640px)
+    float: right
+    width: 40%
+
 #bio
   padding: 10px
   font-size: 85%
   p
     +multi_paragraphs
-  @media only screen and (min-width: 640px)
-    float: left
-    width: 60%
 
 #section-padding
   padding: 10px
@@ -335,9 +343,6 @@ header.generic
 
 #stats-summary
   @extend #section-padding
-  @media only screen and (min-width: 640px)
-    float: left
-    width: 60%
 
 #similar-players, #related-players
   @extend #section-padding
@@ -358,11 +363,6 @@ header.generic
   @media only screen and (min-width: 640px)
     padding: 0 0 0 60%
     margin: 10px
-
-#related-players
-  @media only screen and (min-width: 640px)
-    float: left
-    width: 60%
 
 #hos-inductee, #hof-inductee, #not-eligible
   display: inline-block
@@ -425,8 +425,6 @@ header.generic
   .home &
     @media only screen and (min-width: 640px)
       border-right: 2px solid fade_out($default_color, .8)
-      float: left
-      width: 60%
 
 #intro
   @extend #section-padding
@@ -439,8 +437,6 @@ header.generic
       font-size: 120%
       font-weight: bold
   @media only screen and (min-width: 640px)
-    float: right
-    width: 40%
     border-top: 0
 
 #list-of-articles
@@ -463,13 +459,7 @@ header.generic
     color: #666
   .home &
     @media only screen and (min-width: 640px)
-      float: right
-      width: 40%
       border-top: 2px solid fade_out($default_color, .8)
-  .player &
-    @media only screen and (min-width: 640px)
-      float: left
-      width: 60%
 
 #comments
   @extend #section-padding
@@ -660,10 +650,6 @@ section#inductees
     @media only screen and (min-width: 640px)
       border-right: 2px solid fade_out($default_color, .8)
       min-height: 800px
-
-  @media only screen and (min-width: 640px)
-    float: left
-    width: 60%
 
 #filters
   position: absolute
