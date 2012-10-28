@@ -1,0 +1,12 @@
+= render 'shared/header'
+
+- @articles.each do |article|
+  %article{class: 'long-form', id: "article-#{article.id}"}
+    %header
+      %h2= link_to article.title, article_path(article)
+      %span
+        = article.published_at.stamp("Jan 1, 2012")
+        by Adam Darowski
+
+    = raw article_truncation(article)
+
