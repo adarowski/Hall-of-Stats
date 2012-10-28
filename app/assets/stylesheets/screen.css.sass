@@ -218,13 +218,14 @@ header.generic
     margin: 0
     line-height: 1
     padding: 10px 0 4px
-    font-family: $title_font
     .photo &
       font-size: 130%
       @media only screen and (min-width : 480px)
         font-size: 200%
       @media only screen and (min-width : 640px)
         font-size: 280%
+    @media only screen and (min-width : 400px)
+      font-family: $title_font
     @media only screen and (min-width : 480px)
       font-size: 200%
     @media only screen and (min-width : 640px)
@@ -234,11 +235,9 @@ header.generic
       .photo &
         font-size: 150%
         display: block
-        margin-top: 5px
         @media only screen and (min-width : 480px)
           display: inline
           font-size: 100%
-          margin-top: 0
 
   dl
     margin: 0
