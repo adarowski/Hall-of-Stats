@@ -11,8 +11,8 @@ class SimilarityCalculator
     runs_defense +
     runs_totalpos +
     runs_pitch +
-    waa0_tot(8.4) +
-    war162_tot(5) +
+    waa0_tot(5.04) +
+    war162_tot(3) +
     ip_outs(0.05) +
     pa(0.05)
   end
