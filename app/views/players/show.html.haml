@@ -51,7 +51,8 @@
 
 - if @player.bio? || @player.articles.published.any?
   %section#bio
-    = raw BioFormatter.new(@player.bio, @player.id)
+    - if @player.bio?
+      = raw BioFormatter.new(@player.bio, @player.id)
 
     - if @player.articles.published.any?
       %h3
