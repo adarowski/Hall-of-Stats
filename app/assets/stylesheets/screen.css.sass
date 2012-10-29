@@ -1,5 +1,5 @@
 $text_font: "Helvetica Neue", sans-serif
-$title_font: "Lora", Baskerville, "Times New Roman", serif
+$title_font: "Lora", Garamond, Baskerville, "Times New Roman", serif
 $blue_color: #003
 $good_color: #060
 $bad_color: #900
@@ -82,6 +82,7 @@ hr
 #layout, footer
   max-width: 770px
   margin: 0 auto
+  position: relative
   .home &
     @media only screen and (min-width: 640px)
       max-width: 770px
@@ -204,15 +205,20 @@ header.generic
 #player-id
   background-color: fade_out($default_color, 0.8)
   position: relative
-  padding: 0 10px
+  padding: 0 10px 10px
   .photo &
     min-height: 170px
     padding-right: 125px
+    @media only screen and (min-width : 640px)
+      padding-right: 10px
+      padding-left: 125px
 
   .portrait
     position: absolute
     top: 10px
     right: 10px
+    @media only screen and (min-width : 640px)
+      left: 10px
 
   h2
     margin: 0
@@ -224,7 +230,7 @@ header.generic
         font-size: 200%
       @media only screen and (min-width : 640px)
         font-size: 280%
-    @media only screen and (min-width : 400px)
+    @media only screen and (min-width : 480px)
       font-family: $title_font
     @media only screen and (min-width : 480px)
       font-size: 200%
@@ -241,20 +247,34 @@ header.generic
 
   dl
     margin: 0
-    .hall-rating
-      position: relative
+    .hall-rating, .hall-of-stats, .hall-of-fame
       font-weight: bold
       color: white
-      margin: 10px 0 20px
+      margin: 10px 0 10px
       padding: 2px 10px
       display: inline-block
       font-size: 85%
+      @media only screen and (max-width : 480px)
+        font-size: 75%
     dt
-      +off_left
+      &.position, &.years, &.alt-hof
+        +off_left
       &.hall-rating
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
+        .photo &
+          @media only screen and (min-width : 640px)
+            margin-left: 0
+            +border_radius(5px 0 0 5px)
+      &.hall-of-fame, &.hall-of-stats
+        background-color: fade_out($good_color, 0.2)
+        +border_radius(5px)
+        @media only screen and (max-width : 480px)
+          +border_radius(0)
+          margin-left: -10px
+          margin-right: 10px
+          margin-top: 0
     dd
       margin: 0
       &.position
@@ -271,7 +291,17 @@ header.generic
           content: ")"
       &.hall-rating
         background-color: fade_out($default_color, 0.5)
-        +border_radius(0 10px 10px 0)
+        +border_radius(0 5px 5px 0)
+        @media only screen and (max-width : 480px)
+          margin-right: 10px
+      &.hall-of-fame, &.hall-of-stats
+        +off_left
+      &.alt-hof
+        margin-top: -10px
+        padding-bottom: 20px
+        font-size: 85%
+        @media only screen and (max-width : 480px)
+          margin-top: 0
 
 #value-breakdown
   dl
@@ -310,7 +340,7 @@ header.generic
           font-size: 80%
           text-transform: uppercase
 
-#hof-status, #bio, #stats-summary, #related-players, .player #list-of-articles,
+#stats-summary, #related-players,
 .home #search, #inductees
   @media only screen and (min-width: 640px)
     float: left
@@ -324,18 +354,16 @@ header.generic
 #section-padding
   padding: 10px
   h3
-    font-size: 85%
+    font-size: 100%
     margin: 0 0 10px
     small
       color: #666
       font-size: 85%
       font-weight: normal
 
-#hof-status
-  @extend #section-padding
-
 #bio
   @extend #section-padding
+  border-bottom: 2px solid fade_out($default_color, .8)
   p
     +multi_paragraphs
 
@@ -361,44 +389,6 @@ header.generic
   @media only screen and (min-width: 640px)
     padding: 0 0 0 60%
     margin: 10px
-
-#hos-inductee, #hof-inductee, #not-eligible
-  display: inline-block
-  text-align: center
-  width: 50%
-  background-color: fade_out(black, .9)
-  color: fade_out(black, .6)
-  padding: 2px 10px
-  font-weight: bold
-  border:
-    color: fade_out(black, .85)
-    style: solid
-
-#hos-inductee
-  +border_radius(5px 0 0 5px)
-  border-width: 1px
-  .hos &
-    background-color: fade_out($good_color, .2)
-    color: white
-
-#hof-inductee
-  +border_radius(0 5px 5px 0)
-  border-width: 1px 1px 1px 0
-  .hof &
-    background-color: fade_out($good_color, .2)
-    color: white
-
-#not-eligible
-  +border_radius(5px)
-  border-width: 1px
-  width: 100%
-
-#alt-hof-note
-  display: block
-  margin-top: 10px
-  font-style: italic
-  font-size: 90%
-  text-align: center
 
 #search
   input[type=search]
@@ -446,11 +436,15 @@ header.generic
     a
       margin-left: 5px
       font-size: 12px
-  ul
-    font-size: 85%
-    list-style: none
-    padding: 0
-    margin: 0
+  .home &
+    @media only screen and (min-width: 640px)
+      border-top: 2px solid fade_out($default_color, .8)
+
+ul.article-list
+  font-size: 85%
+  list-style: none
+  padding: 0
+  margin: 0
   li
     border-top: 1px solid fade_out($default_color, 0.95)
     a
@@ -459,9 +453,6 @@ header.generic
     span
       font-weight: normal
       color: #666
-  .home &
-    @media only screen and (min-width: 640px)
-      border-top: 2px solid fade_out($default_color, .8)
 
 #comments
   @extend #section-padding
@@ -475,11 +466,12 @@ header.generic
 
 table
   width: 100%
-  font-size: 85%
   border-left: 1px solid #aaa
   border-right: 1px solid #aaa
   border-top: 1px solid #aaa
   border-collapse: collapse
+  thead, tbody, tfoot
+    font-size: 85%
   th, td
     padding: 2px 4px
     background-color: white
@@ -685,7 +677,7 @@ section#inductees
 
 article
   &.long-form
-    padding: 0 10px 10px 10px
+    padding: 0 10px 40px 10px
     overflow: hidden
     header
       background-color: fade_out($default_color, 0.8)

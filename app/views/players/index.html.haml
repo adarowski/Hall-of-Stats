@@ -48,8 +48,8 @@
 %section#list-of-articles
   %h2
     Latest Articles
-    = link_to " RSS", "/articles.rss", class: "icon-rss"
-  %ul
+    = link_to " RSS", "/articles.rss"
+  %ul.article-list
     - @articles.each do |article|
       %li
         = link_to article_path(article) do

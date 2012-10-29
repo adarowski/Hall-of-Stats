@@ -11,7 +11,7 @@
     %span= @player.last_name
   %dl
     - unless @player.position == "npos"
-      %dt.postion Position
+      %dt.position Position
       %dd.position= @player.position_name
     - if @player.years_played
       %dt.years Years
@@ -21,6 +21,20 @@
       %dd.hall-rating= @player.hall_rating
     - else
       %dd.hall-rating= @player.hall_rating.round
+    - if @player.hos == true
+      %dt.hall-of-stats Hall of Stats
+      %dd.hall-of-stats Inductee
+    - if @player.hof == true
+      %dt.hall-of-fame Hall of Fame
+      %dd.hall-of-fame Inductee
+    - if @player.alt_hof?
+      %dt.alt-hof Induction Note
+      %dd.alt-hof
+        #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
+        - if @player.alt_hof == 'nl'
+          Major League
+        player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+
   - if @player.has_photo?
     %figure.portrait
       = image_tag "thumbs/#{@player.id}.jpg", alt: "#{@player.name} Photo", width: '90', height: '135'
@@ -35,30 +49,22 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
-%section#hof-status
-  - if @player.eligibility == "eligible"
-    %span#hos-inductee{class: @player.hos == true ? 'icon-check' : 'icon-check-empty'}>
-      Hall of Stats
-    %span#hof-inductee{class: @player.hof == true ? 'icon-check' : 'icon-check-empty'}
-      Hall of Fame
-      - if @player.alt_hof?
-        *
-  - else
-    %span#not-eligible.icon-check-empty
-      Not Yet Eligible
-      - if @player.eligibility == "active"
-        (Active)
-
-  - if @player.alt_hof?
-    %span#alt-hof-note
-      * #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
-      - if @player.alt_hof == 'nl'
-        Major League
-      player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
-
-- if @player.bio?
+- if @player.bio? || @player.articles.published.any?
   %section#bio
     = raw BioFormatter.new(@player.bio, @player.id)
+
+    - if @player.articles.published.any?
+      %h3
+        Articles Mentioning
+        %small #{@player.first_name} #{@player.last_name}
+      %ul.article-list
+        - @player.articles.published.by_published_at.each do |article|
+          %li
+            = link_to article_path(article) do
+              = article.title
+              %span
+                •
+                = article.published_at.stamp("Jan 1, 2012")
 
 %section#stats-summary
 
@@ -204,29 +210,6 @@
         %td= @player.runs_totalpos.round
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
-
-- if @player.hos
-  = render 'similar_player_table', kind: :players_of_same_position, captions: [@player.position_name.pluralize, "in the Hall of Stats"]
-
-- elsif @player.removed?
-  = render 'similar_player_table', kind: :players_removed, captions: ["Players Removed", "from the Hall of Fame"]
-
-- elsif @player.upcoming?
-  = render 'similar_player_table', kind: :players_upcoming, captions: ["Future Inductees", "to the Hall of Stats (when eligible)"]
-
-- if @player.articles.published.any?
-  %section#list-of-articles
-    %h3
-      Articles Mentioning #{@player.first_name} #{@player.last_name}
-      = link_to " RSS", "/articles.rss", class: "icon-rss"
-    %ul
-      - @player.articles.published.by_published_at.each do |article|
-        %li
-          = link_to article_path(article) do
-            = article.title
-            %span
-              •
-              = article.published_at.stamp("Jan 1, 2012")
 
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
