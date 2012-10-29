@@ -209,16 +209,11 @@ header.generic
   .photo &
     min-height: 170px
     padding-right: 125px
-    @media only screen and (min-width : 640px)
-      padding-right: 10px
-      padding-left: 125px
 
   .portrait
     position: absolute
     top: 10px
     right: 10px
-    @media only screen and (min-width : 640px)
-      left: 10px
 
   h2
     margin: 0
@@ -263,18 +258,9 @@ header.generic
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
-        .photo &
-          @media only screen and (min-width : 640px)
-            margin-left: 0
-            +border_radius(5px 0 0 5px)
       &.hall-of-fame, &.hall-of-stats
         background-color: fade_out($good_color, 0.2)
         +border_radius(5px)
-        @media only screen and (max-width : 480px)
-          +border_radius(0)
-          margin-left: -10px
-          margin-right: 10px
-          margin-top: 0
     dd
       margin: 0
       &.position
@@ -292,8 +278,6 @@ header.generic
       &.hall-rating
         background-color: fade_out($default_color, 0.5)
         +border_radius(0 5px 5px 0)
-        @media only screen and (max-width : 480px)
-          margin-right: 10px
       &.hall-of-fame, &.hall-of-stats
         +off_left
       &.alt-hof
