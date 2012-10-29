@@ -18,4 +18,16 @@ describe Player do
       its(:years_played) { should == '1985' }
     end
   end
+
+  describe '#set_compatibility_id' do
+    context "for players with periods in their id" do
+      subject(:player) { create(:player, id: "ha.ha.ha", first_year: 1985, last_year: 1985) }
+      its(:compatibility_id) { should == 'hahaha' }
+    end
+
+    context "for players without periods in their id" do
+      subject(:player) { create(:player, id: "smurfs", first_year: 1985, last_year: 1985) }
+      its(:compatibility_id) { should == 'smurfs' }
+    end
+  end
 end
