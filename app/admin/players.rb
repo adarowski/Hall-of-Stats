@@ -1,6 +1,23 @@
 ActiveAdmin.register Player do
   controller do
     with_role :admin
+    defaults finder: :find_by_compatibility_id
+  end
+
+  # oh no... see also find_by_compatibility_id above
+  around_filter do |controller, action|
+    Player.class_eval do
+      alias :__active_admin_to_param :to_param
+      def to_param() compatibility_id end
+    end
+
+    begin
+      action.call
+    ensure
+      Player.class_eval do
+        alias :to_param :__active_admin_to_param
+      end
+    end
   end
 
   index do
@@ -23,7 +40,7 @@ ActiveAdmin.register Player do
       Player.column_names.each do |name|
         if name == 'id'
           row name do
-            raw(link_to player.id, player_path(player))
+            raw(link_to player.id, player_path(player.id))
           end
         else
           row name
