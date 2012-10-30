@@ -261,6 +261,11 @@ header.generic
       &.hall-of-fame, &.hall-of-stats
         background-color: fade_out($good_color, 0.2)
         +border_radius(5px)
+        @media only screen and (max-width : 480px)
+          margin-left: -10px
+          margin-right: 10px
+          margin-top: 0
+          +border_radius (0)
     dd
       margin: 0
       &.position
@@ -278,6 +283,8 @@ header.generic
       &.hall-rating
         background-color: fade_out($default_color, 0.5)
         +border_radius(0 5px 5px 0)
+        @media only screen and (max-width : 480px)
+          margin-right: 10px
       &.hall-of-fame, &.hall-of-stats
         +off_left
       &.alt-hof
@@ -752,7 +759,7 @@ article
   .long-form &
     margin: 0 -10px
   img
-    max-width: 100%
+    width: 100%
     display: block
   figcaption
     position: absolute
