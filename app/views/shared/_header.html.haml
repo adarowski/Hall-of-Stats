@@ -1,8 +1,8 @@
 %header.generic
-  %h1
+  %h1>
     %a{href: "/"} Hall of Stats
-  %a#show-about{href: "/about"} About
-  #about-expanded{style: "display: none;"}
-    %p
-      Welcome to the Hall of Stats—an alternate Hall of Fame populated by a mathematical formula.
-      %a{href: "/about"} Read more…
+  %nav
+    %ul
+      %li= link_to "About", "/about"
+      %li= link_to "Articles", "/articles"
+      %li= link_to "Search", "#search"

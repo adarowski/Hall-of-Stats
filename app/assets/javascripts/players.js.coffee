@@ -10,10 +10,6 @@ for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
   filters["show-#{position}"] = ".hos.#{position}"
 
 $ ->
-  $("#show-about").click (e) ->
-    e.preventDefault()
-    $("#about-expanded").slideToggle()
-
   $("#show-filters").click (e) ->
     e.preventDefault()
     $("#filters").slideToggle()

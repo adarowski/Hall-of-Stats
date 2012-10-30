@@ -101,6 +101,8 @@ header.generic
     display: inline-block
     font-size: 120%
     font-family: $title_font
+    @media only screen and (min-width: 480px)
+      width: 50%
     a
       &:link, &:visited, &:hover, &:active
         color: #FFF
@@ -108,17 +110,25 @@ header.generic
         @media only screen and (min-width: 640px)
           font-size: 120%
 
-#show-about
-  position: absolute
-  top: 8px
-  right: 10px
-  display: inline-block
-  color: fade_out(white, 0.4)
-  +add_arrow
-  &:hover
-    color: white
-  @media only screen and (min-width: 640px)
-    top: 12px
+  nav
+    display: inline-block
+    list-style: none
+    font-size: 85%
+    ul
+      display: inline-block
+      margin: 0
+      padding: 0
+    li
+      padding-left: 10px
+      display: inline-block
+    a
+      &:link, &:visited
+        color: fade_out(white, 0.4)
+      &:hover, &:active
+        color: white
+    @media only screen and (min-width: 480px)
+      width: 50%
+      text-align: right
 
 .home
   header
@@ -547,15 +557,6 @@ footer
   a
     &:link, &:visited, &:hover, &:active
       color: #FFF
-
-#about-expanded
-  +border_radius(5px)
-  margin: 5px 0
-  padding: 10px
-  background-color: fade_out(white, 0.2)
-  font-size: 85%
-  p
-    +multi_paragraphs
 
 #about
   padding: 0 10px 10px
