@@ -95,12 +95,12 @@
 
       Baseball-Reference uses [Bill James’ similarity scores](http://www.baseball-reference.com/about/similarity.shtml) on their player pages. While Baseball-Reference and Bill James are both wonderful, I don’t think their similarity scores are all that useful.
 
-      What James’ scores show is that two players’ **raw numbers** were similar. Here’s an excerpt of the point system used to identify a pair of "similar" batters:
+      What James’ scores show is that two players’ **raw numbers** were similar. Here’s an excerpt from the point system used to identify a pair of "similar" batters:
 
       > * One point for each difference of 2 home runs.
       > * One point for each difference of .001 in batting average.
 
-      The issue here is that these numbers are not adjusted for era. A .300 batting average with 8 home runs in the deadball era made you a star. A player with those same numbers in the steroid era actually may have been a below average player, depending on his position.
+      The issue here is that these numbers are not adjusted for era, park, or anything else. A .300 batting average with 8 home runs in the deadball era made you a star. A player with those same numbers in the steroid era actually may have been a below average player, depending on his position.
 
       Speaking of position, here is part of James’ positional adjustment:
 
@@ -108,11 +108,11 @@
       > * 168 - Shortstop
       > * 132 - Second Base
 
-      The 240-point adjustment is applied to all players who primarily caught, regardless of the time spent behind the plate or at other positions.
+      The 240-point adjustment is applied to all players who primarily caught, regardless of the player’s time spent behind the plate or at other positions.
 
       #### How We Do It ####
 
-      The Hall of Stats similarity scores are calculated with one thing in mind: **value**. We don’t care how many home runs a player hit or what they’re batting average was. We care how many runs above average a player’s total offensive game was. Similarly, we don’t care what a player’s primary position was. We care about the run values of the time he spent at each of his positions.
+      The Hall of Stats similarity scores are calculated with one thing in mind: **value**. We don’t care how many home runs a player hit or what his batting average was. We care how many runs above average his total offensive game was. Similarly, we don’t care what his primary position was. We care about the run value of the time he spent at each of his positions.
 
       Our similarity scores are calculated using:
 
@@ -127,11 +127,11 @@
       * Plate Appearances
       * Innings Pitched
 
-      The closer a pair’s score gets to zero, the more similar they are. Because most of the inputs are centered around league average, the better a player gets, the harder it is for him to have closely similar players. For example:
+      The closer a pair’s score gets to zero, the more similar the players are. Because most of the inputs are centered around league average, the better a player gets, the harder it is for him to have closely similar players. For example:
 
-      * @boyerke01 and @bandosa01 are very similar players (right down to three characters in their first name and five in their last). Their similarity score is 91. Once you see a pair of players of their caliber that close, you know they provided very similar value.
-      * @deerro01, on the other hand, has a score better than 91 with at least twenty players. Deer is closer to an average player and there are many more players at that part of the bell curve to be similar to.
-      * Lastly, there is basically no good comparison to @ruthba01. @bondsba01 is the closest with a staggering 976.
+      * @boyerke01 and @bandosa01 are very similar players (right down to three characters in their first name and five in their last). Their similarity score is 80. Once you see a pair of players of their caliber that close, you know they provided very similar value.
+      * @deerro01, on the other hand, has a score of 80 or better with 22 players. Deer is closer to an average player and there are many more players at that part of the bell curve to be similar to.
+      * Lastly, there is basically no good comparison to @ruthba01. @bondsba01 is the closest with a staggering 896 similarity score.
 
       Special thanks to **Tim Vaughan** [(@MechanicalTim)](http://twitter.com/MechanicalTim) for giving us a crash course in how to calculate similarity scores.
 
