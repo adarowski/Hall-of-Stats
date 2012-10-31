@@ -56,8 +56,8 @@
 
     - if @player.articles.published.any?
       %h3
-        Articles Mentioning
-        %small #{@player.first_name} #{@player.last_name}
+        Articles
+        %small Mentioning #{@player.first_name} #{@player.last_name}
       %ul.article-list
         - @player.articles.published.by_published_at.each do |article|
           %li
