@@ -11,6 +11,8 @@ for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
 
 $ ->
 
+  $(".home #player-search").focus();
+
   $("#search-link").click (e) ->
     e.preventDefault()
     $("#player-search").focus()
