@@ -5,5 +5,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @articles = Article.published.by_published_at
   end
 end
