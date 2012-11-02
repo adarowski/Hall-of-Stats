@@ -1,5 +1,7 @@
 = render 'shared/header'
 
+= render 'shared/search'
+
 - @articles.each do |article|
   %article{class: 'long-form', id: "article-#{article.id}"}
     %header
@@ -10,4 +12,3 @@
 
     = raw article_truncation(article)
 
-= render 'shared/search'

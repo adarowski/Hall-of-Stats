@@ -2,6 +2,8 @@
 
 = render 'shared/header'
 
+= render 'shared/search'
+
 %article{class: 'long-form'}
 
   %header#top
@@ -173,5 +175,3 @@
       **Thank You** to my three favorite Seans—**Sean Forman** [(@sean_forman)](http://twitter.com/sean_forman) of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** [(@seanlahman)](http://twitter.com/seanlahman) for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Thank you to thw brilliant readers of [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog) for providing wonderful feedback ever since I introduced wWAR. Finally, a huge thank you to Jeffrey and Michael (and Tim!) for helping me build the site of my dreams.
 
   = raw BioFormatter.new(content)
-
-= render 'shared/search'

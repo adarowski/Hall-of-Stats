@@ -2,6 +2,8 @@
 
 = render 'shared/header'
 
+= render 'shared/search'
+
 %article{class: 'long-form', id: "article-#{@article.id}"}
 
   %header
@@ -40,4 +42,3 @@
     comments powered by
     %span.logo-disqus Disqus
 
-= render 'shared/search'

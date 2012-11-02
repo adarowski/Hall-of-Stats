@@ -5,6 +5,8 @@
 
 = render 'shared/header'
 
+= render 'shared/search'
+
 %section#player-id
   %h2
     = @player.first_name
@@ -233,4 +235,3 @@
               %span (#{player.hall_rating.round})
             %td= score.score.round
 
-= render 'shared/search'
