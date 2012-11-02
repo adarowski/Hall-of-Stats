@@ -45,17 +45,4 @@
           %em #{player.position}, #{player.years_played}
           %span #{player.hall_rating.round}
 
-%section#list-of-articles
-  %h2
-    Latest Articles
-    = link_to " RSS", "/articles.rss"
-  %ul.article-list
-    - @articles.each do |article|
-      %li
-        = link_to article_path(article) do
-          = article.title
-          %span
-            •
-            = article.published_at.stamp("Jan 1, 2012")
-    %li
-      = link_to "See All Articles", "/articles"
+= render 'shared/article_list'
