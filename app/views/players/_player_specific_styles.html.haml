@@ -1,16 +1,86 @@
 %style{:type => 'text/css'}
   :sass
 
+    $bad_color: #900
+
+    $max_width: 300
+
     =border_radius($radius)
       -moz-border-radius: $radius
       -webkit-border-radius: $radius
       border-radius: $radius
 
-    $bad_color: #900
+    =year_bar($war, $waa)
+      td
+        &:first-child
+          &:before
+            @if $war > 0
+              $width: ($war / 20.0) * $max_width * 1%
+              width: $width
+            @else
+              $width: ($war / 20.0) * $max_width * 1%
+              width: $width
+              left: 100% - $width
+              +border_radius(4px 0 0 4px)
+              background-color: fade_out($bad_color, .85)
+          &:after
+            @if $waa > 0
+              $width: ($waa / 20.0) * $max_width * 1%
+              width: $width
+            @else
+              $width: ($waa / 20.0) * $max_width * 1%
+              width: $width
+              left: 100% - $width
+              +border_radius(4px 0 0 4px)
+              background-color: fade_out($bad_color, .85)
+
+    table#seasonal-stats
+      .yr-1968
+        +year_bar(0.0, 0.0)
+      .yr-1969
+        +year_bar(-0.2, -0.1)
+      .yr-1970
+        +year_bar(-0.7, 0.2)
+      .yr-1971
+        +year_bar(1.4, 3.0)
+      .yr-1972
+        +year_bar(2.5, 4.3)
+      .yr-1973
+        +year_bar(3.3, 5.3)
+      .yr-1974
+        +year_bar(1.6, 3.4)
+      .yr-1975
+        +year_bar(2.8, 4.7)
+      .yr-1976
+        +year_bar(1.5, 3.3)
+      .yr-1977
+        +year_bar(3.3, 5.0)
+      .yr-1978
+        +year_bar(3.6, 5.3)
+      .yr-1979
+        +year_bar(1.9, 3.4)
+      .yr-1980
+        +year_bar(3.2, 4.9)
+      .yr-1981
+        +year_bar(-1.1, 0.1)
+      .yr-1982
+        +year_bar(1.5, 3.1)
+      .yr-1983
+        +year_bar(1.9, 3.7)
+      .yr-1984
+        +year_bar(-4.3, -2.8)
+      .yr-1985
+        +year_bar(-0.9, 0.8)
+      .yr-1986
+        +year_bar(-0.8, -0.4)
+      .yr-1987
+        +year_bar(-0.6, 0.0)
+      .yr-1988
+        +year_bar(-0.9, -0.5)
 
     table#run-value
       margin-top: (#{player.runs_x.max.round}/2) + 20px
-      margin-bottom: (#{player.runs_x.min.abs.round}/2) + px
+      margin-bottom: (#{player.runs_x.min.abs.round}/2) + 20px
       th
         &.bat:before
           @if #{player.runs_bat} < 0
