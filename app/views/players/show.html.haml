@@ -2,6 +2,7 @@
 
 - content_for(:header_styles) do
   = render 'player_specific_styles', player: @player
+  = render @player.season_stats
 
 = render 'shared/header'
 
@@ -224,90 +225,11 @@
         %th
           %abbr{title: "Wins Above Replacement"} WAR
     %tbody
-      %tr.yr-1968
-        %th 1968
-        %td 0.0
-        %td 0.0
-      %tr.yr-1969
-        %th 1969
-        %td -0.2
-        %td -0.1
-      %tr.yr-1970
-        %th 1970
-        %td -0.7
-        %td 0.2
-      %tr.yr-1971
-        %th 1971
-        %td 1.4
-        %td 3.0
-      %tr.yr-1972
-        %th 1972
-        %td 2.5
-        %td 4.3
-      %tr.yr-1973
-        %th 1973
-        %td 3.3
-        %td 5.3
-      %tr.yr-1974
-        %th 1974
-        %td 1.6
-        %td 3.4
-      %tr.yr-1975
-        %th 1975
-        %td 2.8
-        %td 4.7
-      %tr.yr-1976
-        %th 1976
-        %td 1.5
-        %td 3.3
-      %tr.yr-1977
-        %th 1977
-        %td 3.3
-        %td 5.0
-      %tr.yr-1978
-        %th 1978
-        %td 3.6
-        %td 5.3
-      %tr.yr-1979
-        %th 1979
-        %td 1.9
-        %td 3.4
-      %tr.yr-1980
-        %th 1980
-        %td 3.2
-        %td 4.9
-      %tr.yr-1981
-        %th 1981
-        %td -1.1
-        %td 0.1
-      %tr.yr-1982
-        %th 1982
-        %td 1.5
-        %td 3.1
-      %tr.yr-1983
-        %th 1983
-        %td 1.9
-        %td 3.7
-      %tr.yr-1984
-        %th 1984
-        %td -4.3
-        %td -2.8
-      %tr.yr-1985
-        %th 1985
-        %td -0.9
-        %td 0.8
-      %tr.yr-1986
-        %th 1986
-        %td -0.8
-        %td -0.4
-      %tr.yr-1987
-        %th 1987
-        %td -0.6
-        %td 0.0
-      %tr.yr-1988
-        %th 1988
-        %td -0.9
-        %td -0.5
+      - @player.season_stats.order('year').each do |ss|
+        %tr{ class: "yr-#{ss.year}" }
+          %th= ss.year
+          %td= ss.waa_tot
+          %td= ss.war_tot
 
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
