@@ -11,28 +11,27 @@
       border-radius: $radius
 
     =year_bar($war, $waa)
-      td
-        &:first-child
-          &:before
-            @if $war > 0
-              $width: ($war / 20.0) * $max_width * 1%
-              width: $width
-            @else
-              $width: (abs($war) / 20.0) * $max_width * 1%
-              width: $width
-              left: 100% - $width
-              +border_radius(4px 0 0 4px)
-              background-color: fade_out($bad_color, .85)
-          &:after
-            @if $waa > 0
-              $width: ($waa / 20.0) * $max_width * 1%
-              width: $width
-            @else
-              $width: (abs($waa) / 20.0) * $max_width * 1%
-              width: $width
-              left: 100% - $width
-              +border_radius(4px 0 0 4px)
-              background-color: fade_out($bad_color, .85)
+      th
+        &:before
+          @if $war > 0
+            $width: ($war / 20.0) * $max_width * 1%
+            width: $width
+          @else
+            $width: (abs($war) / 20.0) * $max_width * 1%
+            width: $width
+            left: 100% - $width
+            +border_radius(4px 0 0 4px)
+            background-color: fade_out($bad_color, .85)
+        &:after
+          @if $waa > 0
+            $width: ($waa / 20.0) * $max_width * 1%
+            width: $width
+          @else
+            $width: (abs($waa) / 20.0) * $max_width * 1%
+            width: $width
+            left: 100% - $width
+            +border_radius(4px 0 0 4px)
+            background-color: fade_out($bad_color, .85)
 
     table#seasonal-stats
       .yr-1968
