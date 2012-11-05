@@ -18,7 +18,7 @@
               $width: ($war / 20.0) * $max_width * 1%
               width: $width
             @else
-              $width: ($war / 20.0) * $max_width * 1%
+              $width: (abs($war) / 20.0) * $max_width * 1%
               width: $width
               left: 100% - $width
               +border_radius(4px 0 0 4px)
@@ -28,7 +28,7 @@
               $width: ($waa / 20.0) * $max_width * 1%
               width: $width
             @else
-              $width: ($waa / 20.0) * $max_width * 1%
+              $width: (abs($waa) / 20.0) * $max_width * 1%
               width: $width
               left: 100% - $width
               +border_radius(4px 0 0 4px)
