@@ -44,6 +44,7 @@ class Player < ActiveRecord::Base
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
 
   has_and_belongs_to_many :articles
+  has_many :season_stats
 
   before_save :set_compatibility_id
 
