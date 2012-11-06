@@ -2,6 +2,7 @@
 
 - content_for(:header_styles) do
   = render 'player_specific_styles', player: @player
+  = render @player.season_stats
 
 = render 'shared/header'
 
@@ -213,6 +214,22 @@
         %td= @player.runs_totalpos.round
         - if @player.runs_pitch
           %td= @player.runs_pitch.round
+
+  %table#seasonal-stats
+    %caption Season-by-Season Statistics
+    %thead
+      %tr
+        %th Year
+        %th
+          %abbr{title: "Wins Above Average"} WAA
+        %th
+          %abbr{title: "Wins Above Replacement"} WAR
+    %tbody
+      - @player.season_stats.order('year').each do |ss|
+        %tr{ class: "yr-#{ss.year}" }
+          %th= ss.year
+          %td= ss.waa_tot
+          %td= ss.war_tot
 
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players

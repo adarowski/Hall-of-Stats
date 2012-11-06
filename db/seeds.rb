@@ -19,6 +19,15 @@ Player.transaction do
   end
 end
 
+SeasonStats.transaction do
+  CSV.parse(File.open('hall-of-stats-seasons.csv'), headers: true).each do |row|
+    stats = row.to_hash
+
+    record = SeasonStats.new
+    record.update_attributes!(stats, as: :admin)
+  end
+end
+
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end

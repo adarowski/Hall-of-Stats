@@ -1,16 +1,18 @@
 %style{:type => 'text/css'}
   :sass
 
+    $bad_color: #900
+
+    $max_width: 300
+
     =border_radius($radius)
       -moz-border-radius: $radius
       -webkit-border-radius: $radius
       border-radius: $radius
 
-    $bad_color: #900
-
     table#run-value
       margin-top: (#{player.runs_x.max.round}/2) + 20px
-      margin-bottom: (#{player.runs_x.min.abs.round}/2) + px
+      margin-bottom: (#{player.runs_x.min.abs.round}/2) + 20px
       th
         &.bat:before
           @if #{player.runs_bat} < 0

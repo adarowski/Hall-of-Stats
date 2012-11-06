@@ -537,6 +537,39 @@ table
       &:nth-child(5):before
         left: 80.5%
 
+  &#seasonal-stats
+    th
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        top: 10%
+        z-index: 1
+        height: 80%
+        background-color: fade_out($good_color, .85)
+        left: 100%
+        +border_radius(0 4px 4px 0)
+      &:after
+        content: ''
+        position: absolute
+        top: 10%
+        z-index: 1
+        height: 80%
+        background-color: fade_out($good_color, .85)
+        left: 100%
+        +border_radius(0 4px 4px 0)
+    th
+      &:first-child
+        border-right: 1px solid #aaa
+        width: 25%
+    td
+      text-align: right
+    thead
+      th
+        text-align: right
+        &:first-child
+          text-align: center
+
   &#run-value, &#win-value
     caption
       +off_left
