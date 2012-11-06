@@ -1,7 +1,7 @@
 %section#list-of-articles
   %h2
     Latest Articles
-    = link_to " RSS", "/articles.rss"
+    = link_to "RSS", "/articles.rss", class: "rss"
   %ul.article-list
     - @articles.each do |article|
       %li
