@@ -39,8 +39,11 @@ $ ->
           response( $.map(data, (item) ->
             label = "#{item.full_name}"
             label += " <span class='years-played'> (#{item.years_played})</span>" if item.years_played != ""
-            { label: label, value: item.id }))
+            { label: label, value: item.id, name: item.full_name }))
     minLength: 2,
+    focus: (event, ui) ->
+      event.preventDefault()
+      $(@).val(ui.item.name)
     select: (event, ui) ->
       event.target.value = ''
       document.location.href = '/player/' + ui.item.value
