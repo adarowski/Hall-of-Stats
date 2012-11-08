@@ -542,7 +542,7 @@ table
         left: 80.5%
 
   &#seasonal-stats
-    th
+    .innerWrapper
       position: relative
       &:before
         content: ''
@@ -573,6 +573,11 @@ table
         text-align: right
         &:first-child
           text-align: center
+    tbody
+      th
+        padding:
+          right: 0
+          left: 0
 
   &#run-value, &#win-value
     caption

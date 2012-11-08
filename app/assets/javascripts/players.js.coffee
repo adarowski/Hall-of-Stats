@@ -9,6 +9,19 @@ filters = {
 for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
   filters["show-#{position}"] = ".hos.#{position}"
 
+$.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
+  $el = undefined
+  @each ->
+    $el = $(this)
+    newDiv = $("<div />",
+      class: "innerWrapper"
+      css:
+        height: $el.height()
+        width: "100%"
+        position: "relative"
+    )
+    $el.wrapInner newDiv
+
 $ ->
 
   $(".home #player-search").focus()
@@ -63,3 +76,5 @@ $ ->
 
   # set our default filter
   filterPlayers('show-all')
+
+  $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
