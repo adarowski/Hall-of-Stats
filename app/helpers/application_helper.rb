@@ -34,7 +34,8 @@ module ApplicationHelper
     { added:              'Added to the Hall',
       removed:            'Removed from the Hall',
       upcoming:           'Not Yet Eligible but Hall-Worthy',
-      active_and_worthy:  'Active and Hall-Worthy'
+      active_and_worthy:  'Active and Hall-Worthy',
+      near_misses:          'Near Misses'
     }
   end
 

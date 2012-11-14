@@ -1,13 +1,14 @@
 filters = {
-  'show-all': '.hos'
-  'show-added': '.hos.not-hof'
-  'show-removed': '.hof.not-hos'
-  'show-upcoming': '.upcoming.not-hos'
-  'show-active-and-worthy': '.active-and-worthy.not-hos'
+  'all': '.hos'
+  'added': '.hos.not-hof'
+  'removed': '.hof.not-hos'
+  'upcoming': '.upcoming.not-hos'
+  'active-and-worthy': '.active-and-worthy.not-hos',
+  'near-misses': '.near-miss'
 }
 
 for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
-  filters["show-#{position}"] = ".hos.#{position}"
+  filters["#{position}"] = ".hos.#{position}"
 
 $.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
   $el = undefined
@@ -23,7 +24,6 @@ $.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
     $el.wrapInner newDiv
 
 $ ->
-
   $(".home #player-search").focus()
 
   $("#search-link").click (e) ->
@@ -64,17 +64,28 @@ $ ->
   filterPlayers = (kind) ->
     listItems = $('.player-list li')
     listItems.hide()
-    listItems.filter(filters[kind]).show()
+
+    selector = filters[kind] || filters['all']
+    listItems.filter(selector).show()
 
   $('#filters a').click (e) ->
     e.preventDefault()
 
-    filterPlayers(this.id)
+    filterParts = this.href.split('#')
+    filter = filterParts[filterParts.length - 1]
+
+    document.location.hash = filter
+
+    filterPlayers(filter)
 
     $('#show-filters').text(this.text)
     $("#filters").slideToggle()
 
-  # set our default filter
-  filterPlayers('show-all')
+  #load our filter
+  if document.location.hash
+    $('a[href=' + document.location.hash + ']').click()
+    $("#filters").hide()
+  else
+    filterPlayers('all')
 
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()

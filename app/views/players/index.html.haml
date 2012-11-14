@@ -21,18 +21,18 @@
   #filters{style: 'display: none;'}
     %ul
       %li
-        %a#show-all{href: '#show-all'}
+        %a{href: '#all'}
           %span #{Player.in_hos.count}
           Inductees
       - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
         %li
-          %a{id: "show-#{position}", href: "#show-#{position}"}
+          %a{href: "##{position}"}
             %span= Player.in_hos.of_position(position).count
             = PlayerDecorator::POSITIONS[position].pluralize
       - non_position_filters.each do |key, text|
         %li
           - dash_key = key.to_s.gsub(/_/, '-')
-          %a{id: "show-#{dash_key}", href: "#show-#{dash_key}"}
+          %a{href: "##{dash_key}"}
             %span= Player.send(key).count
             = text
 
