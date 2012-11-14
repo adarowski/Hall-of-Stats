@@ -43,6 +43,10 @@
           %strong
             #{player.name}
           %em #{player.position}, #{player.years_played}
-          %span #{player.hall_rating.round}
+          %span
+            - if player.hall_rating > 99.4 && player.hos == false && player.eligibility == "eligible"
+              = player.hall_rating
+            - else
+              = player.hall_rating.round
 
 = render 'shared/article_list'
