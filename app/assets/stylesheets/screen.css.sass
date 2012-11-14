@@ -96,7 +96,8 @@ hr
 #layout
   background: #FFF url(/assets/old_mathematics.png) 0 0
   +box_shadow(#333, 0 0 10px)
-  overflow: hidden
+  @media only screen and (min-width: 640px)
+    overflow: hidden
   .player &
     padding-bottom: 40px
 
