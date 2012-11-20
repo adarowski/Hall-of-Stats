@@ -1,0 +1,177 @@
+@import 'mixins'
+
+=player_circle($war, $waa)
+  $war_radius: sqrt($war/pi()) * 30px
+  $waa_radius: sqrt(abs($waa)/pi()) * 30px
+  height: $war_radius
+  width: $war_radius
+
+  dt
+    width: $war_radius
+  .war
+    @if $war > 0
+      +border_radius($war_radius)
+      height: $war_radius
+      width: $war_radius
+      left: 0
+      top: 0
+  .waa
+    @if $waa > 0
+      +border_radius($war_radius)
+      height: $waa_radius
+      width: $waa_radius
+      left: ($war_radius - $waa_radius)/2
+      top: ($war_radius - $waa_radius)/2
+
+.player-circle
+  position: relative
+  display: inline-block
+  margin: 10px 10px 60px
+  vertical-align: bottom
+  dt
+    position: absolute
+    bottom: -40px
+    text-align: center
+    font-size: 14px
+    font-weight: bold
+    line-height: 1.1
+    span
+      display: block
+      font-size: 12px
+      font-weight: normal
+      color: #666
+      margin-top: 4px
+  .war, .waa
+    position: absolute
+    margin: 0
+    padding: 0
+    background-color: fade_out($good_color, .6)
+    text-indent: -9999px
+  &.unlisted
+    .war, .waa
+      background-color: fade_out($bad_color, .6)
+
+#ballot-list
+  text-align: center
+
+  #hof-median, #hos-median
+    .war, .waa
+      background-color: fade_out($default_color, .6)
+  #hof-median
+    +player_circle(58.7,31.0)
+  #hos-median
+    +player_circle(63.0,36.1)
+  #bondsba01
+    +player_circle(158.1,123.9)
+  #clemero02
+    +player_circle(133.9,94.8)
+  #schilcu01
+    +player_circle(76.1,53.1)
+  #bagweje01
+    +player_circle(76.7,52)
+  #walkela01
+    +player_circle(69.7,48.3)
+  #trammal01
+    +player_circle(67.1,40.4)
+  #raineti01
+    +player_circle(66.2,35.4)
+  #palmera01
+    +player_circle(66.1,30.4)
+  #loftoke01
+    +player_circle(64.9,38.4)
+  #martied01
+    +player_circle(64.4,38.6)
+  #biggicr01
+    +player_circle(62.1,29.1)
+  #mcgwima01
+    +player_circle(58.7,37.2)
+  #piazzmi01
+    +player_circle(56.1,35.9)
+  #sosasa01
+    +player_circle(54.8,28.1)
+  #wellsda01
+    +player_circle(49.2,21.9)
+  #mcgrifr01
+    +player_circle(48.2,19.9)
+  #willibe02
+    +player_circle(45.9,18.8)
+  #murphda05
+    +player_circle(42.6,16.3)
+  #finlest01
+    +player_circle(40.4,12.3)
+  #mattido01
+    +player_circle(39.8,17.7)
+  #francju01
+    +player_circle(39.7,12.3)
+  #morrija02
+    +player_circle(39.3,9.6)
+  #sandere02
+    +player_circle(36.7, 18.1)
+  #cirilje01
+    +player_circle(32,14.9)
+  #greensh01
+    +player_circle(31.4,9.6)
+  #smithle02
+    +player_circle(27.6,13.3)
+  #williwo02
+    +player_circle(28.1,12.4)
+  #kleskry01
+    +player_circle(24.6,7.3)
+  #seleaa01
+    +player_circle(17.5,-0.3)
+  #hernaro01
+    +player_circle(17.2,5.9)
+  #claytro01
+    +player_circle(16.4,-6.1)
+  #coninje01
+    +player_circle(16.2,-5.8)
+  #wickmbo01
+    +player_circle(15.4,6)
+  #liebemi01
+    +player_circle(13.3,1)
+  #stantmi02
+    +player_circle(13.3, 4.9)
+  #alomasa02
+    +player_circle(11.6,-3.2)
+  #batisto01
+    +player_circle(11.3,-3.1)
+  #mesajo01
+    +player_circle(9.6,-3.1)
+  #klinest01
+    +player_circle(6.1,0.1)
+  #walketo04
+    +player_circle(8.3,-5.7)
+  #milleda02
+    +player_circle(7.7,-2)
+  #myersmi01
+    +player_circle(7.6,3.8)
+  #wilsopr01
+    +player_circle(4.6,-7)
+  #wrighja02
+    +player_circle(3.5, -4.4)
+  #alfonan01
+    +player_circle(3,-0.4)
+
+
+#key
+  font-size: 12px
+  color: white
+  margin: 0
+  dt
+    display: none
+  dd
+    margin: 0
+    padding: 0
+    background-color: fade_out($good_color, .6)
+    padding: 2px 4px
+    display: inline-block
+  .war
+    width: 200px
+  .waa
+    width: 200px
+    background-color: fade_out($good_color, .3)
+
+.unlisted
+  font-size: 12px
+  strong
+    color: $bad_color

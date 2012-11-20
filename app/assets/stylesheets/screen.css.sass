@@ -1,36 +1,5 @@
-$text_font: "Helvetica Neue", sans-serif
-$title_font: "Lora", Garamond, Baskerville, "Times New Roman", serif
-$blue_color: #003
-$good_color: #060
-$bad_color: #900
-$brown_color: #4C230E
-$default_color: $blue_color
-
-=border_radius($radius)
-  -moz-border-radius: $radius
-  -webkit-border-radius: $radius
-  border-radius: $radius
-
-=box_shadow($color, $values)
-  -webkit-box-shadow: $color $values
-  -moz-box-shadow: $color $values
-  box-shadow: $color $values
-
-=off_left
-  position: absolute
-  left: -9999px
-
-=multi_paragraphs
-  &:first-child
-    margin-top: 0
-  &:last-child
-    margin-bottom: 0
-
-=add_arrow
-  &:after
-    content: '▼'
-    font-size: 65%
-    margin-left: .4em
+@import 'mixins'
+@import 'ballot'
 
 .portrait img
   border: 4px solid white
@@ -377,6 +346,8 @@ header.generic
   border-bottom: 2px solid fade_out($default_color, .8)
   p
     +multi_paragraphs
+  @media only screen and (max-width: 640px)
+    font-size: 85%
 
 #stats-summary
   @extend #section-padding
@@ -1588,3 +1559,5 @@ $max_hall_rating: 401.3
   +bar_width(97.5)
 #rogerke01:after
   +bar_width(92.4)
+
+
