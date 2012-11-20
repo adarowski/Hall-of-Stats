@@ -26,6 +26,8 @@ end
 gem 'stamp'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'touchpunch-rails'
 
 group :development, :test do
   gem 'debugger'

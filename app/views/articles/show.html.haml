@@ -1,4 +1,6 @@
 - content_for :title, @article.title
+- content_for :header_scripts do
+  = javascript_include_tag 'articles'
 
 = render 'shared/header'
 

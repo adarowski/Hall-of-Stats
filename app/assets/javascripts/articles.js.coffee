@@ -1,0 +1,2 @@
+$ ->
+  $('.player-circle').draggable()
