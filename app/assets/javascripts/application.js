@@ -16,3 +16,4 @@
 //= require jquery-ui-autocomplete-html
 //= require jquery.ui.touch-punch
 //= require players
+//= require articles
