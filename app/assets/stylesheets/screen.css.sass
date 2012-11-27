@@ -232,7 +232,7 @@ header.generic
 
   dl
     margin: 0
-    .hall-rating, .hall-of-stats, .hall-of-fame
+    .hall-rating, .hall-of-stats, .hall-of-fame, dt.upcoming, dt.active
       font-weight: bold
       color: white
       margin: 10px 0 10px
@@ -248,7 +248,7 @@ header.generic
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
-      &.hall-of-fame, &.hall-of-stats
+      &.hall-of-fame, &.hall-of-stats, &.upcoming, &.active
         background-color: fade_out($good_color, 0.2)
         +border_radius(5px)
         @media only screen and (max-width : 480px)
@@ -277,7 +277,7 @@ header.generic
           margin-right: 10px
       &.hall-of-fame, &.hall-of-stats
         +off_left
-      &.alt-hof
+      &.alt-hof, &.upcoming, &.active
         padding-bottom: 20px
         font-size: 85%
         @media only screen and (max-width : 480px)

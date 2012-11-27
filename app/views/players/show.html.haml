@@ -31,6 +31,14 @@
     - if @player.hof == true
       %dt.hall-of-fame Hall of Fame
       %dd.hall-of-fame Inductee
+    - if @player.eligibility == "active" && @player.hall_rating > 100
+      %dt.active Active
+      %dd.active
+        #{@player.first_name} #{@player.last_name} is still active, but he is already Hall-Worthy.
+    - if @player.eligibility == "upcoming" && @player.hall_rating > 100
+      %dt.upcoming Not Yet Eligible
+      %dd.upcoming
+        #{@player.first_name} #{@player.last_name} won’t be elgible for induction until #{@player.last_year + 5}, but he is Hall-Worthy.
     - if @player.alt_hof?
       %dt.alt-hof Induction Note
       %dd.alt-hof
