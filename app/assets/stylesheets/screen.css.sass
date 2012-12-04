@@ -346,8 +346,8 @@ header.generic
   border-bottom: 2px solid fade_out($default_color, .8)
   p
     +multi_paragraphs
-  @media only screen and (max-width: 640px)
-    font-size: 85%
+    @media only screen and (max-width: 640px)
+      font-size: 85%
 
 #stats-summary
   @extend #section-padding
@@ -755,6 +755,10 @@ article
         margin-top: 5px
     blockquote
       font-size: 14px
+      color: #666
+    p small
+      display: block
+      line-height: 1.4
       color: #666
 
 .ui-autocomplete
