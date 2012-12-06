@@ -4,7 +4,8 @@ filters = {
   'removed': '.hof.not-hos'
   'upcoming': '.upcoming.not-hos'
   'active-and-worthy': '.active-and-worthy.not-hos',
-  'near-misses': '.near-miss'
+  'near-misses': '.near-miss',
+  'position': '.position'
 }
 
 for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
@@ -85,6 +86,8 @@ $ ->
   if document.location.hash
     $('a[href=' + document.location.hash + ']').click()
     $("#filters").hide()
+  else if document.location.href.match(/\/position\//)
+    filterPlayers('position')
   else
     filterPlayers('all')
 

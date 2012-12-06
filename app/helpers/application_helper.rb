@@ -11,6 +11,8 @@ module ApplicationHelper
       {class: 'article'}
     when 'about#index'
       {class: 'about'}
+    when 'position#show'
+      {class: 'position'}
     end
   end
 

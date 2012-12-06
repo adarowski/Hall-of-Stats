@@ -7,5 +7,6 @@ Hos::Application.routes.draw do
   match '/autocomplete', to: 'players#autocomplete'
   resources :about
   resources :articles
+  resources :position
   root to: 'players#index'
 end
