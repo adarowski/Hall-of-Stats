@@ -2,6 +2,8 @@
 
 = render 'shared/search'
 
+= paginate @articles
+
 - @articles.each do |article|
   %article{class: 'long-form', id: "article-#{article.id}"}
     %header

@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  paginates_per 10
+
   attr_accessible :body, :published, :title, :slug, :published_at, as: :admin
 
   scope :published, where("published_at is not null")

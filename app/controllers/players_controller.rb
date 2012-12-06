@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @players= Player.front_page.by_rank
-    @articles = Article.published.by_published_at
+    @articles = Article.published.by_published_at.page(1)
     @cover_model = PlayerDecorator.new(Player.cover_models.order('random()').first)
   end
 

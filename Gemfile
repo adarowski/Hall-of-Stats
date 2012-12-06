@@ -10,6 +10,7 @@ gem 'redcarpet'
 
 gem 'draper'
 gem 'nokogiri'
+gem 'kaminari'
 
 gem 'activeadmin'
 
