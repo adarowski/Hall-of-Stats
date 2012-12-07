@@ -33,7 +33,7 @@ class Player < ActiveRecord::Base
   scope :front_page, where(%(
     hof is true or hos is true or (hos is false and hall_rating > 100)
     -- near miss
-    or (hof is false and eligibility != 'active' and hall_rating >= 90)
+    or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 99.9)
   ))
 
   scope :cover_models, where('cover_model is true')
@@ -46,7 +46,7 @@ class Player < ActiveRecord::Base
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
-  scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90")
+  scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 99.9")
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'

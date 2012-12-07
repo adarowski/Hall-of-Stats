@@ -2,8 +2,6 @@
 
 = render 'shared/search'
 
-= paginate @articles
-
 - @articles.each do |article|
   %article{class: 'long-form', id: "article-#{article.id}"}
     %header.title
@@ -14,3 +12,4 @@
 
     = raw article_truncation(article)
 
+= paginate @articles
