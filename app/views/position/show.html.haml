@@ -7,12 +7,12 @@
 %section#inductees
   %h2
     %a#show-filters{href: '#'}
-      100 Greatest #{@position_name.pluralize} Ever
+      #{@players.count} Greatest #{@position_name.pluralize} Ever
   #filters{style: 'display: none;'}
     %ul
       %li
         %a#show-all{href: '#position'}
-          %span 100
+          %span #{@players.count}
           Greatest #{@position_name.pluralize} Ever
       %li
         %a#show-all{href: '#all'}
