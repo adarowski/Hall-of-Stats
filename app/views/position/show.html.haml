@@ -25,6 +25,10 @@
         %a#show-all{href: '#all'}
           %span #{Player.in_hos.of_position(@position).count}
           Hall of Stats Inductees
+      %li
+        %a#show-all{href: '#hof'}
+          %span #{Player.in_hof.of_position(@position).count}
+          Hall of Fame Inductees
       - non_position_filters.each do |key, text|
         %li
           - dash_key = key.to_s.gsub(/_/, '-')
