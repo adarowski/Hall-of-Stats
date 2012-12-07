@@ -1,5 +1,9 @@
 class PositionController < ApplicationController
+  DO_NOT_LOAD = %w( if of npos )
+
   def show
+    redirect_to root_path if DO_NOT_LOAD.include?(params[:id])
+
     @position = params[:id]
     @position_name = PlayerDecorator::POSITIONS[@position]
     @players = Player.of_position(@position).by_rank.limit(@position == 'p' ? 500 : 200)
