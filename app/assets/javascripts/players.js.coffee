@@ -1,5 +1,6 @@
 filters = {
   'all': '.hos'
+  'hof': '.hof'
   'added': '.hos.not-hof'
   'removed': '.hof.not-hos'
   'upcoming': '.upcoming.not-hos'

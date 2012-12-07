@@ -17,13 +17,17 @@
   %h2
     %a#show-filters{href: '#'}
       = Player.in_hos.count
-      Inductees
+      Hall of Stats Inductees
   #filters{style: 'display: none;'}
     %ul
       %li
         %a#show-all{href: '#all'}
           %span #{Player.in_hos.count}
-          Inductees
+          Hall of Stats Inductees
+      %li
+        %a#show-all{href: '#hof'}
+          %span #{Player.in_hof.count}
+          Hall of Fame Inductees
       - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
         %li
           %a{id: "show-#{position}", href: "##{position}"}
