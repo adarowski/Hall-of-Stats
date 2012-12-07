@@ -2,12 +2,19 @@
 
 = render 'shared/search'
 
-%section#intro
+%header.title
+  %h2 #{@position_name} Rankings
+
+%figure.banner
+  %img{:src => "/assets/photos/foxx.jpg"}/
+  %figcaption
+    %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
+
 
 %section#inductees
   %h2
     %a#show-filters{href: '#'}
-      #{@players.count} Greatest #{@position_name.pluralize} Ever
+      #{@players.count} Greatest #{@position_name.pluralize}
   #filters{style: 'display: none;'}
     %ul
       %li
@@ -17,7 +24,7 @@
       %li
         %a#show-all{href: '#all'}
           %span #{Player.in_hos.of_position(@position).count}
-          Inductees
+          Hall of Stats Inductees
       - non_position_filters.each do |key, text|
         %li
           - dash_key = key.to_s.gsub(/_/, '-')
@@ -37,21 +44,33 @@
             - else
               = player.hall_rating.round
 
-%section#list-of-articles
-  %h2 Best Ever
-  %ul.best-ever
+%section#position-lists
+  %h3 Best #{@position_name.pluralize} Ever
+  %ol.best-ever
     - @players.limit(5).each do |player|
       %li[player]
         = player.name
 
-  %h2 Best not in the Hall of Stats
-  %ul.best-not-hos
+  %h3 Best Not in the Hall of Stats
+  %ol.best-not-hos
+    - @best_not_included.each do |player|
+      %li[player]
+        = player.name
+
+  %h3 Best Not in the Hall of Fame
+  %ol.best-not-hof
     - @best_not_inducted.each do |player|
       %li[player]
         = player.name
 
-  %h2 Best Active #{@position_name.pluralize}
-  %ul.best-active
+  %h3 Best Active #{@position_name.pluralize}
+  %ol.best-active
     - @best_active.each do |player|
+      %li[player]
+        = player.name
+
+  %h3 Best Retired but Not Yet Eligible
+  %ol.best-active
+    - @best_upcoming.each do |player|
       %li[player]
         = player.name

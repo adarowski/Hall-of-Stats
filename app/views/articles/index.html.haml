@@ -6,7 +6,7 @@
 
 - @articles.each do |article|
   %article{class: 'long-form', id: "article-#{article.id}"}
-    %header
+    %header.title
       %h2= link_to article.title, article_path(article)
       %span
         = article.published_at.stamp("Jan 1, 2012")

@@ -326,7 +326,7 @@ header.generic
     float: left
     width: 60%
 
-#intro, .home #list-of-articles
+#intro, .home #list-of-articles, #position-lists
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
@@ -429,6 +429,8 @@ header.generic
     border-top: 2px solid fade_out($default_color, .8)
     padding-bottom: 40px
 
+#position-lists
+  @extend #section-padding
 
 ul.article-list
   font-size: 85%
@@ -694,29 +696,31 @@ section#inductees
     +border_radius(4px)
     margin-right: .25em
 
+header.title
+  background-color: fade_out($default_color, 0.8)
+  padding: 10px 10px
+  h2
+    margin: 0
+    font-size: 24px
+    line-height: 1.2
+    font-family: $title_font
+    a
+      &:link, &:visited, &:hover, &:active
+      color: black
+    @media only screen and (min-width: 640px)
+      font-size: 36px
+  span
+    display: block
+    color: #666
+    font-size: 80%
+    margin: 5px 0
+
 article
   &.long-form
     padding: 0 10px 40px 10px
     overflow: hidden
     header
-      background-color: fade_out($default_color, 0.8)
       margin: 0 -10px
-      padding: 10px 10px
-      h2
-        margin: 0
-        font-size: 24px
-        line-height: 1.2
-        font-family: $title_font
-        a
-          &:link, &:visited, &:hover, &:active
-          color: black
-        @media only screen and (min-width: 640px)
-          font-size: 36px
-      span
-        display: block
-        color: #666
-        font-size: 80%
-        margin: 5px 0
     .portrait
       float: right
       margin: 15px 5px 15px 25px
