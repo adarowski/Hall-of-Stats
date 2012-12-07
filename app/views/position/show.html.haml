@@ -5,11 +5,11 @@
 %header.title
   %h2 #{@position_name} Rankings
 
-%figure.banner
-  %img{:src => "/assets/photos/foxx.jpg"}/
-  %figcaption
-    %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
-
+- if Position.find_by_id(@position)
+  %figure.banner
+    %img{:src => "/assets/photos/#{Position.find(@position).img}"}/
+    %figcaption
+      %a{:href => Position.find(@position).img_credit} Photo Credit
 
 %section#inductees
   %h2

@@ -13,6 +13,7 @@ gem 'nokogiri'
 gem 'kaminari'
 
 gem 'activeadmin'
+gem 'active_hash'
 
 # Gems used only for assets and not required
 # in production environments by default.
