@@ -1,0 +1,10 @@
+-#%h3 Best #{@position_name.pluralize} Ever
+%h3= title
+- player = list.first
+- if player.img_url.present?
+  %figure.portrait
+    = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
+%ol{ class: class_name }
+  - list.limit(5).each do |player|
+    %li[player]
+      = link_to player.name, player_path(player)

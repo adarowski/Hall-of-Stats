@@ -14,16 +14,8 @@
 %nav.jump-menu
   %strong Jump to:
   %ol
-    %li= link_to "P", "/position/p"
-    %li= link_to "C", "/position/c"
-    %li= link_to "1B", "/position/1b"
-    %li= link_to "2B", "/position/2b"
-    %li= link_to "3B", "/position/3b"
-    %li= link_to "SS", "/position/ss"
-    %li= link_to "LF", "/position/lf"
-    %li= link_to "CF", "/position/cf"
-    %li= link_to "RF", "/position/rf"
-    %li= link_to "DH", "/position/dh"
+    - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+      %li=link_to position.upcase, position_path(position)
 
 %section#inductees
   %h2
@@ -63,52 +55,12 @@
               = player.hall_rating.round
 
 %section#position-lists
-  %h3 Best #{@position_name.pluralize} Ever
-  - @players.limit(1).each do |player|
-    - if player.img_url.present?
-      %figure.portrait
-        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
-  %ol.best-ever
-    - @players.limit(5).each do |player|
-      %li[player]
-        = link_to player.name, player_path(player)
+  = top_five_list(@players, "Best #{@position_name.pluralize} Ever", 'best-ever')
 
-  %h3 Best Not in the Hall of Stats
-  - @best_not_included.limit(1).each do |player|
-    - if player.img_url.present?
-      %figure.portrait
-        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
-  %ol.best-not-hos
-    - @best_not_included.each do |player|
-      %li[player]
-        = link_to player.name, player_path(player)
+  = top_five_list(@best_not_included, "Best Not in the Hall of Stats", 'best-not-hos')
 
-  %h3 Best Not in the Hall of Fame
-  - @best_not_inducted.limit(1).each do |player|
-    - if player.img_url.present?
-      %figure.portrait
-        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
-  %ol.best-not-hof
-    - @best_not_inducted.each do |player|
-      %li[player]
-        = link_to player.name, player_path(player)
+  = top_five_list(@best_not_inducted, "Best Not in the Hall of Fame", 'best-not-hof')
 
-  %h3 Best Active #{@position_name.pluralize}
-  - @best_active.limit(1).each do |player|
-    - if player.img_url.present?
-      %figure.portrait
-        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
-  %ol.best-active
-    - @best_active.each do |player|
-      %li[player]
-        = link_to player.name, player_path(player)
-
-  %h3 Best Retired but Not Yet Eligible
-  - @best_upcoming.limit(1).each do |player|
-    - if player.img_url.present?
-      %figure.portrait
-        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
-  %ol.best-active
-    - @best_upcoming.each do |player|
-      %li[player]
-        = link_to player.name, player_path(player)
+  = top_five_list(@best_active, "Best Active #{@position_name.pluralize}", 'best-active')
+  
+  = top_five_list(@best_upcoming, 'Best Retired but Not Yet Eligible', 'best-retired')
