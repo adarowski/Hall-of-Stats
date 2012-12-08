@@ -34,7 +34,7 @@
       %li
         %a#show-all{href: '#position'}
           %span #{@players.count}
-          Greatest #{@position_name.pluralize} Ever
+          Greatest #{@position_name.pluralize}
       %li
         %a#show-all{href: '#all'}
           %span #{Player.in_hos.of_position(@position).count}
@@ -49,7 +49,7 @@
           %a{id: "show-#{dash_key}", href: "##{dash_key}"}
             %span= Player.of_position(@position).send(key).count
             = text
-  %ol#hos-list.player-list
+  %ol.player-list
     - @players.each do |player|
       %li{id: safe_id(player.id), class: filter_data(player) + ['position']}
         = link_to player_path(player) do
@@ -64,31 +64,51 @@
 
 %section#position-lists
   %h3 Best #{@position_name.pluralize} Ever
+  - @players.limit(1).each do |player|
+    - if player.img_url.present?
+      %figure.portrait
+        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
   %ol.best-ever
     - @players.limit(5).each do |player|
       %li[player]
-        = player.name
+        = link_to player.name, player_path(player)
 
   %h3 Best Not in the Hall of Stats
+  - @best_not_included.limit(1).each do |player|
+    - if player.img_url.present?
+      %figure.portrait
+        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
   %ol.best-not-hos
     - @best_not_included.each do |player|
       %li[player]
-        = player.name
+        = link_to player.name, player_path(player)
 
   %h3 Best Not in the Hall of Fame
+  - @best_not_inducted.limit(1).each do |player|
+    - if player.img_url.present?
+      %figure.portrait
+        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
   %ol.best-not-hof
     - @best_not_inducted.each do |player|
       %li[player]
-        = player.name
+        = link_to player.name, player_path(player)
 
   %h3 Best Active #{@position_name.pluralize}
+  - @best_active.limit(1).each do |player|
+    - if player.img_url.present?
+      %figure.portrait
+        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
   %ol.best-active
     - @best_active.each do |player|
       %li[player]
-        = player.name
+        = link_to player.name, player_path(player)
 
   %h3 Best Retired but Not Yet Eligible
+  - @best_upcoming.limit(1).each do |player|
+    - if player.img_url.present?
+      %figure.portrait
+        = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
   %ol.best-active
     - @best_upcoming.each do |player|
       %li[player]
-        = player.name
+        = link_to player.name, player_path(player)

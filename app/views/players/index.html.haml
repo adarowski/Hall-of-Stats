@@ -40,7 +40,7 @@
             %span= Player.send(key).count
             = text
 
-  %ol#hos-list.player-list
+  %ol.player-list
     - @players.each do |player|
       %li{id: safe_id(player.id), class: filter_data(player)}
         = link_to player_path(player) do
