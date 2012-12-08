@@ -622,6 +622,7 @@ section#inductees
     list-style: none
     padding: 0
     margin: 0
+    counter-reset: li
     li
       position: relative
       background-color: fade_out($default_color, .95)
@@ -650,6 +651,11 @@ section#inductees
         color: #222
       strong
         display: block
+        &:before
+          content: counter(li)
+          counter-increment: li
+          font-size: 75%
+          color: #333
       em
         display: block
         font-size: 75%
@@ -1574,5 +1580,3 @@ $max_hall_rating: 401.3
   +bar_width(97.5)
 #rogerke01:after
   +bar_width(92.4)
-
-
