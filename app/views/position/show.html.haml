@@ -11,6 +11,20 @@
     %figcaption
       %a{:href => Position.find(@position).img_credit} Photo Credit
 
+%nav.jump-menu
+  %strong Jump to:
+  %ol
+    %li= link_to "P", "/position/p"
+    %li= link_to "C", "/position/c"
+    %li= link_to "1B", "/position/1b"
+    %li= link_to "2B", "/position/2b"
+    %li= link_to "3B", "/position/3b"
+    %li= link_to "SS", "/position/ss"
+    %li= link_to "LF", "/position/lf"
+    %li= link_to "CF", "/position/cf"
+    %li= link_to "RF", "/position/rf"
+    %li= link_to "DH", "/position/dh"
+
 %section#inductees
   %h2
     %a#show-filters{href: '#'}

@@ -260,6 +260,8 @@ header.generic
       margin: 0
       &.position
         font-size: 110%
+        a
+          font-weight: normal
         @media only screen and (min-width : 480px)
           font-size: 140%
       &.years
@@ -721,6 +723,8 @@ article
     overflow: hidden
     header
       margin: 0 -10px
+    .jump-menu
+      margin: 0 -10px 10px
     .portrait
       float: right
       margin: 15px 5px 15px 25px
@@ -823,7 +827,6 @@ article
       color: white
 
 .jump-menu
-  margin: 0 -10px 10px
   background-color: fade_out($default_color, 0.8)
   padding: 10px
   font-size: 80%

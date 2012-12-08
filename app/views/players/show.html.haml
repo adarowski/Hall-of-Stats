@@ -15,7 +15,7 @@
   %dl
     - unless @player.position == "npos"
       %dt.position Position
-      %dd.position= @player.position_name
+      %dd.position= link_to @player.position_name, '/position/' + @player.position
     - if @player.years_played
       %dt.years Years
       %dd.years #{@player.years_played}
