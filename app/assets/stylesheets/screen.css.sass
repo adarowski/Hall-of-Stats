@@ -328,7 +328,7 @@ header.generic
     float: left
     width: 60%
 
-#intro, .home #list-of-articles, #position-lists
+#intro, .home #list-of-articles, #position-lists, #position-rankings
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
@@ -415,6 +415,79 @@ header.generic
   @media only screen and (min-width: 640px)
     border-top: 0
 
+#position-rankings
+  @extend #section-padding
+  border-top: 2px solid fade_out($default_color, 0.8)
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    position: relative
+    height: 360px
+    width: 100%
+    &:before
+      content: ''
+      width: 160px
+      height: 160px
+      background-color: fade_out($default_color, 0.9)
+      position: absolute
+      +border_radius(20px)
+      +rotate(45)
+      left: 50%
+      margin-left: -80px
+      top: 150px
+  li
+    margin: 0
+    padding: 0
+  a
+    position: absolute
+    background-color: fade_out($default_color, 0.5)
+    display: inline-block
+    color: white
+    padding: 4px
+    +border_radius(36px)
+    width: 36px
+    text-align: center
+    font-size: 13px
+    &#link-p
+      left: 50%
+      margin-left: -22px
+      top: 225px
+    &#link-c
+      left: 50%
+      margin-left: -22px
+      top: 320px
+    &#link-2b
+      left: 50%
+      margin-left: 18px
+      top: 140px
+    &#link-ss
+      left: 50%
+      margin-left: -62px
+      top: 140px
+    &#link-cf
+      left: 50%
+      margin-left: -22px
+      top: 10px
+    &#link-3b
+      left: 50%
+      margin-left: -132px
+      top: 220px
+    &#link-1b
+      left: 50%
+      margin-left: 88px
+      top: 220px
+    &#link-lf
+      left: 0
+      top: 60px
+    &#link-rf
+      right: 0
+      top: 60px
+    &#link-dh
+      left: 50%
+      margin-left: 30px
+      top: 320px
+
 #list-of-articles
   @extend #section-padding
   h2
@@ -447,7 +520,9 @@ header.generic
       color: #333
   figure
     float: left
-    margin-right: 10px
+    margin:
+      top: 10px
+      right: 10px
 
 ul.article-list
   font-size: 85%

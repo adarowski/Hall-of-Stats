@@ -16,6 +16,13 @@ $default_color: $blue_color
   -moz-box-shadow: $color $values
   box-shadow: $color $values
 
+=rotate($degrees)
+  -webkit-transform: rotate($degrees + deg)
+  -moz-transform: rotate($degrees + deg)
+  -ms-transform: rotate($degrees + deg)
+  -o-transform: rotate($degrees + deg)
+  transform: rotate($degrees + deg)
+
 =off_left
   position: absolute
   left: -9999px
