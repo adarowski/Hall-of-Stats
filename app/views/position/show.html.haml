@@ -13,6 +13,7 @@
   %figure.banner
     %img{:src => "/assets/photos/#{Position.find(@position).img}"}/
     %figcaption
+      That’s #{Position.find(@position).player}.
       %a{:href => Position.find(@position).img_credit} Photo Credit
 
 %nav.jump-menu
