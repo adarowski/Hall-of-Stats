@@ -62,6 +62,13 @@
         Follow
         %a{:href => "http://twitter.com/hallofstats"} @HallOfStats
         on Twitter.
+      %p
+        All Wins Above Replacement and Wins Above Average data comes from
+        = succeed "." do
+          %a{:href => "http://baseball-reference.com"} Baseball-Reference.com
+        They are awesome.
+        = succeed "." do
+          %a{:href => "/about#thanks"} (More Thanks)
       - if @player && @player.has_photo?
         %p
           %a{href: @player.img_url} #{@player.name} photo
