@@ -1,5 +1,7 @@
--#%h3 Best #{@position_name.pluralize} Ever
-%h3= title
+%h3
+  = title
+  - if list == @players
+    %small by Hall Rating
 - player = list.first
 - if player.img_url.present?
   %figure.portrait

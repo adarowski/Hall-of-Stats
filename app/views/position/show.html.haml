@@ -60,12 +60,12 @@
               = player.hall_rating.round
 
 %section#position-lists
-  = top_five_list(@players, "Best #{@position_name.pluralize} Ever", 'best-ever')
+  = top_five_list(@players, "Most Valuable #{@position_name.pluralize} Ever", 'best-ever')
 
-  = top_five_list(@best_not_inducted, "Best Not in the Hall of Fame", 'best-not-hof')
+  = top_five_list(@best_not_inducted, "Not in the Hall of Fame", 'best-not-hof')
 
-  = top_five_list(@best_not_included, "Best Not in the Hall of Stats", 'best-not-hos')
+  = top_five_list(@best_not_included, "Not in the Hall of Stats", 'best-not-hos')
 
-  = top_five_list(@best_active, "Best Active #{@position_name.pluralize}", 'best-active')
+  = top_five_list(@best_active, "Active #{@position_name.pluralize}", 'best-active')
   
-  = top_five_list(@best_upcoming, 'Best Retired but Not Yet Eligible', 'best-retired')
+  = top_five_list(@best_upcoming, "Retired but Not Yet Eligible", 'best-retired')
