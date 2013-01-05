@@ -19,6 +19,7 @@ gem 'active_hash'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'sassy-math'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
 
