@@ -112,13 +112,21 @@
 
   #more-stats{style: 'display: none;'}
     %p
-      Over the course of his career, #{@player.first_name} #{@player.last_name}
+      - if @player.eligibility == "active"
+        So far in his career,
+      - else
+        Over the course of his career,
+      #{@player.first_name} #{@player.last_name}
       = succeed '.' do
         - if @player.position == "p"
+          - if @player.eligibility == "active"
+            has
           pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
           - if @player.pa > 0
             and made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
         - else
+          - if @player.eligibility == "active"
+            has
           made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
           - if @player.ip_outs > 0
             and pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
