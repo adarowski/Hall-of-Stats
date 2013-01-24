@@ -68,7 +68,10 @@
   %ul
     %li
       %strong= @player.ranking_overall.ordinalize
-      Overall
+      All Time
+    %li
+      %strong= @player.ranking_position.ordinalize
+      among #{@player.position_name.pluralize}
     - if @player.hof == true
       %li
         %strong= @player.ranking_hof.ordinalize
@@ -77,9 +80,6 @@
       %li
         %strong= @player.ranking_hos.ordinalize
         among Hall of Stats
-    %li
-      %strong= @player.ranking_position.ordinalize
-      among #{@player.position_name.pluralize}
 
 - if @player.bio? || @player.articles.published.any?
   %section#bio
