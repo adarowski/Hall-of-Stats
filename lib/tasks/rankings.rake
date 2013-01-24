@@ -1,6 +1,6 @@
 def rank(column_to_update, where_clause="1=1")
   update_sql = <<-SQL
-create sequence player_ranking_seq increment by 1 minvalue 1;
+create temp sequence player_ranking_seq increment by 1 minvalue 1;
 update players
 set #{column_to_update} = p.ranking
 from (select s.id, nextval('player_ranking_seq') as ranking
