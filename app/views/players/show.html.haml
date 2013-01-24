@@ -67,19 +67,19 @@
     %small by Hall Rating
   %ul
     %li
-      %strong= @player.ranking_overall.ordinalize
+      %strong= ordinalize_with_delimiter(@player.ranking_overall)
       All Time
       %em (Top 2.1%)
     %li
-      %strong= @player.ranking_position.ordinalize
+      %strong= ordinalize_with_delimiter(@player.ranking_position)
       among #{@player.position_name.pluralize}
     - if @player.hof == true
       %li
-        %strong= @player.ranking_hof.ordinalize
+        %strong= ordinalize_with_delimiter(@player.ranking_hof)
         among Hall of Fame
     - if @player.hos == true
       %li
-        %strong= @player.ranking_hos.ordinalize
+        %strong= ordinalize_with_delimiter(@player.ranking_hos)
         among Hall of Stats
 
 - if @player.bio? || @player.articles.published.any?

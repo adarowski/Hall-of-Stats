@@ -48,4 +48,10 @@ module ApplicationHelper
       "Hall of Stats"
     end
   end
+
+  def ordinalize_with_delimiter(number)
+    delimited = number_with_delimiter(number)
+    ordinal_suffix = number.ordinalize.gsub(/\d+/, '')
+    "#{delimited}#{ordinal_suffix}"
+  end
 end
