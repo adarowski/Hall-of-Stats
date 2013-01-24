@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108001400) do
+ActiveRecord::Schema.define(:version => 20130124191309) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -103,6 +103,10 @@ ActiveRecord::Schema.define(:version => 20121108001400) do
     t.string   "alt_hof"
     t.boolean  "cover_model",      :default => false
     t.string   "compatibility_id"
+    t.integer  "ranking_overall"
+    t.integer  "ranking_position"
+    t.integer  "ranking_hof"
+    t.integer  "ranking_hos"
   end
 
   add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
