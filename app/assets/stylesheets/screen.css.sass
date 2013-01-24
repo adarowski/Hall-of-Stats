@@ -351,6 +351,23 @@ header.generic
     @media only screen and (max-width: 640px)
       font-size: 85%
 
+#rankings
+  @extend #section-padding
+  border-bottom: 2px solid fade_out($default_color, .8)
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+  li
+    background-color: fade_out($default_color, 0.8)
+    +border_radius(5px)
+    padding: 2px 10px
+    display: inline-block
+    font-size: 85%
+    margin-bottom: .5em
+    @media only screen and (max-width : 480px)
+      font-size: 75%
+
 #stats-summary
   @extend #section-padding
 

@@ -61,6 +61,26 @@
       %dd.longevity
         #{@player.longevity_pct}%
 
+%section#rankings
+  %h3
+    Rankings
+    %small by Hall Rating
+  %ul
+    %li
+      %strong= @player.ranking_overall.ordinalize
+      Overall
+    - if @player.hof == true
+      %li
+        %strong= @player.ranking_hof.ordinalize
+        among Hall of Fame
+    - if @player.hos == true
+      %li
+        %strong= @player.ranking_hos.ordinalize
+        among Hall of Stats
+    %li
+      %strong= @player.ranking_position.ordinalize
+      among #{@player.position_name.pluralize}
+
 - if @player.bio? || @player.articles.published.any?
   %section#bio
     - if @player.bio?
