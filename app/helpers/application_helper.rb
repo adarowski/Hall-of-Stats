@@ -54,4 +54,9 @@ module ApplicationHelper
     ordinal_suffix = number.ordinalize.gsub(/\d+/, '')
     "#{delimited}#{ordinal_suffix}"
   end
+
+  def overall_percentage(player)
+    top_percent = "%.1f" % (player.ranking_overall * 100.0 / Player.count)
+    "Top #{top_percent < "0.1" ? "<0.1" : top_percent}"
+  end
 end
