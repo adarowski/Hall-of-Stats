@@ -70,9 +70,10 @@
       %strong= ordinalize_with_delimiter(@player.ranking_overall)
       All Time
       %em (#{overall_percentage(@player)}%)
-    %li
-      %strong= ordinalize_with_delimiter(@player.ranking_position)
-      among #{@player.position_name.pluralize}
+    - unless @player.position == "npos"
+      %li
+        %strong= ordinalize_with_delimiter(@player.ranking_position)
+        among #{@player.position_name.pluralize}
     - if @player.hof == true
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_hof)
