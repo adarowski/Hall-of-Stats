@@ -21,8 +21,8 @@
       %dd.years #{@player.years_played}
     %dt.hall-rating<> Hall Rating
     %dd.hall-rating
-      - if @player.hall_rating > 99.4 && @player.hos == false && @player.eligibility == "eligible"
-        = @player.hall_rating
+      - if @player.hall_rating > 99.49 && @player.hos == false && @player.eligibility == "eligible"
+        = @player.hall_rating.round(1)
       - else
         = @player.hall_rating.round
     - if @player.hos == true
