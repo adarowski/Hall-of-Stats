@@ -77,6 +77,10 @@ class Player < ActiveRecord::Base
     !hos && (eligibility != 'active') && hall_rating.between?(90, 100.0)
   end
 
+  def hall_rating_rounded
+    hall_rating.round
+  end
+
   has_and_belongs_to_many :similarity_scores, foreign_key: :player1_id
   has_and_belongs_to_many :similarity_scores, foreign_key: :player2_id
 
