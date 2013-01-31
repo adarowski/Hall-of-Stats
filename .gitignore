@@ -15,5 +15,4 @@
 /log/*.log
 /tmp
 
-*.csv
 .DS_Store
