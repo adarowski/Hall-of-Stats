@@ -8,7 +8,7 @@ gem 'pg'
 gem 'haml'
 gem 'redcarpet'
 
-gem 'draper'
+gem 'draper', '0.17.0'
 gem 'nokogiri'
 gem 'kaminari'
 
