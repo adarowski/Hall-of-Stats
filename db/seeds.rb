@@ -28,6 +28,15 @@ SeasonStats.transaction do
   end
 end
 
+FranchiseRating.transaction do
+  CSV.parse(File.open('public/bos-hall-rating.csv'), headers: true).each do |row|
+    # FIXME 2/26/13: update CSV to include franchise_id field
+    stats = row.to_hash.merge(franchise_id: 'bos')
+    record = FranchiseRating.new
+    record.update_attributes!(stats, as: :admin)
+  end
+end
+
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
