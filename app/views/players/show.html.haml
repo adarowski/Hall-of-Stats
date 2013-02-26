@@ -270,6 +270,10 @@
           %td= ss.waa_tot
           %td= ss.war_tot
 
+%section#external-links
+  %a{href: 'http://www.baseball-reference.com/pl/player_search.cgi?search=' + @player.id} #{@player.first_name} #{@player.last_name}
+  on Baseball-Reference.
+
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
     %table
