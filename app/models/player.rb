@@ -50,6 +50,8 @@ class Player < ActiveRecord::Base
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
+  has_many :franchise_ratings
+
 
   before_save :set_compatibility_id
 
