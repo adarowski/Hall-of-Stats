@@ -1,7 +1,31 @@
+# -*- encoding: utf-8 -*-
+
 class Franchise < ActiveHash::Base
+  include ActiveHash::Associations
+  
   fields :name, :img, :img_credit, :player
   field :num_displayed_players, default: 200
-
+  
+  has_many :franchise_ratings, class_name: 'FranchiseRating'
+  
+  def players
+    Player.select('players.*, franchise_ratings.hall_rating::numeric as franchise_hall_rating').
+      joins(:franchise_ratings).
+      where('franchise_ratings.franchise_id = ?', self.id).
+      order('franchise_ratings.hall_rating desc')
+  end
+  
+  def players_for_position(position)
+    Player.select('players.*, franchise_ratings.hall_rating::numeric as franchise_hall_rating').
+      joins(:franchise_ratings).
+      where('franchise_ratings.franchise_id = ?', self.id).where('players.position = ?', position).
+      order('franchise_ratings.hall_rating desc')
+  end
+  
+  def top_player_for_position(position)
+    players_for_position(position).first
+  end
+  
   add id: 'alt', name: 'Altoona Mountain City', img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky'
   add id: 'ana', name: 'Los Angeles Angels of Anaheim', img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky'
   add id: 'ari', name: 'Arizona Diamondbacks', img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky'

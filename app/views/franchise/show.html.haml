@@ -1,0 +1,59 @@
+= render 'shared/header'
+
+= render 'shared/search'
+
+%header.title
+  %h2= @franchise.name
+
+  %figure.banner
+    %img{:src => "/assets/photos/#{@franchise.img}"}/
+    %figcaption
+      That’s #{@franchise.player}.
+      %a{:href => @franchise.img_credit} Photo Credit
+
+%section#inductees
+  %h2.franchise-player
+    %a#show-filters{href: '#'}
+      #{@players.count} Greatest #{@franchise.id.upcase} Players
+  #filters{style: 'display: none;'}
+    %ul
+      %li
+        %a#show-franchise{href: '#franchise'}
+          %span #{@players.count} 
+          Greatest #{@franchise.id.upcase} Players
+
+      %li
+        %a#show-all{href: '#all'}
+          %span #{@players.in_hos.count}
+          Hall of Stats Inductees
+      %li
+        %a#show-all{href: '#hof'}
+          %span #{@players.in_hof.count}
+          Hall of Fame Inductees
+  %ol.player-list
+    - @players.each do |player|
+      %li{id: safe_id(player.id), class: filter_data(player) + ['franchise']}
+        = link_to player_path(player) do
+          %strong
+            #{player.name}
+          %em #{player.years_played}
+          %span
+            - if player.franchise_hall_rating.to_f > 99.49 && player.hos == false && player.eligibility == "eligible"
+              = player.franchise_hall_rating.to_f.round(1)
+            - else
+              = player.franchise_hall_rating.to_f.round
+              
+%section#position-lists
+  %h3 The #{@franchise.id.upcase} All Stars
+
+  %ol.all-stars
+    - Position.all.each do |position|
+      - player = @franchise.top_player_for_position(position.id)
+      %li
+        %h4= PlayerDecorator::POSITIONS[position.id]
+      - if player
+        %span[player]
+          - if player.img_url.present?
+            %figure.portrait
+              = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
+          = link_to player.name, player_path(player)
