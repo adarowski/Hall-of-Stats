@@ -327,7 +327,7 @@ header.generic
     float: left
     width: 60%
 
-#intro, .home #list-of-articles, #position-lists, #position-rankings
+#intro, .home #list-of-articles, #position-lists, #position-rankings, #all-time-team
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
@@ -549,6 +549,16 @@ header.generic
       right: 10px
   small
     display: block
+
+#all-time-team
+  @extend #section-padding
+  ol
+    list-style: none
+    padding: 0
+  span
+    font-size: 75%
+    color: #666
+
 
 ul.article-list
   font-size: 85%

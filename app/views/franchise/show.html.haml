@@ -5,11 +5,17 @@
 %header.title
   %h2= @franchise.name
 
-  %figure.banner
-    %img{:src => "/assets/photos/#{@franchise.img}"}/
-    %figcaption
-      That’s #{@franchise.player}.
-      %a{:href => @franchise.img_credit} Photo Credit
+%figure.banner
+  %img{:src => "/assets/photos/#{@franchise.img}"}/
+  %figcaption
+    That’s #{@franchise.player}.
+    %a{:href => @franchise.img_credit} Photo Credit
+
+%nav.jump-menu
+  %strong Jump to:
+  %ol
+    - Franchise.all.each do |franchise|
+      %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
 
 %section#inductees
   %h2.franchise-player
@@ -37,23 +43,23 @@
           %strong
             #{player.name}
           %em #{player.years_played}
-          %span
-            - if player.franchise_hall_rating.to_f > 99.49 && player.hos == false && player.eligibility == "eligible"
-              = player.franchise_hall_rating.to_f.round(1)
-            - else
-              = player.franchise_hall_rating.to_f.round
+          %span= player.franchise_hall_rating.to_f.round
               
-%section#position-lists
-  %h3 The #{@franchise.id.upcase} All Stars
+%section#all-time-team
+  %h3 All-Time Team
 
-  %ol.all-stars
+  %ol
     - Position.all.each do |position|
       - player = @franchise.top_player_for_position(position.id)
       %li
-        %h4= PlayerDecorator::POSITIONS[position.id]
-      - if player
-        %span[player]
-          - if player.img_url.present?
-            %figure.portrait
-              = image_tag "thumbs/#{player.id}.jpg", alt: "#{player.name} Photo", width: '90', height: '135'
+        = succeed ":" do
+          %strong= position.id.upcase
+        - if player
           = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})
+
+  %h3 Bench
+  %p 7 best non-pitchers not listed above
+
+  %h3 Bullpen
+  %p 9 next-best pitchers
