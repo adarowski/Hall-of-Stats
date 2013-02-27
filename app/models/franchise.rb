@@ -27,6 +27,10 @@ class Franchise < ActiveHash::Base
     players_for_position(position).first
   end
   
+  def years_existed
+    [first_year, last_year].uniq.join('-')
+  end
+
   add id: 'alt', name: 'Altoona Mountain City', img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky', first_year: '1884', last_year: '1884'
   add id: 'ana', name: 'Los Angeles Angels of Anaheim', active: true, img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky', first_year: '1961', last_year: '2012'
   add id: 'ari', name: 'Arizona Diamondbacks', active: true, img: 'peskyjo01.jpg', img_credit: 'http://www.flickr.com/photos/boston_public_library/6082750550/', player: 'Johnny Pesky', first_year: '1998', last_year: '2012'

@@ -5,7 +5,7 @@
 %header.title
   %h2
     = @franchise.name
-    %small (#{@franchise.first_year}–#{@franchise.last_year})
+    %small (#{@franchise.years_existed})
 
 %figure.banner
   %img{:src => "/assets/photos/#{@franchise.img}"}/

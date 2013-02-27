@@ -849,6 +849,10 @@ header.title
       color: black
     @media only screen and (min-width: 640px)
       font-size: 36px
+  small
+    color: #333
+    font-size: 75%
+    font-weight: normal
   span
     display: block
     color: #666
@@ -1000,15 +1004,21 @@ article
   padding: 20px
   text-align: center
 
-ol#franchises
+#franchises
+  @extend #section-padding
+
+.franchise-list
   list-style: none
-  padding: 0 0 0 10px
+  padding: 0
   margin: 0
-  counter-reset: li
   li
-    position: relative
     background-color: fade_out($default_color, .95)
     margin: 0
     padding: 5px 0
     line-height: 1
     margin-bottom: 1px
+  span
+    color: #666
+    font-weight: normal
+    font-size: 80%
+

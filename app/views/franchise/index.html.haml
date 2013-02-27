@@ -2,9 +2,14 @@
 
 = render 'shared/search'
 
-%h2 All Franchises
+%header.title
+  %h2 Franchise Leaders
 
-%ol#franchises
-  - Franchise.all.each do |franchise|
-    %li= link_to "#{franchise.id.upcase}: #{franchise.name} (#{franchise.first_year}–#{franchise.last_year})", franchise_path(franchise.id)
-    
+%section#franchises
+  %h3 Current Franchises
+  %ul.franchise-list
+    - Franchise.all.each do |franchise|
+      %li
+        = link_to franchise_path(franchise.id) do
+          = franchise.name
+          %span= franchise.years_existed
