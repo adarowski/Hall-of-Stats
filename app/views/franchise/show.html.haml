@@ -3,7 +3,9 @@
 = render 'shared/search'
 
 %header.title
-  %h2= @franchise.name
+  %h2
+    = @franchise.name
+    %small (#{@franchise.first_year}–#{@franchise.last_year})
 
 %figure.banner
   %img{:src => "/assets/photos/#{@franchise.img}"}/

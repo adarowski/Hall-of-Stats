@@ -6,5 +6,5 @@
 
 %ol#franchises
   - Franchise.all.each do |franchise|
-    %li= link_to "#{franchise.name} (#{franchise.id.upcase})", franchise_path(franchise.id)
+    %li= link_to "#{franchise.id.upcase}: #{franchise.name} (#{franchise.first_year}–#{franchise.last_year})", franchise_path(franchise.id)
     
