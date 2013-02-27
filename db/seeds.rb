@@ -29,10 +29,11 @@ SeasonStats.transaction do
 end
 
 FranchiseRating.transaction do
-  CSV.parse(File.open('public/bos-hall-rating.csv'), headers: true).each do |row|
-    # FIXME 2/26/13: update CSV to include franchise_id field
-    stats = row.to_hash.merge(franchise_id: 'bos')
-    record = FranchiseRating.new
+  CSV.parse(File.open('public/franchise-hall-rating.csv'), headers: true).each do |row|
+    stats = row.to_hash
+    stats['franchise_id'] = stats['franchise_id'].downcase
+    record = FranchiseRating.where(player_id: stats['player_id'],
+                                   franchise_id: stats['franchise_id']).first_or_initialize
     record.update_attributes!(stats, as: :admin)
   end
 end
