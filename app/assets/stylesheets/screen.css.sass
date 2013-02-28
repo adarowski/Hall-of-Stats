@@ -443,6 +443,12 @@ header.generic
 #position-rankings
   @extend #section-padding
   border-top: 2px solid fade_out($default_color, 0.8)
+  @media only screen and (min-width: 640px)
+    float: none
+    width: auto
+    border-top: 0
+    max-width: 500px
+    margin: 40px auto
   ul
     margin: 0
     padding: 0
@@ -474,6 +480,8 @@ header.generic
     width: 36px
     text-align: center
     font-size: 13px
+    &:hover
+      background-color: fade_out($default_color, 0.3)
     &#link-p
       left: 50%
       margin-left: -22px
