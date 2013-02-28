@@ -8,7 +8,15 @@
 %section#franchises
   %h3 Current Franchises
   %ul.franchise-list
-    - Franchise.all.each do |franchise|
+    - Franchise.current.each do |franchise|
+      %li
+        = link_to franchise_path(franchise.id) do
+          = franchise.name
+          %span= franchise.years_existed
+
+  %h3 Past Franchises
+  %ul.franchise-list
+    - Franchise.past.each do |franchise|
       %li
         = link_to franchise_path(franchise.id) do
           = franchise.name
