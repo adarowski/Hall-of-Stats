@@ -7,11 +7,12 @@
     = @franchise.name
     %small (#{@franchise.years_existed})
 
-%figure.banner
-  %img{:src => "/assets/photos/#{@franchise.img}"}/
-  %figcaption
-    That’s #{@franchise.player}.
-    %a{:href => @franchise.img_credit} Photo Credit
+- if @franchise.active?
+  %figure.banner
+    %img{:src => "/assets/photos/#{@franchise.img}"}/
+    %figcaption
+      That’s #{@franchise.player}.
+      %a{:href => @franchise.img_credit} Photo Credit
 
 %nav.jump-menu
   %strong Jump to:

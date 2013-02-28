@@ -27,7 +27,7 @@ class Franchise < ActiveHash::Base
     players_for_position(position).first
   end
   
-  def self.current
+  def self.active
     Franchise.all.select{|f| f.last_year.blank? }
   end
   
