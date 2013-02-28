@@ -44,7 +44,7 @@
         = link_to player_path(player) do
           %strong
             #{player.name}
-          %em #{player.years_played}
+          %em #{player.position}, #{player.years_played}
           %span= player.franchise_hall_rating.to_f.round
               
 %section#all-time-team
