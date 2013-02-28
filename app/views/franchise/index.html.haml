@@ -19,7 +19,7 @@
       %li
         = link_to franchise_path(franchise.id) do
           = franchise.name
-          %span= franchise.years_existed
+          %span (#{franchise.years_existed})
 
   %h3 Past Franchises
   %ul.franchise-list
@@ -27,4 +27,4 @@
       %li
         = link_to franchise_path(franchise.id) do
           = franchise.name
-          %span= franchise.years_existed
+          %span (#{franchise.years_existed})

@@ -17,8 +17,9 @@
 %nav.jump-menu
   %strong Jump to:
   %ol
-    - Franchise.all.each do |franchise|
+    - Franchise.current.each do |franchise|
       %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
+    %li= link_to "All Franchises", "/franchise"
 
 %section#inductees
   %h2.franchise-player
