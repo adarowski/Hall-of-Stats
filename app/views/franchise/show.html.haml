@@ -2,6 +2,10 @@
 
 = render 'shared/search'
 
+- content_for(:header_styles) do
+  - @players.each do |player|
+    = render partial: 'shared/bar_width_style', locals: { player: player }
+
 %header.title
   %h2
     = @franchise.name

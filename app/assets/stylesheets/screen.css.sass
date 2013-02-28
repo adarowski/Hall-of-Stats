@@ -762,7 +762,7 @@ section#inductees
       margin: 0
       line-height: 1
       margin-bottom: 1px
-      &:after
+      &:after, &:before
         content: ''
         position: absolute
         left: 0
@@ -772,7 +772,7 @@ section#inductees
         z-index: 1
         +border_radius(0 4px 4px 0)
       &:hover
-        &:after
+        &:after, &:before
           background-color: fade_out($default_color, .85)
         a:link, a:visited
           color: black
