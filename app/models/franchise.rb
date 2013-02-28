@@ -23,8 +23,21 @@ class Franchise < ActiveHash::Base
       order('franchise_ratings.hall_rating desc')
   end
   
-  def top_player_for_position(position)
-    players_for_position(position).first
+  def all_stars
+    positions = %w{ 1b 2b 3b ss c cf lf rf p }
+    Player.select('distinct on (players.position) players.*, franchise_ratings.hall_rating as franchise_hall_rating').
+      joins(:franchise_ratings).
+      where('franchise_ratings.franchise_id = ? and players.position in (?)', self.id, positions).
+      order('players.position, franchise_hall_rating desc')
+  end
+  
+  def bench
+    players.where('id not in (?) and position != ?',
+                  all_stars.map(&:id), 'p').limit(7)
+  end
+  
+  def bullpen
+    players_for_position('p').offset(1).limit(9)
   end
   
   def self.active

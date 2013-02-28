@@ -63,18 +63,31 @@
   %h3 All-Time Team
 
   %ol
-    - Position.all.each do |position|
-      - next if position.id == 'dh'
-      - player = @franchise.top_player_for_position(position.id)
+    - %w{ c 1b 2b 3b ss lf cf rf p }.each do |position|
+      - player = @all_stars.find{|p| p.position == position }
       %li
         = succeed ":" do
-          %strong= position.id.upcase
+          %strong= position.upcase
         - if player
           = link_to player.name, player_path(player)
           %span (#{player.franchise_hall_rating.to_f.round})
 
   %h3 Bench
-  %p 7 best non-pitchers not listed above
+  %ol
+    - @bench.each do |player|
+      %li
+        = succeed ":" do
+          %strong= player.position.upcase
+        - if player
+          = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})
 
   %h3 Bullpen
-  %p 9 next-best pitchers
+  %ol
+    - @bullpen.each do |player|
+      %li
+        = succeed ":" do
+          %strong= player.position.upcase
+        - if player
+          = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})
