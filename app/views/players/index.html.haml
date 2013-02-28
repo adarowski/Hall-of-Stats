@@ -66,7 +66,7 @@
 %section#franchise-rankings
   %h3 Franchise Rankings
   %ul.franchise-list
-    - Franchise.current.each do |franchise|
+    - Franchise.active.each do |franchise|
       %li
         = link_to franchise_path(franchise.id) do
           = franchise.name
