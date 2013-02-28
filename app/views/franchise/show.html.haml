@@ -52,6 +52,7 @@
 
   %ol
     - Position.all.each do |position|
+      - next if position.id == 'dh'
       - player = @franchise.top_player_for_position(position.id)
       %li
         = succeed ":" do
