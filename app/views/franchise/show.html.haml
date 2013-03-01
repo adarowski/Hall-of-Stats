@@ -1,0 +1,93 @@
+= render 'shared/header'
+
+= render 'shared/search'
+
+- content_for(:header_styles) do
+  - @players.each do |player|
+    = render partial: 'shared/bar_width_style', locals: { player: player }
+
+%header.title
+  %h2
+    = @franchise.name
+    %small (#{@franchise.years_existed})
+
+- if @franchise.active?
+  %figure.banner
+    %img{:src => "/assets/photos/#{@franchise.img}"}/
+    %figcaption
+      That’s #{@franchise.player}.
+      %a{:href => @franchise.img_credit} Photo Credit
+
+%nav.jump-menu
+  %strong Jump to:
+  %ol
+    - Franchise.active.each do |franchise|
+      %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
+    %li= link_to "All Franchises", "/franchise"
+
+%section#inductees
+  %h2.franchise-player
+    %a#show-filters{href: '#'}
+      #{@players.count} Greatest #{@franchise.id.upcase} Players
+  #filters{style: 'display: none;'}
+    %ul
+      %li
+        %a#show-franchise{href: '#franchise'}
+          %span #{@players.count} 
+          Greatest #{@franchise.id.upcase} Players
+
+      %li
+        %a#show-all{href: '#all'}
+          %span #{@players.in_hos.count}
+          Hall of Stats Inductees
+      %li
+        %a#show-all{href: '#hof'}
+          %span #{@players.in_hof.count}
+          Hall of Fame Inductees
+      - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+        %li
+          %a{id: "show-#{position}", href: "##{position}"}
+            %span= Player.in_hos.of_position(position).count
+            = PlayerDecorator::POSITIONS[position].pluralize
+
+  %ol.player-list
+    - @players.each do |player|
+      %li{id: safe_id(player.id), class: filter_data(player) + ['franchise']}
+        = link_to player_path(player) do
+          %strong
+            #{player.name}
+          %em #{player.position}, #{player.years_played}
+          %span= player.franchise_hall_rating.to_f.round
+              
+%section#all-time-team
+  %h3 All-Time Team
+
+  %ol
+    - %w{ c 1b 2b 3b ss lf cf rf p }.each do |position|
+      - player = @all_stars.find{|p| p.position == position }
+      %li
+        = succeed ":" do
+          %strong= position.upcase
+        - if player
+          = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})
+
+  %h3 Bench
+  %ol
+    - @bench.each do |player|
+      %li
+        = succeed ":" do
+          %strong= player.position.upcase
+        - if player
+          = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})
+
+  %h3 Bullpen
+  %ol
+    - @bullpen.each do |player|
+      %li
+        = succeed ":" do
+          %strong= player.position.upcase
+        - if player
+          = link_to player.name, player_path(player)
+          %span (#{player.franchise_hall_rating.to_f.round})

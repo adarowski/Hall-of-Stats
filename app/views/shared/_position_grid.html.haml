@@ -1,0 +1,3 @@
+%ul
+  - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+    %li=link_to position.upcase, position_path(position), id: 'link-' + position

@@ -28,6 +28,16 @@ SeasonStats.transaction do
   end
 end
 
+FranchiseRating.transaction do
+  CSV.parse(File.open('public/franchise-hall-rating.csv'), headers: true).each do |row|
+    stats = row.to_hash
+    stats['franchise_id'] = stats['franchise_id'].downcase
+    record = FranchiseRating.where(player_id: stats['player_id'],
+                                   franchise_id: stats['franchise_id']).first_or_initialize
+    record.update_attributes!(stats, as: :admin)
+  end
+end
+
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end

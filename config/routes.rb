@@ -8,5 +8,6 @@ Hos::Application.routes.draw do
   resources :about
   resources :articles
   resources :position
+  resources :franchise
   root to: 'players#index'
 end

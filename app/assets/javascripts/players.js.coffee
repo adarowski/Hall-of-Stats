@@ -6,7 +6,8 @@ filters = {
   'upcoming': '.upcoming.not-hos'
   'active-and-worthy': '.active-and-worthy.not-hos',
   'near-misses': '.near-miss',
-  'position': '.position'
+  'position': '.position',
+  'franchise': '.franchise'
 }
 
 for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
@@ -89,6 +90,8 @@ $ ->
     $("#filters").hide()
   else if document.location.href.match(/\/position\//)
     filterPlayers('position')
+  else if document.location.href.match(/\/franchise\//)
+    filterPlayers('franchise')
   else
     filterPlayers('all')
 

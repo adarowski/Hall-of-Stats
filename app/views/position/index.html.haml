@@ -1,0 +1,15 @@
+= render 'shared/header'
+
+= render 'shared/search'
+
+%header.title
+  %h2 Positional Rankings
+
+%figure.banner
+  %img{:src => "/assets/photos/senators-infield.jpg"}/
+  %figcaption
+    Washington Senators Infield, 1934.
+    %a{:href => "http://www.flickr.com/photos/boston_public_library/5960895489/"} Photo Credit
+
+%section#position-rankings
+  = render 'shared/position_grid'

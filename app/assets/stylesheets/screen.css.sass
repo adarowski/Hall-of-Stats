@@ -114,32 +114,6 @@ header.generic
     position: relative
     overflow: hidden
     max-height: 700px
-    h1
-      font-size: 200%
-      font-family: $title_font
-      font-weight: normal
-      color: white
-      padding: 8px
-      margin: 0
-      line-height: 1
-      z-index: 2
-      position: relative
-      @media only screen and (min-width: 640px)
-        font-size: 360%
-        font-weight: bold
-    p
-      color: white
-      padding: 0 10px
-      font-size: 80%
-      margin: 0 0 10px
-      z-index: 2
-      position: relative
-      @media only screen and (min-width: 640px)
-        font-size: 120%
-    img
-      width: 100%
-      height: auto
-      display: block
 
 #branding
   position: absolute
@@ -147,8 +121,6 @@ header.generic
   left: 0
   width: 100%
   z-index: 1
-  h1, p
-    text-shadow: #333 0 0 8px
   .whitede01 &, .kingsi01 &, .dahlebi01 &, .glassja01 &, .bennech01 &
     border-top: 1px solid fade_out(black, 0.7)
     background-color: fade_out(black, 0.8)
@@ -158,6 +130,31 @@ header.generic
   .carutbo01 &, .johnswa01 &
     border-top: 1px solid fade_out(black, 0.5)
     background-color: fade_out(black, 0.6)
+  h1, p
+    text-shadow: #333 0 0 8px
+    color: white
+    z-index: 2
+    position: relative
+  h1
+    font-size: 200%
+    font-family: $title_font
+    font-weight: normal
+    padding: 8px
+    margin: 0
+    line-height: 1
+    @media only screen and (min-width: 640px)
+      font-size: 360%
+      font-weight: bold
+  p
+    padding: 0 10px
+    font-size: 80%
+    margin: 0 0 10px
+    @media only screen and (min-width: 640px)
+      font-size: 120%
+  img
+    width: 100%
+    height: auto
+    display: block
 
 #photo-hint
   color: white
@@ -327,7 +324,7 @@ header.generic
     float: left
     width: 60%
 
-#intro, .home #list-of-articles, #position-lists, #position-rankings
+#intro, .home #list-of-articles, #position-lists, #position-rankings, #all-time-team, #franchise-rankings
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
@@ -439,9 +436,30 @@ header.generic
   @media only screen and (min-width: 640px)
     border-top: 0
 
+#franchise-rankings
+  @extend #section-padding
+  border-top: 2px solid fade_out($default_color, 0.8)
+  li
+    display: inline-block
+  abbr
+    padding: 2px
+    min-width: 50px
+    display: inline-block
+    text-align: center
+    margin-bottom: 4px
+  a
+    color: white
+
 #position-rankings
   @extend #section-padding
   border-top: 2px solid fade_out($default_color, 0.8)
+  body.position &
+    @media only screen and (min-width: 640px)
+      float: none
+      width: auto
+      border-top: 0
+      max-width: 500px
+      margin: 40px auto
   ul
     margin: 0
     padding: 0
@@ -473,6 +491,8 @@ header.generic
     width: 36px
     text-align: center
     font-size: 13px
+    &:hover
+      background-color: fade_out($default_color, 0.3)
     &#link-p
       left: 50%
       margin-left: -22px
@@ -549,6 +569,16 @@ header.generic
       right: 10px
   small
     display: block
+
+#all-time-team
+  @extend #section-padding
+  ol
+    list-style: none
+    padding: 0
+  span
+    font-size: 75%
+    color: #666
+
 
 ul.article-list
   font-size: 85%
@@ -755,7 +785,7 @@ section#inductees
       margin: 0
       line-height: 1
       margin-bottom: 1px
-      &:after
+      &:after, &:before
         content: ''
         position: absolute
         left: 0
@@ -765,7 +795,7 @@ section#inductees
         z-index: 1
         +border_radius(0 4px 4px 0)
       &:hover
-        &:after
+        &:after, &:before
           background-color: fade_out($default_color, .85)
         a:link, a:visited
           color: black
@@ -798,7 +828,7 @@ section#inductees
 
     @media only screen and (min-width: 640px)
       border-right: 2px solid fade_out($default_color, .8)
-      min-height: 800px
+      min-height: 2000px
 
 #filters
   position: absolute
@@ -843,6 +873,10 @@ header.title
       color: black
     @media only screen and (min-width: 640px)
       font-size: 36px
+  small
+    color: #333
+    font-size: 75%
+    font-weight: normal
   span
     display: block
     color: #666
@@ -993,3 +1027,28 @@ article
   background-color: #FFC
   padding: 20px
   text-align: center
+
+#franchises
+  @extend #section-padding
+
+.franchise-list
+  list-style: none
+  padding: 0
+  margin: 0 0 40px
+  font-size: 85%
+  body.franchise &
+    @media only screen and (min-width: 640px)
+      -moz-column-count: 2
+      -webkit-column-count: 2
+      column-count: 2
+      -moz-column-gap: 0
+      -webkit-column-gap: 0
+      column-gap: 0
+
+  li
+    padding: 0
+  span
+    color: #666
+    font-weight: normal
+    font-size: 80%
+

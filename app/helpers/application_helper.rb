@@ -13,6 +13,8 @@ module ApplicationHelper
       {class: 'about'}
     when 'position#show'
       {class: 'position'}
+    else
+      {class: params[:controller]}
     end
   end
 
