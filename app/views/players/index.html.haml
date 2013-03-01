@@ -69,5 +69,4 @@
     - Franchise.active.each do |franchise|
       %li
         = link_to franchise_path(franchise.id) do
-          = franchise.name
-          %span (#{franchise.years_existed})
+          %abbr{ class: franchise.id + "-bg", title: franchise.name }= franchise.id.upcase
