@@ -368,6 +368,26 @@ header.generic
     @media only screen and (max-width : 480px)
       font-size: 75%
 
+#franchise-contributions
+  @extend #section-padding
+  border-bottom: 2px solid fade_out($default_color, .8)
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+  li
+    display: inline-block
+    font-size: 85%
+    margin:
+      bottom: .5em
+      right: .5em
+    em
+      font-size: 85%
+      font-style: normal
+      color: #666
+    @media only screen and (max-width : 480px)
+      font-size: 75%
+
 #stats-summary
   @extend #section-padding
 
@@ -442,13 +462,15 @@ header.generic
   li
     display: inline-block
 
-abbr.franchise-abbr
+.franchise-abbr
   padding: 2px
   min-width: 50px
   display: inline-block
   text-align: center
   margin-bottom: 4px
   color: white
+  font-weight: bold
+  background-color: #999
 
 #position-rankings
   @extend #section-padding
