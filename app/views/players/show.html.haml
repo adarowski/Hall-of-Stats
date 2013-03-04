@@ -87,11 +87,12 @@
     Rankings
     %small per franchise
   %ul
-    - @player.franchise_rankings.sort_by{|k, v| v}.each do |franchise, rating|
+    - @player.franchise_rankings.sort_by{|k, v| v[:ranking]}.each do |franchise, rankings|
       %li{class: franchise}
         = succeed ': ' do
           = franchise.upcase
-        = rating
+        = rankings[:hall_rating]
+        (#{ordinalize_with_delimiter(rankings[:ranking])})
 
 - if @player.bio? || @player.articles.published.any?
   %section#bio

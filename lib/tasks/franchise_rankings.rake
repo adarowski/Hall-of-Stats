@@ -8,7 +8,8 @@ namespace :rankings do
           rating = idx + 1
           puts "  #{rating}"
           player = Player.where(id: fr.player_id).first
-          player.update_attributes!({franchise_rankings: player.franchise_rankings.merge(franchise => rating)},
+          ranking_data = { franchise => { hall_rating: fr.hall_rating, ranking: rating } }
+          player.update_attributes!({franchise_rankings: player.franchise_rankings.merge(ranking_data)},
                                    as: :admin)
         end
       end
