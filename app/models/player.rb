@@ -8,8 +8,10 @@ class Player < ActiveRecord::Base
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
     :last_year, :runs_pitch, :img_url, :photo_path, :alt_hof, :cover_model,
-    :compatibility_id,
+    :compatibility_id, :franchise_rankings,
     as: :admin
+
+  serialize :franchise_rankings, Hash
 
   scope :of_position, lambda{|position_abbrev|
     where(position: position_abbrev)

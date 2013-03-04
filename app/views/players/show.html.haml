@@ -82,6 +82,16 @@
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_hos)
         among Hall of Stats
+  
+  %h3
+    Rankings
+    %small per franchise
+  %ul
+    - @player.franchise_rankings.sort_by{|k, v| v}.each do |franchise, rating|
+      %li{class: franchise}
+        = succeed ': ' do
+          = franchise.upcase
+        = rating
 
 - if @player.bio? || @player.articles.published.any?
   %section#bio
