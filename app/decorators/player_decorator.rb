@@ -114,4 +114,13 @@ class PlayerDecorator < Draper::Base
       hsh
     end
   end
+  
+  def season_stat_totals_for_styling
+    season_stats.inject({}) do |hsh, ss|
+      hsh[ss.year] ||= {war: 0, waa: 0}
+      hsh[ss.year][:war] += ss.war_tot
+      hsh[ss.year][:waa] += ss.waa_tot
+      hsh
+    end
+  end
 end
