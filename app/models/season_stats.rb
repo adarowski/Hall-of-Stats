@@ -1,8 +1,8 @@
 class SeasonStats < ActiveRecord::Base
-  attr_accessible :player_id, :waa_tot, :war_tot, :year,
+  attr_accessible :player_id, :waa_pos, :war_pos, :waa_p, :war_p, :waa_tot, :war_tot, :year,
+    :team, :franchise_id, :stint, :lg, :hall_rating,
     as: :admin
 
   belongs_to :player
-
-  validates :year, uniqueness: { scope: :player_id }
+  belongs_to :franchise
 end

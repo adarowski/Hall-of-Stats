@@ -20,9 +20,9 @@ Player.transaction do
 end
 
 SeasonStats.transaction do
-  CSV.parse(File.open('hall-of-stats-seasons.csv'), headers: true).each do |row|
+  CSV.parse(File.open('public/hall-of-stats-franchise-seasons.csv'), headers: true).each_with_index do |row, idx|
     stats = row.to_hash
-
+    stats.merge!(franchise_id: stats['franchise_id'].downcase)
     record = SeasonStats.new
     record.update_attributes!(stats, as: :admin)
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304023011) do
+ActiveRecord::Schema.define(:version => 20130305233011) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -126,15 +126,23 @@ ActiveRecord::Schema.define(:version => 20130304023011) do
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true
 
   create_table "season_stats", :id => false, :force => true do |t|
-    t.string   "player_id",  :null => false
-    t.integer  "year",       :null => false
-    t.float    "waa_tot",    :null => false
-    t.float    "war_tot",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "player_id",    :null => false
+    t.integer  "year",         :null => false
+    t.float    "waa_tot",      :null => false
+    t.float    "war_tot",      :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "team"
+    t.string   "franchise_id"
+    t.integer  "stint"
+    t.string   "lg"
+    t.float    "war_pos"
+    t.float    "waa_pos"
+    t.float    "war_p"
+    t.float    "waa_p"
+    t.float    "hall_rating"
   end
 
-  add_index "season_stats", ["player_id", "year"], :name => "index_season_stats_on_player_id_and_year", :unique => true
   add_index "season_stats", ["player_id"], :name => "index_season_stats_on_player_id"
 
   create_table "similarity_scores", :id => false, :force => true do |t|
