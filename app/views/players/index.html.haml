@@ -62,3 +62,12 @@
 %section#position-rankings
   %h3 Positional Rankings
   = render 'shared/position_grid'
+
+%section#franchise-rankings
+  %h3 Franchise Rankings
+  %ul.franchise-list
+    - Franchise.active.each do |franchise|
+      %li
+        = link_to franchise_path(franchise.id) do
+          %abbr.franchise-abbr{ class: franchise.id + "-bg", title: franchise.name }= franchise.id.upcase
+    %li= link_to "All Franchises", "/franchise"
