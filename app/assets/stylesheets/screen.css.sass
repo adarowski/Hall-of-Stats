@@ -44,6 +44,10 @@ a
   &.rss
     color: #CD6839
 
+.faux-link
+  color: lighten($default_color, 15%)
+  +add_arrow
+
 code
   font-family: 'Inconsolata'
   font-size: 120%
@@ -723,15 +727,29 @@ table
         text-align: right
         &:first-child
           text-align: center
+        &:nth-child(2)
+          text-align: left
     tbody
       th
         padding:
           right: 0
           left: 0
+        & + td
+          text-align: left
+      span
+        font-size: 85%
+        color: #666
 
   &#run-value, &#win-value
     caption
       +off_left
+
+.full-season-stat
+  cursor: pointer
+
+.partial-season-stat
+  th, td
+    background-color: transparent
 
 #show-more-stats
   display: inline-block

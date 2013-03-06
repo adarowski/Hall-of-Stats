@@ -287,10 +287,9 @@
             %td= ss.war_tot
         - else
           %tr{ class: "yr-#{year} full-season-stat", 'data-year' => year }
-            %th
-              = year
-              ▼
-            %td= pluralize(season_stats.map(&:team).count, 'team')
+            %th= year
+            %td
+              %strong.faux-link= pluralize(season_stats.map(&:team).count, 'team')
             %td= "%0.1f" % season_stats.map(&:waa_tot).sum
             %td= "%0.1f" % season_stats.map(&:war_tot).sum
           
