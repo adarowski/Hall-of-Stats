@@ -27,6 +27,13 @@ $.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
     $el.wrapInner newDiv
 
 $ ->
+  $('.partial-season-stat').hide()
+
+  $('.full-season-stat[data-year]').click (e) ->
+    e.preventDefault()
+    year = $(@).data('year')
+    $("tr.partial-season-stat[class*=yr-#{year}]").slideToggle()
+    
   $(".home #player-search").focus()
 
   $("#search-link").click (e) ->

@@ -106,4 +106,12 @@ class PlayerDecorator < Draper::Base
 
     classes
   end
+
+  def sorted_season_stats
+    years = season_stats.map(&:year).uniq
+    years.inject({}) do |hsh, y|
+      hsh[y] = season_stats.where(year: y).order('stint asc')
+      hsh
+    end
+  end
 end

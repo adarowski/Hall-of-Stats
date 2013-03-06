@@ -5,4 +5,12 @@ class SeasonStats < ActiveRecord::Base
 
   belongs_to :player
   belongs_to :franchise
+  
+  def team_and_franchise
+    if team.downcase == franchise_id.downcase
+      "#{team}"
+    else
+      "#{team} <small>(#{franchise_id})</small>"
+    end.upcase.html_safe
+  end
 end

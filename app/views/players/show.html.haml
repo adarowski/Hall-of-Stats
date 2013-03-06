@@ -3,6 +3,7 @@
 - content_for(:header_styles) do
   = render 'player_specific_styles', player: @player
   = render @player.season_stats
+  = render 'full_year_season_stat_styles', player: @player
 
 = render 'shared/header'
 
@@ -270,17 +271,36 @@
     %thead
       %tr
         %th Year
+        %th Team
         %th
           %abbr{title: "Wins Above Average"} WAA
         %th
           %abbr{title: "Wins Above Replacement"} WAR
     %tbody
-      - @player.season_stats.order('year').each do |ss|
-        %tr{ class: "yr-#{ss.year}" }
-          %th= ss.year
-          %td= ss.waa_tot
-          %td= ss.war_tot
-
+      - @player.sorted_season_stats.sort_by{|k, v| k}.each do |year, season_stats|
+        - if season_stats.count == 1
+          - ss = season_stats.first
+          %tr{ class: "yr-#{ss.year} full-season-stat"}
+            %th= ss.year
+            %td= ss.team_and_franchise
+            %td= ss.waa_tot
+            %td= ss.war_tot
+        - else
+          %tr{ class: "yr-#{year} full-season-stat", 'data-year' => year }
+            %th
+              = year
+              ▼
+            %td= pluralize(season_stats.map(&:team).count, 'team')
+            %td= "%0.1f" % season_stats.map(&:waa_tot).sum
+            %td= "%0.1f" % season_stats.map(&:war_tot).sum
+          
+          - season_stats.each do |ss|
+            %tr{ class: "yr-#{ss.year}-#{ss.stint} partial-season-stat" }
+              %th= ss.year
+              %td= ss.team_and_franchise
+              %td= ss.waa_tot
+              %td= ss.war_tot
+      
 %section#external-links
   %a{href: 'http://www.baseball-reference.com/pl/player_search.cgi?search=' + @player.id} #{@player.first_name} #{@player.last_name}
   on Baseball-Reference.
