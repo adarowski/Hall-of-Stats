@@ -17,3 +17,4 @@
 //= require jquery.ui.touch-punch
 //= require players
 //= require articles
+//= require franchises

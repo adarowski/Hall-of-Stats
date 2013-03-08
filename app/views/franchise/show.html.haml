@@ -27,11 +27,11 @@
       %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
     %li= link_to "All Franchises", "/franchise"
 
-%section#inductees
+%section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
     %a#show-filters{href: '#'}
       #{@players.count} Greatest #{@franchise.name}
-  #filters{style: 'display: none;'}
+  #filters-ajax{style: 'display: none;'}
     %ul
       %li
         %a#show-franchise{href: '#franchise'}
@@ -39,7 +39,7 @@
           Greatest #{@franchise.name}
 
       %li
-        %a#show-all{href: '#all'}
+        %a#show-all{href: '#hos'}
           %span #{@players.in_hos.count}
           Hall of Stats Inductees
       %li
@@ -49,18 +49,16 @@
       - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
         %li
           %a{id: "show-#{position}", href: "##{position}"}
-            %span= Player.in_hos.of_position(position).count
-            = PlayerDecorator::POSITIONS[position].pluralize
+            - if position == 'p'
+              %span= @franchise.players.of_position(position).limit(500).count
+              Best #{PlayerDecorator::POSITIONS[position].pluralize}
+            - else
+              %span= @franchise.players.of_position(position).count
+              = PlayerDecorator::POSITIONS[position].pluralize
 
   %ol.player-list
-    - @players.each do |player|
-      %li{id: safe_id(player.id), class: filter_data(player) + ['franchise']}
-        = link_to player_path(player) do
-          %strong
-            #{player.name}
-          %em #{player.position}, #{player.years_played}
-          %span= player.franchise_hall_rating.to_f.round
-              
+    = render @players
+
 %section#all-time-team
   %h3 All-Time Team
 
