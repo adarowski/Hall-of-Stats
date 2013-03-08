@@ -30,13 +30,13 @@
 %section#inductees
   %h2.franchise-player
     %a#show-filters{href: '#'}
-      #{@players.count} Greatest #{@franchise.id.upcase} Players
+      #{@players.count} Greatest #{@franchise.name}
   #filters{style: 'display: none;'}
     %ul
       %li
         %a#show-franchise{href: '#franchise'}
           %span #{@players.count} 
-          Greatest #{@franchise.id.upcase} Players
+          Greatest #{@franchise.name}
 
       %li
         %a#show-all{href: '#all'}
