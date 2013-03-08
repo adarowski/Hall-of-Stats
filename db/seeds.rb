@@ -1,7 +1,7 @@
 require 'csv'
 
 Player.transaction do
-  CSV.parse(File.open("hall-of-stats-new.csv"), headers: true).each do |row|
+  CSV.parse(File.open("public/hall-of-stats-new.csv"), headers: true).each do |row|
     player = row.to_hash
 
     player['id'] = player.delete('player_id')
@@ -29,7 +29,8 @@ SeasonStats.transaction do
 end
 
 FranchiseRating.transaction do
-  CSV.parse(File.open('public/franchise-hall-rating.csv'), headers: true).each do |row|
+  CSV.parse(File.open('public/franchise-hall-rating.csv'), headers: true).each_with_index do |row, idx|
+    puts idx if idx % 100 == 0
     stats = row.to_hash
     stats['franchise_id'] = stats['franchise_id'].downcase
     record = FranchiseRating.where(player_id: stats['player_id'],
