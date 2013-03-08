@@ -97,6 +97,6 @@ $ ->
   else if document.location.href.match(/\/position\//)
     filterPlayers('position')
   else
-    filterPlayers('all')
+    filterPlayers('all') unless document.location.href.match(/\/franchise\//)
 
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
