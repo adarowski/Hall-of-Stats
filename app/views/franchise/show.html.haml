@@ -50,7 +50,7 @@
         %li
           %a{id: "show-#{position}", href: "##{position}"}
             - if position == 'p'
-              %span= @franchise.players.of_position(position).limit(500).count
+              %span= @franchise.players.of_position(position).limit(200).count
               Best #{PlayerDecorator::POSITIONS[position].pluralize}
             - else
               %span= @franchise.players.of_position(position).count

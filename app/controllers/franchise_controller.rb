@@ -16,7 +16,7 @@ class FranchiseController < ApplicationController
       when 'franchise'  then @franchise.players.limit(@franchise.num_displayed_players)
       when 'hof'        then @franchise.players.in_hof
       when 'hos'        then @franchise.players.in_hos
-      when 'p'          then @franchise.players.of_position('p').limit(500)
+      when 'p'          then @franchise.players.of_position('p').limit(200)
       else                   @franchise.players.of_position(params[:filter_type])
     end
     render @players
