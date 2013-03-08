@@ -108,7 +108,8 @@
   %ul
     - @player.franchise_rankings.sort_by{|k, v| v[:hall_rating]}.reverse.each do |franchise, rankings|
       %li{class: franchise}
-        %abbr.franchise-abbr{class: franchise + "-bg"}= franchise.upcase
+        = link_to '/franchise/' + franchise + '#' + @player.id do
+          %abbr.franchise-abbr{class: franchise + "-bg"}= franchise.upcase
         %strong= rankings[:hall_rating].round
         %em (#{ordinalize_with_delimiter(rankings[:ranking])})
 
