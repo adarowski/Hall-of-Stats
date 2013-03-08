@@ -12,6 +12,8 @@
   %h2
     = @franchise.name
     %small (#{@franchise.years_existed})
+  - if @franchise.note
+    %p.franchise-note= @franchise.note
 
 - if @franchise.active?
   %figure.banner
