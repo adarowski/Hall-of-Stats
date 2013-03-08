@@ -102,16 +102,23 @@ header.generic
       margin: 0
       padding: 0
     li
-      padding-left: 10px
+      padding-right: 10px
       display: inline-block
+      font-size: 85%
+      &:last-child
+        padding-right: 0
     a
       &:link, &:visited
         color: fade_out(white, 0.4)
       &:hover, &:active
         color: white
-    @media only screen and (min-width: 480px)
+    @media only screen and (min-width: 768px)
       width: 50%
       text-align: right
+      font-size: 100%
+      li
+        padding-left: 10px
+        padding-right: 0
 
 .home
   header
