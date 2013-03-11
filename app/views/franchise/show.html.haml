@@ -62,7 +62,9 @@
     = render @players
 
 %section#all-time-team
-  %h3 All-Time Team
+  %h3
+    All-Time Team
+    %small by Hall Rating with the #{@franchise.name}
 
   %ol
     - %w{ c 1b 2b 3b ss lf cf rf p }.each do |position|
