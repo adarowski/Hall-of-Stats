@@ -9,7 +9,7 @@ Hos::Application.routes.draw do
   resources :about
   resources :articles
   resources :position
-  resources :franchise do
+  resources :franchise, only: %w{ index show } do
     collection { get :charts, :all_data }
     member { get :render_list }
   end
