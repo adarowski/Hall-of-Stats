@@ -4,6 +4,14 @@ GIT
   specs:
     listen (0.7.2)
 
+GIT
+  remote: git@github.com:adeven/nvd3-rails.git
+  revision: 3897010b862396309b35cb73ba4b73a51ecfc24b
+  submodules: true
+  specs:
+    nvd3-rails (0.0.1)
+      railties (>= 3.2.0, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +80,8 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    d3-rails (0.0.5)
+      railties (>= 3.1)
     daemons (1.1.9)
     debugger (1.3.1)
       columnize (>= 0.3.1)
@@ -245,6 +255,7 @@ DEPENDENCIES
   activeadmin
   coffee-rails (~> 3.2.1)
   compass-rails
+  d3-rails
   debugger
   draper (= 0.17.0)
   factory_girl_rails
@@ -257,6 +268,7 @@ DEPENDENCIES
   kaminari
   listen!
   nokogiri
+  nvd3-rails!
   pg
   quiet_assets
   rails (= 3.2.12)
