@@ -11,10 +11,14 @@ $ ->
   d3.json('/franchise/all_data.json', (data) ->
     nv.addGraph(() ->
       chart = nv.models.stackedAreaChart()
+        .showControls(false)
         .x((d) -> +new Date(d[0], 0, 1))
         .y((d) -> d[1])
         .clipEdge(true)
         .yDomain([0, 2000])
+
+      chart.controls.width(0)
+      chart.legend.width(800)
 
       chart.xAxis
         .tickFormat((d) -> d3.time.format('%x')(new Date(d)))
