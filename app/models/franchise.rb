@@ -4,9 +4,9 @@ class Franchise < ActiveHash::Base
   include ActiveHash::Associations
   
   fields :name, :img, :img_credit, :player, :active, :first_year, :last_year, :note, :color
+  field :color, default: '#000000'
   field :num_displayed_players, default: 200
   field :active, default: false
-  field :color, default: '#999999'
   
   has_many :franchise_ratings, class_name: 'FranchiseRating'
   

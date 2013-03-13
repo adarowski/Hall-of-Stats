@@ -17,7 +17,7 @@ order by franchise_id,year
     SQL
     @json_data = [{ 
       key: @franchise.name,
-      color: @franchise.color,
+      color: @franchise.color || '#999999',
       values: SeasonStats.find_by_sql(sql).map{|d| [d.range_year.to_i, d.sum.to_f]}
     }].to_json
   end
@@ -55,6 +55,7 @@ order by stats.franchise_id, range_year
     data = SeasonStats.find_by_sql(sql)
     sorted_data = Franchise.active.map do |franchise|
       { key: franchise.name,
+        color: franchise.color,
         values: data.select{|d| d.franchise_id == franchise.id}.map{|d| [d.range_year.to_i, d.sum.to_f]}
       } unless data.select{|d| d.franchise_id == franchise.id}.size == 0
     end.compact
