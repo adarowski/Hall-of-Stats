@@ -8,6 +8,18 @@ class FranchiseController < ApplicationController
     @all_stars = @franchise.all_stars
     @bench = @franchise.bench
     @bullpen = @franchise.bullpen
+    sql = <<-SQL
+select franchise_id, year as range_year, coalesce(sum(hall_rating), 0) as sum
+from season_stats
+where franchise_id = '#{@franchise.id}'
+group by year,franchise_id
+order by franchise_id,year
+    SQL
+    @json_data = [{ 
+      key: @franchise.name,
+      color: @franchise.color,
+      values: SeasonStats.find_by_sql(sql).map{|d| [d.range_year.to_i, d.sum.to_f]}
+    }].to_json
   end
   
   def render_list

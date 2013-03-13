@@ -8,6 +8,11 @@
   - @players.each do |player|
     = render partial: 'shared/bar_width_style', locals: { player: player }
 
+- content_for :header_scripts do
+  :javascript
+    var json_data = #{@json_data};
+  = javascript_include_tag 'franchise_charts'
+
 %header.title
   %h2
     = @franchise.name
@@ -28,6 +33,9 @@
     - Franchise.active.each do |franchise|
       %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
     %li= link_to "All Franchises", "/franchise"
+
+#chart-container
+  %svg
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
