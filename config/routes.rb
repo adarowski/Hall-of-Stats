@@ -10,6 +10,7 @@ Hos::Application.routes.draw do
   resources :articles
   resources :position
   resources :franchise do
+    collection { get :charts, :all_data }
     member { get :render_list }
   end
   root to: 'players#index'
