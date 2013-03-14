@@ -36,11 +36,10 @@
     %li= link_to "All Franchises", "/franchise"
 
 %section#chart-container
-  %h2 #{@franchise.name} Total Hall Rating over time
+  %h3 #{@franchise.name} Total Hall Rating Over Time
   %svg#all-time
 
   %svg#total
-
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
