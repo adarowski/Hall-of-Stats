@@ -21,7 +21,7 @@ $ ->
       chart.legend.width(800)
 
       chart.xAxis
-        .tickFormat((d) -> d3.time.format('%x')(new Date(d)))
+        .tickFormat((d) -> d3.time.format('%Y')(new Date(d)))
 
       chart.yAxis
         .tickFormat(d3.format(',.2f'))
