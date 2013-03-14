@@ -34,7 +34,8 @@
       %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
     %li= link_to "All Franchises", "/franchise"
 
-#chart-container
+%section#chart-container
+  %h2 #{@franchise.name} Total Hall Rating over time
   %svg
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
