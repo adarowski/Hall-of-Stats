@@ -16,7 +16,7 @@ class FranchiseController < ApplicationController
     first_year = @franchise.all_stars.map(&:first_year).min
     last_year = @franchise.all_stars.map(&:last_year).max
     sql = <<-SQL
-select plyrs.id as player_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum
+select plyrs.id as player_id, range_year, coalesce(sum(ss.war_tot), 0) as sum
 from generate_series(#{@franchise.first_year}, #{@franchise.last_year || 2012}, 1) as range_year
 cross join (
   select id from players where id in (#{@franchise.all_stars.map{|p| "'#{p.id}'"}.join(',')})
@@ -37,7 +37,7 @@ order by plyrs.id, range_year
 
   def franchise_total_data
     sql = <<-SQL
-select franchise_id, year as range_year, coalesce(sum(hall_rating), 0) as sum
+select franchise_id, year as range_year, coalesce(sum(war_tot), 0) as sum
 from season_stats
 where franchise_id = '#{@franchise.id}'
 group by year,franchise_id
@@ -67,7 +67,7 @@ order by franchise_id,year
 
   def all_data
     sql = <<-SQL
-select stats.franchise_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum 
+select stats.franchise_id, range_year, coalesce(sum(ss.war_tot), 0) as sum 
 from generate_series(
   (select min(year) from season_stats),
   (select max(year) from season_stats),
