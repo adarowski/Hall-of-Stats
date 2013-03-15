@@ -11,6 +11,7 @@
 - content_for :header_scripts do
   :javascript
     var json_data = #{@json_data};
+    var all_time_team_data = #{@all_time_team_data}
   = javascript_include_tag 'franchise_charts'
 
 %header.title
@@ -36,7 +37,10 @@
 
 %section#chart-container
   %h2 #{@franchise.name} Total Hall Rating over time
-  %svg
+  %svg#all-time
+
+  %svg#total
+
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
