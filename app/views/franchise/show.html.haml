@@ -37,15 +37,15 @@
 
 %section#chart-container
   %h3
+    #{@franchise.name} Season-by-Season
+    %small by Wins Above Replacement
+  %svg#total
+
+  %h3
     #{@franchise.name} All Time Team
     %small by Wins Above Replacement
 
   %svg#all-time
-
-  %h3
-    #{@franchise.name} Season-by-Season
-    %small by Wins Above Replacement
-  %svg#total
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
