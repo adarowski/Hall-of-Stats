@@ -13,6 +13,7 @@ class FranchiseController < ApplicationController
   end
 
   def franchise_all_time_team_data
+    return 'null' unless @franchise.active?
     first_year = @franchise.all_stars.map(&:first_year).min
     last_year = @franchise.all_stars.map(&:last_year).max
     sql = <<-SQL
@@ -26,7 +27,6 @@ on ss.franchise_id = '#{@franchise.id}' and ss.player_id = plyrs.id and range_ye
 group by range_year, plyrs.id
 order by plyrs.id, range_year
     SQL
-    #raise sql
     data = SeasonStats.find_by_sql(sql)
     sorted_data = @franchise.all_stars.map do |player|
       { key: player.name,
@@ -36,6 +36,7 @@ order by plyrs.id, range_year
   end
 
   def franchise_total_data
+    return 'null' unless @franchise.active?
     sql = <<-SQL
 select franchise_id, year as range_year, coalesce(sum(war_tot), 0) as sum
 from season_stats
