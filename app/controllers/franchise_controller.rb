@@ -8,6 +8,34 @@ class FranchiseController < ApplicationController
     @all_stars = @franchise.all_stars
     @bench = @franchise.bench
     @bullpen = @franchise.bullpen
+    @json_data = franchise_total_data
+    @all_time_team_data = franchise_all_time_team_data
+  end
+
+  def franchise_all_time_team_data
+    first_year = @franchise.all_stars.map(&:first_year).min
+    last_year = @franchise.all_stars.map(&:last_year).max
+    sql = <<-SQL
+select plyrs.id as player_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum
+from generate_series(#{@franchise.first_year}, #{@franchise.last_year || 2012}, 1) as range_year
+cross join (
+  select id from players where id in (#{@franchise.all_stars.map{|p| "'#{p.id}'"}.join(',')})
+) as plyrs
+left join season_stats ss
+on ss.franchise_id = '#{@franchise.id}' and ss.player_id = plyrs.id and range_year = ss.year
+group by range_year, plyrs.id
+order by plyrs.id, range_year
+    SQL
+    #raise sql
+    data = SeasonStats.find_by_sql(sql)
+    sorted_data = @franchise.all_stars.map do |player|
+      { key: player.name,
+        values: data.select{|d| d.player_id == player.id}.map{|d| [d.range_year.to_i, d.sum.to_f]}
+      }
+    end.compact.to_json
+  end
+
+  def franchise_total_data
     sql = <<-SQL
 select franchise_id, year as range_year, coalesce(sum(hall_rating), 0) as sum
 from season_stats
@@ -15,7 +43,7 @@ where franchise_id = '#{@franchise.id}'
 group by year,franchise_id
 order by franchise_id,year
     SQL
-    @json_data = [{ 
+    [{ 
       key: @franchise.name,
       color: @franchise.color || '#999999',
       values: SeasonStats.find_by_sql(sql).map{|d| [d.range_year.to_i, d.sum.to_f]}
