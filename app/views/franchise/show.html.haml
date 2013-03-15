@@ -36,7 +36,9 @@
     %li= link_to "All Franchises", "/franchise"
 
 %section#chart-container
-  %h3 #{@franchise.name} Total Hall Rating Over Time
+  %h3
+    #{@franchise.name} Over Time
+    %small by Wins Above Replacement
   %svg#all-time
 
   %svg#total
