@@ -36,4 +36,4 @@ $ ->
       )
 
   drawChart(json_data, 'total', false, 150)
-  drawChart(all_time_team_data, 'all-time', true, 250)
+  drawChart(all_time_team_data, 'all-time', true, 300)
