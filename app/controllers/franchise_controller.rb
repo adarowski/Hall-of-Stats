@@ -27,6 +27,11 @@ group by range_year, plyrs.id
 order by plyrs.id, range_year
     SQL
     data = SeasonStats.find_by_sql(sql)
+    @data = data.map{|d|
+      {range_year: d.range_year.to_i,
+        sum: (d.sum.to_f <= 0 ? 0.00 : d.sum.to_f),
+        player_id: Player.find(d.player_id).name
+      }}.to_json
     sorted_data = @franchise.all_stars.map do |player|
       { key: player.name,
         values: data.select{|d| d.player_id == player.id}.map{|d| [d.range_year.to_i, d.sum.to_f]}
