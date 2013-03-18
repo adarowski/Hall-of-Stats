@@ -92,7 +92,7 @@ $ ->
   drawChart(my_data, 'svg#total')
   data = all_time_team_data
 
-  margin = { top: 80, right: 30, bottom: 30, left: 30 }
+  margin = { top: 100, right: 30, bottom: 30, left: 30 }
   height = 240 - margin.top - margin.bottom
   width = 750 - margin.left - margin.right
 
@@ -162,7 +162,6 @@ $ ->
     .orient('left')
     .tickValues(y.domain())
 
-
   svg.selectAll('.layer')
     .data(layers)
     .enter().append('path')
@@ -176,7 +175,7 @@ $ ->
     .data(test)
     .enter().append('circle')
     .attr('class', 'data-point')
-    .attr('r', 2)
+    .attr('r', 3)
     .attr('cx', (d) -> x(d[1].range_year))
     .attr('cy', (d) -> y(d[1].y0 + d[1].sum))
     #.style('fill', (d, i) -> z(players.indexOf(d[0])))
@@ -202,15 +201,15 @@ $ ->
 
   legend = svg.append('g')
     .attr('class', 'legend')
-    .attr('height', 50)
+    .attr('height', 100)
     .attr('width', width)
-    .attr('transform', 'translate(0, -70)')
+    .attr('transform', 'translate(0, -100)')
 
   legend.selectAll('rect')
     .data(layers)
     .enter().append('rect')
-    .attr('x', (d, i) -> (i % 7) * 100)
-    .attr('y', (d, i) -> parseInt(i / 7) * 20)
+    .attr('x', (d, i) -> (i % 6) * 120)
+    .attr('y', (d, i) -> parseInt(i / 6) * 20)
     .attr('width', 10)
     .attr('height', 10)
     .style('fill', (d, i) -> z(i))
@@ -220,6 +219,6 @@ $ ->
     .enter().append('text')
     .attr('class', 'legendText')
     .attr('width', 90)
-    .attr('x', (d, i) -> ((i % 7) * 100) + 12)
-    .attr('y', (d, i) -> (parseInt(i / 7) * 20) + 10)
+    .attr('x', (d, i) -> ((i % 6) * 120) + 12)
+    .attr('y', (d, i) -> (parseInt(i / 6) * 20) + 10)
     .text((d, i) -> d.key)
