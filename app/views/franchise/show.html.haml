@@ -10,10 +10,11 @@
 
 - content_for :header_scripts do
   :javascript
+    var color = "#{@franchise.color || '#000000'}";
+    var my_data = #{@my_all_data};
     var json_data = #{@json_data};
     var all_time_team_data = #{@all_time_team_data};
   = javascript_include_tag 'franchise_charts'
-
 %header.title
   %h2
     = @franchise.name
@@ -37,11 +38,14 @@
 
 - if @franchise.active?
   %section#chart-container
+    .tooltip
+      .title 1996
+      .content 45.56
     %h3
       #{@franchise.name} Season-by-Season
       %small by Wins Above Replacement
-    %svg#total
 
+    %svg#total
     %h3
       #{@franchise.name} All Time Team
       %small by Wins Above Replacement

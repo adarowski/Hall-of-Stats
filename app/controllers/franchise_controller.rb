@@ -13,9 +13,8 @@ class FranchiseController < ApplicationController
   end
 
   def franchise_all_time_team_data
+    player_ids = @franchise.players.order('hall_rating desc').limit(20).map{|p| "'#{p.id}'"}.join(',')
     return 'null' unless @franchise.active?
-    top_20 = @franchise.players.order('hall_rating desc').limit(20)
-    player_ids = top_20.map{|p| "'#{p.id}'"}.join(',')
     sql = <<-SQL
 select plyrs.id as player_id, range_year, coalesce(sum(ss.war_tot), 0) as sum
 from generate_series(#{@franchise.first_year}, #{@franchise.last_year || 2012}, 1) as range_year
@@ -28,7 +27,7 @@ group by range_year, plyrs.id
 order by plyrs.id, range_year
     SQL
     data = SeasonStats.find_by_sql(sql)
-    sorted_data = top_20.map do |player|
+    sorted_data = @franchise.all_stars.map do |player|
       { key: player.name,
         values: data.select{|d| d.player_id == player.id}.map{|d| [d.range_year.to_i, d.sum.to_f]}
       }
@@ -44,6 +43,7 @@ where franchise_id = '#{@franchise.id}'
 group by year,franchise_id
 order by franchise_id,year
     SQL
+    @my_all_data = SeasonStats.find_by_sql(sql).map{|d| {range_year: d.range_year.to_i, sum: d.sum.to_f}}.to_json
     [{ 
       key: @franchise.name,
       color: @franchise.color || '#999999',

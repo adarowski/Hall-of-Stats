@@ -1113,6 +1113,39 @@ article
 
 #chart-container
   @extend #section-padding
+
+  .tooltip
+    position: absolute
+    display: none
+    border: 1px solid black
+    background-color: #dddddd
+    width: 50px
+    font-size: .75em
+    border-radius: 5px
+    text-align: center
+    margin: 3px
+    
+    .title
+      font-weight: bold
+      background-color: white
+      
   h3
     border-bottom: 1px solid fade_out($default_color, 0.9)
     padding: 5px 0
+
+  .axis path, .axis line
+    fill: none
+    stroke: #000
+    shape-rendering: crispEdges
+
+  path.area
+    opacity: 0.70
+
+  circle.data-point
+    fill: none
+    stroke: none
+    pointer-events: all
+
+    //&:hover
+      //stroke: rgba(0, 0, 0, 0.75)
+
