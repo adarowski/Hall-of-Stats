@@ -8,9 +8,12 @@ $ ->
       .range([0, width])
       .domain([my_data[0].range_year, my_data[my_data.length - 1].range_year])
 
+    yExtent = d3.extent(my_data, (d) -> d.sum)
+    yDomain0 = [yExtent, 0].sort()[0]
+
     y = d3.scale.linear()
       .range([height, 0])
-      .domain(d3.extent(my_data, (d) -> d.sum))
+      .domain([yDomain0, yExtent[1]])
 
     area = d3.svg.area()
       .x((d) -> x(d.range_year))
