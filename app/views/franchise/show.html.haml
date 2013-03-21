@@ -10,6 +10,7 @@
 
 - content_for :header_scripts do
   :javascript
+    var team_name = "#{@franchise.name}";
     var color = "#{@franchise.color || '#000000'}";
     var my_data = #{@my_all_data};
     var json_data = #{@json_data};

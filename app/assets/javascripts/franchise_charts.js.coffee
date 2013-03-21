@@ -80,7 +80,7 @@ $ ->
       .attr('cy', (d) -> y(d.sum))
       .on('mouseover', (d) ->
         $('.tooltip').css({left: $('svg#total').position().left + 30, top: $('svg#total').position().top + 0})
-        $('.tooltip .player').html(d.team_id)
+        $('.tooltip .player').html(team_name)
         $('.tooltip .year').html(d.range_year + ':')
         $('.tooltip .war').html('(' + d3.format(',.1f')(d.sum) + ' WAR)')
         $('.tooltip').show()
