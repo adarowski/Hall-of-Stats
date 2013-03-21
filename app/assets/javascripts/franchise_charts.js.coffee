@@ -1,7 +1,7 @@
 $ ->
   drawChart = (my_data, div) ->
-    margin = { top: 20, right: 50, bottom: 30, left: 55 }
-    height = 120 - margin.top - margin.bottom
+    margin = { top: 32, right: 30, bottom: 30, left: 30 }
+    height = 150 - margin.top - margin.bottom
     width = 750 - margin.left - margin.right
 
     x = d3.scale.linear()
@@ -55,7 +55,6 @@ $ ->
       .scale(y)
       .orient('left')
       .tickValues(y.domain())
-      .tickFormat(d3.format(',.2f'))
 
     svg.append('g')
       .attr('class', 'x axis')
@@ -80,9 +79,10 @@ $ ->
       .attr('cx', (d) -> x(d.range_year))
       .attr('cy', (d) -> y(d.sum))
       .on('mouseover', (d) ->
-        $('.tooltip').css({left: d3.event.pageX - 25, top: $(div).position().top - 30})
-        $('.tooltip .title').html(d.range_year)
-        $('.tooltip .content').html(d3.format(',.2f')(d.sum))
+        $('.tooltip').css({left: $('svg#total').position().left + 30, top: $('svg#total').position().top + 0})
+        $('.tooltip .player').html(d.team_id)
+        $('.tooltip .year').html(d.range_year + ':')
+        $('.tooltip .war').html('(' + d3.format(',.1f')(d.sum) + ' WAR)')
         $('.tooltip').show()
       )
       .on('mouseout', () ->
@@ -92,8 +92,8 @@ $ ->
   drawChart(my_data, 'svg#total')
   data = all_time_team_data
 
-  margin = { top: 100, right: 30, bottom: 30, left: 30 }
-  height = 240 - margin.top - margin.bottom
+  margin = { top: 120, right: 30, bottom: 30, left: 30 }
+  height = 300 - margin.top - margin.bottom
   width = 750 - margin.left - margin.right
 
   x = d3.scale.linear()
@@ -181,9 +181,10 @@ $ ->
     #.style('fill', (d, i) -> z(players.indexOf(d[0])))
     .on('mouseover', (d) ->
       if d[1].sum != 0
-        $('.tooltip').css({left: d3.event.pageX - 40, top: $('svg#all-time').position().top + 30})
-        $('.tooltip .title').html(d[1].player_id + ' - ' + d[1].range_year)
-        $('.tooltip .content').html(d3.format(',.2f')(d[1].sum))
+        $('.tooltip').css({left: $('svg#all-time').position().left + 30, top: $('svg#all-time').position().top + 87})
+        $('.tooltip .player').html(d[1].player_id)
+        $('.tooltip .year').html(d[1].range_year + ':')
+        $('.tooltip .war').html('(' + d3.format(',.1f')(d[1].sum) + ' WAR)')
         $('.tooltip').show()
     )
     .on('mouseout', () ->
@@ -203,13 +204,13 @@ $ ->
     .attr('class', 'legend')
     .attr('height', 100)
     .attr('width', width)
-    .attr('transform', 'translate(0, -100)')
+    .attr('transform', 'translate(0, -115)')
 
   legend.selectAll('rect')
     .data(layers)
     .enter().append('rect')
-    .attr('x', (d, i) -> (i % 6) * 120)
-    .attr('y', (d, i) -> parseInt(i / 6) * 20)
+    .attr('x', (d, i) -> (i % 5) * 140)
+    .attr('y', (d, i) -> parseInt(i / 5) * 20)
     .attr('width', 10)
     .attr('height', 10)
     .style('fill', (d, i) -> z(i))
@@ -219,6 +220,6 @@ $ ->
     .enter().append('text')
     .attr('class', 'legendText')
     .attr('width', 90)
-    .attr('x', (d, i) -> ((i % 6) * 120) + 12)
-    .attr('y', (d, i) -> (parseInt(i / 6) * 20) + 10)
+    .attr('x', (d, i) -> ((i % 5) * 140) + 12)
+    .attr('y', (d, i) -> (parseInt(i / 5) * 20) + 10)
     .text((d, i) -> d.key)

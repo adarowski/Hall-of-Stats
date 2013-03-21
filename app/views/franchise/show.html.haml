@@ -39,17 +39,17 @@
 - if @franchise.active?
   %section#chart-container
     .tooltip
-      .title 1996
-      .content 45.56
+      %strong.year
+      %span.player
+      %span.war
+    %h3
+      Top 20 #{@franchise.name}
+      %small by Wins Above Replacement
+    %svg#all-time
     %h3
       #{@franchise.name} Season-by-Season
       %small by Wins Above Replacement
-
     %svg#total
-    %h3
-      #{@franchise.name} All Time Team
-      %small by Wins Above Replacement
-    %svg#all-time
 
 %section#inductees.franchise{ 'data-franchise' => @franchise.id }
   %h2.franchise-player

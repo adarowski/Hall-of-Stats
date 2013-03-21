@@ -1114,19 +1114,15 @@ article
 #chart-container
   @extend #section-padding
 
+  svg
+    margin-bottom: 20px
+
   .tooltip
     position: absolute
     display: none
-    border: 1px solid black
-    background-color: #dddddd
-    font-size: .75em
-    border-radius: 5px
-    text-align: center
-    margin: 3px
-    
-    .title
-      font-weight: bold
-      background-color: white
+    font-size: 75%
+    background: fade_out($default_color, 0.8)
+    padding: 2px 8px
       
   h3
     border-bottom: 1px solid fade_out($default_color, 0.9)
