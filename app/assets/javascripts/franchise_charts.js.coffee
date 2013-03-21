@@ -82,6 +82,7 @@ $ ->
       .attr('cx', (d) -> x(d.range_year))
       .attr('cy', (d) -> y(d.sum))
       .on('mouseover', (d) ->
+        $(@).css('fill', color)
         $('.tooltip').css({left: $('svg#total').position().left + 30, top: $('svg#total').position().top + 0})
         $('.tooltip .player').html(team_name)
         $('.tooltip .year').html(d.range_year + ':')
@@ -89,6 +90,7 @@ $ ->
         $('.tooltip').show()
       )
       .on('mouseout', () ->
+        $(@).css('fill', 'none')
         $('.tooltip').hide()
       )
   
@@ -181,9 +183,9 @@ $ ->
     .attr('r', 3)
     .attr('cx', (d) -> x(d[1].range_year))
     .attr('cy', (d) -> y(d[1].y0 + d[1].sum))
-    #.style('fill', (d, i) -> z(players.indexOf(d[0])))
     .on('mouseover', (d) ->
       if d[1].sum != 0
+        $(@).css('fill', z(players.indexOf(d[0])))
         $('.tooltip').css({left: $('svg#all-time').position().left + 30, top: $('svg#all-time').position().top + 87})
         $('.tooltip .player').html(d[1].player_id)
         $('.tooltip .year').html(d[1].range_year + ':')
@@ -191,6 +193,7 @@ $ ->
         $('.tooltip').show()
     )
     .on('mouseout', () ->
+      $(@).css('fill', 'none')
       $('.tooltip').hide()
     )
 
