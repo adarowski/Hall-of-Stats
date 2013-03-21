@@ -39,7 +39,8 @@ module ApplicationHelper
       removed:            'Removed from the Hall',
       upcoming:           'Not Yet Eligible but Hall-Worthy',
       active_and_worthy:  'Active and Hall-Worthy',
-      near_misses:          'Near Misses'
+      active_and_close:   'Active and Close',
+      near_misses:        'Near Misses'
     }
   end
 

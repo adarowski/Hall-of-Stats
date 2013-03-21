@@ -8,6 +8,7 @@ module PlayerFilter
       hos,
       upcoming,
       active_and_worthy,
+      active_and_close,
       near_miss
     ].compact
   end
@@ -32,6 +33,10 @@ module PlayerFilter
 
   def self.active_and_worthy
     active? && rating_above?(100) && not_hos? ? 'active-and-worthy' : nil
+  end
+
+  def self.active_and_close
+    'active_and_close' if @player.active_and_close?
   end
 
   def self.near_miss

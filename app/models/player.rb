@@ -48,6 +48,7 @@ class Player < ActiveRecord::Base
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
+  scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
 
   has_and_belongs_to_many :articles
@@ -76,6 +77,10 @@ class Player < ActiveRecord::Base
 
   def removed?
     !hos && hof
+  end
+
+  def active_and_close?
+    !hos && (eligibility = 'active') && hall_rating.between?(75, 100.0)
   end
 
   def near_miss?
