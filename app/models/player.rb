@@ -36,6 +36,8 @@ class Player < ActiveRecord::Base
     hof is true or hos is true or (hos is false and hall_rating > 100)
     -- near miss
     or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 100.0)
+    -- active and close
+    or (hos is false and eligibility = 'active' and hall_rating >= 75 AND hall_rating <= 100.0)
   ))
 
   scope :cover_models, where('cover_model is true')
@@ -80,7 +82,7 @@ class Player < ActiveRecord::Base
   end
 
   def active_and_close?
-    !hos && (eligibility = 'active') && hall_rating.between?(75, 100.0)
+    !hos && (eligibility == 'active') && hall_rating.between?(75, 100.0)
   end
 
   def near_miss?

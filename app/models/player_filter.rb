@@ -36,7 +36,7 @@ module PlayerFilter
   end
 
   def self.active_and_close
-    'active_and_close' if @player.active_and_close?
+    'active-and-close' if @player.active_and_close?
   end
 
   def self.near_miss

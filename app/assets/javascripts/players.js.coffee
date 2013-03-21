@@ -5,6 +5,7 @@ filters = {
   'removed': '.hof.not-hos'
   'upcoming': '.upcoming.not-hos'
   'active-and-worthy': '.active-and-worthy.not-hos',
+  'active-and-close': '.active-and-close',
   'near-misses': '.near-miss',
   'position': '.position',
 }
