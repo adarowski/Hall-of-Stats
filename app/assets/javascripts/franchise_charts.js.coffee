@@ -9,7 +9,7 @@ $ ->
       .domain([my_data[0].range_year, my_data[my_data.length - 1].range_year])
 
     yExtent = d3.extent(my_data, (d) -> d.sum)
-    yDomain0 = [yExtent, 0].sort()[0]
+    yDomain0 = [yExtent[0], 0].sort()[0]
 
     y = d3.scale.linear()
       .range([height, 0])
