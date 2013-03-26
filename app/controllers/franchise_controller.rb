@@ -69,6 +69,7 @@ order by franchise_id,year
   end
 
   def charts
+    redirect_to action: :index
   end
 
   def all_data

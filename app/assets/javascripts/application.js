@@ -16,7 +16,6 @@
 //= require jquery-ui-autocomplete-html
 //= require jquery.ui.touch-punch
 //= require d3
-//= require nvd3-rails
 //= require players
 //= require articles
 //= require franchises

@@ -4,14 +4,6 @@ GIT
   specs:
     listen (0.7.2)
 
-GIT
-  remote: git@github.com:adeven/nvd3-rails.git
-  revision: 3897010b862396309b35cb73ba4b73a51ecfc24b
-  submodules: true
-  specs:
-    nvd3-rails (0.0.1)
-      railties (>= 3.2.0, < 5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -268,7 +260,6 @@ DEPENDENCIES
   kaminari
   listen!
   nokogiri
-  nvd3-rails!
   pg
   quiet_assets
   rails (= 3.2.12)
