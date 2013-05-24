@@ -27,28 +27,19 @@
 
   - content = capture_haml do
     :plain
+      The Hall of Stats was conceived because the Hall of Fame voting process has become a political nightmare. A massive backlog of worthy candidates is piling up—some because of association with PEDs (or simply suspicion), but some because voters just don’t realize how good they were. There seems to be a false perception of what the Hall of Fame actually is. It’s not all @ruthba01, @mathech01, @cobbty01, and @wagneho01. For every @johnswa01 in the Hall of Fame there’s a @haineje01. For every @aaronha01 there’s a @mccarto01.
 
-      When the Hall of Fame ballot comes out each year, the debates start. Columnists compare today’s players to those of a “better time” and lament about the weakening of the Hall of Fame’s purity. The thing is, that “purity” doesn’t actually exist.
+      Should each player better than Haines and McCarthy get in? No. But a player shouldn’t have to be Babe Ruth—or even @blylebe01—to get into Cooperstown.
 
-      For every @ruthba01, @cobbty01, @youngcy01, and @johnswa01 in the Hall of Fame there’s a @mccarto01, @wanerll01, @haineje01, and @marquru01.
+      There are 208 players in the Hall of Fame based on their MLB careers. According to the Hall of Stats, Blyleven ranks #@blylebe01:ranking_hos among eligible players. He should have breezed into the Hall, but instead it took fourteen tries. @schilcu01 ranks #@schilcu01:ranking_hos. @bagweje01 ranks #@bagweje01:ranking_hos. @loftoke01—who received less than 5% of the vote—ranks #@loftoke01:ranking_hos. There’s no reason to keep these players out of the Hall of Fame… if you look at things objectively.
 
-      There’s a huge gap between Babe Ruth and Tommy McCarthy. How do you determine what “Hall-worthy” really is then? If you enshrine every player better than McCarthy, your Hall of Fame will have a population of 1,478. If you hold everyone to the same standards as Babe Ruth—or even @gwynnto01—you won’t be adding Hall of Famers very often.
+      That’s what the Hall of Stats does. It ignores anything that happened off the field—PEDs, lifetime bans, MVP awards, etc. The Hall of Stats takes the current number of players in Cooperstown (208), kicks everybody out, and re-populates itself with the top 208 players according to a mathematical formula. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
 
-      And what fun is a Hall of Fame if you never let anyone in?
+      The formula is based on Wins Above Replacement and Wins Above Average from Baseball-Reference. A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 (and called Hall Rating) so the Hall of Stats borderline is represented by a Hall Rating of 100.
 
-      Let’s make an example out of @trammal01. He’s currently struggling to get into the Hall of Fame and will likely be passed over by the BBWAA. Does he compare to Hall of Fame shortstops @wagneho01 and @ripkeca01? No, he doesn’t. But does he have to? Is he clearly better than @maranra01, @rizzuph01, and @jackstr01? Yes. How about @tinkejo01, @seweljo01, and @bancrda01? Yes, yes, and yes. All six are in the Hall of Fame. Alan Trammell was better than all of them.
+      Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy is merely @mccarto01:hall_rating_rounded. 70 of the 208 players in the Hall of Fame (just about one third) are removed from the Hall of Stats.
 
-      To determine whether or not Trammell should be a Hall of Famer, we now have to consider both how much worse he is than the elite players at his position and how much better he is than some players already inducted.
-
-      It’s an absolute mess. The only way to fix it is to kick everyone out and start from scratch. So that’s what I did.
-
-      **They say, “It’s the Hall of Fame, not the Hall of Stats.”**
-
-      But what if it was?
-
-      The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on a mathematical formula.
-
-      You decide which Hall is better…
+      The Hall of Stats aims to show how run- and win-value statistics can be used to measure a player’s Hall of Fame case. It also visualizes what a “default Hall” would look like if it was populated simply by the numbers. Should numbers be the only arbiter of who gets into Cooperstown? Certainly not. The Hall of Stats, and its accompanying website, is merely meant to serve as a conversation starter. That objective starting point is one thing that’s sorely lacking in the Hall of Fame voting process today.
 
       <h3 id="formula">The Formula <a href="#top">Back to Top</a></h3>
 
@@ -71,8 +62,8 @@
       adjWAR attempts to capture the value of the player above a replacement player. It starts with a player’s WAR and undergoes a series of adjustments:
 
       * Position player WAR is adjusted for schedule length. In this case, a hitter gets more credit for a 3.0 WAR season during a 80-game schedule than he does for a 3.0 WAR season in a 162-game season.
-        * This same adjustment is not given for pitchers, since shorter schedules allowed pitchers to be used more often. The exception is strike- or war-shortened years **(where both pitchers and hitters are given an adjustment for how long the schedule would have been)**.
-        * It is important to note that this adjustment is made based on the schedule length and not the number of games the player appeared in. A player who appeared in 120 games of a 162-game schedule does not receive any extra credit.
+        * This same adjustment is not given for pitchers, since shorter schedules allowed pitchers to be used more often. The exception is strike- or war-shortened years (where both pitchers and hitters are given an adjustment for how long the schedule would have been).
+        * It is important to note that this adjustment is made based on the schedule length and not the number of games the player appeared in. A player who appeared in 120 games of a 162-game schedule does not receive any extra credit. But a player who appeared in 120 games of a **140**-game schedule would receive some credit—but only for the difference between 140 and 162 games (not 120 and 162 games).
         * Players are not given 100% of the credit for games they did not play. Instead, they are awarded the average of their actual WAR and their projected WAR. This keeps us from over-adjusting for 19th century players.
       * Catchers receive a generous positional adjustment from WAR. But this adjustment only rewards them for time actually spent on the field. Catchers play fewer games in a season and have shorter careers. Therefore, catchers are given an extra 20% boost by adjWAR. Without this adjustment, there would be very few catchers in the Hall of Stats. And that just wouldn’t be right.
       * Relievers are similar to catchers in that they get a boost from WAR (via the leverage index), but it is not nearly enough to bring their WAR values close to their starting counterparts. I’m actually not sure what type of adjustment relievers should get (if any). Without an adjustment, we would have no relievers in the Hall of Stats. I decided to simply use the same adjustment I used for catchers. (This helped @wilheho01 gain induction while @gossari01 fell short).
@@ -150,7 +141,11 @@
       * The Hall of Stats ignores lifetime bans. This opens up the Hall of Stats to @rosepe01, @jacksjo01, and any other banned players.
       * This pains me, but the Hall of Stats does not include Negro League players. The data just isn’t reliable yet, but it is getting better. As soon as I figure out a way to do it, Negro League stars will be recognized by the Hall of Stats.
       * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
-      * The Hall of Stats only has a “player” designation while the Hall of Fame has other designations. For this reason, @spaldal01 is a Hall of Stats inductee while he is not considered a Hall of Fame *player* (he was inducted as a Pioneer/Executive).
+      * The Hall of Stats only has a “player” designation while the Hall of Fame has other designations. At one time, @spaldal01 was a Hall of Stats inductee while he is not considered a Hall of Fame *player* (he was inducted as a Pioneer/Executive).
+      * How players are added to the Hall of Stats:
+        * A player can be added as soon as he becomes eligible, as long as he is one of the best *x* eligible players by Hall Rating (where *x* is the number of players in the Hall of Fame). For example, when @maddugr01 becomes eligible, he simultaneously be voted into the Hall of Fame and added to the Hall of Stats.
+        * A player can be added if he is the next-best eligible player by Hall Rating and a players is inducted into the Hall of Fame who already is a member of the Hall of Stats. For example, when @whitede01 was inducted into the Hall of Fame, he was already a member of the Hall of Stats. Therefore, the next-best player outside the Hall of Stats (by Hall Rating) was inducted (in order to keep both Halls the same size).
+        * A player can also be added or removed if the Hall Rating formula is updated. The Hall of Stats strives to use the best data possible at all times. The Hall of Stats does not cling to “mistakes”—it corrects them.
 
       <h3 id="team">The Team <a href="#top">Back to Top</a></h3>
 
@@ -166,13 +161,13 @@
 
       #### Michael Berkowitz ####
 
-      If Jeffrey is the Babe Ruth of Rails developers, then Michael is the @troutmi01. A current co-worker of Adam’s at PatientsLikeMe, Michael is also a [singer/songwriter](http://www.reverbnation.com/michaelberkowitz). You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
+      If Jeffrey is the Babe Ruth of Rails developers, then Michael is the @troutmi01. Also a former co-worker of Adam’s at PatientsLikeMe, Michael currently works at [Careport Health](https://www.careporthealth.com/). In addition to being a software engineer, he is a [singer/songwriter](http://www.reverbnation.com/michaelberkowitz) and linguist. You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
 
       <h3 id="tech">The Tech <a href="#top">Back to Top</a></h3>
 
-      Adam developed the concept of the Hall of Stats, researched, crunched numbers, designed, and styled. Jeffrey took Adam’s designs and numbers and actually built the site (while helping Adam learn to be a little more self-sufficient along the way). Jeffrey also handled most of the Javascript duties. Michael took on special projects like player search, similarity scores, season stats, positional pages, and player rankings.
+      Adam developed the concept of the Hall of Stats, researched, crunched numbers, designed, and styled. Jeffrey took Adam’s designs and numbers and actually built the site (while helping Adam learn to be a little more self-sufficient along the way). Jeffrey also handled most of the initial Javascript duties. Michael originally took on special projects like player search, similarity scores, and season stats. Since the original launch, he has built most of the new features like positional pages, player rankings, and franchise pages and charts.
 
-      The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), and [CoffeeScript](http://coffeescript.org/).
+      The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), [CoffeeScript](http://coffeescript.org/), and [D3](http://d3js.org/) (for charting).
 
       #### Open Source
 
