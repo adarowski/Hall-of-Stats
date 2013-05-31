@@ -34,8 +34,6 @@ $ ->
     year = $(@).data('year')
     $("tr.partial-season-stat[class*=yr-#{year}]").slideToggle()
     
-  $(".home #player-search").focus()
-
   $("#search-link").click (e) ->
     e.preventDefault()
     $("#search").slideToggle()

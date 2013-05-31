@@ -124,11 +124,10 @@ header.generic
         padding-left: 10px
         padding-right: 0
 
-.home
-  header
-    position: relative
-    overflow: hidden
-    max-height: 700px
+.cover-model
+  position: relative
+  overflow: hidden
+  max-height: 700px
 
 #branding
   position: absolute
@@ -136,14 +135,16 @@ header.generic
   left: 0
   width: 100%
   z-index: 1
+  border-width: 1px 0
+  border-style: solid
   .whitede01 &, .kingsi01 &, .dahlebi01 &, .glassja01 &, .bennech01 &
-    border-top: 1px solid fade_out(black, 0.7)
+    border-color: fade_out(black, 0.7)
     background-color: fade_out(black, 0.8)
   .ferrewe01 &, .robinja02 &, .cicoted01 &, .quinnja01 &, .shockur01 &, .whitalo01 &, .trammal01 &
-    border-top: 1px solid fade_out(black, 0.4)
+    border-color: fade_out(black, 0.4)
     background-color: fade_out(black, 0.5)
   .carutbo01 &, .johnswa01 &
-    border-top: 1px solid fade_out(black, 0.5)
+    border-color: fade_out(black, 0.5)
     background-color: fade_out(black, 0.6)
   h1, p
     text-shadow: #333 0 0 8px
@@ -333,7 +334,7 @@ header.generic
           font-size: 80%
           text-transform: uppercase
 
-#stats-summary, #related-players, .home #search, #inductees
+#stats-summary, #related-players, #inductees
   @media only screen and (min-width: 640px)
     float: left
     width: 60%
@@ -447,7 +448,6 @@ header.generic
   display: none
 
   .home &
-    display: block
     input[type=search]
       border-bottom: none
     @media only screen and (min-width: 640px)
