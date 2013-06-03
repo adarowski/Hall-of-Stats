@@ -58,7 +58,7 @@
             #{player.name}
           %em #{player.position}, #{player.years_played}
           %span
-            - if player.hall_rating > 99.49 && player.hos == false && player.eligibility == "eligible"
+            - if player.hall_rating > 99.49 && player.hos == false
               = player.hall_rating.round(1)
             - else
               = player.hall_rating.round
