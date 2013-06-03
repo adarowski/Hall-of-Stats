@@ -12,7 +12,9 @@
   %figure.banner
     %img{:src => "/assets/photos/foxx.jpg"}
     %figcaption
-      That’s Jimmie Foxx.
+      That’s
+      = succeed "." do
+        = link_to "Jimmie Foxx", "/player/foxxji01", class: "player-link"
       %a{:href => "http://www.flickr.com/photos/boston_public_library/5887848576/"} Photo Credit
 
   %nav.jump-menu

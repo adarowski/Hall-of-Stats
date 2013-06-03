@@ -13,7 +13,7 @@
   %figcaption
     That’s
     = succeed "." do
-      = link_to @cover_model.name, player_path(@cover_model)
+      = link_to @cover_model.name, player_path(@cover_model), class: "player-link"
     = link_to "Photo Credit", @cover_model.img_url
 
 %section#intro

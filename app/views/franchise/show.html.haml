@@ -25,9 +25,11 @@
 
 - if @franchise.active?
   %figure.banner
-    %img{:src => "/assets/photos/#{@franchise.img}"}/
+    %img{:src => "/assets/photos/#{@franchise.img}.jpg"}/
     %figcaption
-      That’s #{@franchise.player}.
+      That’s
+      = succeed "." do
+        = link_to @franchise.player, "/player/#{@franchise.img}", class: "player-link"
       %a{:href => @franchise.img_credit} Photo Credit
 
 %nav.jump-menu

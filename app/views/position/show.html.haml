@@ -13,9 +13,11 @@
 
 - if Position.find_by_id(@position)
   %figure.banner
-    %img{:src => "/assets/photos/#{Position.find(@position).img}"}/
+    %img{:src => "/assets/photos/#{Position.find(@position).img}.jpg"}/
     %figcaption
-      That’s #{Position.find(@position).player}.
+      That’s
+      = succeed "." do
+        = link_to Position.find(@position).player, "/player/#{Position.find(@position).img}", class: "player-link"
       %a{:href => Position.find(@position).img_credit} Photo Credit
 
 %nav.jump-menu
