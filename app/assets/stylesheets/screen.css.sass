@@ -392,7 +392,7 @@ header.generic
     &:first-child
       font-size: 120%
       font-weight: bold
-  @media only screen and (min-width: 640px)
+  @media only screen and (max-width: 640px)
     border-top: 0
 
 #franchise-rankings
@@ -928,9 +928,7 @@ article
   @media only screen and (min-width: 640px)
     max-width: 770px !important
   .home &
-    border-top: 2px solid fade_out($default_color, 0.6)
-    @media only screen and (min-width: 640px)
-      max-width: 460px !important
+    border-bottom: 2px solid fade_out($default_color, 0.6)
 
   li
     list-style: none
