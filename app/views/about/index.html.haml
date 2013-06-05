@@ -33,19 +33,21 @@
 
       Should each player better than Haines and McCarthy get in? No. But a player shouldn’t have to be Babe Ruth—or even @blylebe01—to get into Cooperstown.
 
+      The Hall of Stats uses a formula called Hall Rating to rank every player in baseball history. Hall Rating combines the value of a player’s peak and longevity into a single number that represents the quality of that player’s Hall of Fame case. It’s not perfect, but there’s a lot to be said for rating all players in history according to the same objective criteria.
+
       There are #{Player.in_hos.count} players in the Hall of Fame based on their MLB careers. According to the Hall of Stats, Blyleven ranks #@blylebe01:ranking_hos among eligible players. He should have breezed into the Hall, but instead it took fourteen tries. @schilcu01 ranks #@schilcu01:ranking_hos. @bagweje01 ranks #@bagweje01:ranking_hos. @loftoke01—who received less than 5% of the vote—ranks #@loftoke01:ranking_hos. There’s no reason to keep these players out of the Hall of Fame… if you look at things objectively.
 
-      That’s what the Hall of Stats does. It ignores anything that happened off the field—PEDs, lifetime bans, MVP awards, etc. The Hall of Stats takes the current number of players in Cooperstown (208), kicks everybody out, and re-populates itself with the top 208 players according to a mathematical formula. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
+      That’s what the Hall of Stats does. It ignores anything that happened off the field—PEDs, lifetime bans, MVP awards, etc. The Hall of Stats takes the current number of players in Cooperstown (#{Player.in_hos.count}), kicks everybody out, and re-populates itself with the top #{Player.in_hos.count} players according to Hall Rating. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
 
-      The formula is based on Wins Above Replacement and Wins Above Average from Baseball-Reference. A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 (and called Hall Rating) so the Hall of Stats borderline is represented by a Hall Rating of 100.
+      Hall Rating is based on Wins Above Replacement and Wins Above Average from Baseball-Reference. A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 so the Hall of Stats borderline is represented by a Hall Rating of 100.
 
-      Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy is merely @mccarto01:hall_rating_rounded. Of the 208 players in the Hall of Fame, 70 (just about one third) are removed from the Hall of Stats.
+      Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy is merely @mccarto01:hall_rating_rounded. Of the #{Player.in_hos.count} players in the Hall of Fame, #{Player.removed.count} (just about one third) are removed from the Hall of Stats.
 
       The Hall of Stats aims to show how run- and win-value statistics can be used to measure a player’s Hall of Fame case. It also visualizes what a “default Hall” would look like if it was populated simply by the numbers. Should numbers be the only arbiter of who gets into Cooperstown? Certainly not. The Hall of Stats, and its accompanying website, is merely meant to serve as a conversation starter. That objective starting point is one thing that’s sorely lacking in the Hall of Fame voting process today.
 
       <h3 id="formula">The Formula <a href="#top">Back to Top</a></h3>
 
-      The Hall of Stats is populated by a mathematical formula based on the [Baseball-Reference](http://baseball-reference.com) versions of Wins Above Average (WAA) and Wins Above Replacement (WAR). WAA combines all aspects of a player’s game—hitting, pitching, baserunning, fielding, positional value, and more—and estimates how many more wins that player was worth than an *average* player. WAR takes that a step further and estimates how many more wins the player is worth than a *replacement* player. (I wrote an article with more detail about [Wins Above Average vs. Wins Above Replacement](http://www.highheatstats.com/2012/07/wins-above-replacement-war-vs-wins-above-average-waa/).)
+      The Hall of Stats is populated by Hall Rating, a mathematical formula based on the [Baseball-Reference](http://baseball-reference.com) versions of Wins Above Average (WAA) and Wins Above Replacement (WAR). WAA combines all aspects of a player’s game—hitting, pitching, baserunning, fielding, positional value, and more—and estimates how many more wins that player was worth than an *average* player. WAR takes that a step further and estimates how many more wins the player is worth than a *replacement* player. (I wrote an article with more detail about [Wins Above Average vs. Wins Above Replacement](http://www.highheatstats.com/2012/07/wins-above-replacement-war-vs-wins-above-average-waa/).)
 
       The precursor to the Hall of Stats was called the [Hall of wWAR](http://darowski.com/hall-of-wwar). wWAR stands for “weighted Wins Above Replacement”, which basically means the formula starts with WAR and applies a series of weights. wWAR is still a big part of the Hall of Stats, but it now has a completely different formula.
 
@@ -87,6 +89,10 @@
       The Hall of Stats equally weighs a player’s career value (adjWAR) and peak value (adjWAA). These numbers, however, are on different scales. adjWAA is multiplied by 1.79 to adjust for this.
 
       To get 1.79 (actually 1.7866884224), I collected all Hall of Fame inductees (as of 2012) and divided their total adjWAR by their total adjWAA.
+
+      #### More About Baseball-Referene’s WAR ####
+      
+      If you are interested in what exactly goes into Baseball-Reference’s implementation of WAR, they have written about [the calculations in incredible detail](http://www.baseball-reference.com/about/war_explained.shtml).
 
       <h3 id="similarity">Similarity Scores <a href="#top">Back to Top</a></h3>
 
@@ -155,7 +161,7 @@
 
       #### Adam Darowski ####
 
-      Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog). Adam tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski).
+      Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog)). Adam lives in Massachusetts with his wife and three young children. He tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski). He also runs the Hall of Stats Twitter account at [@hallofstats](http://twitter.com/hallofstats).
 
       #### Jeffrey Chupp ####
 
@@ -184,6 +190,6 @@
 
       <h3 id="thanks">Thank You <a href="#top">Back to Top</a></h3>
 
-      **Thank You** to my three favorite Seans—**Sean Forman** [(@sean_forman)](http://twitter.com/sean_forman) of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** [(@seanlahman)](http://twitter.com/seanlahman) for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Thank you to the brilliant readers of [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog) for providing wonderful feedback ever since I introduced wWAR. Finally, a huge thank you to Jeffrey and Michael (and Tim!) for helping me build the site of my dreams.
+      Thank You to my three favorite baseball Seans—**Sean Forman** [(@sean_forman)](http://twitter.com/sean_forman) of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** [(@seanlahman)](http://twitter.com/seanlahman) for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Thank you to the brilliant readers of [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog) for providing wonderful feedback ever since I introduced wWAR. Finally, a huge thank you to Jeffrey and Michael (and Tim!) for helping me build the site of my dreams.
 
   = raw BioFormatter.new(content)
