@@ -43,7 +43,7 @@
 
       Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy is merely @mccarto01:hall_rating_rounded. Of the #{Player.in_hos.count} players in the Hall of Fame, #{Player.removed.count} (just about one third) are removed from the Hall of Stats.
 
-      The Hall of Stats aims to show how run- and win-value statistics can be used to measure a player’s Hall of Fame case. It also visualizes what a “default Hall” would look like if it was populated simply by the numbers. Should numbers be the only arbiter of who gets into Cooperstown? Certainly not. The Hall of Stats is merely meant to serve as a conversation starter. That objective starting point is one thing that’s sorely lacking in the Hall of Fame voting process today.
+      The Hall of Stats aims to show how run- and win-value statistics can be used to measure a player’s Hall of Fame case. It evolves to reflect the best data currently available (players can be added and removed, meaning this Hall doesn’t cling to its mistakes). The Hall of Stats also visualizes what a “default Hall” would look like if it was populated simply by the numbers. Should numbers be the only arbiter of who gets into Cooperstown? Certainly not. The Hall of Stats is merely meant to serve as a conversation starter. That objective starting point is one thing that’s sorely lacking in the Hall of Fame voting process today.
 
       <h3 id="formula">The Formula <a href="#top">Back to Top</a></h3>
 
@@ -93,6 +93,14 @@
       #### More About Baseball-Referene’s WAR ####
       
       If you are interested in what exactly goes into Baseball-Reference’s implementation of WAR, they have written about [the calculations in incredible detail](http://www.baseball-reference.com/about/war_explained.shtml).
+
+      #### Known Limitations ####
+
+      * It pains me, but the Hall of Stats does not include Negro League players. The data simply isn’t reliable yet—but it is getting better. As soon as I figure out a way to do it, Negro League stars will be recognized by the Hall of Stats.
+      * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
+      * I’m also not happy yet with how the Hall of Stats handles relief pitchers. Your feedback is welcome here as well.
+      * The Hall of Stats doesn’t recognize postseason performance (as the Hall of wWAR did). I’m thinking of a good way to do this, but again feedback is welcome.
+      * There are some quirks I’d like to improve with the [franchise pages](/franchise). I documented them in the [launch announcement](/articles/franchise-pages).
 
       <h3 id="similarity">Similarity Scores <a href="#top">Back to Top</a></h3>
 
@@ -147,8 +155,6 @@
       * The number of Hall of Stats inductees is kept consistent with the Hall of Fame (#{Player.in_hos.count} inducted as players). This is to show the difference in quality between the two Halls from top to bottom.
       * The Hall of Stats ignores performance enhancing drugs. There’s just no reliable, complete data about it.
       * The Hall of Stats ignores lifetime bans. This opens up the Hall of Stats to @rosepe01, @jacksjo01, and any other banned players.
-      * This pains me, but the Hall of Stats does not include Negro League players. The data just isn’t reliable yet, but it is getting better. As soon as I figure out a way to do it, Negro League stars will be recognized by the Hall of Stats.
-      * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
       * The Hall of Stats only has a “player” designation while the Hall of Fame has other designations. At one time, @spaldal01 was a Hall of Stats inductee while he is not considered a Hall of Fame *player* (he was inducted as a Pioneer/Executive).
       * How players are added to the Hall of Stats:
         * A player can be added as soon as he becomes eligible, as long as he is one of the best *x* eligible players by Hall Rating (where *x* is the number of players in the Hall of Fame). For example, when @maddugr01 becomes eligible, he simultaneously be voted into the Hall of Fame and added to the Hall of Stats.
