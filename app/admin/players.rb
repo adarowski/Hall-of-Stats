@@ -25,7 +25,6 @@ ActiveAdmin.register Player do
     column :last_name
     column :eligibility
     column :bio
-    column :photo_path
 
     default_actions
   end
@@ -89,7 +88,6 @@ ActiveAdmin.register Player do
 
 
       f.input :img_url
-      f.input :photo_path
       f.input :cover_model
 
       f.input :bio

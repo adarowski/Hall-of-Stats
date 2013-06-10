@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20130305233011) do
     t.decimal  "waa_tot"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
-    t.string   "photo_path"
     t.text     "bio"
     t.integer  "first_year"
     t.integer  "last_year"

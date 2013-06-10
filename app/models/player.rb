@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
     :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
-    :last_year, :runs_pitch, :img_url, :photo_path, :alt_hof, :cover_model,
+    :last_year, :runs_pitch, :img_url, :alt_hof, :cover_model,
     :compatibility_id, :franchise_rankings,
     as: :admin
 
