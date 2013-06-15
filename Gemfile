@@ -34,6 +34,11 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'touchpunch-rails'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller' # for better_errors
+end
+
 group :development, :test do
   gem 'debugger'
   gem "rspec-rails", "~> 2.0"

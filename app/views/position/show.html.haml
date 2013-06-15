@@ -4,6 +4,12 @@
   - @players.each do |player|
     = render partial: 'shared/bar_width_style', locals: { player: player }
 
+- content_for :header_scripts do
+  :javascript
+    var all_data = #{@chart_data.to_json};
+    var chart_title = "Best <i>N</i>th Seasons for #{@position_name.pluralize}";
+  = javascript_include_tag 'position_charts'
+
 = render 'shared/header'
 
 = render 'shared/search'
@@ -24,6 +30,9 @@
     - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
       %li=link_to position.upcase, position_path(position)
 
+%section#chart-container
+  #chartContainer{style: 'height:500px;'}
+  
 %section#inductees
   %h2
     %a#show-filters{href: '#'}

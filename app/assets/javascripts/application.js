@@ -16,6 +16,7 @@
 //= require jquery-ui-autocomplete-html
 //= require jquery.ui.touch-punch
 //= require d3
+//= require highcharts
 //= require players
 //= require articles
 //= require franchises
