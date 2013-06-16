@@ -39,7 +39,7 @@
 
       That’s what the Hall of Stats does. It ignores anything that happened off the field—PEDs, lifetime bans, MVP awards, etc. The Hall of Stats takes the current number of players in Cooperstown (#{Player.in_hos.count}), kicks everybody out, and re-populates itself with the top #{Player.in_hos.count} players according to Hall Rating. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
 
-      Hall Rating is based on Wins Above Replacement and Wins Above Average from Baseball-Reference. A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 so the Hall of Stats borderline is represented by a Hall Rating of 100.
+      Hall Rating is based on Wins Above Replacement (WAR) and Wins Above Average (WAA) from [Baseball-Reference](http://baseball-reference.com). A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 so the Hall of Stats borderline is represented by a Hall Rating of 100.
 
       Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy is merely @mccarto01:hall_rating_rounded. Of the #{Player.in_hos.count} players in the Hall of Fame, #{Player.removed.count} (just about one third) are removed from the Hall of Stats.
 
@@ -55,13 +55,13 @@
 
       Before I go into what adjWAR and adjWAA are (and where the 1.79 comes from), I want to explain what Hall Rating is.
 
-      #### Hall Rating ####
+      #### Hall Rating
 
       Hall Rating is simply wWAR expressed in a more intuitive way (you’ll see Hall Rating displayed on the Hall of Stats, but not wWAR). The Hall of Stats borderline for induction is represented by a Hall Rating of 100. This is similar to how 100 represents league average in OPS+ or wRC+.
 
       With a Hall Rating of @ruthba01:hall_rating_rounded, you could say that @ruthba01’s career was worth about four Hall of Fame careers. Meanwhile, @piercbi02 essentially sits on the Hall of Stats borderline with a Hall Rating of @piercbi02:hall_rating_rounded. Hall of Famer @brocklo01 is not included in the Hall of Stats becuase his Hall Rating is just @brocklo01:hall_rating_rounded.
 
-      #### adjWAR <span>(Adjusted Wins Above Replacement)</span> ####
+      #### adjWAR <span>(Adjusted Wins Above Replacement)</span>
 
       adjWAR attempts to capture the value of the player above a replacement player. It starts with a player’s WAR and undergoes a series of adjustments:
 
@@ -73,7 +73,7 @@
       * Relievers are similar to catchers in that they get a boost from WAR (via the leverage index), but it is not nearly enough to bring their WAR values close to their starting counterparts. I’m actually not sure what type of adjustment relievers should get (if any). Without an adjustment, we would have no relievers in the Hall of Stats. I decided to simply use the same adjustment I used for catchers. (This helped @wilheho01 gain induction while @gossari01 fell short).
       * Most recently, I added an adjustment for 19th century pitchers (specifically, before the mound moved back to its current distance in 1893). These pitching seasons also get a 20% adjustment, but this one impacts them negatively (because of the ease of compiling a ridiculous number of innings).
 
-      #### adjWAA <span>(Adjusted Wins Above Average)</span> ####
+      #### adjWAA <span>(Adjusted Wins Above Average)</span>
 
       While adjWAR measures total career value, adjWAA aims to measure peak value. It begins with Wins Above Average and also undergoes some adjustments:
 
@@ -84,17 +84,17 @@
         * League average for pitchers batting value is also typically at replacement level.
       * Catchers, relief pitchers, and 19th century (pre-1893) pitchers are adjusted the same way as they are for adjWAR.
 
-      #### The 1.79 ####
+      #### The 1.79
 
       The Hall of Stats equally weighs a player’s career value (adjWAR) and peak value (adjWAA). These numbers, however, are on different scales. adjWAA is multiplied by 1.79 to adjust for this.
 
       To get 1.79 (actually 1.7866884224), I collected all Hall of Fame inductees (as of 2012) and divided their total adjWAR by their total adjWAA.
 
-      #### More About Baseball-Referene’s WAR ####
+      #### More About Baseball-Reference’s WAR
       
       If you are interested in what exactly goes into Baseball-Reference’s implementation of WAR, they have written about [the calculations in incredible detail](http://www.baseball-reference.com/about/war_explained.shtml).
 
-      #### Known Limitations ####
+      #### Known Limitations
 
       * It pains me, but the Hall of Stats does not include Negro League players. The data simply isn’t reliable yet—but it is getting better. As soon as I figure out a way to do it, Negro League stars will be recognized by the Hall of Stats.
       * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
@@ -121,7 +121,7 @@
 
       The 240-point adjustment is applied to all players who primarily caught, regardless of the player’s time spent behind the plate or at other positions.
 
-      #### How We Do It ####
+      #### How We Do It
 
       The Hall of Stats similarity scores are calculated with one thing in mind: **value**. We don’t care how many home runs a player hit or what his batting average was. We care how many runs above average his total offensive game was. Similarly, we don’t care what his primary position was. We care about the run value of the time he spent at each of his positions.
 
@@ -165,15 +165,15 @@
 
       *Note that each of these bios was written by Adam so he could gush about some of his favorite people.*
 
-      #### Adam Darowski ####
+      #### Adam Darowski
 
       Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. A web designer and developer by day for [PatientsLikeMe](http://patientslikeme.com), he researches, writes, designs, and codes about baseball in his spare time (and for such sites as [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog)). Adam lives in Massachusetts with his wife and three young children. He tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski). He also runs the Hall of Stats Twitter account at [@hallofstats](http://twitter.com/hallofstats).
 
-      #### Jeffrey Chupp ####
+      #### Jeffrey Chupp
 
       A former co-worker of Adam’s at PatientsLikeMe, Jeffrey is currently a Rails developer for [Terrible Labs](http://terriblelabs.com). Adam and Jeffrey previously collaborated on the [Red Sox Hall of wWAR](http://redsox.hallofstats.com/), a [Baseball Hack Day](http://baseballhackday.com/) project. Jeffrey is simply the @ruthba01 of Rails developers. There is nobody better. You can follow Jeffrey on Twitter at [@semanticart](http://twitter.com/semanticart).
 
-      #### Michael Berkowitz ####
+      #### Michael Berkowitz
 
       If Jeffrey is the Babe Ruth of Rails developers, then Michael is the @troutmi01. Also a former co-worker of Adam’s at PatientsLikeMe, Michael currently works at [Careport Health](https://www.careporthealth.com/). In addition to being a software engineer, he is a [singer/songwriter](http://www.reverbnation.com/michaelberkowitz) and linguist. You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
 
