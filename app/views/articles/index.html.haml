@@ -1,15 +1,54 @@
+- content_for :title, "Articles"
+
 = render 'shared/header'
 
 = render 'shared/search'
 
-- @articles.each do |article|
-  %article{class: 'long-form', id: "article-#{article.id}"}
-    %header.title
-      %h2= link_to article.title, article_path(article)
-      %span
-        = article.published_at.stamp("Jan 1, 2012")
-        by Adam Darowski
+%header.title
+  %h2 Articles
+  %span Original research and analysis by Adam Darowski
 
-    = raw article_truncation(article)
+%figure.banner
+  %img{:src => "/assets/photos/chadwick.jpg"}
+  %figcaption
+    That’s Henry Chadwick.
+    %a{:href => "http://haulsofshame.com/blog/wp-content/uploads/2010/11/hos-site-port-001.jpg"} Photo Credit
+
+%section#featured-articles
+  %h2 Featured Articles
+  %ul.article-list
+    %li
+      %a{href: '/articles/nobodys-in'}
+        Nobody’s In: This is Why I Made the Hall of Stats
+        %span
+          I wrote this the day the 2013 Hall of Fame election results were announced.
+    %li
+      %a{href: '/articles/hall-of-fame-case-for-jack-glasscock'}
+        The Hall of Fame Case for Jack Glasscock
+        %span
+          Now that Deacon White is in the Hall, Glasscock is our cause célèbre.
+    %li
+      %a{href: '/articles/sabr-43-presentation-astract'}
+        Hall of Stats SABR 43 Presentation Abstract
+        %span
+          The Hall of Stats was accepted as a SABR 43 post presentation.
+    %li
+      %a{href: '/articles/when-did-they-become-hall-worthy'}
+        When Did They Become Hall-Worthy?
+        %span
+          A look at when the best players cleared the 100 Hall Rating plateau.
+
+%section#list-of-articles
+  %h2
+    All Articles
+    = link_to "RSS", "/articles.rss", class: "rss"
+  %ul.article-list
+    - @articles.each do |article|
+      %li{id: "article-#{article.id}"}
+        = link_to article_path(article) do
+          = article.title
+          %span
+            •
+            = article.published_at.stamp("Jan 1, 2012")
 
 = paginate @articles

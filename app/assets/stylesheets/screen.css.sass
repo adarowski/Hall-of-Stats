@@ -501,6 +501,18 @@ header.generic
     border-top: 2px solid fade_out($default_color, .8)
     padding-bottom: 40px
 
+#featured-articles
+  @extend #section-padding
+  h2
+    font-size: 120%
+    margin: 0 0 5px
+  p
+    margin: 0 0 5px
+    font-size: 85%
+  li
+    span
+      display: block
+
 #position-lists
   @extend #section-padding
   ol
@@ -539,7 +551,7 @@ header.generic
     a
       font-weight: normal
 
-ul.article-list
+.article-list
   font-size: 85%
   list-style: none
   padding: 0
