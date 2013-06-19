@@ -259,12 +259,12 @@ header.generic
           font-size: 80%
           text-transform: uppercase
 
-#stats-summary, #related-players, #inductees
+#stats-summary, #related-players, #inductees, #featured-articles, .complete-list
   @media only screen and (min-width: 640px)
     float: left
     width: 60%
 
-#intro, .home #list-of-articles, #position-lists, #position-rankings, #all-time-team, #franchise-rankings
+#intro, .home #list-of-articles, #position-lists, #position-rankings, #all-time-team, #franchise-rankings, #most-mentioned
   @media only screen and (min-width: 640px)
     float: right
     width: 40%
@@ -501,6 +501,10 @@ header.generic
     border-top: 2px solid fade_out($default_color, .8)
     padding-bottom: 40px
 
+.complete-list
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
+
 #featured-articles
   @extend #section-padding
   h2
@@ -512,6 +516,8 @@ header.generic
   li
     span
       display: block
+  @media only screen and (min-width: 640px)
+    border-right: 2px solid fade_out($default_color, .8)
 
 #position-lists
   @extend #section-padding
@@ -527,13 +533,32 @@ header.generic
       font-size: 75%
       font-weight: bold
       color: #333
+  small
+    display: block
   figure
     float: left
     margin:
       top: 10px
       right: 10px
-  small
+
+#most-mentioned
+  @extend #section-padding
+  ol
+    list-style: none
+    padding: 0
+  li
+    min-height: 53px
+    margin-bottom: 10px
+  figure
+    float: left
+    margin-right: 10px
+    img
+      width: 38px
+      height: 53px
+  span
     display: block
+    font-size: 75%
+    color: #666
 
 #all-time-team
   @extend #section-padding
@@ -564,6 +589,15 @@ header.generic
     span
       font-weight: normal
       color: #666
+
+.featured-article-list
+  @extend .article-list
+  a
+    font-family: $title_font
+    font-size: 130%
+    span
+      font-family: $text_font
+      font-size: 75%
 
 #comments
   @extend #section-padding
@@ -900,10 +934,12 @@ article
         color: #666
     h4
       font-size: 110%
-      margin: 30px 0 10px
+      margin: 15px 0
       span
         color: #666
         font-weight: normal
+    p + h4
+      margin-top: 30px
     p
       margin: 15px 0
     ul
@@ -1006,6 +1042,7 @@ article
 
 .pagination
   @extend #section-padding
+  clear: both
   border-top: 2px solid fade_out($default_color, 0.6)
 
 #ie-note

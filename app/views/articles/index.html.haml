@@ -16,7 +16,7 @@
 
 %section#featured-articles
   %h2 Featured Articles
-  %ul.article-list
+  %ul.featured-article-list
     %li
       %a{href: '/articles/nobodys-in'}
         Nobody’s In: This is Why I Made the Hall of Stats
@@ -31,14 +31,47 @@
       %a{href: '/articles/sabr-43-presentation-astract'}
         Hall of Stats SABR 43 Presentation Abstract
         %span
-          The Hall of Stats was accepted as a SABR 43 post presentation.
+          The Hall of Stats was accepted as a SABR 43 poster presentation.
     %li
       %a{href: '/articles/when-did-they-become-hall-worthy'}
         When Did They Become Hall-Worthy?
         %span
           A look at when the best players cleared the 100 Hall Rating plateau.
 
-%section#list-of-articles
+%section#most-mentioned
+  %h3
+    Most Often Mentioned
+    %small in Articles
+
+  %ol
+    %li
+      %figure.portrait
+        %img{:alt => "Deacon White Photo", :height => "135", :src => "/assets/thumbs/whitede01.jpg", :width => "90"}/
+      %a{:href => "/player/whitede01"} Deacon White
+      %span 15 Articles
+    %li
+      %figure.portrait
+        %img{:alt => "Jack Glasscock Photo", :height => "135", :src => "/assets/thumbs/glassja01.jpg", :width => "90"}/
+      %a{:href => "/player/glassja01"} Jack Glasscock
+      %span 9 Articles
+    %li
+      %figure.portrait
+        %img{:alt => "Kenny Lofton Photo", :height => "135", :src => "/assets/thumbs/loftoke01.jpg", :width => "90"}/
+      %a{:href => "/player/loftoke01"} Kenny Lofton
+      %span 9 Articles
+    %li
+      %figure.portrait
+        %img{:alt => "Bob Caruthers Photo", :height => "135", :src => "/assets/thumbs/carutbo01.jpg", :width => "90"}/
+      %a{:href => "/player/carutbo01"} Bob Caruthers
+      %span 8 Articles
+    %li
+      %figure.portrait
+        %img{:alt => "Alan Trammell Photo", :height => "135", :src => "/assets/thumbs/trammal01.jpg", :width => "90"}/
+      %a{:href => "/player/trammal01"} Alan Trammell
+      %span 7 Articles
+  %small Note: This list is not yet dynamic. These are simply five players I know I’ve written a lot about. It’ll be hooked up to the database soon!
+
+%section#list-of-articles.complete-list
   %h2
     All Articles
     = link_to "RSS", "/articles.rss", class: "rss"
