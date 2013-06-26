@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130305233011) do
     t.string   "position"
     t.boolean  "hos"
     t.boolean  "hof"
+    t.boolean  "personal_hof"
     t.string   "eligibility"
     t.integer  "peak_pct"
     t.integer  "longevity_pct"
