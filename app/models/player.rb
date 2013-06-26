@@ -23,6 +23,7 @@ class Player < ActiveRecord::Base
 
   scope :in_hos, where(hos: true)
   scope :in_hof, where(hof: true)
+  scope :in_personal_hof, where(personal_hof: true)
   scope :not_in_hos, where('hos is not true')
   scope :not_in_hof, where('hof is not true')
   scope :hall_worthy, where("hall_rating > 100")
@@ -33,7 +34,7 @@ class Player < ActiveRecord::Base
   }
 
   scope :front_page, where(%(
-    hof is true or hos is true or (hos is false and hall_rating > 100)
+    hof is true or hos is true or personal_hof is true or (hos is false and hall_rating > 100)
     -- near miss
     or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 100.0)
     -- active and close

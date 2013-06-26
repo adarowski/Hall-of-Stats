@@ -66,13 +66,17 @@
           Greatest #{@franchise.name}
 
       %li
-        %a#show-all{href: '#hos'}
+        %a#show-hos{href: '#hos'}
           %span #{@players.in_hos.count}
           Hall of Stats Inductees
       %li
-        %a#show-all{href: '#hof'}
+        %a#show-hof{href: '#hof'}
           %span #{@players.in_hof.count}
           Hall of Fame Inductees
+      %li
+        %a#show-personal-hof{href: '#personal-hof'}
+          %span #{@players.in_personal_hof.count}
+          Personal Hall of Fame Inductees
       - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
         %li
           %a{id: "show-#{position}", href: "##{position}"}

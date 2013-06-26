@@ -37,13 +37,17 @@
           %span #{@players.count}
           Greatest #{@position_name.pluralize}
       %li
-        %a#show-all{href: '#all'}
+        %a#show-hos{href: '#all'}
           %span #{Player.in_hos.of_position(@position).count}
           Hall of Stats Inductees
       %li
-        %a#show-all{href: '#hof'}
+        %a#show-hof{href: '#hof'}
           %span #{Player.in_hof.of_position(@position).count}
           Hall of Fame Inductees
+      %li
+        %a#show-personal-hof{href: '#personal-hof'}
+          %span #{@players.in_personal_hof.count}
+          Personal Hall of Fame Inductees
       - non_position_filters.each do |key, text|
         %li
           - dash_key = key.to_s.gsub(/_/, '-')
