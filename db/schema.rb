@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305233011) do
+ActiveRecord::Schema.define(:version => 20130626191502) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(:version => 20130305233011) do
     t.string   "position"
     t.boolean  "hos"
     t.boolean  "hof"
-    t.boolean  "personal_hof"
     t.string   "eligibility"
     t.integer  "peak_pct"
     t.integer  "longevity_pct"
@@ -107,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20130305233011) do
     t.decimal  "waa_tot"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+    t.string   "photo_path"
     t.text     "bio"
     t.integer  "first_year"
     t.integer  "last_year"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20130305233011) do
     t.integer  "ranking_hof"
     t.integer  "ranking_hos"
     t.text     "franchise_rankings"
+    t.boolean  "personal_hof"
   end
 
   add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
