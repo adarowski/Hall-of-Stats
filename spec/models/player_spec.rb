@@ -30,4 +30,17 @@ describe Player do
       its(:compatibility_id) { should == 'smurfs' }
     end
   end
+
+  describe '.most_mentioned' do
+    let!(:player_1) { create(:player) }
+    let!(:player_2) { create(:player) }
+    let!(:unmentioned_player) { create(:player) }
+
+    let!(:article) { create(:article, body: "I like @#{player_1.id} and @#{player_2.id}") }
+    let!(:article2) { create(:article, body: "I like @#{player_2.id}") }
+
+    it 'should list players by how many articles they are mentioned in' do
+      Player.most_mentioned.map(&:id).should == [player_2, player_1].map(&:id)
+    end
+  end
 end

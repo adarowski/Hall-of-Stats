@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :article do
     title 'Some title'
     body  'Some body'
+    sequence(:slug) {|n| "abcdefg#{n}" }
 
     factory :unpublished_article do
       published false

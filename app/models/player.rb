@@ -97,6 +97,11 @@ class Player < ActiveRecord::Base
   has_and_belongs_to_many :similarity_scores, foreign_key: :player1_id
   has_and_belongs_to_many :similarity_scores, foreign_key: :player2_id
 
+  def self.most_mentioned(limit=10)
+    ids = Article.find_by_sql("select player_id from articles_players group by player_id order by count(*) desc").map(&:player_id)
+    ids.map{|id| Player.find(id)}
+  end
+
   private
 
   def set_compatibility_id
