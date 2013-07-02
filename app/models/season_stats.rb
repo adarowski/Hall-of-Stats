@@ -3,6 +3,7 @@ class SeasonStats < ActiveRecord::Base
     :team, :franchise_id, :stint, :lg, :hall_rating,
     as: :admin
 
+  validates :player_id, uniqueness: { scope: [:year, :franchise_id] }
   belongs_to :player
   belongs_to :franchise
   
