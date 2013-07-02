@@ -52,7 +52,7 @@
     - Player.most_mentioned.each do |player|
       %li
         %figure.portrait
-          %img{:alt => "#{player.name} Photo", :height => "135", :src => player.img_url, :width => "90"}/
+          %img{:alt => "#{player.name} Photo", :height => "135", :src => "/assets/thumbs/#{player.id}.jpg", :width => "90"}/
         = link_to player.name, player
         %span= pluralize(player.articles.count, "Article")
 
