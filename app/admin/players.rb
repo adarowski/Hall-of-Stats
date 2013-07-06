@@ -58,6 +58,7 @@ ActiveAdmin.register Player do
       f.input :eligibility
       f.input :hof
       f.input :hos
+      f.input :hom
       f.input :alt_hof
       f.input :personal_hof
       f.input :hall_rating

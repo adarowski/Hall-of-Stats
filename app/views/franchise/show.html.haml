@@ -74,6 +74,10 @@
           %span #{@players.in_hof.count}
           Hall of Fame Inductees
       %li
+        %a#show-hom{href: '#hom'}
+          %span #{@players.in_hom.count}
+          Hall of Merit Inductees
+      %li
         %a#show-personal-hof{href: '#personal-hof'}
           %span #{@players.in_personal_hof.count}
           Personal Hall of Fame Inductees

@@ -26,11 +26,17 @@
       - else
         = @player.hall_rating.round
     - if @player.hos == true
-      %dt.hall-of-stats Hall of Stats
+      %dt.hall-of-stats
+        = link_to "Hall of Stats", "/#hos"
       %dd.hall-of-stats Inductee
     - if @player.hof == true
-      %dt.hall-of-fame Hall of Fame
+      %dt.hall-of-fame
+        = link_to "Hall of Fame", "/#hof"
       %dd.hall-of-fame Inductee
+    - if @player.hom == true
+      %dt.hall-of-merit
+        = link_to "Hall of Merit", "/#hom"
+      %dd.hall-of-merit Inductee
     - if @player.eligibility == "active" && @player.hall_rating > 100
       %dt.active Active
       %dd.active

@@ -6,6 +6,7 @@ module PlayerFilter
       position,
       hof,
       hos,
+      hom,
       personal_hof,
       upcoming,
       active_and_worthy,
@@ -26,6 +27,10 @@ module PlayerFilter
 
   def self.hos
     @player.hos ? 'hos' : 'not-hos'
+  end
+
+  def self.hom
+    @player.hom ? 'hom' : 'not-hom'
   end
 
   def self.personal_hof
