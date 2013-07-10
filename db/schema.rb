@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710001808) do
+ActiveRecord::Schema.define(:version => 20130710002138) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20130710001808) do
     t.boolean  "hos"
     t.boolean  "hof"
     t.string   "eligibility"
-    t.integer  "peak_pct"
-    t.integer  "longevity_pct"
+    t.float    "peak_pct"
+    t.float    "longevity_pct"
     t.decimal  "runs_bat"
     t.decimal  "runs_br"
     t.decimal  "runs_dp"

@@ -62,10 +62,10 @@
     %dl
       %dt.peak<> Peak
       %dd.peak
-        #{@player.peak_pct}%
+        #{@player.peak_pct.round}%
       %dt.longevity<> Longevity
       %dd.longevity
-        #{@player.longevity_pct}%
+        #{@player.longevity_pct.round}%
 
 - if @player.bio? || @player.articles.published.any?
   %section#bio
