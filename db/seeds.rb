@@ -13,6 +13,7 @@ Player.transaction do
     player['hof'] = (player['hof'].try(:strip) == 'hof')
     player['hom'] = (player['hom'].try(:strip) == 'hom')
     player['personal_hof'] = (player['personal_hof'].try(:strip) == 'personal_hof')
+    player['ross_hof'] = (player['ross_hof'].try(:strip) == 'ross_hof')
 
     player['position'] = 'p' if player['position'] == 'rp'
 

@@ -61,6 +61,7 @@ ActiveAdmin.register Player do
       f.input :hom
       f.input :alt_hof
       f.input :personal_hof
+      f.input :ross_hof
       f.input :hall_rating
 
       f.input :waa0_tot
