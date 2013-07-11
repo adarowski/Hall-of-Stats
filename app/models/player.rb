@@ -96,6 +96,14 @@ class Player < ActiveRecord::Base
     hall_rating.round
   end
 
+  def peak_pct_rounded
+    peak_pct.round
+  end
+
+  def longevity_pct_rounded
+    longevity_pct.round
+  end
+
   has_and_belongs_to_many :similarity_scores, foreign_key: :player1_id
   has_and_belongs_to_many :similarity_scores, foreign_key: :player2_id
 
