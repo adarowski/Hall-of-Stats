@@ -8,7 +8,7 @@ class Player < ActiveRecord::Base
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
     :last_year, :runs_pitch, :img_url, :alt_hof, :personal_hof, :ross_hof,
-    :cover_model, :compatibility_id, :franchise_rankings,
+    :bryan_hof, :cover_model, :compatibility_id, :franchise_rankings,
     as: :admin
 
   serialize :franchise_rankings, Hash
@@ -26,6 +26,7 @@ class Player < ActiveRecord::Base
   scope :in_hom, where(hom: true)
   scope :in_personal_hof, where(personal_hof: true)
   scope :in_ross_hof, where(ross_hof: true)
+  scope :in_bryan_hof, where(bryan_hof: true)
   scope :not_in_hos, where('hos is not true')
   scope :not_in_hof, where('hof is not true')
   scope :hall_worthy, where("hall_rating > 100")
