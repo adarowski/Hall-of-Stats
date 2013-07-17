@@ -9,11 +9,12 @@ Player.transaction do
     player['id'] = player.delete('player_id')
 
     # normalize some data
-    player['hos'] = (player['hos'].try(:strip) == 'hos')
-    player['hof'] = (player['hof'].try(:strip) == 'hof')
-    player['hom'] = (player['hom'].try(:strip) == 'hom')
-    player['personal_hof'] = (player['personal_hof'].try(:strip) == 'personal_hof')
-    player['ross_hof'] = (player['ross_hof'].try(:strip) == 'ross_hof')
+    player['hos'] = (player['hos'].try(:strip) == '1')
+    player['hof'] = (player['hof'].try(:strip) == '1')
+    player['hom'] = (player['hom'].try(:strip) == '1')
+    player['personal_hof'] = (player['personal_hof'].try(:strip) == '1')
+    player['ross_hof'] = (player['ross_hof'].try(:strip) == '1')
+    player['bryan_hof'] = (player['bryan_hof'].try(:strip) == '1')
 
     player['position'] = 'p' if player['position'] == 'rp'
 

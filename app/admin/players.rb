@@ -63,6 +63,7 @@ ActiveAdmin.register Player do
       f.input :personal_hof
       f.input :ross_hof
       f.input :bryan_hof
+      f.input :consensus
       f.input :hall_rating
 
       f.input :waa0_tot

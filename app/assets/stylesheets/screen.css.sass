@@ -626,6 +626,7 @@ table
   small
     font-size: 75%
     color: #666
+    font-weight: normal
   .current
     th, td
       background-color: fade_out($good_color, 0.9)
@@ -1114,3 +1115,25 @@ article
 
   .legend text
     font-size: 12px
+
+#consensus-body
+  th
+    width: 10%
+    &:first-child
+      text-align: left
+      width: auto
+  td
+    &:last-child
+      color: $bad_color
+    strong
+      color: $good_color
+    span
+      text-indent: -9999em
+      display: inline-block
+      width: 10px
+      height: 10px
+      +border_radius(50%)
+      background-color: fade_out($bad_color, .8)
+      vertical-align: middle
+  .true
+    background-color: $good_color

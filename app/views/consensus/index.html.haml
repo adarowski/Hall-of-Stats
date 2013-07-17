@@ -1,0 +1,135 @@
+- content_for :title, "The Hall of Consensus"
+
+= render 'shared/header'
+
+= render 'shared/search'
+
+%header.title
+  %h2 The Hall of Consensus
+
+%figure.banner
+  %img{:src => "/assets/photos/jacksjo01.jpg"}
+  %figcaption
+    That’s Shoeless Joe Jackson.
+    %a{:href => "http://www.loc.gov/pictures/item/ggb2004010498/"} Photo Credit
+
+%article#consensus-body.long-form
+  %p The Hall of Consensus is a living document that shows which players are supported by many sources for the Hall of Fame. These sources include the National Baseball Hall of Fame, the Hall of Stats, Baseball Think Factory’s Hall of Merit, and various Personal Halls of Fame.
+
+  %p I’ve included the Personal Halls of
+  
+  %ul
+    %li <a href="/articles/personal-hall-6-here-it-is">Adam Darowski</a> (my own, published at this site)
+    %li <a href="http://www.replacementlevelpodcast.com/2013/07/06/rethinking-the-hall-of-fame-part-one-position-players-2/">Ross Carey</a> (of the Replacement Level Podcast)
+    %li <a href="http://replacementlevel.wordpress.com/2013/03/20/my-personal-hall-of-fame/">Bryan O’Connor</a> (of the Replacement Level Blog)
+  
+  %p I will add more Personal Halls as fellow bloggers share them with me (no, not all of my friends consider themselves replacement level).
+
+  %table
+    %thead
+      %tr
+        %th
+          Name
+          %small (Hall Rating)
+        %th
+          Hall of Fame
+        %th
+          Hall of Stats
+        %th
+          Hall of Merit
+        %th
+          Adam’s Hall
+        %th
+          Ross’ Hall
+        %th
+          Bryan’s Hall
+        %th
+          Total
+    %tfoot
+      %tr
+        %th
+          Totals
+        %td
+          = Player.in_hof.count
+        %td
+          = Player.in_hos.count
+        %td
+          = Player.in_hom.count
+        %td
+          = Player.in_personal_hof.count
+        %td
+          = Player.in_ross_hof.count
+        %td
+          = Player.in_bryan_hof.count
+        %th
+    %tbody
+      - @hall_of_consensus.each do |hoc_player|
+        %tr
+          %th
+            = hoc_player.name
+            %small (#{hoc_player.hall_rating_rounded})
+          %td
+            %span{class: hoc_player.hof}= hoc_player.hof
+          %td
+            %span{class: hoc_player.hos}= hoc_player.hos
+          %td
+            %span{class: hoc_player.hom}= hoc_player.hom
+          %td
+            %span{class: hoc_player.personal_hof}= hoc_player.personal_hof
+          %td
+            %span{class: hoc_player.ross_hof}= hoc_player.ross_hof
+          %td
+            %span{class: hoc_player.bryan_hof}= hoc_player.bryan_hof
+          %td
+            - if hoc_player.consensus == 6
+              %strong= hoc_player.consensus
+            - else
+              = hoc_player.consensus
+
+  %h3 In Everything but the Hall of Fame:
+  - if @all_but_hall.count > 0
+    %ol
+      - @all_but_hall.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %p None
+
+  %h3 Only in the Hall of Fame:
+  - if @only_hof.count > 0
+    %ol
+      - @only_hof.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %p None
+
+  %h3 Only in the Hall of Stats:
+  - if @only_hos.count > 0
+    %ol
+      - @only_hos.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %p None
+
+  %h3 Only in Adam’s Hall:
+  - if @only_adam.count > 0
+    %ol
+      - @only_adam.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %p None
+
+  %h3 Only in Ross’ Hall:
+  - if @only_ross.count > 0
+    %ol
+      - @only_ross.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %li None
+
+  %h3 Only in Bryan’s Hall:
+  - if @only_bryan.count > 0  
+    %ol
+      - @only_bryan.each do |hoc_player|
+        %li= hoc_player.name
+  - else
+    %p None

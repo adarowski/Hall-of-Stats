@@ -8,7 +8,7 @@ class Player < ActiveRecord::Base
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
     :last_year, :runs_pitch, :img_url, :alt_hof, :personal_hof, :ross_hof,
-    :bryan_hof, :cover_model, :compatibility_id, :franchise_rankings,
+    :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings,
     as: :admin
 
   serialize :franchise_rankings, Hash
@@ -44,6 +44,10 @@ class Player < ActiveRecord::Base
     or (hos is false and eligibility = 'active' and hall_rating >= 75 AND hall_rating <= 100.0)
   ))
 
+  scope :hall_of_consensus, where(%(
+    hof is true or hos is true or hom is true or personal_hof is true or ross_hof is true or bryan_hof is true
+  ))
+
   scope :cover_models, where('cover_model is true')
 
   scope :hall_rating_above, lambda {|rating|
@@ -56,6 +60,13 @@ class Player < ActiveRecord::Base
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
+
+  scope :all_but_hall, not_in_hof.where("consensus = 5")
+  scope :only_hof, in_hof.where("consensus = 1")
+  scope :only_hos, in_hos.where("consensus = 1")
+  scope :only_adam, in_personal_hof.where("consensus = 1")
+  scope :only_ross, in_ross_hof.where("consensus = 1")
+  scope :only_bryan, in_bryan_hof.where("consensus = 1")
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
