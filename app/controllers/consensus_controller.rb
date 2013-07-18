@@ -8,6 +8,7 @@ class ConsensusController < ApplicationController
     @only_adam = Player.only_adam.by_rank
     @only_ross = Player.only_ross.by_rank
     @only_bryan = Player.only_bryan.by_rank
+    @not_adam_with_most_consensus = Player.not_adam_with_most_consensus.by_consensus
   end
 
 end

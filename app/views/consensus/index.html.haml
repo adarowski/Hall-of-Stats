@@ -66,7 +66,7 @@
       - @hall_of_consensus.each do |hoc_player|
         %tr
           %th
-            = hoc_player.name
+            %a{href: player_path(hoc_player)}= hoc_player.name
             %small (#{hoc_player.hall_rating_rounded})
           %td
             %span{class: hoc_player.hof}= hoc_player.hof
@@ -90,7 +90,8 @@
   - if @all_but_hall.count > 0
     %ol
       - @all_but_hall.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
 
@@ -98,7 +99,8 @@
   - if @only_hof.count > 0
     %ol
       - @only_hof.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
 
@@ -106,7 +108,8 @@
   - if @only_hos.count > 0
     %ol
       - @only_hos.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
 
@@ -114,7 +117,8 @@
   - if @only_adam.count > 0
     %ol
       - @only_adam.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
 
@@ -122,7 +126,8 @@
   - if @only_ross.count > 0
     %ol
       - @only_ross.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %li None
 
@@ -130,6 +135,17 @@
   - if @only_bryan.count > 0  
     %ol
       - @only_bryan.each do |hoc_player|
-        %li= hoc_player.name
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+  - else
+    %p None
+
+  %h3 Not in Adam’s Hall, but in Many Halls:
+  - if @not_adam_with_most_consensus.count > 0  
+    %ol
+      - @not_adam_with_most_consensus.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+          (#{hoc_player.consensus})
   - else
     %p None
