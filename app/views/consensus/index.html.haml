@@ -113,7 +113,8 @@
   - else
     %p None
 
-  %h3 Only in Adam’s Hall:
+  %h3 Adam Darowski
+  %h4 Only in Adam’s Hall:
   - if @only_adam.count > 0
     %ol
       - @only_adam.each do |hoc_player|
@@ -121,27 +122,54 @@
           %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
+  %h4 In Everything Except Adam’s Hall:
+  - if @all_but_adam.count > 0
+    %ol
+      - @all_but_adam.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+  - else
+    %p None
 
-  %h3 Only in Ross’ Hall:
+  %h3 Ross Carey
+  %h4 Only in Ross’ Hall:
   - if @only_ross.count > 0
     %ol
       - @only_ross.each do |hoc_player|
         %li
           %a{href: player_path(hoc_player)}= hoc_player.name
   - else
-    %li None
+    %p None
+  %h4 In Everything Except Ross’ Hall:
+  - if @all_but_ross.count > 0
+    %ol
+      - @all_but_ross.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+  - else
+    %p None
 
-  %h3 Only in Bryan’s Hall:
-  - if @only_bryan.count > 0  
+  %h3 Bryan O’Connor
+  %h4 Only in Bryan’s Hall:
+  - if @only_bryan.count > 0
     %ol
       - @only_bryan.each do |hoc_player|
         %li
           %a{href: player_path(hoc_player)}= hoc_player.name
   - else
     %p None
+  %h4 In Everything Except Bryan’s Hall:
+  - if @all_but_bryan.count > 0
+    %ol
+      - @all_but_bryan.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+  - else
+    %p None
 
-  %h3 Not in Adam’s Hall, but in Many Halls:
-  - if @not_adam_with_most_consensus.count > 0  
+  %h3 More Miscellaneous Lists
+  %h4 Not in Adam’s Hall, but in Many Halls:
+  - if @not_adam_with_most_consensus.count > 0
     %ol
       - @not_adam_with_most_consensus.each do |hoc_player|
         %li
@@ -149,3 +177,13 @@
           (#{hoc_player.consensus})
   - else
     %p None
+
+  %h4 In Bryan’s (more exclusive) Hall, but not Adam’s:
+  - if @bryan_not_adam.count > 0
+    %ol
+      - @bryan_not_adam.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+  - else
+    %p None
+

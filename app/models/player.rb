@@ -31,6 +31,8 @@ class Player < ActiveRecord::Base
   scope :not_in_hos, where('hos is not true')
   scope :not_in_hof, where('hof is not true')
   scope :not_in_personal_hof, where('personal_hof is not true')
+  scope :not_in_ross_hof, where('ross_hof is not true')
+  scope :not_in_bryan_hof, where('bryan_hof is not true')
   scope :hall_worthy, where("hall_rating > 100")
 
   scope :name_like, lambda {|name|
@@ -70,6 +72,10 @@ class Player < ActiveRecord::Base
   scope :only_ross, in_ross_hof.where("consensus = 1")
   scope :only_bryan, in_bryan_hof.where("consensus = 1")
   scope :not_adam_with_most_consensus, not_in_personal_hof.where("consensus > 2")
+  scope :bryan_not_adam, not_in_personal_hof.in_bryan_hof
+  scope :all_but_adam, not_in_personal_hof.where("consensus = 5")
+  scope :all_but_ross, not_in_ross_hof.where("consensus = 5")
+  scope :all_but_bryan, not_in_bryan_hof.where("consensus = 5")
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
