@@ -16,14 +16,15 @@
 %article#consensus-body.long-form
   %p The Hall of Consensus is a living document that shows which players are supported by many sources for the Hall of Fame. These sources include the National Baseball Hall of Fame, the Hall of Stats, Baseball Think Factory’s Hall of Merit, and various Personal Halls of Fame.
 
-  %p I’ve included the Personal Halls of
+  %p I’ve included the Personal Halls of:
   
   %ul
     %li <a href="/articles/personal-hall-6-here-it-is">Adam Darowski</a> (my own, published at this site)
     %li <a href="http://www.replacementlevelpodcast.com/2013/07/06/rethinking-the-hall-of-fame-part-one-position-players-2/">Ross Carey</a> (of the Replacement Level Podcast)
     %li <a href="http://replacementlevel.wordpress.com/2013/03/20/my-personal-hall-of-fame/">Bryan O’Connor</a> (of the Replacement Level Blog)
-  
-  %p I will add more Personal Halls as fellow bloggers share them with me (no, not all of my friends consider themselves replacement level).
+    %li <a href="http://left-field.blogspot.com/2013/07/personal-hall-of-fame-part-1-19th.html">Dan McCloskey</a> (of Left Field) — <em>Not yet tabulated</em>
+
+  %p Note that these or only inductees of their respective Halls with the <em>player</em> designation (where applicable).
 
   %table
     %thead
@@ -32,17 +33,19 @@
           Name
           %small (Hall Rating)
         %th
-          Hall of Fame
+          %abbr{title: "Hall of Fame"} Fame
         %th
-          Hall of Stats
+          %abbr{title: "Hall of Fame"} Stats
         %th
-          Hall of Merit
+          %abbr{title: "Hall of Fame"} Merit
         %th
-          Adam’s Hall
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} Adam
         %th
-          Ross’ Hall
+          %abbr{title: "Ross Carey’s Personal Hall of Fame"} Ross
         %th
-          Bryan’s Hall
+          %abbr{title: "Bryan O’Connor’s Personal Hall of Fame"} Bryan
+        %th
+          %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} Dan
         %th
           Total
     %tfoot
@@ -61,6 +64,8 @@
           = Player.in_ross_hof.count
         %td
           = Player.in_bryan_hof.count
+        %td
+          <em>#</em>
         %th
     %tbody
       - @hall_of_consensus.each do |hoc_player|
@@ -80,6 +85,8 @@
             %span{class: hoc_player.ross_hof}= hoc_player.ross_hof
           %td
             %span{class: hoc_player.bryan_hof}= hoc_player.bryan_hof
+          %td
+            %span Dan
           %td
             - if hoc_player.consensus == 6
               %strong= hoc_player.consensus
