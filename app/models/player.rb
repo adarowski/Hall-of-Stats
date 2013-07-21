@@ -68,11 +68,10 @@ class Player < ActiveRecord::Base
   scope :all_but_hall, not_in_hof.where("consensus = 5")
   scope :only_hof, in_hof.where("consensus = 1")
   scope :only_hos, in_hos.where("consensus = 1")
+  scope :only_hom, in_hom.where("consensus = 1")
   scope :only_adam, in_personal_hof.where("consensus = 1")
   scope :only_ross, in_ross_hof.where("consensus = 1")
   scope :only_bryan, in_bryan_hof.where("consensus = 1")
-  scope :not_adam_with_most_consensus, not_in_personal_hof.where("consensus > 2")
-  scope :bryan_not_adam, not_in_personal_hof.in_bryan_hof
   scope :all_but_adam, not_in_personal_hof.where("consensus = 5")
   scope :all_but_ross, not_in_ross_hof.where("consensus = 5")
   scope :all_but_bryan, not_in_bryan_hof.where("consensus = 5")
