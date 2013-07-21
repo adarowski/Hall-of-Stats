@@ -48,7 +48,9 @@ class Player < ActiveRecord::Base
     or (hos is false and eligibility = 'active' and hall_rating >= 75 AND hall_rating <= 100.0)
   ))
 
-  scope :hall_of_consensus, where(%(
+  scope :hall_of_consensus, in_hof.where("consensus = 6")
+
+  scope :hall_of_consensus_list, where(%(
     hof is true or hos is true or hom is true or personal_hof is true or ross_hof is true or bryan_hof is true
   ))
 

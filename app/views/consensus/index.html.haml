@@ -26,6 +26,11 @@
 
   %p Note that these or only inductees of their respective Halls with the <em>player</em> designation (where applicable).
 
+  %p
+    There are
+    %strong= Player.hall_of_consensus.count
+    players who are in the Hall of Fame, Hall of Stats, Hall of Merit, and each personal Hall.
+
   %table
     %thead
       %tr
@@ -68,7 +73,7 @@
           <em>#</em>
         %th
     %tbody
-      - @hall_of_consensus.each do |hoc_player|
+      - @hall_of_consensus_list.each do |hoc_player|
         %tr
           %th
             %a{href: player_path(hoc_player)}= hoc_player.name
