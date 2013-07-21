@@ -3,7 +3,8 @@ class ConsensusController < ApplicationController
   def index
     @hall_of_consensus = Player.hall_of_consensus.by_rank
     @hall_of_consensus_list = Player.hall_of_consensus_list.by_rank
-    @all_but_hall = Player.all_but_hall.by_rank
+    @all_but_hof = Player.all_but_hof.by_rank
+    @all_but_hos = Player.all_but_hos.by_rank
     @only_hof = Player.only_hof.by_rank
     @only_hos = Player.only_hos.by_rank
     @only_hom = Player.only_hom.by_rank

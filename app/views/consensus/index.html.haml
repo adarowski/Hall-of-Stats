@@ -115,9 +115,9 @@
         %p None
     .column
       %h4 Everything <em>Except</em> the Hall of Fame:
-      - if @all_but_hall.count > 0
+      - if @all_but_hof.count > 0
         %ol
-          - @all_but_hall.each do |hoc_player|
+          - @all_but_hof.each do |hoc_player|
             %li
               %a{href: player_path(hoc_player)}= hoc_player.name
               %small (#{hoc_player.hall_rating_rounded})
@@ -125,10 +125,10 @@
         %p None
 
   .two-columns
-    %h3 Only in the Alternate Halls
+    %h3 It’s About More than Just Stats
     %p
       The players who are only in the Hall of Stats had impressive statistical records, but seem to be missing the narrative that would give them Hall of Fame support.
-      The players who are only in the Hall of Merit only come from the 19th century. I would consider most of these players as pioneers, but not strictly as players. As the Hall of Merit does not make such a distinction, I’m not quite sure how to classify them.
+      The players in every Hall <em>except</em> the Hall of Stats didn’t quite reach the 100 Hall Rating, but have enough of a case to make up for it.
     .column
       %h4 Only in the Hall of Stats:
       - if @only_hos.count > 0
@@ -140,10 +140,10 @@
       - else
         %p None
     .column
-      %h4 Only in the Hall of Merit
-      - if @only_hom.count > 0
+      %h4 Everything <em>Except</em> the Hall of Stats:
+      - if @all_but_hos.count > 0
         %ol
-          - @only_hom.each do |hoc_player|
+          - @all_but_hos.each do |hoc_player|
             %li
               %a{href: player_path(hoc_player)}= hoc_player.name
               %small (#{hoc_player.hall_rating_rounded})

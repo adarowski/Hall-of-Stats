@@ -67,7 +67,8 @@ class Player < ActiveRecord::Base
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
 
-  scope :all_but_hall, not_in_hof.where("consensus = 5")
+  scope :all_but_hof, not_in_hof.where("consensus = 5")
+  scope :all_but_hos, not_in_hos.where("consensus = 5")
   scope :only_hof, in_hof.where("consensus = 1")
   scope :only_hos, in_hos.where("consensus = 1")
   scope :only_hom, in_hom.where("consensus = 1")
