@@ -22,14 +22,16 @@
     %li <a href="/articles/personal-hall-6-here-it-is">Adam Darowski</a> (my own, published at this site)
     %li <a href="http://www.replacementlevelpodcast.com/2013/07/06/rethinking-the-hall-of-fame-part-one-position-players-2/">Ross Carey</a> (of the Replacement Level Podcast)
     %li <a href="http://replacementlevel.wordpress.com/2013/03/20/my-personal-hall-of-fame/">Bryan O’Connor</a> (of the Replacement Level Blog)
-    %li <a href="http://left-field.blogspot.com/2013/07/personal-hall-of-fame-part-1-19th.html">Dan McCloskey</a> (of Left Field) — <em>Not yet tabulated</em>
+    %li <a href="http://left-field.blogspot.com/2013/07/personal-hall-of-fame-part-1-19th.html">Dan McCloskey</a> (of Left Field) — <em>Incomplete</em>
+    %li <a href="http://thethinkingfan.com/">Dalton Mack</a> (of The Thinking Fan) — <em>Not yet tabulated</em>
 
-  %p Note that these or only inductees of their respective Halls with the <em>player</em> designation (where applicable).
+  %p Note that these are inductees of their respective Halls with the <em>player</em> designation (where applicable).
 
   %p
     There are
     %strong= Player.hall_of_consensus.count
     players who are in the Hall of Fame, Hall of Stats, Hall of Merit, and each personal Hall.
+    %em (#{Player.hof_hos_hom.count} are in the Hall of Fame, Hall of Stats, and Hall of Merit.)
 
   %table
     %thead
@@ -52,6 +54,8 @@
         %th
           %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} Dan
         %th
+          %abbr{title: "Dalton Mack’s Personal Hall of Fame"} Dalton
+        %th
           Total
     %tfoot
       %tr
@@ -70,7 +74,9 @@
         %td
           = Player.in_bryan_hof.count
         %td
-          <em>#</em>
+          = Player.in_dan_hof.count
+        %td
+          = Player.in_dalton_hof.count
         %th
     %tbody
       - @hall_of_consensus_list.each do |hoc_player|
@@ -91,7 +97,9 @@
           %td
             %span{class: hoc_player.bryan_hof}= hoc_player.bryan_hof
           %td
-            %span Dan
+            %span{class: hoc_player.dan_hof}= hoc_player.dan_hof
+          %td
+            %span Dalton
           %td
             - if hoc_player.consensus == 6
               %strong= hoc_player.consensus
@@ -222,6 +230,58 @@
       - if @all_but_bryan.count > 0
         %ol
           - @all_but_bryan.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+
+  .two-columns
+    %h3 Dan McCloskey
+    %p These lists show where Dan McCloskey (of Left Field) stands alone in his inclusion or exclusion of a player (among not just the Hall of Fame and Hall of Stats, but also the other Personal Halls).
+    - if @only_dan.count == 0 && @all_but_dan.count == 0
+      %p <strong>Spoiler alert:</strong> he doesn’t.
+    .column
+      %h4 Only in Dan’s Hall:
+      - if @only_dan.count > 0
+        %ol
+          - @only_dan.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Everything <em>Except</em> Dan’s Hall:
+      - if @all_but_dan.count > 0
+        %ol
+          - @all_but_dan.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+
+  .two-columns
+    %h3 Dalton Mack
+    %p These lists show where Dalton Mack (of The Thinking Fan) stands alone in his inclusion or exclusion of a player (among not just the Hall of Fame and Hall of Stats, but also the other Personal Halls).
+    - if @only_dalton.count == 0 && @all_but_dalton.count == 0
+      %p <strong>Spoiler alert:</strong> he doesn’t.
+    .column
+      %h4 Only in Dalton’s Hall:
+      - if @only_dalton.count > 0
+        %ol
+          - @only_dalton.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Everything <em>Except</em> Dalton’s Hall:
+      - if @all_but_dalton.count > 0
+        %ol
+          - @all_but_dalton.each do |hoc_player|
             %li
               %a{href: player_path(hoc_player)}= hoc_player.name
               %small (#{hoc_player.hall_rating_rounded})

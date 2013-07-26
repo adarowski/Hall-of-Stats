@@ -8,6 +8,10 @@ module PlayerFilter
       hos,
       hom,
       personal_hof,
+      ross_hof,
+      bryan_hof,
+      dan_hof,
+      dalton_hof,
       upcoming,
       active_and_worthy,
       active_and_close,
@@ -35,6 +39,22 @@ module PlayerFilter
 
   def self.personal_hof
     @player.personal_hof ? 'personal-hof' : 'not-personal-hof'
+  end
+
+  def self.ross_hof
+    @player.ross_hof ? 'ross-hof' : 'not-ross-hof'
+  end
+
+  def self.bryan_hof
+    @player.bryan_hof ? 'bryan-hof' : 'not-bryan-hof'
+  end
+
+  def self.dan_hof
+    @player.dan_hof ? 'dan-hof' : 'not-dan-hof'
+  end
+
+  def self.dalton_hof
+    @player.dalton_hof ? 'dan-hof' : 'not-dan-hof'
   end
 
   def self.upcoming

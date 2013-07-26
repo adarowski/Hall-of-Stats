@@ -63,6 +63,8 @@ ActiveAdmin.register Player do
       f.input :personal_hof
       f.input :ross_hof
       f.input :bryan_hof
+      f.input :dan_hof
+      f.input :dalton_hof
       f.input :consensus
       f.input :hall_rating
 

@@ -6,8 +6,8 @@ class Player < ActiveRecord::Base
     :last_name, :peak_pct, :position, :waa0_tot, :war162_tot, :wwar,
     :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
-    :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year,
-    :last_year, :runs_pitch, :img_url, :alt_hof, :personal_hof, :ross_hof,
+    :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
+    :img_url, :alt_hof, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
     :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings,
     as: :admin
 
@@ -28,11 +28,15 @@ class Player < ActiveRecord::Base
   scope :in_personal_hof, where(personal_hof: true)
   scope :in_ross_hof, where(ross_hof: true)
   scope :in_bryan_hof, where(bryan_hof: true)
+  scope :in_dan_hof, where(dan_hof: true)
+  scope :in_dalton_hof, where(dalton_hof: true)
   scope :not_in_hos, where('hos is not true')
   scope :not_in_hof, where('hof is not true')
   scope :not_in_personal_hof, where('personal_hof is not true')
   scope :not_in_ross_hof, where('ross_hof is not true')
   scope :not_in_bryan_hof, where('bryan_hof is not true')
+  scope :not_in_dan_hof, where('dan_hof is not true')
+  scope :not_in_dalton_hof, where('dalton_hof is not true')
   scope :hall_worthy, where("hall_rating > 100")
 
   scope :name_like, lambda {|name|
@@ -41,7 +45,7 @@ class Player < ActiveRecord::Base
   }
 
   scope :front_page, where(%(
-    hof is true or hos is true or hom is true or personal_hof is true or (hos is false and hall_rating > 100)
+    consensus > 0 or (hos is false and hall_rating > 100)
     -- near miss
     or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 100.0)
     -- active and close
@@ -49,6 +53,7 @@ class Player < ActiveRecord::Base
   ))
 
   scope :hall_of_consensus, in_hof.where("consensus = 6")
+  scope :hof_hos_hom, in_hof.in_hos.in_hom
 
   scope :hall_of_consensus_list, where(%(
     hof is true or hos is true or hom is true or personal_hof is true or ross_hof is true or bryan_hof is true
@@ -69,15 +74,19 @@ class Player < ActiveRecord::Base
 
   scope :all_but_hof, not_in_hof.where("consensus = 5")
   scope :all_but_hos, not_in_hos.where("consensus = 5")
+  scope :all_but_adam, not_in_personal_hof.where("consensus = 5")
+  scope :all_but_ross, not_in_ross_hof.where("consensus = 5")
+  scope :all_but_bryan, not_in_bryan_hof.where("consensus = 5")
+  scope :all_but_dan, not_in_dan_hof.where("consensus = 5")
+  scope :all_but_dalton, not_in_dalton_hof.where("consensus = 5")
   scope :only_hof, in_hof.where("consensus = 1")
   scope :only_hos, in_hos.where("consensus = 1")
   scope :only_hom, in_hom.where("consensus = 1")
   scope :only_adam, in_personal_hof.where("consensus = 1")
   scope :only_ross, in_ross_hof.where("consensus = 1")
   scope :only_bryan, in_bryan_hof.where("consensus = 1")
-  scope :all_but_adam, not_in_personal_hof.where("consensus = 5")
-  scope :all_but_ross, not_in_ross_hof.where("consensus = 5")
-  scope :all_but_bryan, not_in_bryan_hof.where("consensus = 5")
+  scope :only_dan, in_bryan_hof.where("consensus = 1")
+  scope :only_dalton, in_bryan_hof.where("consensus = 1")
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
