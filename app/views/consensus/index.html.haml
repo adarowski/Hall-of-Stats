@@ -22,8 +22,8 @@
     %li <a href="/articles/personal-hall-6-here-it-is">Adam Darowski</a> (my own, published at this site)
     %li <a href="http://www.replacementlevelpodcast.com/2013/07/06/rethinking-the-hall-of-fame-part-one-position-players-2/">Ross Carey</a> (of the Replacement Level Podcast)
     %li <a href="http://replacementlevel.wordpress.com/2013/03/20/my-personal-hall-of-fame/">Bryan O’Connor</a> (of the Replacement Level Blog)
+    %li <a href="http://thethinkingfan.com/">Dalton Mack</a> (of The Thinking Fan)
     %li <a href="http://left-field.blogspot.com/2013/07/personal-hall-of-fame-part-1-19th.html">Dan McCloskey</a> (of Left Field) — <em>Incomplete</em>
-    %li <a href="http://thethinkingfan.com/">Dalton Mack</a> (of The Thinking Fan) — <em>Not yet tabulated</em>
 
   %p Note that these are inductees of their respective Halls with the <em>player</em> designation (where applicable).
 
@@ -52,31 +52,22 @@
         %th
           %abbr{title: "Bryan O’Connor’s Personal Hall of Fame"} Bryan
         %th
-          %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} Dan
-        %th
           %abbr{title: "Dalton Mack’s Personal Hall of Fame"} Dalton
+        %th
+          %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} Dan
         %th
           Total
     %tfoot
       %tr
-        %th
-          Totals
-        %td
-          = Player.in_hof.count
-        %td
-          = Player.in_hos.count
-        %td
-          = Player.in_hom.count
-        %td
-          = Player.in_personal_hof.count
-        %td
-          = Player.in_ross_hof.count
-        %td
-          = Player.in_bryan_hof.count
-        %td
-          = Player.in_dan_hof.count
-        %td
-          = Player.in_dalton_hof.count
+        %th Totals
+        %td= Player.in_hof.count
+        %td= Player.in_hos.count
+        %td= Player.in_hom.count
+        %td= Player.in_personal_hof.count
+        %td= Player.in_ross_hof.count
+        %td= Player.in_bryan_hof.count
+        %td= Player.in_dalton_hof.count
+        %td= Player.in_dan_hof.count
         %th
     %tbody
       - @hall_of_consensus_list.each do |hoc_player|
@@ -97,11 +88,11 @@
           %td
             %span{class: hoc_player.bryan_hof}= hoc_player.bryan_hof
           %td
+            %span{class: hoc_player.dalton_hof}= hoc_player.dalton_hof
+          %td
             %span{class: hoc_player.dan_hof}= hoc_player.dan_hof
           %td
-            %span Dalton
-          %td
-            - if hoc_player.consensus == 6
+            - if hoc_player.consensus == 7
               %strong= hoc_player.consensus
             - else
               = hoc_player.consensus

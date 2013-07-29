@@ -54,7 +54,7 @@ module PlayerFilter
   end
 
   def self.dalton_hof
-    @player.dalton_hof ? 'dan-hof' : 'not-dan-hof'
+    @player.dalton_hof ? 'dalton-hof' : 'not-dalton-hof'
   end
 
   def self.upcoming
