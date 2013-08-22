@@ -59,8 +59,8 @@
           %a{href: 'http://www.baseball-reference.com/pl/player_search.cgi?search=' + @player.id} #{@player.first_name} #{@player.last_name}
           on Baseball-Reference.
           - if @player.has_photo?
-            %a{href: @player.img_url} #{@player.name} photo
-            used by permission.
+            %a{href: @player.img_url} #{@player.name}
+            photo credit.
 
       %p
         The Hall of Stats was built by
