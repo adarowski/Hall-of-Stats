@@ -40,21 +40,21 @@
           Name
           %small (Hall Rating)
         %th
-          %abbr{title: "Hall of Fame"} Fame
+          %abbr{title: "Hall of Fame"} HOF
         %th
-          %abbr{title: "Hall of Stats"} Stats
+          %abbr{title: "Hall of Stats"} HOS
         %th
-          %abbr{title: "Hall of Merit"} Merit
+          %abbr{title: "Hall of Merit"} HOM
         %th
-          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} Adam
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
         %th
-          %abbr{title: "Ross Carey’s Personal Hall of Fame"} Ross
+          %abbr{title: "Ross Carey’s Personal Hall of Fame"} RC
         %th
-          %abbr{title: "Bryan O’Connor’s Personal Hall of Fame"} Bryan
+          %abbr{title: "Bryan O’Connor’s Personal Hall of Fame"} BO
         %th
-          %abbr{title: "Dalton Mack’s Personal Hall of Fame"} Dalton
+          %abbr{title: "Dalton Mack’s Personal Hall of Fame"} DMa
         %th
-          %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} Dan
+          %abbr{title: "Dan McCloskey’s Personal Hall of Fame"} DMc
         %th
           Total
     %tfoot
@@ -278,3 +278,61 @@
               %small (#{hoc_player.hall_rating_rounded})
       - else
         %p None
+
+  %h3 Just among Personal Halls
+
+  %h4 Only in Adam’s
+  %ol
+  - @only_adam_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 Only in Bryan
+  %ol
+  - @only_bryan_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 Only in Dalton’s
+  %ol
+  - @only_dalton_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 Only in Adam’s
+  %ol
+  - @only_adam_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+  %h4 In Everyone’s but Adam
+  %ol
+  - @all_but_adam_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 In Everyone’s but Bryan
+  %ol
+  - @all_but_bryan_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 In Everyone’s but Dalton
+  %ol
+  - @all_but_dalton_personal.each do |hoc_player|
+    %li
+      %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h3
+    Adam’s Personal Hall has
+    = Player.in_personal_hof.count
+    Players
+  %ul
+    %li
+      %strong= @adam_and_hof.count
+      are in the Hall of Fame
+    %li
+      %strong= @adam_and_hos.count
+      are in the Hall of Stats
+    %li
+      %strong= @adam_and_hom.count
+      are in the Hall of Merit
