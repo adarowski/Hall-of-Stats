@@ -20,9 +20,11 @@ class ConsensusController < ApplicationController
     @all_but_dalton = Player.all_but_dalton.by_rank
 
     @only_adam_personal = Player.only_adam_personal.by_rank
+    @only_ross_personal = Player.only_ross_personal.by_rank
     @only_bryan_personal = Player.only_bryan_personal.by_rank
     @only_dalton_personal = Player.only_dalton_personal.by_rank
     @all_but_adam_personal = Player.all_but_adam_personal.by_rank
+    @all_but_ross_personal = Player.all_but_ross_personal.by_rank
     @all_but_bryan_personal = Player.all_but_bryan_personal.by_rank
     @all_but_dalton_personal = Player.all_but_dalton_personal.by_rank
 

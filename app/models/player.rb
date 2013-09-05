@@ -86,12 +86,14 @@ class Player < ActiveRecord::Base
   scope :only_dan, in_bryan_hof.where("consensus = 1")
   scope :only_dalton, in_bryan_hof.where("consensus = 1")
 
-  scope :all_but_adam_personal, not_in_personal_hof.in_bryan_hof.in_dalton_hof
-  scope :all_but_bryan_personal, in_personal_hof.not_in_bryan_hof.in_dalton_hof
-  scope :all_but_dalton_personal, in_personal_hof.in_bryan_hof.not_in_dalton_hof
-  scope :only_adam_personal, in_personal_hof.not_in_bryan_hof.not_in_dalton_hof
-  scope :only_bryan_personal, not_in_personal_hof.in_bryan_hof.not_in_dalton_hof
-  scope :only_dalton_personal, not_in_personal_hof.not_in_bryan_hof.in_dalton_hof
+  scope :all_but_adam_personal, not_in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof
+  scope :all_but_ross_personal, in_personal_hof.not_in_ross_hof.in_bryan_hof.in_dalton_hof
+  scope :all_but_bryan_personal, in_personal_hof.in_ross_hof.not_in_bryan_hof.in_dalton_hof
+  scope :all_but_dalton_personal, in_personal_hof.in_ross_hof.in_bryan_hof.not_in_dalton_hof
+  scope :only_adam_personal, in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof
+  scope :only_ross_personal, not_in_personal_hof.in_ross_hof.not_in_bryan_hof.not_in_dalton_hof
+  scope :only_bryan_personal, not_in_personal_hof.not_in_ross_hof.in_bryan_hof.not_in_dalton_hof
+  scope :only_dalton_personal, not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.in_dalton_hof
 
   scope :adam_and_hof, in_personal_hof.in_hof
   scope :adam_and_hos, in_personal_hof.in_hos
