@@ -52,6 +52,7 @@ ActiveAdmin.register Player do
     f.inputs "Attributes", id: params[:id] do
       f.input :first_name
       f.input :last_name
+      f.input :nickname
       f.input :position
       f.input :first_year
       f.input :last_year

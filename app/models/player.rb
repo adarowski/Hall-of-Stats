@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
   self.primary_key = :id
 
   # admins can do whatever they want
-  attr_accessible :eligibility, :first_name, :hall_rating, :hof, :hos, :hom, :id,
+  attr_accessible :eligibility, :first_name, :nickname, :hall_rating, :hof, :hos, :hom, :id,
     :last_name, :peak_pct, :position, :waa0_tot, :war162_tot, :wwar,
     :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
@@ -41,7 +41,7 @@ class Player < ActiveRecord::Base
 
   scope :name_like, lambda {|name|
     select("concat(first_name, ' ', last_name) as full_name, id, first_year, last_year").
-      where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name", name: "#{name}%")
+      where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name or nickname ilike :name", name: "#{name}%")
   }
 
   scope :front_page, where(%(

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726013737) do
+ActiveRecord::Schema.define(:version => 20130905030315) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20130726013737) do
     t.integer  "consensus"
     t.boolean  "dan_hof"
     t.boolean  "dalton_hof"
+    t.string   "nickname"
   end
 
   add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
