@@ -41,7 +41,7 @@ class Player < ActiveRecord::Base
 
   scope :name_like, lambda {|name|
     select("concat(first_name, ' ', last_name) as full_name, id, first_year, last_year").
-      where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name or nickname ilike :name", name: "#{name}%")
+      where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name or nickname ilike :name", name: "%#{name}%")
   }
 
   scope :front_page, where(%(
