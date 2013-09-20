@@ -776,19 +776,13 @@ section#inductees
     font-size: 100%
     position: relative
     color: white
-    &:after
-      content: 'Hall Rating'
-      position: absolute
-      top: 4px
-      right: 8px
-      color: white
     a
       &:link, &:visited, &:hover, &:active
         display: inline-block
         color: white
         +add_arrow
       @media only screen and (max-width : 400px)
-        width: 200px
+        width: 100%
         overflow: hidden
         text-overflow: ellipsis
         white-space: nowrap
