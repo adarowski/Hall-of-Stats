@@ -52,7 +52,7 @@ class Player < ActiveRecord::Base
     or (hos is false and eligibility = 'active' and hall_rating >= 75 AND hall_rating <= 100.0)
   ))
 
-  scope :hall_of_consensus, in_hof.where("consensus = 7")
+  scope :hall_of_consensus, in_hof.where("consensus = 8")
   scope :hof_hos_hom, in_hof.in_hos.in_hom
 
   scope :hall_of_consensus_list, where("consensus > 0")
@@ -70,13 +70,13 @@ class Player < ActiveRecord::Base
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
 
-  scope :all_but_hof, not_in_hof.where("consensus = 6")
-  scope :all_but_hos, not_in_hos.where("consensus = 6")
-  scope :all_but_adam, not_in_personal_hof.where("consensus = 6")
-  scope :all_but_ross, not_in_ross_hof.where("consensus = 6")
-  scope :all_but_bryan, not_in_bryan_hof.where("consensus = 6")
-  scope :all_but_dan, not_in_dan_hof.where("consensus = 6")
-  scope :all_but_dalton, not_in_dalton_hof.where("consensus = 6")
+  scope :all_but_hof, not_in_hof.where("consensus = 7")
+  scope :all_but_hos, not_in_hos.where("consensus = 7")
+  scope :all_but_adam, not_in_personal_hof.where("consensus = 7")
+  scope :all_but_ross, not_in_ross_hof.where("consensus = 7")
+  scope :all_but_bryan, not_in_bryan_hof.where("consensus = 7")
+  scope :all_but_dan, not_in_dan_hof.where("consensus = 7")
+  scope :all_but_dalton, not_in_dalton_hof.where("consensus = 7")
   scope :only_hof, in_hof.where("consensus = 1")
   scope :only_hos, in_hos.where("consensus = 1")
   scope :only_hom, in_hom.where("consensus = 1")
@@ -86,14 +86,16 @@ class Player < ActiveRecord::Base
   scope :only_dan, in_bryan_hof.where("consensus = 1")
   scope :only_dalton, in_bryan_hof.where("consensus = 1")
 
-  scope :all_but_adam_personal, not_in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof
-  scope :all_but_ross_personal, in_personal_hof.not_in_ross_hof.in_bryan_hof.in_dalton_hof
-  scope :all_but_bryan_personal, in_personal_hof.in_ross_hof.not_in_bryan_hof.in_dalton_hof
-  scope :all_but_dalton_personal, in_personal_hof.in_ross_hof.in_bryan_hof.not_in_dalton_hof
-  scope :only_adam_personal, in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof
-  scope :only_ross_personal, not_in_personal_hof.in_ross_hof.not_in_bryan_hof.not_in_dalton_hof
-  scope :only_bryan_personal, not_in_personal_hof.not_in_ross_hof.in_bryan_hof.not_in_dalton_hof
-  scope :only_dalton_personal, not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.in_dalton_hof
+  scope :all_but_adam_personal, not_in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof.in_dan_hof
+  scope :all_but_ross_personal, in_personal_hof.not_in_ross_hof.in_bryan_hof.in_dalton_hof.in_dan_hof
+  scope :all_but_bryan_personal, in_personal_hof.in_ross_hof.not_in_bryan_hof.in_dalton_hof.in_dan_hof
+  scope :all_but_dalton_personal, in_personal_hof.in_ross_hof.in_bryan_hof.not_in_dalton_hof.in_dan_hof
+  scope :all_but_dan_personal, in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof.not_in_dan_hof
+  scope :only_adam_personal, in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.not_in_dan_hof
+  scope :only_ross_personal, not_in_personal_hof.in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.not_in_dan_hof
+  scope :only_bryan_personal, not_in_personal_hof.not_in_ross_hof.in_bryan_hof.not_in_dalton_hof.not_in_dan_hof
+  scope :only_dalton_personal, not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.in_dalton_hof.not_in_dan_hof
+  scope :only_dan_personal, not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.in_dan_hof
 
   scope :adam_and_hof, in_personal_hof.in_hof
   scope :adam_and_hos, in_personal_hof.in_hos

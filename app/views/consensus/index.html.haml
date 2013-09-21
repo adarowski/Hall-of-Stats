@@ -92,7 +92,7 @@
           %td
             %span{class: hoc_player.dan_hof}= hoc_player.dan_hof
           %td
-            - if hoc_player.consensus == 7
+            - if hoc_player.consensus == 8
               %strong= hoc_player.consensus
             - else
               = hoc_player.consensus
@@ -305,6 +305,12 @@
       %li
         %a{href: player_path(hoc_player)}= hoc_player.name
 
+  %h4 Only in Dan’s
+  %ol
+    - @only_dan_personal.each do |hoc_player|
+      %li
+        %a{href: player_path(hoc_player)}= hoc_player.name
+
   %h4 In Everyone’s but Adam
   %ol
     - @all_but_adam_personal.each do |hoc_player|
@@ -326,6 +332,12 @@
   %h4 In Everyone’s but Dalton
   %ol
     - @all_but_dalton_personal.each do |hoc_player|
+      %li
+        %a{href: player_path(hoc_player)}= hoc_player.name
+
+  %h4 In Everyone’s but Dan
+  %ol
+    - @all_but_dan_personal.each do |hoc_player|
       %li
         %a{href: player_path(hoc_player)}= hoc_player.name
 
