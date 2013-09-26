@@ -43,7 +43,7 @@ a
   text-decoration: none
   &:link, &:visited
     color: lighten($default_color, 15%)
-  &:hover, &:active
+  &:hover, &:active, &:focus
     color: lighten($default_color, 50%)
   &.rss
     color: #CD6839
@@ -91,7 +91,7 @@ header.generic
       width: 50%
       margin-right: 0
     a
-      &:link, &:visited, &:hover, &:active
+      &:link, &:visited, &:hover, &:active, &:focus
         color: #FFF
         font-weight: normal
         @media only screen and (min-width: 640px)
@@ -114,7 +114,7 @@ header.generic
     a
       &:link, &:visited
         color: fade_out(white, 0.4)
-      &:hover, &:active
+      &:hover, &:active, &:focus
         color: white
     @media only screen and (min-width: 768px)
       width: 50%
@@ -761,7 +761,7 @@ footer
     font-size: 75%
     margin: 10px 0
   a
-    &:link, &:visited, &:hover, &:active
+    &:link, &:visited, &:hover, &:active, &:focus
       color: #FFF
 
 #about
@@ -777,7 +777,7 @@ section#inductees
     position: relative
     color: white
     a
-      &:link, &:visited, &:hover, &:active
+      &:link, &:visited, &:hover, &:active, &:focus
         display: inline-block
         color: white
         +add_arrow
@@ -858,7 +858,7 @@ section#inductees
     display: block
     &:link, &:visited
       color: white
-    &:hover, &:active
+    &:hover, &:active, &:focus
       color: fade_out(white, .2)
     &#show-p, &#show-added, &#show-hof
       border-top: 1px solid fade_out(white, .8)
@@ -882,7 +882,7 @@ header.title
     line-height: 1.2
     font-family: $title_font
     a
-      &:link, &:visited, &:hover, &:active
+      &:link, &:visited, &:hover, &:active, &:focus
       color: black
     @media only screen and (min-width: 640px)
       font-size: 36px
@@ -1007,7 +1007,7 @@ article
     font-weight: normal
     &:link, &:visited
       color: fade_out(white, 0.3)
-    &:hover, &:active
+    &:hover, &:active, :focus
       color: white
     &.player-link
       font-weight: bold
@@ -1143,3 +1143,8 @@ article
         width: 50%
       p
         clear: left
+
+#article-49
+  table
+    th, td
+      text-align: left
