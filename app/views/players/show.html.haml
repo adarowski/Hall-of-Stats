@@ -168,17 +168,22 @@
           - if @player.eligibility == "active"
             has
           made <strong>#{number_with_delimiter @player.pa}</strong> plate appearances
-          - if @player.ip_outs > 0
+          - if @player.ip_outs?
             and pitched <strong>#{number_with_delimiter (@player.ip_outs)/3}</strong> innings
       = succeed "." do
-        #{@player.last_name} was worth <strong>#{@player.war_tot}</strong> Wins Above Replacement
-        - if @player.ip_outs > 0 && @player.pa > 0
+        #{@player.last_name}
+        - if @player.eligibility == "active"
+          has been worth
+        - else
+          was worth
+        <strong>#{@player.war_tot}</strong> Wins Above Replacement
+        - if @player.ip_outs? && @player.pa > 0
           - if @player.position == "p"
             (#{@player.war_p} as a pitcher and #{@player.war_pos} as a hitter)
           - else
             (#{@player.war_pos} as a hitter and #{@player.war_p} as a pitcher)
         and <strong>#{@player.waa_tot}</strong> Wins Above Average
-        - if @player.ip_outs > 0 && @player.pa > 0
+        - if @player.ip_outs? && @player.pa > 0
           - if @player.position == "p"
             (#{@player.waa_p} as a pitcher and #{@player.waa_pos} as a hitter)
           - else
