@@ -10,6 +10,7 @@ $ ->
     
     franchiseId = $('#inductees.franchise').data('franchise')
 
+    $('ol.player-list').html("<img src='/assets/knuckle.gif' style='margin-left:5px;' />")
     $.ajax "/franchise/#{franchiseId}/render_list",
       type: 'GET',
       data: "filter_type=#{filter}",
