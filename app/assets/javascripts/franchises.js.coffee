@@ -10,7 +10,7 @@ $ ->
     
     franchiseId = $('#inductees.franchise').data('franchise')
 
-    $('ol.player-list').html("<img src='/assets/knuckle.gif' style='margin-left:5px;' />")
+    $('ol.player-list').html("<img src='/assets/preloader.gif' style='position: absolute; left: 50%; margin: 50px 0 0 -19px;' />")
     $.ajax "/franchise/#{franchiseId}/render_list",
       type: 'GET',
       data: "filter_type=#{filter}",
