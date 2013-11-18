@@ -37,8 +37,8 @@ module ApplicationHelper
   def non_position_filters
     { added:              'Added to the Hall',
       removed:            'Removed from the Hall',
-      upcoming:           'Not Yet Eligible but Hall-Worthy',
-      active_and_worthy:  'Active and Hall-Worthy',
+      upcoming:           'Not Yet Eligible but Hall-worthy',
+      active_and_worthy:  'Active and Hall-worthy',
       active_and_close:   'Active and Close',
       near_misses:        'Near Misses'
     }
