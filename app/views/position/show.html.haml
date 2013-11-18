@@ -88,8 +88,8 @@
             - else
               = player.hall_rating.round
 
-%section#position-lists
-  = top_five_list(@players, "Most Valuable #{@position_name.pluralize} Ever", 'best-ever')
+%section#top-five-lists
+  = top_five_list(@players, "Greatest #{@position_name.pluralize}", 'best-ever')
 
   = top_five_list(@best_not_inducted, "Not in the Hall of Fame", 'best-not-hof')
 
