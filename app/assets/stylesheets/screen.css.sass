@@ -1,5 +1,30 @@
 @import 'mixins'
 
+// PSEUDO-CLASSES
+
+.left-float
+  @media only screen and (min-width: 640px)
+    float: left
+    width: 60%
+
+.right-float
+  @media only screen and (min-width: 640px)
+    float: right
+    width: 40%
+
+.section-padding
+  padding: 10px
+  h3
+    font-size: 100%
+    margin: 0 0 10px
+    small
+      color: #666
+      font-size: 85%
+      font-weight: normal
+
+
+// EVERYTHING ELSE
+
 .portrait img
   border: 4px solid white
   +border_radius(5px)
@@ -77,7 +102,7 @@ hr
   .player &
     padding-bottom: 40px
 
-header.generic
+header.global
   background-color: $default_color
   padding: 4px 10px
   position: relative
@@ -259,28 +284,14 @@ header.generic
           font-size: 80%
           text-transform: uppercase
 
-#stats-summary, #related-players, #inductees, #featured-articles, .complete-list
-  @media only screen and (min-width: 640px)
-    float: left
-    width: 60%
+#stats-summary, #related-players, #players-with-rating, #featured-articles, #complete-article-list
+  @extend .left-float
 
-#intro, .home #list-of-articles, #position-lists, #position-rankings, #all-time-team, #franchise-rankings, #most-mentioned
-  @media only screen and (min-width: 640px)
-    float: right
-    width: 40%
-
-#section-padding
-  padding: 10px
-  h3
-    font-size: 100%
-    margin: 0 0 10px
-    small
-      color: #666
-      font-size: 85%
-      font-weight: normal
+#intro, .home #recent-articles, #position-lists, #position-rankings, #all-time-team, #franchise-rankings, #most-mentioned
+  @extend .right-float
 
 #bio
-  @extend #section-padding
+  @extend .section-padding
   border-bottom: 2px solid fade_out($default_color, .8)
   p
     +multi_paragraphs
@@ -288,7 +299,7 @@ header.generic
       font-size: 85%
 
 #rankings
-  @extend #section-padding
+  @extend .section-padding
   border-bottom: 2px solid fade_out($default_color, .8)
   ul
     list-style: none
@@ -309,7 +320,7 @@ header.generic
       font-size: 75%
 
 #franchise-contributions
-  @extend #section-padding
+  @extend .section-padding
   border-bottom: 2px solid fade_out($default_color, .8)
   ul
     list-style: none
@@ -329,10 +340,10 @@ header.generic
       font-size: 75%
 
 #stats-summary
-  @extend #section-padding
+  @extend .section-padding
 
 #similar-players, #related-players
-  @extend #section-padding
+  @extend .section-padding
   thead
     th
       text-align: right
@@ -375,7 +386,7 @@ header.generic
     left: -9999px
 
 #intro
-  @extend #section-padding
+  @extend .section-padding
   font-size: 85%
   border-top: 2px solid fade_out($default_color, 0.8)
   p
@@ -388,7 +399,7 @@ header.generic
     border-top: 0
 
 #franchise-rankings
-  @extend #section-padding
+  @extend .section-padding
   border-top: 2px solid fade_out($default_color, 0.8)
   li
     display: inline-block
@@ -404,7 +415,7 @@ header.generic
   background-color: #999
 
 #position-rankings
-  @extend #section-padding
+  @extend .section-padding
   border-top: 2px solid fade_out($default_color, 0.8)
   body.position &
     @media only screen and (min-width: 640px)
@@ -485,8 +496,8 @@ header.generic
       margin-left: 30px
       top: 320px
 
-#list-of-articles
-  @extend #section-padding
+.list-of-articles
+  @extend .section-padding
   h2
     font-size: 100%
     margin: 0 0 10px
@@ -494,19 +505,21 @@ header.generic
     a
       margin-left: 5px
       font-size: 12px
-  .home &
+
+  .home &#recent-articles
     @media only screen and (min-width: 640px)
       border-top: 2px solid fade_out($default_color, .8)
+
   .article &
     border-top: 2px solid fade_out($default_color, .8)
     padding-bottom: 40px
 
-.complete-list
-  @media only screen and (min-width: 640px)
-    border-right: 2px solid fade_out($default_color, .8)
+  &#complete-article-list
+    @media only screen and (min-width: 640px)
+      border-right: 2px solid fade_out($default_color, .8)
 
 #featured-articles
-  @extend #section-padding
+  @extend .section-padding
   h2
     font-size: 120%
     margin: 0 0 5px
@@ -520,7 +533,7 @@ header.generic
     border-right: 2px solid fade_out($default_color, .8)
 
 #position-lists
-  @extend #section-padding
+  @extend .section-padding
   ol
     counter-reset: li
     list-style: none
@@ -541,8 +554,11 @@ header.generic
       top: 10px
       right: 10px
 
+  .franchise &
+    border-top: 2px solid fade_out($default_color, .8)
+
 #most-mentioned
-  @extend #section-padding
+  @extend .section-padding
   ol
     list-style: none
     padding: 0
@@ -561,7 +577,7 @@ header.generic
     color: #666
 
 #all-time-team
-  @extend #section-padding
+  @extend .section-padding
   border-top: 2px solid fade_out($default_color, .8)
   ol
     list-style: none
@@ -600,10 +616,10 @@ header.generic
       font-size: 75%
 
 #comments
-  @extend #section-padding
+  @extend .section-padding
 
 #social
-  @extend #section-padding
+  @extend .section-padding
   background-color: fade_out($default_color, 0.8)
 
 .twitter-share-button
@@ -767,7 +783,7 @@ footer
 #about
   padding: 0 10px 10px
 
-section#inductees
+#players-with-rating
   position: relative
   h2
     background-color: fade_out($default_color, .4)
@@ -787,7 +803,7 @@ section#inductees
         text-overflow: ellipsis
         white-space: nowrap
 
-  .player-list
+  #player-list
     list-style: none
     padding: 0
     margin: 0
@@ -1036,7 +1052,7 @@ article
     font-weight: normal
 
 .pagination
-  @extend #section-padding
+  @extend .section-padding
   clear: both
   border-top: 2px solid fade_out($default_color, 0.6)
 
@@ -1046,7 +1062,7 @@ article
   text-align: center
 
 #franchises
-  @extend #section-padding
+  @extend .section-padding
 
 .franchise-list
   list-style: none
@@ -1074,7 +1090,7 @@ article
   font-size: 85%
 
 #chart-container
-  @extend #section-padding
+  @extend .section-padding
 
   svg
     margin-bottom: 20px

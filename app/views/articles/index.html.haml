@@ -56,7 +56,7 @@
         = link_to player.name, player
         %span= pluralize(player.articles.count, "Article")
 
-%section#list-of-articles.complete-list
+%section#complete-article-list.list-of-articles
   %h2
     All Articles
     = link_to "RSS", "/articles.rss", class: "rss"

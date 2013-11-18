@@ -23,7 +23,7 @@
     The Hall of Stats shows us what the Hall of Fame would look like if we removed all #{Player.in_hos.count} inductees and replaced them with the top #{Player.in_hos.count} eligible players in history, according to a mathematical formula.
     %a{:href => "/about"} (more)
 
-%section#inductees
+%section#players-with-rating
   %h2
     %a#show-filters{href: '#'}
       = Player.in_hos.count
@@ -74,7 +74,7 @@
           %span #{Player.in_dan_hof.count}
           Dan’s McCloskey Personal Hall of Fame
 
-  %ol.player-list
+  %ol#player-list
     - @players.each do |player|
       %li{id: safe_id(player.id), class: filter_data(player)}
         = link_to player_path(player) do

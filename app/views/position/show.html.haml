@@ -26,7 +26,7 @@
     - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
       %li=link_to position.upcase, position_path(position)
 
-%section#inductees
+%section#players-with-rating
   %h2
     %a#show-filters{href: '#'}
       #{@players.count} Greatest #{@position_name.pluralize}
@@ -75,7 +75,7 @@
           %span #{@players.in_dan_hof.count}
           Dan McCloskey’s Personal Hall of Fame
 
-  %ol.player-list
+  %ol#player-list
     - @players.each do |player|
       %li{id: safe_id(player.id), class: filter_data(player) + ['position']}
         = link_to player_path(player) do

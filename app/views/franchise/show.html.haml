@@ -54,7 +54,7 @@
       %small by Wins Above Replacement
     %svg#total
 
-%section#inductees.franchise{ 'data-franchise' => @franchise.id }
+%section#players-with-rating.franchise-players{ 'data-franchise' => @franchise.id }
   %h2.franchise-player
     %a#show-filters{href: '#'}
       #{@players.count} Greatest #{@franchise.name}
@@ -107,7 +107,7 @@
           %span #{@players.in_dan_hof.count}
           Dan McCloskey’s Personal Hall of Fame
 
-  %ol.player-list
+  %ol#player-list
     = render @players
 
 %section#position-lists

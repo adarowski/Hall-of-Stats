@@ -76,7 +76,7 @@ $ ->
   )
 
   filterPlayers = (kind) ->
-    listItems = $('.player-list li')
+    listItems = $('#player-list li')
     listItems.hide()
 
     selector = filters[kind] || filters['all']
