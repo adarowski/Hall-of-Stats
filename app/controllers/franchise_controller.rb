@@ -10,6 +10,7 @@ class FranchiseController < ApplicationController
     @bullpen = @franchise.bullpen
     @json_data = franchise_total_data
     @all_time_team_data = franchise_all_time_team_data
+    @franchise_top_five = @franchise.players.by_rank.limit(5)
   end
 
   def franchise_all_time_team_data

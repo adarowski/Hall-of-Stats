@@ -62,4 +62,9 @@ module ApplicationHelper
     top_percent = "%.1f" % (player.ranking_overall * 100.0 / Player.count)
     "Top #{top_percent < "0.1" ? "<0.1" : top_percent}"
   end
+
+  def top_five_list(list, title, class_name)
+    render partial: 'shared/top_five_list',
+      locals: { list: list, title: title, class_name: class_name }
+  end
 end

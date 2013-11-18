@@ -110,6 +110,9 @@
   %ol.player-list
     = render @players
 
+%section#position-lists
+  = top_five_list(@players, "Greatest #{@franchise.name}", 'best-ever')
+
 %section#all-time-team
   %h3
     All-Time Team
