@@ -1,4 +1,4 @@
-%section#recent-articles.list-of-articles
+%section#article-list{class: controller.controller_name == "articles" && controller.action_name == "index" ? 'paginated-articles' : ''}
   %h2
     Latest Articles
     = link_to "RSS", "/articles.rss", class: "rss"
@@ -10,5 +10,10 @@
           %span
             •
             = article.published_at.stamp("Jan 1, 2012")
-    %li
-      = link_to "See All Articles", "/articles"
+
+    - unless controller.controller_name == "articles" and controller.action_name == "index"
+      %li
+        = link_to "See All Articles", "/articles"
+
+- if controller.controller_name == "articles" and controller.action_name == "index"
+  = paginate @articles

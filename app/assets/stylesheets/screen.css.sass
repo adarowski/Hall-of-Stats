@@ -284,10 +284,10 @@ header.global
           font-size: 80%
           text-transform: uppercase
 
-#stats-summary, #related-players, #players-with-rating, #featured-articles, #complete-article-list
+#stats-summary, #related-players, #players-with-rating, #featured-articles, .paginated-articles
   @extend .left-float
 
-#intro, .home #recent-articles, #top-five-lists, #position-rankings, #all-time-team, #franchise-rankings, #most-mentioned
+#intro, .home #article-list, #top-five-lists, #position-rankings, #all-time-team, #franchise-rankings, #most-mentioned
   @extend .right-float
 
 #bio
@@ -496,7 +496,7 @@ header.global
       margin-left: 30px
       top: 320px
 
-.list-of-articles
+#article-list
   @extend .section-padding
   h2
     font-size: 100%
@@ -506,7 +506,7 @@ header.global
       margin-left: 5px
       font-size: 12px
 
-  .home &#recent-articles
+  .home &
     @media only screen and (min-width: 640px)
       border-top: 2px solid fade_out($default_color, .8)
 
@@ -514,7 +514,7 @@ header.global
     border-top: 2px solid fade_out($default_color, .8)
     padding-bottom: 40px
 
-  &#complete-article-list
+  &.paginated-articles
     @media only screen and (min-width: 640px)
       border-right: 2px solid fade_out($default_color, .8)
 

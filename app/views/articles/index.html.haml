@@ -56,17 +56,4 @@
         = link_to player.name, player
         %span= pluralize(player.articles.count, "Article")
 
-%section#complete-article-list.list-of-articles
-  %h2
-    All Articles
-    = link_to "RSS", "/articles.rss", class: "rss"
-  %ul.article-list
-    - @articles.each do |article|
-      %li{id: "article-#{article.id}"}
-        = link_to article_path(article) do
-          = article.title
-          %span
-            •
-            = article.published_at.stamp("Jan 1, 2012")
-
-= paginate @articles
+= render 'shared/article_list'
