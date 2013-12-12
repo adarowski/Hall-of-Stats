@@ -33,6 +33,8 @@ class ConsensusController < ApplicationController
     @adam_and_hof = Player.adam_and_hof.by_rank
     @adam_and_hos = Player.adam_and_hos.by_rank
     @adam_and_hom = Player.adam_and_hom.by_rank
+
+    @endorsements = Player.not_in_hof.in_personal_hof.by_rank
   end
 
 end

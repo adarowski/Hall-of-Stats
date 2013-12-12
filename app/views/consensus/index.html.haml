@@ -318,3 +318,14 @@
         Dan is the only one who excludes #{pluralize @all_but_dan.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_dan.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
+
+
+  %h3 Adam’s Endorsements
+  - if @endorsements.count > 0
+    %ol
+      - @endorsements.each do |hoc_player|
+        %li
+          %a{href: player_path(hoc_player)}= hoc_player.name
+          %small (#{hoc_player.hall_rating_rounded})
+  - else
+    %p None
