@@ -106,15 +106,13 @@ header.global
   background-color: $default_color
   padding: 4px 10px
   position: relative
+  overflow: hidden
   h1
     margin: 0
-    display: inline-block
+    float: left
     font-size: 120%
     font-family: $title_font
     margin-right: 10px
-    @media only screen and (min-width: 480px)
-      width: 50%
-      margin-right: 0
     a
       &:link, &:visited, &:hover, &:active, &:focus
         color: #FFF
@@ -122,29 +120,47 @@ header.global
         @media only screen and (min-width: 640px)
           font-size: 120%
 
+  #show-nav-link
+    display: none
+    font-size: 18px
+    &:link, &:visited
+      color: fade_out(white, 0.4)
+    &:hover, &:active, &:focus
+      color: white
+    @media only screen and (max-width: 767px)
+      display: block
+      float: right
+
+  #search-link-container
+    @media only screen and (max-width: 767px)
+      display: none
+
   nav
-    display: inline-block
+    float: right
     list-style: none
-    font-size: 85%
     ul
       display: inline-block
       margin: 0
-      padding: 0
+      padding: 7px 0 0
     li
-      padding-right: 10px
+      padding-left: 7px
       display: inline-block
       font-size: 85%
-      &:last-child
-        padding-right: 0
+      &:first-child
+        padding-left: 0
     a
       &:link, &:visited
         color: fade_out(white, 0.4)
       &:hover, &:active, &:focus
         color: white
+
+    @media only screen and (max-width: 767px)
+      clear: both
+      display: none
+      font-size: 85%
+      float: none
+
     @media only screen and (min-width: 768px)
-      width: 50%
-      text-align: right
-      font-size: 100%
       li
         padding-left: 10px
         padding-right: 0
