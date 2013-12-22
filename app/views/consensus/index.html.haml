@@ -149,6 +149,177 @@
       - else
         %p None
 
+  .two-columns
+    %h3 Adam Darowski’s Personal Hall
+    %p These are the players that only Adam included or excluded (only among the Personal Halls):
+    .column
+      %h4 Only in Adam’s
+      - if @only_adam_personal.count > 0
+        %ol
+          - @only_adam_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Only Excluded from Adam’s
+      - if @all_but_adam_personal.count > 0
+        %ol
+          - @all_but_adam_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p <em>None</em>
+    - if @only_adam.count > 0
+      %p
+        Adam is the only one who supports #{pluralize @only_adam.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        - @only_adam.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+    - if @all_but_adam.count > 0
+      %p
+        Adam is the only one who excludes #{pluralize @all_but_adam.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        - @all_but_adam.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+
+  .two-columns
+    %h3 Ross Carey’s Personal Hall
+    %p These are the players that only Ross included or excluded (only among the Personal Halls):
+    .column
+      %h4 Only in Ross’
+      - if @only_ross_personal.count > 0
+        %ol
+          - @only_ross_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Only Excluded from Ross’
+      - if @all_but_ross_personal.count > 0
+        %ol
+          - @all_but_ross_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p <em>None</em>
+    - if @only_ross.count > 0
+      %p
+        Ross is the only one who supports #{pluralize @only_ross.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        - @only_ross.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+    - if @all_but_ross.count > 0
+      %p
+        Ross is the only one who excludes #{pluralize @all_but_ross.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        - @all_but_ross.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+
+  .two-columns
+    %h3 Bryan O’Connor’s Personal Hall
+    %p These are the players that only Bryan included or excluded (only among the Personal Halls):
+    .column
+      %h4 Only in Bryan’s
+      - if @only_bryan_personal.count > 0
+        %ol
+          - @only_bryan_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Only Excluded from Bryan’s
+      - if @all_but_bryan_personal.count > 0
+        %ol
+          - @all_but_bryan_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p <em>None</em>
+    - if @only_bryan.count > 0
+      %p
+        Bryan is the only one who supports #{pluralize @only_bryan.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        - @only_bryan.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+    - if @all_but_bryan.count > 0
+      %p
+        Bryan is the only one who excludes #{pluralize @all_but_bryan.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        - @all_but_bryan.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+
+  .two-columns
+    %h3 Dalton Mack’s Personal Hall
+    %p These are the players that only Dalton included or excluded (only among the Personal Halls):
+    .column
+      %h4 Only in Dalton’s
+      - if @only_dalton_personal.count > 0
+        %ol
+          - @only_dalton_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Only Excluded from Dalton’s
+      - if @all_but_dalton_personal.count > 0
+        %ol
+          - @all_but_dalton_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p <em>None</em>
+    - if @only_dalton.count > 0
+      %p
+        Dalton is the only one who supports #{pluralize @only_dalton.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        - @only_dalton.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+    - if @all_but_dalton.count > 0
+      %p
+        Dalton is the only one who excludes #{pluralize @all_but_dalton.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        - @all_but_dalton.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+
+  .two-columns
+    %h3 Dan McCloskey’s Personal Hall
+    %p These are the players that only Dan included or excluded (only among the Personal Halls):
+    .column
+      %h4 Only in Dan’s
+      - if @only_dan_personal.count > 0
+        %ol
+          - @only_dan_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p None
+    .column
+      %h4 Only Excluded from Dan’s
+      - if @all_but_dan_personal.count > 0
+        %ol
+          - @all_but_dan_personal.each do |hoc_player|
+            %li
+              %a{href: player_path(hoc_player)}= hoc_player.name
+              %small (#{hoc_player.hall_rating_rounded})
+      - else
+        %p <em>None</em>
+    - if @only_dan.count > 0
+      %p
+        Dan is the only one who supports #{pluralize @only_dan.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        - @only_dan.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+    - if @all_but_dan.count > 0
+      %p
+        Dan is the only one who excludes #{pluralize @all_but_dan.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        - @all_but_dan.each do |hoc_player|
+          %a{href: player_path(hoc_player)}= hoc_player.name
+
+
   %h3 Adam’s Endorsements
   %p These are Adam’s official endorsements—the players outside of the Hall of Fame that he places in his Personal Hall of Fame.
   - if @endorsements.count > 0
