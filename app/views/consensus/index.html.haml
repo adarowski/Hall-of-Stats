@@ -174,12 +174,22 @@
         %p <em>None</em>
     - if @only_adam.count > 0
       %p
-        Adam is the only one who supports #{pluralize @only_adam.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        Adam is the only one who supports #{pluralize @only_adam.count, "player"} who
+        - if @only_adam.count > 1
+          are
+        - else
+          is
+        not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
         - @only_adam.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
     - if @all_but_adam.count > 0
       %p
-        Adam is the only one who excludes #{pluralize @all_but_adam.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        Adam is the only one who excludes #{pluralize @all_but_adam.count, "player"} who
+        - if @all_but_adam.count > 1
+          are
+        - else
+          is
+        included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_adam.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
 
@@ -208,12 +218,22 @@
         %p <em>None</em>
     - if @only_ross.count > 0
       %p
-        Ross is the only one who supports #{pluralize @only_ross.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        Ross is the only one who supports #{pluralize @only_ross.count, "player"} who
+        - if @only_ross.count > 1
+          are
+        - else
+          is
+        not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
         - @only_ross.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
     - if @all_but_ross.count > 0
       %p
-        Ross is the only one who excludes #{pluralize @all_but_ross.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        Ross is the only one who excludes #{pluralize @all_but_ross.count, "player"} who
+        - if @all_but_ross.count > 1
+          are
+        - else
+          is
+        included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_ross.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
 
@@ -242,12 +262,22 @@
         %p <em>None</em>
     - if @only_bryan.count > 0
       %p
-        Bryan is the only one who supports #{pluralize @only_bryan.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        Bryan is the only one who supports #{pluralize @only_bryan.count, "player"} who
+        - if @only_bryan.count > 1
+          are
+        - else
+          is
+        not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
         - @only_bryan.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
     - if @all_but_bryan.count > 0
       %p
-        Bryan is the only one who excludes #{pluralize @all_but_bryan.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        Bryan is the only one who excludes #{pluralize @all_but_bryan.count, "player"} who
+        - if @all_but_bryan.count > 1
+          are
+        - else
+          is
+        included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_bryan.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
 
@@ -276,12 +306,22 @@
         %p <em>None</em>
     - if @only_dalton.count > 0
       %p
-        Dalton is the only one who supports #{pluralize @only_dalton.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        Dalton is the only one who supports #{pluralize @only_dalton.count, "player"} who
+        - if @only_dalton.count > 1
+          are
+        - else
+          is
+        not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
         - @only_dalton.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
     - if @all_but_dalton.count > 0
       %p
-        Dalton is the only one who excludes #{pluralize @all_but_dalton.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        Dalton is the only one who excludes #{pluralize @all_but_dalton.count, "player"} who
+        - if @all_but_dalton.count > 1
+          are
+        - else
+          is
+        included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_dalton.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
 
@@ -310,12 +350,22 @@
         %p <em>None</em>
     - if @only_dan.count > 0
       %p
-        Dan is the only one who supports #{pluralize @only_dan.count, "player"} who are not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
+        Dan is the only one who supports #{pluralize @only_dan.count, "player"} who
+        - if @only_dan.count > 1
+          are
+        - else
+          is
+        not in any other Personal Hall, the Hall of Fame, the Hall of Merit, or the Hall of Stats:
         - @only_dan.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
     - if @all_but_dan.count > 0
       %p
-        Dan is the only one who excludes #{pluralize @all_but_dan.count, "player"} who are included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
+        Dan is the only one who excludes #{pluralize @all_but_dan.count, "player"} who
+        - if @all_but_dan.count > 1
+          are
+        - else
+          is
+        included in each Personal Hall, the Hall of Fame, the Hall of Merit, and the Hall of Stats:
         - @all_but_dan.each do |hoc_player|
           %a{href: player_path(hoc_player)}= hoc_player.name
 
