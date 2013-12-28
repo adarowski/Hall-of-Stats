@@ -38,6 +38,12 @@ module ApplicationHelper
     { added:              'Added to the Hall',
       removed:            'Removed from the Hall',
       upcoming:           'Not Yet Eligible but Hall-worthy',
+      eligible_2014:      'Eligible in 2014',
+      eligible_2015:      'Eligible in 2015',
+      eligible_2016:      'Eligible in 2016',
+      eligible_2017:      'Eligible in 2017',
+      eligible_2018:      'Eligible in 2018',
+      eligible_2019:      'Eligible in 2019',
       active_and_worthy:  'Active and Hall-worthy',
       active_and_close:   'Active and Close',
       near_misses:        'Near Misses'
