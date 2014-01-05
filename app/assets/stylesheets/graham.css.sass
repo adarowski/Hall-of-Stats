@@ -1,0 +1,273 @@
+@import 'mixins'
+
+=graham_row($rank-2013, $rank-2012, $rank-2011, $rank-2010)
+  $value-2013: 101px - (2 * $rank-2013)
+  $value-2012: 101px - (2 * $rank-2012)
+  $value-2011: 101px - (2 * $rank-2011)
+  $value-2010: 101px - (2 * $rank-2010)
+  .graham-2013 .icon
+    width: $value-2013
+    height: $value-2013
+    line-height: $value-2013
+  .graham-2012 .icon
+    width: $value-2012
+    height: $value-2012
+    line-height: $value-2012
+  .graham-2011 .icon
+    width: $value-2011
+    height: $value-2011
+    line-height: $value-2011
+  .graham-2010 .icon
+    width: $value-2010
+    height: $value-2010
+    line-height: $value-2010
+
+  @if $rank-2013 > 25
+    .graham-2013
+      .rank
+        position: absolute
+        top: 34px
+        color: #666
+        font-size: 14px
+        font-weight: normal
+        width: 100px
+        left: 0
+
+  @if $rank-2012 > 25
+    .graham-2012
+      .rank
+        position: absolute
+        top: 34px
+        color: #666
+        font-size: 14px
+        font-weight: normal
+        width: 100px
+        left: 0
+
+  @if $rank-2011 > 25
+    .graham-2011
+      .rank
+        position: absolute
+        top: 34px
+        color: #666
+        font-size: 14px
+        font-weight: normal
+        width: 100px
+        left: 0
+
+  @if $rank-2010 > 25
+    .graham-2010
+      .rank
+        position: absolute
+        top: 34px
+        color: #666
+        font-size: 14px
+        font-weight: normal
+        width: 100px
+        left: 0
+
+
+#graham-body
+  th
+    &:first-child
+      text-align: left
+  thead
+    th:first-child
+      text-indent: -9999em
+
+  tbody
+    th, td
+      vertical-align: middle
+    th
+      font-size: 24px
+      padding-left: 20px
+      span
+        display: block
+        color: #999
+        font-size: 16px
+        margin-bottom: -6px
+        font-weight: normal
+  td
+    padding: 0 20px
+    width: 140px
+    height: 126px
+    .rank
+      display: inline-block
+    .icon
+      display: inline-block
+      width: 100px
+      height: 100px
+      min-height: 2px
+      min-width: 2px
+      line-height: 95px
+      font-size: 24px
+      +border_radius(50%)
+      vertical-align: middle
+      color: white
+      font-weight: bold
+      background-color: fade_out($default_color, .40)
+    &.graham-2012
+      .icon
+        background-color: fade_out($default_color, .52)
+    &.graham-2011
+      .icon
+        background-color: fade_out($default_color, .64)
+    &.graham-2010
+      .icon
+        background-color: fade_out($default_color, .76)
+    &.hof
+      .icon
+        background-color: fade_out($good_color, .40)
+    &.nye
+      .icon
+        background-color: fade_out(#222, .85)
+
+  tr
+
+    &#allendi01
+      +graham_row(18, 12, 4, 11)
+    &#alomaro01
+      +graham_row(1, 1, 1, 2)
+    &#bagweje01
+      +graham_row(2, 2, 3, 5)
+    &#baineha01
+      +graham_row(50, 50, 45, 50)
+    &#belleal01
+      +graham_row(50, 49, 31, 31)
+    &#biggicr01
+      +graham_row(2, 2, 1, 1)
+    &#alomaro01
+      +graham_row(1, 1, 1, 1)
+    &#bondsba01
+      +graham_row(5, 8, 1, 1)
+    &#bondsbo01
+      +graham_row(47, 41, 22, 50)
+    &#boyerke01
+      +graham_row(40, 37, 27, 35)
+    &#brownke01
+      +graham_row(36, 35, 35, 38)
+    &#carutbo01
+      +graham_row(50, 50, 45, 50)
+    &#clarkwi01
+      +graham_row(50, 34, 14, 17)
+    &#clemero02
+      +graham_row(6, 6, 1, 1)
+    &#conceda01
+      +graham_row(50, 50, 45, 49)
+    &#coneda01
+      +graham_row(40, 28, 32, 49)
+    &#dahlebi01
+      +graham_row(42, 26, 32, 40)
+    &#evansda01
+      +graham_row(43, 28, 32, 40)
+    &#evansdw01
+      +graham_row(17, 13, 10, 12)
+    &#ferrewe01
+      +graham_row(50, 39, 45, 50)
+    &#freehbi01
+      +graham_row(50, 50, 50, 48)
+    &#garvest01
+      +graham_row(50, 50, 41, 34)
+    &#glavito02
+      +graham_row(9, 1, 1, 1)
+    &#grichbo01
+      +graham_row(24, 19, 18, 22)
+    &#guidrro01
+      +graham_row(50, 50, 41, 31)
+    &#hernake01
+      +graham_row(27, 23, 16, 22)
+    &#hershor01
+      +graham_row(50, 50, 41, 43)
+    &#hodgegi01
+      +graham_row(38, 41, 25, 24)
+    &#jacksjo01
+      +graham_row(10, 4, 1, 5)
+    &#johnto01
+      +graham_row(27, 25, 26, 25)
+    &#kaatji01
+      +graham_row(37, 32, 27, 28)
+    &#kentje01
+      +graham_row(31, 1, 1, 1)
+    &#larkiba01
+      +graham_row(1, 1, 2, 8)
+    &#loftoke01
+      +graham_row(24, 24, 1, 1)
+    &#maddugr01
+      +graham_row(4, 1, 1, 1)
+    &#marisro01
+      +graham_row(50, 50, 45, 40)
+    &#martied01
+      +graham_row(11, 8, 9, 9)
+    &#mattido01
+      +graham_row(39, 29, 22, 27)
+    &#mcgrifr01
+      +graham_row(30, 26, 22, 16)
+    &#mcgwima01
+      +graham_row(15, 16, 14, 20)
+    &#minosmi01
+      +graham_row(35, 33, 21, 31)
+    &#morrija02
+      +graham_row(31, 38, 50, 36)
+    &#munsoth01
+      +graham_row(48, 46, 37, 47)
+    &#murphda01
+      +graham_row(29, 35, 27, 17)
+    &#mussimi01
+      +graham_row(19, 1, 1, 1)
+    &#nettlgr01
+      +graham_row(33, 31, 40, 44)
+    &#oneilbu01
+      +graham_row(50, 50, 50, 44)
+    &#olerujo01
+      +graham_row(50, 50, 45, 50)
+    &#olivato01
+      +graham_row(50, 50, 30, 25)
+    &#palmera01
+      +graham_row(21, 13, 10, 28)
+    &#parkeda01
+      +graham_row(44, 49, 36, 28)
+    &#piazzmi01
+      +graham_row(6, 11, 1, 1)
+    &#quiseda01
+      +graham_row(50, 50, 50, 38)
+    &#raineti01
+      +graham_row(1, 1, 5, 7)
+    &#randowi01
+      +graham_row(45, 45, 50, 50)
+    &#reuscri01
+      +graham_row(50, 47, 50, 50)
+    &#rosepe01
+      +graham_row(13, 6, 6, 10)
+    &#saberbr01
+      +graham_row(50, 47, 50, 50)
+    &#santoro01
+      +graham_row(1, 1, 6, 2)
+    &#schilcu01
+      +graham_row(16, 15, 1, 1)
+    &#simmote01
+      +graham_row(26, 21, 13, 13)
+    &#smithle02
+      +graham_row(45, 50, 50, 36)
+    &#smithre06
+      +graham_row(50, 43, 43, 50)
+    &#sosasa01
+      +graham_row(22, 21, 1, 1)
+    &#stiebda01
+      +graham_row(48, 44, 50, 50)
+    &#thomafr04
+      +graham_row(12, 1, 1, 1)
+    &#tiantlu01
+      +graham_row(23, 17, 19, 17)
+    &#torrejo01
+      +graham_row(34, 19, 11, 20)
+    &#trammal01
+      +graham_row(8, 5, 6, 4)
+    &#walkela01
+      +graham_row(14, 18, 17, 15)
+    &#whitalo01
+      +graham_row(20, 10, 12, 14)
+    &#willibe02
+      +graham_row(50, 50, 37, 50)
+    &#wynnji01
+      +graham_row(50, 47, 37, 44)
+

@@ -32,7 +32,6 @@ $.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
     newDiv = $("<div />",
       class: "innerWrapper"
       css:
-        height: $el.height()
         width: "100%"
         position: "relative"
     )
@@ -116,3 +115,4 @@ $ ->
     filterPlayers('all') unless document.location.href.match(/\/franchise\//)
 
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
+  $("#graham-body tbody td").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
