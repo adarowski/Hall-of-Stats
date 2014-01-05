@@ -57,7 +57,7 @@ $ ->
 
   $("#show-nav-link").click (e) ->
     e.preventDefault()
-    $(".global nav").slideToggle()
+    $(".global-header nav").slideToggle()
     $("#search").slideToggle()
 
   $("#show-more-stats").click (e) ->
