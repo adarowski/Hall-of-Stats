@@ -15,22 +15,20 @@
     %a{:href => "http://www.loc.gov/pictures/item/ggb2004010498/"} Photo Credit
 
 %article#graham-body.long-form
-  %p
-    Each year, Graham Womack of
-    %a{:href => "http://baseballpastandpresent.com/"} Baseball Past and Present
-    invites his readers to vote for the fifty best players outside of the Hall of Fame.
-  %ul
-    %li Year 4
-    %li
-      %a{:href => "http://baseballpastandpresent.com/2013/01/02/50-baseball-players-hall-fame-version-3-0/"} Year 3
-    %li
-      %a{:href => "http://baseballpastandpresent.com/2011/12/11/50-baseball-players-hall-fame-version-2-0/"} Year 2
-    %li
-      %a{:href => "http://baseballpastandpresent.com/2010/12/06/the-50-best-baseball-players-not-in-the-hall-of-fame/"} Year 1
 
+  - content = capture_haml do
+    :plain
+      Each year, Graham Womack of [Baseball Past and Present](http://baseballpastandpresent.com) invites his readers to vote for the fifty best players outside of the Hall of Fame. He publishes a new version of the project each year:
 
-  %h3 This Year’s Top 50
-  %p Here are the results of this year’s election (along with each player’s previous rankings). ‘“NYE” denotes “Not Yet Eligible”.
+      * Year 4
+      * [Year 3](http://baseballpastandpresent.com/2013/01/02/50-baseball-players-hall-fame-version-3-0/)
+      * [Year 2](http://baseballpastandpresent.com/2011/12/11/50-baseball-players-hall-fame-version-2-0/)
+      * [Year 1](http://baseballpastandpresent.com/2010/12/06/the-50-best-baseball-players-not-in-the-hall-of-fame/)
+
+      ### This Year’s Top 50
+      Here are the results of this year’s election (along with each player’s previous rankings). ‘“NYE” denotes “Not Yet Eligible”.
+
+  = raw BioFormatter.new(content)
 
   %table
     %thead
@@ -892,10 +890,14 @@
           %span.icon
             %span.rank 50+
 
-  %p There has been a great deal of fluctiation in the vote for several reasons. First of all, twelve of the players on this year’s ballot were not yet eligible in the first election. That alone is bound to cause some shifting. Another reason is that a handful of players have been elected since Graham started the project.
+  - content = capture_haml do
+    :plain
+      There has been a great deal of fluctiation in the vote for several reasons. First of all, twelve of the players on this year’s ballot were not yet eligible in the first election. That alone is bound to cause some shifting. Second, the size of the voting body has more than doubled. That brings in waves of new voters with a variety of different opinions. Yet another reason is that a handful of players have been elected since Graham started the project.
 
-  %h3 Hall of Famers
-  %p These players were a part of the project at one point but are now Hall of Famers.
+      ### Hall of Famers
+      These players were a part of the project at one point but are now Hall of Famers.
+
+  = raw BioFormatter.new(content)
 
   %table
     %thead
@@ -975,10 +977,15 @@
           %span.icon
             %span.rank T2
 
-  %p Deacon White was also inducted to the Hall of Fame despite never ranking in Graham’s Top 50. But that’s no fault of Deacon—he clearly belongs.
+  - content = capture_haml do
+    :plain
+      @whitede01 was also inducted to the Hall of Fame despite never ranking in a Top 50. But 19th century players—particularly those who played a pioneering role in the game—are always underrated in this project. Deacon clearly belongs.
 
-  %h3 All Past Vote-getters
-  %p Here is an alphabetical list of every player who has appeared in the Top 50 during any year.
+      ### All Past Vote-getters
+
+      Here is an alphabetical list of every player who has appeared in the Top 50 during any year.
+
+  = raw BioFormatter.new(content)
 
   %table
     %thead
