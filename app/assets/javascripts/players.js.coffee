@@ -115,4 +115,4 @@ $ ->
     filterPlayers('all') unless document.location.href.match(/\/franchise\//)
 
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
-  $("#graham-body tbody td").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
+  $(".graham-table tbody td").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
