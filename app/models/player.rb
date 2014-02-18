@@ -51,7 +51,7 @@ class Player < ActiveRecord::Base
     -- active and close
     or (hos is false and eligibility = 'active' and hall_rating >= 75 AND hall_rating <= 100.0)
     -- upcoming ballots
-    or (hos is false and eligibility = 'upcoming' and hall_rating >= 50 and last_year >= 2008)
+    or (hos is false and eligibility = 'upcoming' and hall_rating >= 25 and last_year >= 2008)
   ))
 
   scope :hall_of_consensus, in_hof.where("consensus = 8")
@@ -68,11 +68,11 @@ class Player < ActiveRecord::Base
   scope :added, not_in_hof.in_hos
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
-  scope :eligible_2015, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 50 AND last_year = 2009")
-  scope :eligible_2016, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 50 AND last_year = 2010")
-  scope :eligible_2017, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 50 AND last_year = 2011")
-  scope :eligible_2018, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 50 AND last_year = 2012")
-  scope :eligible_2019, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 50 AND last_year = 2013")
+  scope :eligible_2015, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 25 AND last_year = 2009")
+  scope :eligible_2016, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 25 AND last_year = 2010")
+  scope :eligible_2017, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 25 AND last_year = 2011")
+  scope :eligible_2018, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 25 AND last_year = 2012")
+  scope :eligible_2019, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 25 AND last_year = 2013")
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")

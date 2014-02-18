@@ -67,23 +67,23 @@ module PlayerFilter
   end
 
   def self.eligible_2015
-    rating_above?(50) && @player.last_year == 2009 && @player.eligibility == 'upcoming' ? 'eligible-2015' : nil
+    rating_above?(25) && @player.last_year == 2009 && @player.eligibility == 'upcoming' ? 'eligible-2015' : nil
   end
 
   def self.eligible_2016
-    rating_above?(50) && @player.last_year == 2010 && @player.eligibility == 'upcoming' ? 'eligible-2016' : nil
+    rating_above?(25) && @player.last_year == 2010 && @player.eligibility == 'upcoming' ? 'eligible-2016' : nil
   end
 
   def self.eligible_2017
-    rating_above?(50) && @player.last_year == 2011 && @player.eligibility == 'upcoming' ? 'eligible-2017' : nil
+    rating_above?(25) && @player.last_year == 2011 && @player.eligibility == 'upcoming' ? 'eligible-2017' : nil
   end
 
   def self.eligible_2018
-    rating_above?(50) && @player.last_year == 2012 && @player.eligibility == 'upcoming' ? 'eligible-2018' : nil
+    rating_above?(25) && @player.last_year == 2012 && @player.eligibility == 'upcoming' ? 'eligible-2018' : nil
   end
 
   def self.eligible_2019
-    rating_above?(50) && @player.last_year == 2013 && @player.eligibility == 'upcoming' ? 'eligible-2019' : nil
+    rating_above?(25) && @player.last_year == 2013 && @player.eligibility == 'upcoming' ? 'eligible-2019' : nil
   end
 
   def self.active_and_worthy
