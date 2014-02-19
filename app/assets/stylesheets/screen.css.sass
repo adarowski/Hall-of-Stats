@@ -122,11 +122,15 @@ hr
 
   #show-nav-link
     display: none
-    font-size: 18px
-    &:link, &:visited
-      color: fade_out(white, 0.4)
-    &:hover, &:active, &:focus
-      color: white
+    font-size: 12px
+    text-transform: uppercase
+    font-weight: normal
+    background-color: fade_out(white, .6)
+    +border_radius(4px)
+    padding: 4px 6px
+    margin-top: 3px
+    color: white
+    line-height: 1
     @media only screen and (max-width: 767px)
       display: block
       float: right
