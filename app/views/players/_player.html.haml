@@ -1,6 +1,6 @@
 %style{:type => 'text/css'}
   :sass
-    $max_hall_rating: 400
+    $max_hall_rating: 395
 
     =bar_width($hall_rating)
       width: ($hall_rating/$max_hall_rating)*100%
@@ -11,7 +11,7 @@
 - if player.respond_to?(:franchise_hall_rating)
   %style{:type => 'text/css'}
     :sass
-      $max_hall_rating: 400
+      $max_hall_rating: 395
 
       =franchise_bar_width($hall_rating)
         width: ($hall_rating/$max_hall_rating)*100%
