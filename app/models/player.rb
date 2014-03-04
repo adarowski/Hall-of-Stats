@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
     :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
-    :img_url, :alt_hof, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
+    :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
     :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings,
     as: :admin
 

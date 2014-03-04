@@ -61,6 +61,8 @@ ActiveAdmin.register Player do
       f.input :hos
       f.input :hom
       f.input :alt_hof
+      f.input :hof_via
+      f.input :hof_year
       f.input :personal_hof
       f.input :ross_hof
       f.input :bryan_hof
