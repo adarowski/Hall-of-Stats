@@ -25,14 +25,16 @@
         = @player.hall_rating.round(1)
       - else
         = @player.hall_rating.round
+    - if @player.hof == true
+      %dt.hall-of-fame
+        = link_to "/#hof" do
+          Hall of Fame
+          %span (#{@player.hof_year} via #{@player.hof_via_name})
+      %dd.hall-of-fame Inductee
     - if @player.hos == true
       %dt.hall-of-stats
         = link_to "Hall of Stats", "/#hos"
       %dd.hall-of-stats Inductee
-    - if @player.hof == true
-      %dt.hall-of-fame
-        = link_to "Hall of Fame", "/#hof"
-      %dd.hall-of-fame Inductee
     - if @player.hom == true
       %dt.hall-of-merit
         = link_to "Hall of Merit", "/#hom"

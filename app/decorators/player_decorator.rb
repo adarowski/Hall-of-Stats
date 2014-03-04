@@ -26,6 +26,14 @@ class PlayerDecorator < Draper::Base
     'nl' => 'Negro League player'
   }
 
+ HOF_VIAS = {
+    'bbwaa' => 'BBWAA',
+    'veterans' => 'Veterans',
+    'old timers' => 'Old Timers',
+    'run off' => 'Runoff',
+    'special election' => 'Special Election'
+  }
+
   # don't use the helper so that we can be called from PlayerLinker
   def link
     "/player/#{id}"
@@ -37,6 +45,10 @@ class PlayerDecorator < Draper::Base
 
   def alt_hof_name
     ALT_HOFS[player.alt_hof]
+  end
+
+  def hof_via_name
+    HOF_VIAS[player.hof_via]
   end
 
   def players_of_same_position
