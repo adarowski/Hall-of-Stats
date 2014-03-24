@@ -189,7 +189,7 @@ $ ->
         $('.tooltip').css({left: $('svg#all-time').position().left + 30, top: $('svg#all-time').position().top + 87})
         $('.tooltip .player').html(d[1].player_id)
         $('.tooltip .year').html(d[1].range_year + ':')
-        $('.tooltip .war').html('(' + d3.format(',.1f')(d[1].sum) + ' WAR)')
+        $('.tooltip .war').html('(' + d3.format(',.1f')(d[1].sum) + ' Hall Rating)')
         $('.tooltip').show()
     )
     .on('mouseout', () ->

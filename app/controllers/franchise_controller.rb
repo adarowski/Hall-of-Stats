@@ -17,7 +17,7 @@ class FranchiseController < ApplicationController
     player_ids = @franchise.players.order('hall_rating desc').limit(20).map{|p| "'#{p.id}'"}.join(',')
     return 'null' unless @franchise.active?
     sql = <<-SQL
-select plyrs.id as player_id, range_year, coalesce(sum(ss.war_tot), 0) as sum
+select plyrs.id as player_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum
 from generate_series(#{@franchise.first_year}, #{@franchise.last_year || 2012}, 1) as range_year
 cross join (
   select id from players where id in (#{player_ids})
@@ -81,7 +81,7 @@ order by franchise_id,year
 
   def all_data
     sql = <<-SQL
-select stats.franchise_id, range_year, coalesce(sum(ss.war_tot), 0) as sum 
+select stats.franchise_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum
 from generate_series(
   (select min(year) from season_stats),
   (select max(year) from season_stats),
