@@ -24,5 +24,8 @@
   = link_to player_path(player) do
     %strong
       #{player.name}
-    %em #{player.position}, #{player.years_played}
+    %em
+      - unless player.position == "npos"
+        #{player.position},
+      #{player.years_played}
     %span= player.franchise_hall_rating.to_f.round

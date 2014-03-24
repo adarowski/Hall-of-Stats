@@ -133,8 +133,9 @@
   %ol
     - @bench.each do |player|
       %li
-        = succeed ":" do
-          %strong= player.position.upcase
+        - unless player.position == "npos"
+          = succeed ":" do
+            %strong= player.position.upcase
         - if player
           = link_to player.name, player_path(player)
           %span (#{player.franchise_hall_rating.to_f.round})

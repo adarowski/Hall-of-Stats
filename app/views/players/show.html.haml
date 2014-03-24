@@ -15,7 +15,10 @@
   %dl
     - unless @player.position == "npos"
       %dt.position Position
-      %dd.position= link_to @player.position_name, '/position/' + @player.position + "/#" + @player.id
+      - if @player.position == "of" || "if"
+        %dd.position= @player.position_name
+      - else
+        %dd.position= link_to @player.position_name, '/position/' + @player.position + "/#" + @player.id
     - if @player.years_played
       %dt.years Years
       %dd.years #{@player.years_played}
@@ -96,7 +99,7 @@
       %strong= ordinalize_with_delimiter(@player.ranking_overall)
       All Time
       %em (#{overall_percentage(@player)}%)
-    - unless @player.position == "npos"
+    - unless @player.position == "npos" || "of" || "if"
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_position)
         among #{@player.position_name.pluralize}

@@ -10,7 +10,7 @@ class PlayerDecorator < Draper::Base
     '3b' => 'Third Baseman',
     'ss' => 'Shortstop',
     'if' => 'Infielder',
-    'of' => 'Outielder',
+    'of' => 'Outfielder',
     'lf' => 'Left Fielder',
     'cf' => 'Center Fielder',
     'rf' => 'Right Fielder',

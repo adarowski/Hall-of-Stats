@@ -80,7 +80,10 @@
         = link_to player_path(player) do
           %strong
             #{player.name}
-          %em #{player.position}, #{player.years_played}
+          %em
+            - unless player.position == "npos"
+              #{player.position},
+            #{player.years_played}
           %span
             - if player.hall_rating > 99.49 && player.hall_rating < 100 && player.hos == false
               = player.hall_rating.round(1)
