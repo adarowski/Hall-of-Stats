@@ -1158,6 +1158,20 @@ article
     font-size: 12px
 
 #consensus-body
+
+  @media only screen and (min-width: 640px)
+    h3
+      clear: left
+    h4
+      margin-top: 0
+    .two-columns
+      .column
+        float: left
+        width: 50%
+      p
+        clear: left
+
+.consensus-table
   th
     width: 8%
     &:first-child
@@ -1178,18 +1192,6 @@ article
       background-color: fade_out($bad_color, .2)
   .true
     background-color: fade_out($good_color, .2)
-
-  @media only screen and (min-width: 640px)
-    h3
-      clear: left
-    h4
-      margin-top: 0
-    .two-columns
-      .column
-        float: left
-        width: 50%
-      p
-        clear: left
 
 #article-50
   table
