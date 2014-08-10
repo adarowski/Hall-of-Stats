@@ -126,6 +126,14 @@ class Player < ActiveRecord::Base
     [first_year, last_year].uniq.join('-')
   end
 
+  def years_played_per_franchise
+    FranchisePlayerDuration.where(player_id: self.id).order("start_year asc").inject({}) do |h, duration|
+      h[duration.franchise_id] ||= []
+      h[duration.franchise_id] << [duration.start_year, duration.end_year]
+      h
+    end
+  end
+
   def hall_worthy?
     hall_rating > 100
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140304023032) do
+ActiveRecord::Schema.define(:version => 20140809133726) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(:version => 20140304023032) do
   end
 
   add_index "articles_players", ["article_id", "player_id"], :name => "index_articles_players_on_article_id_and_player_id"
+
+  create_table "franchise_player_durations", :force => true do |t|
+    t.string   "player_id"
+    t.string   "franchise_id"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "franchise_player_durations", ["player_id", "franchise_id"], :name => "index_franchise_player_durations_on_player_id_and_franchise_id"
 
   create_table "franchise_ratings", :id => false, :force => true do |t|
     t.string   "player_id",    :null => false
