@@ -18,6 +18,7 @@ module PlayerFilter
       eligible_2017,
       eligible_2018,
       eligible_2019,
+      eligible_2020,
       active_and_worthy,
       active_and_close,
       near_miss
@@ -84,6 +85,10 @@ module PlayerFilter
 
   def self.eligible_2019
     rating_above?(25) && @player.last_year == 2013 && @player.eligibility == 'upcoming' ? 'eligible-2019' : nil
+  end
+
+  def self.eligible_2020
+    rating_above?(25) && @player.last_year == 2014 && @player.eligibility == 'upcoming' ? 'eligible-2020' : nil
   end
 
   def self.active_and_worthy

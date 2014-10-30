@@ -43,6 +43,7 @@ module ApplicationHelper
       eligible_2017:      'Eligible in 2017',
       eligible_2018:      'Eligible in 2018',
       eligible_2019:      'Eligible in 2019',
+      eligible_2020:      'Eligible in 2020',
       active_and_worthy:  'Active and Hall-worthy',
       active_and_close:   'Active and Close',
       near_misses:        'Near Misses'

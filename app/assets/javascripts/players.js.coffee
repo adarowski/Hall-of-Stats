@@ -15,6 +15,7 @@ filters = {
   'eligible-2017': '.eligible-2017'
   'eligible-2018': '.eligible-2018'
   'eligible-2019': '.eligible-2019'
+  'eligible-2020': '.eligible-2020'
   'active-and-worthy': '.active-and-worthy.not-hos',
   'active-and-close': '.active-and-close',
   'near-misses': '.near-miss',
