@@ -24,8 +24,8 @@ Player.transaction do
     record = Player.find_or_initialize_by_id(player['id'])
     record.update_attributes!(player, as: :admin)
   end
-  puts "Done creating players"
 end
+puts "Done creating players"
 
 SeasonStats.transaction do
   puts "Creating SeasonStats..."
@@ -36,8 +36,8 @@ SeasonStats.transaction do
     record = SeasonStats.new
     record.update_attributes!(stats, as: :admin)
   end
-  puts "Done creating season stats"
 end
+puts "Done creating season stats"
 
 FranchiseRating.transaction do
   puts "Creating FranchiseRatings..."
@@ -49,8 +49,8 @@ FranchiseRating.transaction do
                                    franchise_id: stats['franchise_id']).first_or_initialize
     record.update_attributes!(stats, as: :admin)
   end
-  puts "Done creating franchise ratings"
 end
+puts "Done creating franchise ratings"
 
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
