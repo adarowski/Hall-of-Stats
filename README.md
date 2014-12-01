@@ -1,13 +1,11 @@
 # The Hall of Stats
 
-An alternate Hall of Fame populated by a mathematical formula.
+The Hall of Stats [(hallofstats.com)](http://www.hallofstats.com) is an alternate Hall of Fame populated by a mathematical formula.
 
 Created by Adam Darowski, Jeffrey Chupp, and Michael Berkowitz.
 
-**They say, “It’s the Hall of Fame, not the Hall of Stats.”**
+> They say, “It’s the Hall of Fame, not the Hall of Stats.” But what if it were?
 
-But what if it was?
+> The Hall of Stats shows us what the Hall of Fame would look like if we removed all 211 inductees and replaced them with the top 211 eligible players in history, according to a mathematical formula. [(more)](http://www.hallofstats.com/about)
 
-The Hall of Stats removes everyone from the Hall of Fame and re-populates it based on a mathematical formula.
-
-You decide which Hall is better…
+The Hall of Stats uses Wins Above Replacement (WAR) data provided for free of charge by [Baseball-Reference](http://baseball-reference.com).
