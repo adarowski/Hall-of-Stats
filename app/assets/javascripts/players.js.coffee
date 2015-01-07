@@ -10,7 +10,6 @@ filters = {
   'added': '.hos.not-hof'
   'removed': '.hof.not-hos'
   'upcoming': '.upcoming.not-hos'
-  'eligible-2015': '.eligible-2015'
   'eligible-2016': '.eligible-2016'
   'eligible-2017': '.eligible-2017'
   'eligible-2018': '.eligible-2018'
