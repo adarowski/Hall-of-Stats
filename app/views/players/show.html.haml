@@ -99,7 +99,7 @@
       %strong= ordinalize_with_delimiter(@player.ranking_overall)
       All Time
       %em (#{overall_percentage(@player)}%)
-    - unless @player.position == "npos" || "of" || "if"
+    - unless ["npos", "of", "if"].include?(@player.position)
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_position)
         among #{@player.position_name.pluralize}
