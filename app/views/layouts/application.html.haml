@@ -3,6 +3,7 @@
   %head
     %meta{:charset => "UTF-8"}
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}
+    = yield :keywords
     %title= title_or_default
     %link{href: 'http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel: 'stylesheet', type: 'text/css'}
     %link{href: 'http://fonts.googleapis.com/css?family=Inconsolata:400,700', rel: 'stylesheet', type: 'text/css'}

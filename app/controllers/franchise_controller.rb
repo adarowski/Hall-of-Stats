@@ -11,6 +11,7 @@ class FranchiseController < ApplicationController
     @json_data = franchise_total_data
     @all_time_team_data = franchise_all_time_team_data
     @franchise_top_five = @franchise.players.by_rank.limit(5)
+    @franchise = FranchiseDecorator.new(@franchise)
   end
 
   def franchise_all_time_team_data

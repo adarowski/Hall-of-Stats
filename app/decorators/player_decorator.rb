@@ -135,4 +135,15 @@ class PlayerDecorator < Draper::Base
       hsh
     end
   end
+
+  def keywords
+    [
+      player.name,
+      "#{player.name} stats",
+      position_name, 
+      ("Hall of Fame" if player.hof),
+      ("Hall of Stats" if player.hos),
+      "Sabermetrics"
+    ].compact.join(",")
+  end
 end
