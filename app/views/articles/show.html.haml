@@ -1,3 +1,6 @@
+- content_for :keywords do
+  %meta{name: "keywords", content: @article.keywords}
+
 - content_for :title, @article.title
 
 = render 'shared/header'

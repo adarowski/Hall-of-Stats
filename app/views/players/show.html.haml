@@ -1,3 +1,6 @@
+- content_for :keywords do
+  %meta{name: "keywords", content: @player.keywords}
+
 - content_for :title, @player.name
 
 - content_for(:header_styles) do
