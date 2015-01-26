@@ -1,5 +1,6 @@
 $ ->
   $('.franchise #filters-ajax a').click (e) ->
+    console.log 'ok...'
     e.preventDefault()
 
     filterParts = this.href.split('#')

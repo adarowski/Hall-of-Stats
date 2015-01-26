@@ -19,4 +19,3 @@
 //= require players
 //= require articles
 //= require franchises
-//= require filters

@@ -104,5 +104,14 @@ $ ->
     $('#show-filters').text(this.text)
     $("#filters").slideToggle()
 
+  #load our filter
+  if document.location.hash
+    $('a[href=' + document.location.hash + ']').click()
+    $("#filters").hide()
+  else if document.location.href.match(/\/position\//)
+    filterPlayers('position')
+  else
+    filterPlayers('all') unless document.location.href.match(/\/franchise\//)
+
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
   $(".graham-table tbody td").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
