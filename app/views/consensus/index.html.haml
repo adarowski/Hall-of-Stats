@@ -83,21 +83,21 @@
             %a{href: player_path(hoc_player)}= hoc_player.name
             %small (#{hoc_player.hall_rating_rounded})
           %td
-            %span{class: hoc_player.hof}= hoc_player.hof
+            %span{title: "HOF: #{hoc_player.hof}", class: hoc_player.hof}= hoc_player.hof
           %td
-            %span{class: hoc_player.hos}= hoc_player.hos
+            %span{title: "HOS: #{hoc_player.hos}", class: hoc_player.hos}= hoc_player.hos
           %td
-            %span{class: hoc_player.hom}= hoc_player.hom
+            %span{title: "HOM: #{hoc_player.hom}", class: hoc_player.hom}= hoc_player.hom
           %td
-            %span{class: hoc_player.personal_hof}= hoc_player.personal_hof
+            %span{title: "AD: #{hoc_player.personal_hof}", class: hoc_player.personal_hof}= hoc_player.personal_hof
           %td
-            %span{class: hoc_player.ross_hof}= hoc_player.ross_hof
+            %span{title: "RC: #{hoc_player.ross_hof}", class: hoc_player.ross_hof}= hoc_player.ross_hof
           %td
-            %span{class: hoc_player.bryan_hof}= hoc_player.bryan_hof
+            %span{title: "BO: #{hoc_player.bryan_hof}", class: hoc_player.bryan_hof}= hoc_player.bryan_hof
           %td
-            %span{class: hoc_player.dalton_hof}= hoc_player.dalton_hof
+            %span{title: "DMa: #{hoc_player.dalton_hof}", class: hoc_player.dalton_hof}= hoc_player.dalton_hof
           %td
-            %span{class: hoc_player.dan_hof}= hoc_player.dan_hof
+            %span{title: "DMc: #{hoc_player.dan_hof}", class: hoc_player.dan_hof}= hoc_player.dan_hof
           %td
             - if hoc_player.consensus == 8
               %strong= hoc_player.consensus
