@@ -1,29 +1,3 @@
-filters = {
-  'all': '.hos'
-  'hof': '.hof'
-  'hom': '.hom'
-  'personal-hof': '.personal-hof'
-  'ross-hof': '.ross-hof'
-  'bryan-hof': '.bryan-hof'
-  'dan-hof': '.dan-hof'
-  'dalton-hof': '.dalton-hof'
-  'added': '.hos.not-hof'
-  'removed': '.hof.not-hos'
-  'upcoming': '.upcoming.not-hos'
-  'eligible-2016': '.eligible-2016'
-  'eligible-2017': '.eligible-2017'
-  'eligible-2018': '.eligible-2018'
-  'eligible-2019': '.eligible-2019'
-  'eligible-2020': '.eligible-2020'
-  'active-and-worthy': '.active-and-worthy.not-hos',
-  'active-and-close': '.active-and-close',
-  'near-misses': '.near-miss',
-  'position': '.position',
-}
-
-for position in ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh']
-  filters["#{position}"] = ".hos.#{position}"
-
 $.fn.iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease = ->
   $el = undefined
   @each ->
@@ -84,13 +58,6 @@ $ ->
       false
   )
 
-  filterPlayers = (kind) ->
-    listItems = $('#player-list li')
-    listItems.hide()
-
-    selector = filters[kind] || filters['all']
-    listItems.filter(selector).show()
-
   $('#filters a').click (e) ->
     e.preventDefault()
 
@@ -99,19 +66,10 @@ $ ->
 
     document.location.hash = filter
 
-    filterPlayers(filter)
+    FILTERS.filterPlayers(filter)
 
     $('#show-filters').text(this.text)
     $("#filters").slideToggle()
-
-  #load our filter
-  if document.location.hash
-    $('a[href=' + document.location.hash + ']').click()
-    $("#filters").hide()
-  else if document.location.href.match(/\/position\//)
-    filterPlayers('position')
-  else
-    filterPlayers('all') unless document.location.href.match(/\/franchise\//)
 
   $("#seasonal-stats tbody th").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
   $(".graham-table tbody td").iWouldLikeToAbsolutelyPositionThingsInsideOfFrickingTableCellsPlease()
