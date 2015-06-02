@@ -8,8 +8,8 @@ describe PlayerFilter do
 
   subject(:filter) { PlayerFilter }
 
-  it { filter.filters_for(player_one).should == %w( p not-hof hos personal-hof ) }
-  it { filter.filters_for(player_two).should == %w( 1b not-hof not-hos not-personal-hof active-and-close ) }
-  it { filter.filters_for(player_three).should == %w( c not-hof not-hos not-personal-hof upcoming ) }
-  it { filter.filters_for(player_four).should == %w( p not-hof not-hos not-personal-hof active-and-worthy ) }
+  it { filter.filters_for(player_one).should == %w( p not-hof hos not-hom personal-hof not-ross-hof not-bryan-hof not-dan-hof not-dalton-hof ) }
+  it { filter.filters_for(player_two).should == %w( 1b not-hof not-hos not-hom not-personal-hof not-ross-hof not-bryan-hof not-dan-hof not-dalton-hof active-and-close ) }
+  it { filter.filters_for(player_three).should == %w( c not-hof not-hos not-hom not-personal-hof not-ross-hof not-bryan-hof not-dan-hof not-dalton-hof upcoming ) }
+  it { filter.filters_for(player_four).should == %w( p not-hof not-hos not-hom not-personal-hof not-ross-hof not-bryan-hof not-dan-hof not-dalton-hof active-and-worthy ) }
 end
