@@ -110,7 +110,7 @@ class Franchise < ActiveHash::Base
   add id: 'kcc', name: 'Kansas City Cowboys', first_year: '1888', last_year: '1889'
   add id: 'kcn', name: 'Kansas City Cowboys', first_year: '1886', last_year: '1886'
   add id: 'kcp', name: 'Kansas City Packers', first_year: '1914', last_year: '1915'
-  add id: 'kcr', name: 'Kansas City Royals', active: true, img: 'greinza01', img_credit: 'http://www.flickr.com/photos/keithallison/3770512483/', player: 'Zack Greinke', first_year: '1969', color: '#000572'
+  add id: 'kcr', name: 'Kansas City Royals', active: true, img: 'darowno01', img_credit: 'https://twitter.com/baseballtwit/status/609148618285654017', player: 'Nolan Darowski', first_year: '1969', color: '#000572'
   add id: 'kcu', name: 'Kansas City Cowboys', first_year: '1884', last_year: '1884'
   add id: 'kek', name: 'Fort Wayne Kekiongas', first_year: '1871', last_year: '1871'
   add id: 'lad', name: 'Los Angeles Dodgers', active: true, img: 'kempma01', img_credit: 'http://www.flickr.com/photos/dirkhansen/6007960724/', player: 'Matt Kemp', first_year: '1884', color: '#005596'
