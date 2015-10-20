@@ -16,6 +16,7 @@ FILTERS =
     'eligible-2018': '.eligible-2018'
     'eligible-2019': '.eligible-2019'
     'eligible-2020': '.eligible-2020'
+    'eligible-2021': '.eligible-2021'
     'active-and-worthy': '.active-and-worthy.not-hos',
     'active-and-close': '.active-and-close',
     'near-misses': '.near-miss',
