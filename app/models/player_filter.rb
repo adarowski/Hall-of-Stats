@@ -13,7 +13,6 @@ module PlayerFilter
       dan_hof,
       dalton_hof,
       upcoming,
-      eligible_2016,
       eligible_2017,
       eligible_2018,
       eligible_2019,
@@ -65,10 +64,6 @@ module PlayerFilter
 
   def self.upcoming
     rating_above?(100) && not_hos? && !@player.hof && @player.eligibility == 'upcoming' ? 'upcoming' : nil
-  end
-
-  def self.eligible_2016
-    rating_above?(20) && @player.last_year == 2010 && @player.eligibility == 'upcoming' ? 'eligible-2016' : nil
   end
 
   def self.eligible_2017
