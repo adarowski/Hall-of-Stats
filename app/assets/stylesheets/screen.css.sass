@@ -1189,10 +1189,11 @@ article
       text-align: left
       width: auto
   td
-    &:last-child
-      color: $bad_color
-    strong
-      color: $good_color
+    body.consensus &
+      &:last-child
+        color: $bad_color
+      strong
+        color: $good_color
     span
       text-indent: -9999em
       display: inline-block
