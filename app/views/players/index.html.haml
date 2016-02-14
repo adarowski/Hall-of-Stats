@@ -4,8 +4,8 @@
 - content_for :title, "An alternate Hall of Fame populated by a mathematical formula"
 
 - content_for(:header_styles) do
-  - @players.each do |player|
-    = render partial: 'shared/bar_width_style', locals: { player: player }
+  - cache 'bar-width-styles' do
+    = render partial: 'shared/bar_width_style', collection: @players, as: :player
 
 = render 'shared/header'
 
@@ -26,72 +26,73 @@
     The Hall of Stats shows us what the Hall of Fame would look like if we removed all #{Player.in_hos.count} inductees and replaced them with the top #{Player.in_hos.count} eligible players in history, according to a mathematical formula.
     %a{:href => "/about"} (more)
 
-%section#players-with-rating
-  %h2
-    %a#show-filters{href: '#'}
-      = Player.in_hos.count
-      Hall of Stats Inductees
-  #filters{style: 'display: none;'}
-    %ul
-      %li
-        %a#show-hos{href: '#all'}
-          %span #{Player.in_hos.count}
-          Hall of Stats Inductees
-      - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+- cache 'ratings' do
+  %section#players-with-rating
+    %h2
+      %a#show-filters{href: '#'}
+        = Player.in_hos.count
+        Hall of Stats Inductees
+    #filters{style: 'display: none;'}
+      %ul
         %li
-          %a{id: "show-#{position}", href: "##{position}"}
-            %span= Player.in_hos.of_position(position).count
-            = PlayerDecorator::POSITIONS[position].pluralize
-      - non_position_filters.each do |key, text|
+          %a#show-hos{href: '#all'}
+            %span #{Player.in_hos.count}
+            Hall of Stats Inductees
+        - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+          %li
+            %a{id: "show-#{position}", href: "##{position}"}
+              %span= Player.in_hos.of_position(position).count
+              = PlayerDecorator::POSITIONS[position].pluralize
+        - non_position_filters.each do |key, text|
+          %li
+            - dash_key = key.to_s.gsub(/_/, '-')
+            %a{id: "show-#{dash_key}", href: "##{dash_key}"}
+              %span= Player.send(key).count
+              = text
         %li
-          - dash_key = key.to_s.gsub(/_/, '-')
-          %a{id: "show-#{dash_key}", href: "##{dash_key}"}
-            %span= Player.send(key).count
-            = text
-      %li
-        %a#show-hof{href: '#hof'}
-          %span #{Player.in_hof.count}
-          Hall of Fame Inductees
-      %li
-        %a#show-hom{href: '#hom'}
-          %span #{Player.in_hom.count}
-          Hall of Merit Inductees
-      %li
-        %a#show-personal-hof{href: '#personal-hof'}
-          %span #{Player.in_personal_hof.count}
-          Adam Darowski’s Personal Hall of Fame
-      %li
-        %a#show-ross-hof{href: '#ross-hof'}
-          %span #{Player.in_ross_hof.count}
-          Ross Carey’s Personal Hall of Fame
-      %li
-        %a#show-bryan-hof{href: '#bryan-hof'}
-          %span #{Player.in_bryan_hof.count}
-          Bryan O’Connor’s Personal Hall of Fame
-      %li
-        %a#show-dalton-hof{href: '#dalton-hof'}
-          %span #{Player.in_dalton_hof.count}
-          Dalton Mack’s Personal Hall of Fame
-      %li
-        %a#show-dan-hof{href: '#dan-hof'}
-          %span #{Player.in_dan_hof.count}
-          Dan’s McCloskey Personal Hall of Fame
+          %a#show-hof{href: '#hof'}
+            %span #{Player.in_hof.count}
+            Hall of Fame Inductees
+        %li
+          %a#show-hom{href: '#hom'}
+            %span #{Player.in_hom.count}
+            Hall of Merit Inductees
+        %li
+          %a#show-personal-hof{href: '#personal-hof'}
+            %span #{Player.in_personal_hof.count}
+            Adam Darowski’s Personal Hall of Fame
+        %li
+          %a#show-ross-hof{href: '#ross-hof'}
+            %span #{Player.in_ross_hof.count}
+            Ross Carey’s Personal Hall of Fame
+        %li
+          %a#show-bryan-hof{href: '#bryan-hof'}
+            %span #{Player.in_bryan_hof.count}
+            Bryan O’Connor’s Personal Hall of Fame
+        %li
+          %a#show-dalton-hof{href: '#dalton-hof'}
+            %span #{Player.in_dalton_hof.count}
+            Dalton Mack’s Personal Hall of Fame
+        %li
+          %a#show-dan-hof{href: '#dan-hof'}
+            %span #{Player.in_dan_hof.count}
+            Dan’s McCloskey Personal Hall of Fame
 
-  %ol#player-list
-    - @players.each do |player|
-      %li{id: safe_id(player.id), class: filter_data(player)}
-        = link_to player_path(player) do
-          %strong
-            #{player.name}
-          %em
-            - unless player.position == "npos"
-              #{player.position},
-            #{player.years_played}
-          %span
-            - if player.hall_rating > 99.49 && player.hall_rating < 100 && player.hos == false
-              = player.hall_rating.round(1)
-            - else
-              = player.hall_rating.round
+    %ol#player-list
+      - @players.each do |player|
+        %li{id: safe_id(player.id), class: filter_data(player)}
+          = link_to player_path(player) do
+            %strong
+              #{player.name}
+            %em
+              - unless player.position == "npos"
+                #{player.position},
+              #{player.years_played}
+            %span
+              - if player.hall_rating > 99.49 && player.hall_rating < 100 && player.hos == false
+                = player.hall_rating.round(1)
+              - else
+                = player.hall_rating.round
 
 = render 'shared/article_list'
 
