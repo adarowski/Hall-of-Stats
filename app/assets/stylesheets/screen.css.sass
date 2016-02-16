@@ -126,25 +126,6 @@ hr
         @media only screen and (min-width: 640px)
           font-size: 120%
 
-  #show-nav-link
-    display: none
-    font-size: 12px
-    text-transform: uppercase
-    font-weight: normal
-    background-color: fade_out(white, .6)
-    +border_radius(4px)
-    padding: 4px 6px
-    margin-top: 4px
-    color: white
-    line-height: 1
-    @media only screen and (max-width: 767px)
-      display: block
-      float: right
-
-  #search-link-container
-    @media only screen and (max-width: 767px)
-      display: none
-
   nav
     float: right
     list-style: none
@@ -166,7 +147,6 @@ hr
 
     @media only screen and (max-width: 767px)
       clear: both
-      display: none
       font-size: 85%
       float: none
 
@@ -409,7 +389,6 @@ hr
   input[type=search]::-webkit-search-results-button,
   input[type=search]::-webkit-search-results-decoration
     -webkit-appearance: none
-  display: none
 
   @media only screen and (max-width: 640px)
     font-size: 80%

@@ -27,11 +27,6 @@ $ ->
     e.preventDefault()
     $("#filters").slideToggle()
 
-  $("#show-nav-link").click (e) ->
-    e.preventDefault()
-    $(".global-header nav").slideToggle()
-    $("#search").slideToggle()
-
   $("#show-more-stats").click (e) ->
     e.preventDefault()
     $("#more-stats").slideToggle()
