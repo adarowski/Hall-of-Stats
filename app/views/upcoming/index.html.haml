@@ -1,0 +1,377 @@
+- content_for :title, "Upcoming Elections"
+
+= render 'shared/header'
+
+= render 'shared/search'
+
+%header.title
+  %h2 Upcoming Elections
+
+%figure.banner
+  %img{:src => "/assets/photos/ramirma02.jpg"}
+  %figcaption
+    That’s Manny Ramirez.
+    %a{:href => "https://www.flickr.com/photos/keithallison/2543388510/"} Photo Credit
+
+%article#upcoming-body.long-form
+  %p
+    With <a href="/articles/changes-to-era-committees">the recent changes to the Hall of Fame’s Era Committees</a>, it can be difficult to know who is eligible for the Hall of Fame and when. We’ll do our best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating.
+
+  %h3 2017
+
+  %p In 2017, fourteen players will return from the 2016 BBWAA ballot. The Today’s Game Era Committee will also meet for the first time, but <a href="/articles/eligible-for-todays-game-era-ballot">they won’t have a huge pool of players</a> to choose from.
+
+  %h4
+    BBWAA Ballot
+    %span (All Returning Candidates)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2017_returning.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2017_new.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Today’s Game Era Ballot
+    %span (Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @tg_era_2017.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2018
+
+  %p 2018 features an impressive new crop of BBWAA candidates. It also will be the first time the new Modern Baseball Era Committee meets. They’ll have their work cut out for them. The pool of players to choose from is <em>stacked</em>.
+
+  %h4
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2018_new.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Modern Baseball Era Ballot
+    %span (Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @mb_era_2018.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2019
+
+  %p 2019 features even more first-ballot Hall of Fame talent on the BBWAA ballot. There will also be a new wave of Today’s Game Era candidates who are newly eligible.
+
+  %h4
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2019_new.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Today’s Game Era Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @tg_era_2019.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2020 
+
+  %p Derek Jeter seems likely to headline the class of 2020. The Modern Baseball Era Committee will again meet. If Tim Raines fails to gain induction via the BBWAA in 2017, this will be his next chance.
+
+  %h4
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2020_new.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Modern Baseball Era Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @mb_era_2020.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2021
+
+  %p While it may be a relatively weak group of newcomers to the BBWAA ballot, two Era Committees actually meet in 2021. It will be the first meeting for the Golden Days Era Committee (which features a relatively thin pool of qualified players) and the Early Baseball Era Committee (which still has a surprisingly deep pool).
+
+  %h4
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @bbwaa_2021_new.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Golden Days Era Ballot
+    %span (Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @gd_era_2021.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h4
+    Early Baseball Era Ballot
+    %span (Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @eb_era_2021.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2022
+
+  %p We don’t yet know who the new BBWAA candidates in 2022 will be because they’re still active in 2016. But we do know the Today’s Game Era Committee will meet again and they’ll have many new strong candidates—particularly if Jeff Bagwell, Larry Walker, Edgar Martinez, and Fred McGriff miss BBWAA induction.
+
+  %h4
+    Today’s Game Era Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @tg_era_2022.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2023
+
+  %p In 2023, the Modern Baseball Era Committee will meet again, but they’ll have no new candidates to add to their enormous backlog.
+
+  %h3 2024
+
+  %p The Today’s Game Era Committee returns again. If Barry Bonds, Roger Clemens, Curt Schilling, Mike Mussina, Sammy Sosa, and Jeff Kent fail to gain induction via the BBWAA, they’ll all hit the ballot this year.
+
+  %h4
+    Today’s Game Era Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @tg_era_2024.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded
+
+  %h3 2025
+
+  %p The Modern Baseball Era Committee meets again with no new candidates.
+
+  %h3 2026
+
+  %p The Golden Days Era Committee will meet again, but the Early Baseball Era Committee will not (it meets once every ten years). There will be no new candidates.
+
+  %h3 2027
+
+  %p In this election cycle, the Today’s Game Era Committee will be able to consider players that are actually hitting the BBWAA ballot for the first time in 2017, which means we have now come full circle.
+
+  %h4
+    Today’s Game Era Ballot
+    %span (New Candidates with Hall Rating of 75+)
+
+  %table.left-align
+    %thead
+      %tr
+        %th Name
+        %th Position
+        %th Years
+        %th Hall Rating
+    %tbody
+      - @tg_era_2027.each do |ballot_player|
+        %tr
+          %th
+            %a{href: player_path(ballot_player)}= ballot_player.name
+          %td= ballot_player.position.upcase
+          %td
+            #{ballot_player.first_year}–#{ballot_player.last_year}
+          %td= ballot_player.hall_rating_rounded

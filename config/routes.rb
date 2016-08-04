@@ -10,6 +10,7 @@ Hos::Application.routes.draw do
   resources :articles
   resources :position
   resources :consensus
+  resources :upcoming
   resources :franchise, only: %w{ index show } do
     collection { get :charts, :all_data }
     member { get :render_list }

@@ -110,11 +110,258 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, not_in_hof.in_personal_hof
 
+  scope :bbwaa_2017_returning, not_in_hof.where("
+    id = 'bondsba01' or
+    id = 'clemero02' or
+    id = 'schilcu01' or
+    id = 'bagweje01' or
+    id = 'mussimi01' or
+    id = 'walkela01' or
+    id = 'piazzmi01' or
+    id = 'martied01' or
+    id = 'raineti01' or
+    id = 'sosasa01' or
+    id = 'sheffga01' or
+    id = 'kentje01' or
+    id = 'mcgrifr01' or
+    id = 'smithle02'
+  ")
+  scope :tg_era_2017, not_in_hof.where("
+    id = 'mcgwima01' or
+    id = 'saberbr01' or
+    id = 'clarkwi02' or
+    id = 'hershor01' or
+    id = 'violafr01' or
+    id = 'dykstle01' or
+    id = 'butlebr01' or
+    id = 'martide01' or
+    id = 'keyji01  ' or
+    id = 'darwida01' or
+    id = 'strawda01' or
+    id = 'phillto02' or
+    id = 'langsma01' or
+    id = 'candito01' or
+    id = 'hershor01' or
+    id = 'clarkwi02' or
+    id = 'whitede03' or
+    id = 'fernato01'
+  ")
+  scope :mb_era_2018, not_in_hof.where("
+    id = 'woodwi01' or
+    id = 'lolicmi01' or
+    id = 'whitero01' or
+    id = 'munsoth01' or
+    id = 'bandosa01' or
+    id = 'bondsbo01' or
+    id = 'tiantlu01' or
+    id = 'smithre06' or
+    id = 'kaatji01' or
+    id = 'campabe01' or
+    id = 'tenacge01' or
+    id = 'koosmje01' or
+    id = 'rogerst01' or
+    id = 'harrato01' or
+    id = 'fostege01' or
+    id = 'bluevi01' or
+    id = 'grichbo01' or
+    id = 'cedence01' or
+    id = 'porteda02' or
+    id = 'ceyro01' or
+    id = 'decindo01' or
+    id = 'nettlgr01' or
+    id = 'simmote01' or
+    id = 'cruzjo01' or
+    id = 'guidrro01' or
+    id = 'johnto01' or
+    id = 'evansda01' or
+    id = 'bellbu01' or
+    id = 'sundbji01' or
+    id = 'hernake01' or
+    id = 'lynnfr01' or
+    id = 'lemonch01' or
+    id = 'reuscri01' or
+    id = 'evansdw01' or
+    id = 'parkeda01' or
+    id = 'downibr01' or
+    id = 'randowi01' or
+    id = 'clarkja01' or
+    id = 'barfije01' or
+    id = 'tananfr01' or
+    id = 'candejo01' or
+    id = 'murphda05' or
+    id = 'wilsowi02' or
+    id = 'morrija02' or
+    id = 'welchbo01' or
+    id = 'whitalo01' or
+    id = 'parrila02' or
+    id = 'mattido01' or
+    id = 'trammal01' or
+    id = 'stiebda01' or
+    id = 'goodedw01'
+  ")
+  scope :tg_era_2019, not_in_hof.where("
+    id = 'rijojo01' or
+    id = 'finlech01' or
+    id = 'knoblch01' or
+    id = 'coneda01' or
+    id = 'willima04' or
+    id = 'gracema01'
+  ")
+  scope :mb_era_2020, not_in_hof.where("
+    id = 'raineti01'
+  ")
+  scope :gd_era_2021, not_in_hof.where("
+    id = 'dicksmu01' or
+    id = 'mcdougi01' or
+    id = 'garvene01' or
+    id = 'hodgegi01' or
+    id = 'piercbi02' or
+    id = 'jacksla01' or
+    id = 'colavro01' or
+    id = 'boyerke01' or
+    id = 'pascuca02' or
+    id = 'pappami01' or
+    id = 'cashno01' or
+    id = 'pinsova01' or
+    id = 'mcdowsa01' or
+    id = 'freehbi01' or
+    id = 'olivato01' or
+    id = 'wynnji01' or
+    id = 'allendi01' or
+    id = 'fregoji01' or
+    id = 'daviswi02' or
+    id = 'minosmi01'
+  ")
+  scope :eb_era_2021, not_in_hof.where("
+    id = 'barnero01' or
+    id = 'bondto01' or
+    id = 'startjo01' or
+    id = 'mathebo01' or
+    id = 'mccorji01' or
+    id = 'willine01' or
+    id = 'whitnji01' or
+    id = 'hinespa01' or
+    id = 'richaha01' or
+    id = 'gorege01' or
+    id = 'buffich01' or
+    id = 'bennech01' or
+    id = 'stoveha01' or
+    id = 'carutbo01' or
+    id = 'mullato01' or
+    id = 'brownpe01' or
+    id = 'glassja01' or
+    id = 'kingsi01' or
+    id = 'tiernmi01' or
+    id = 'stiveja01' or
+    id = 'smithel01' or
+    id = 'childcu01' or
+    id = 'breitte01' or
+    id = 'hahnno01' or
+    id = 'crossla01' or
+    id = 'orthal01' or
+    id = 'leevesa01' or
+    id = 'dahlebi01' or
+    id = 'tanneje01' or
+    id = 'powelja01' or
+    id = 'seymocy01' or
+    id = 'sheckji01' or
+    id = 'whitedo01' or
+    id = 'ruckena01' or
+    id = 'leachto01' or
+    id = 'mageesh01' or
+    id = 'doylela01' or
+    id = 'koneted01' or
+    id = 'vaughhi01' or
+    id = 'fletcar01' or
+    id = 'gardnla01' or
+    id = 'veachbo01' or
+    id = 'adamsba01' or
+    id = 'coopewi01' or
+    id = 'grohhe01' or
+    id = 'fournja01' or
+    id = 'shawkbo01' or
+    id = 'shockur01' or
+    id = 'willike01' or
+    id = 'maysca01' or
+    id = 'schanwa01' or
+    id = 'rommeed01' or
+    id = 'quinnja01' or
+    id = 'luquedo01' or
+    id = 'uhlege01' or
+    id = 'bergewa01' or
+    id = 'myerbu01' or
+    id = 'ferrewe01' or
+    id = 'frencla01' or
+    id = 'warnelo01' or
+    id = 'johnsbo01' or
+    id = 'camildo01' or
+    id = 'bridgto01' or
+    id = 'hardeme01' or
+    id = 'hackst01' or
+    id = 'passecl01' or
+    id = 'waltebu01' or
+    id = 'kellech01' or
+    id = 'newsobo01' or
+    id = 'leonadu02' or
+    id = 'elliobo01' or
+    id = 'brechha01' or
+    id = 'stephve01' or
+    id = 'troutdi01' or
+    id = 'truckvi01'
+  ")
+  scope :tg_era_2022, not_in_hof.where("
+    id = 'mcgrifr01' or
+    id = 'martied01' or
+    id = 'burksel01' or
+    id = 'venturo01' or
+    id = 'appieke01' or
+    id = 'palmera01' or
+    id = 'brownke01' or
+    id = 'leiteal01' or
+    id = 'walkela01' or
+    id = 'olerujo01' or
+    id = 'bagweje01' or
+    id = 'willibe02' or
+    id = 'radkebr01'
+  ")
+  scope :tg_era_2024, not_in_hof.where("
+    id = 'clemero02' or
+    id = 'bondsba01' or
+    id = 'wellsda01' or
+    id = 'schilcu01' or
+    id = 'sosasa01' or
+    id = 'finlest01' or
+    id = 'loftoke01' or
+    id = 'rogerke01' or
+    id = 'gonzalu01' or
+    id = 'mussimi01' or
+    id = 'kentje01'
+  ")
+  scope :tg_era_2027, not_in_hof.where("
+    id = 'sheffga01' or
+    id = 'delgaca01' or
+    id = 'gilesbr02' or
+    id = 'garcino01' or
+    id = 'edmonji01' or
+    id = 'kendaja01' or
+    id = 'vazquja01' or
+    id = 'rodriiv01' or
+    id = 'ramirma02' or
+    id = 'posadjo01' or
+    id = 'guerrvl01' or
+    id = 'drewj.01' or
+    id = 'camermi01'
+  ")
+  scope :bbwaa_2017_new, eligible_2017.where("hall_rating > 75")
+  scope :bbwaa_2018_new, eligible_2018.where("hall_rating > 75")
+  scope :bbwaa_2019_new, eligible_2019.where("hall_rating > 75")
+  scope :bbwaa_2020_new, eligible_2020.where("hall_rating > 75")
+  scope :bbwaa_2021_new, eligible_2021.where("hall_rating > 75")
+
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
   has_many :franchise_ratings
   has_many :franchises, through: :franchise_ratings
-
 
   before_save :set_compatibility_id
 
