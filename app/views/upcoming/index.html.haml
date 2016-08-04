@@ -15,7 +15,7 @@
 
 %article#upcoming-body.long-form
   %p
-    With <a href="/articles/changes-to-era-committees">the recent changes to the Hall of Fame’s Era Committees</a>, it can be difficult to know who is eligible for the Hall of Fame and when. I’ll do my best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating. The red and green icons indidate whether or not the player is in the Hall of Stats (HOS), Hall of Merit (HOM), or my Personal Hall of Fame (AD).
+    With <a href="/articles/changes-to-era-committees">the recent changes to the Hall of Fame’s Era Committees</a>, it can be difficult to know who is eligible for the Hall of Fame and when. I’ll do my best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating. The red and green icons indidate whether or not the player is in the Hall of Stats (HOS), Hall of Merit (HOM), or my Personal Hall of Fame (AD). A gray icon means the player is not yet eligible.
 
   %h3 2017
 
@@ -31,7 +31,7 @@
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  = render 'new_bbwaa_table', pool: @bbwaa_2017_new
+  = render 'upcoming_table', pool: @bbwaa_2017_new
 
   %h4
     Today’s Game Era Ballot
@@ -47,7 +47,7 @@
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  = render 'new_bbwaa_table', pool: @bbwaa_2018_new
+  = render 'upcoming_table', pool: @bbwaa_2018_new
 
   %h4
     Modern Baseball Era Ballot
@@ -63,7 +63,7 @@
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  = render 'new_bbwaa_table', pool: @bbwaa_2019_new
+  = render 'upcoming_table', pool: @bbwaa_2019_new
 
   %h4
     Today’s Game Era Ballot
@@ -79,7 +79,7 @@
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  = render 'new_bbwaa_table', pool: @bbwaa_2020_new
+  = render 'upcoming_table', pool: @bbwaa_2020_new
 
   %h4
     Modern Baseball Era Ballot
@@ -95,7 +95,7 @@
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  = render 'new_bbwaa_table', pool: @bbwaa_2021_new
+  = render 'upcoming_table', pool: @bbwaa_2021_new
 
   %h4
     Golden Days Era Ballot
