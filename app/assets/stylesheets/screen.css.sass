@@ -133,12 +133,22 @@ hr
       display: inline-block
       margin: 0
       padding: 7px 0 0
+      @media only screen and (max-width: 767px)
+        width: 100%
     li
-      padding-left: 5px
+      padding-right: 5px
       display: inline-block
       font-size: 85%
-      &:first-child
-        padding-left: 0
+      &:last-child
+        padding-right: 0
+      &.about
+        @media only screen and (max-width: 767px)
+          float: right
+          margin-top: -28px
+          padding-right: 0
+          a
+            &:link, &:visited
+              color: white
     a
       &:link, &:visited
         color: fade_out(white, 0.4)
