@@ -124,6 +124,7 @@ class Player < ActiveRecord::Base
     id = 'sheffga01' or
     id = 'kentje01' or
     id = 'mcgrifr01' or
+    id = 'hoffmtr01' or
     id = 'smithle02'
   ")
   scope :tg_era_2017, not_in_hof.where("
