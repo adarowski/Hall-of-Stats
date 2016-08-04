@@ -1161,18 +1161,14 @@ article
       p
         clear: left
 
-.consensus-table
+.consensus-table,
+.upcoming-table
   th
     width: 8%
     &:first-child
       text-align: left
       width: auto
   td
-    body.consensus &
-      &:last-child
-        color: $bad_color
-      strong
-        color: $good_color
     span
       text-indent: -9999em
       display: inline-block
@@ -1183,6 +1179,21 @@ article
       background-color: fade_out($bad_color, .2)
   .true
     background-color: fade_out($good_color, .2)
+
+.consensus-table
+  td
+    body.consensus &
+      &:last-child
+        color: $bad_color
+      strong
+        color: $good_color
+
+.upcoming-table
+  th, td
+    &:nth-child(2),
+    &:nth-child(3)
+      width: auto
+      text-align: left
 
 #article-50
   table

@@ -15,7 +15,7 @@
 
 %article#upcoming-body.long-form
   %p
-    With <a href="/articles/changes-to-era-committees">the recent changes to the Hall of Fame’s Era Committees</a>, it can be difficult to know who is eligible for the Hall of Fame and when. We’ll do our best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating.
+    With <a href="/articles/changes-to-era-committees">the recent changes to the Hall of Fame’s Era Committees</a>, it can be difficult to know who is eligible for the Hall of Fame and when. I’ll do my best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating. The red and green icons indidate whether or not the player is in the Hall of Stats (HOS), Hall of Merit (HOM), or my Personal Hall of Fame (AD).
 
   %h3 2017
 
@@ -25,22 +25,35 @@
     BBWAA Ballot
     %span (All Returning Candidates)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @bbwaa_2017_returning.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h4
     BBWAA Ballot
@@ -67,22 +80,35 @@
     Today’s Game Era Ballot
     %span (Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @tg_era_2017.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2018
 
@@ -113,22 +139,35 @@
     Modern Baseball Era Ballot
     %span (Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @mb_era_2018.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2019
 
@@ -159,22 +198,35 @@
     Today’s Game Era Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @tg_era_2019.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2020 
 
@@ -205,22 +257,35 @@
     Modern Baseball Era Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @mb_era_2020.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2021
 
@@ -251,43 +316,69 @@
     Golden Days Era Ballot
     %span (Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @gd_era_2021.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h4
     Early Baseball Era Ballot
     %span (Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @eb_era_2021.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2022
 
@@ -297,22 +388,35 @@
     Today’s Game Era Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @tg_era_2022.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2023
 
@@ -326,22 +430,35 @@
     Today’s Game Era Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @tg_era_2024.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
 
   %h3 2025
 
@@ -359,19 +476,32 @@
     Today’s Game Era Ballot
     %span (New Candidates with Hall Rating of 75+)
 
-  %table.left-align
+  %table.upcoming-table
     %thead
       %tr
-        %th Name
+        %th
+          Name
+          %small (Hall Rating)
         %th Position
         %th Years
-        %th Hall Rating
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+        %th
+          %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
     %tbody
       - @tg_era_2027.each do |ballot_player|
         %tr
           %th
             %a{href: player_path(ballot_player)}= ballot_player.name
+            %small (#{ballot_player.hall_rating_rounded})
           %td= ballot_player.position.upcase
           %td
             #{ballot_player.first_year}–#{ballot_player.last_year}
-          %td= ballot_player.hall_rating_rounded
+          %td
+            %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.hos}= ballot_player.hos
+          %td
+            %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.hom}= ballot_player.hom
+          %td
+            %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.personal_hof}= ballot_player.personal_hof
