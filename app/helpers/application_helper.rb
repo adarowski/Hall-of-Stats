@@ -72,4 +72,11 @@ module ApplicationHelper
     render partial: 'shared/top_five_list',
       locals: { list: list, title: title, class_name: class_name }
   end
+
+  MAX_HALL_RATING = Player.maximum("hall_rating")
+  def bar_width(player, attribute=:hall_rating)
+    width = player.public_send(attribute).to_f / MAX_HALL_RATING * 100
+
+    "width: #{width}%"
+  end
 end

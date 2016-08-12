@@ -1,0 +1,4 @@
+#<%= safe_id(player.id) %>:after { <%= bar_width(player) %> }
+<% if player.respond_to?(:franchise_hall_rating) -%>
+#<%= safe_id(player.id) %>:before { <%= bar_width(player, :franchise_hall_rating) %> }
+<% end -%>
