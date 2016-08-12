@@ -75,7 +75,7 @@ module ApplicationHelper
 
   MAX_HALL_RATING = Player.maximum("hall_rating")
   def bar_width(player, attribute=:hall_rating)
-    width = player.public_send(attribute).to_f / MAX_HALL_RATING * 100
+    width = (player.public_send(attribute).to_f || 0) / MAX_HALL_RATING * 100
 
     "width: #{width}%"
   end
