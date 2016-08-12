@@ -1,5 +1,5 @@
 :sass
-  $max_hall_rating: 395
+  $max_hall_rating: 395.477
 
   =bar_width($hall_rating)
     width: ($hall_rating/$max_hall_rating)*100%
@@ -9,7 +9,7 @@
 
 - if player.respond_to?(:franchise_hall_rating)
   :sass
-    $max_hall_rating: 395
+    $max_hall_rating: 395.477
 
     =franchise_bar_width($hall_rating)
       width: ($hall_rating/$max_hall_rating)*100%

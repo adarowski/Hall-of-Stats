@@ -1,25 +1,3 @@
-%style{:type => 'text/css'}
-  :sass
-    $max_hall_rating: 395
-
-    =bar_width($hall_rating)
-      width: ($hall_rating/$max_hall_rating)*100%
-
-    ##{safe_id(player.id)}:after
-      +bar_width(#{player.hall_rating.to_f})
-
-- if player.respond_to?(:franchise_hall_rating)
-  %style{:type => 'text/css'}
-    :sass
-      $max_hall_rating: 395
-
-      =franchise_bar_width($hall_rating)
-        width: ($hall_rating/$max_hall_rating)*100%
-
-      ##{safe_id(player.id)}:before
-        +franchise_bar_width(#{player.franchise_hall_rating.to_f || 0.0})
-
-
 %li{id: safe_id(player.id), class: filter_data(player) + ['franchise']}
   = link_to player_path(player) do
     %strong
