@@ -5,7 +5,8 @@
 
 - content_for(:header_styles) do
   - cache 'bar-width-styles' do
-    = render partial: 'shared/bar_width_style', collection: @players, as: :player
+    %style{:type => 'text/css'}
+      = render partial: 'shared/bar_width_style', collection: @players, as: :player
 
 = render 'shared/header'
 

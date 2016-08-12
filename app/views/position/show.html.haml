@@ -1,8 +1,9 @@
 - content_for :title, @position_name + " Rankings"
 
 - content_for(:header_styles) do
-  - @players.each do |player|
-    = render partial: 'shared/bar_width_style', locals: { player: player }
+  %style{:type => 'text/css'}
+    - @players.each do |player|
+      = render partial: 'shared/bar_width_style', locals: { player: player }
 
 = render 'shared/header'
 

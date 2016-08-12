@@ -9,7 +9,8 @@
 
 - content_for(:header_styles) do
   - cache [ 'franchise', @franchise.id, 'bar-width-styles'] do
-    = render partial: 'shared/bar_width_style', collection: @players, as: :player
+    %style{:type => 'text/css'}
+      = render partial: 'shared/bar_width_style', collection: @players, as: :player
 
 - content_for :header_scripts do
   :javascript
