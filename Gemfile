@@ -37,6 +37,7 @@ gem 'touchpunch-rails'
 
 group :development, :test do
   gem "rspec-rails"
+  gem 'rspec-its'
   gem 'quiet_assets'
 end
 
