@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140304023032) do
+ActiveRecord::Schema.define(:version => 20160813153008) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -130,9 +130,11 @@ ActiveRecord::Schema.define(:version => 20140304023032) do
     t.string   "nickname"
     t.integer  "hof_year"
     t.string   "hof_via"
+    t.string   "era_committee"
   end
 
   add_index "players", ["cover_model"], :name => "index_players_on_cover_model"
+  add_index "players", ["era_committee"], :name => "index_players_on_era_committee"
   add_index "players", ["id"], :name => "index_players_on_id", :unique => true
 
   create_table "season_stats", :id => false, :force => true do |t|
