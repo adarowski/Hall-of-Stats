@@ -1,24 +1,34 @@
 ActiveAdmin.register Player do
+  permit_params :eligibility, :first_name, :nickname, :hall_rating, :hof, :hos, :hom, :id,
+    :last_name, :peak_pct, :position, :waa0_tot, :war162_tot, :wwar,
+    :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
+    :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
+    :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
+    :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
+    :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings
+
   controller do
     with_role :admin
     defaults finder: :find_by_compatibility_id
-  end
 
-  # oh no... see also find_by_compatibility_id above
-  around_filter do |controller, action|
-    Player.class_eval do
-      alias :__active_admin_to_param :to_param
-      def to_param() compatibility_id end
+    def create
+      @player = Player.new(permitted_params[:player])
+      if @player.save
+        redirect_to admin_player_path(@player)
+      end
     end
 
-    begin
-      action.call
-    ensure
-      Player.class_eval do
-        alias :to_param :__active_admin_to_param
+    def update
+      @player = Player.find(params[:id])
+      if @player.update(permitted_params[:player])
+        redirect_to admin_player_path(@player)
       end
     end
   end
+
+  remove_filter :season_stats
+  remove_filter :franchise_ratings
+  remove_filter :similarity_scores
 
   index do
     column :first_name
@@ -26,7 +36,7 @@ ActiveAdmin.register Player do
     column :eligibility
     column :bio
 
-    default_actions
+    actions
   end
 
   collection_action :preview_markdown, :method => :post do
@@ -103,6 +113,6 @@ ActiveAdmin.register Player do
       f.input :bio
     end
 
-    f.buttons
+    actions
   end
 end
