@@ -1,7 +1,7 @@
-class PlayerDecorator < Draper::Base
+class PlayerDecorator < Draper::Decorator
   decorates :player
 
-  delegate :name, to: :player
+  delegate_all
 
   POSITIONS = {
     'c' => 'Catcher',
@@ -126,7 +126,7 @@ class PlayerDecorator < Draper::Base
       hsh
     end
   end
-  
+
   def season_stat_totals_for_styling
     season_stats.inject({}) do |hsh, ss|
       hsh[ss.year] ||= {war: 0, waa: 0}
@@ -140,7 +140,7 @@ class PlayerDecorator < Draper::Base
     [
       player.name,
       "#{player.name} stats",
-      position_name, 
+      position_name,
       ("Hall of Fame" if player.hof),
       ("Hall of Stats" if player.hos),
       "Sabermetrics"
