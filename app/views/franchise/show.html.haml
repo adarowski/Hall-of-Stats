@@ -61,54 +61,54 @@
   %section#players-with-rating.franchise-players{ 'data-franchise' => @franchise.id }
     %h2.franchise-player
       %a#show-filters{href: '#'}
-        #{@players.count} Greatest #{@franchise.name}
+        #{@players.count(:all)} Greatest #{@franchise.name}
     #filters-ajax{style: 'display: none;'}
       %ul
         %li
           %a#show-franchise{href: '#franchise'}
-            %span #{@players.count} 
+            %span #{@players.count(:all)}
             Greatest #{@franchise.name}
 
         %li
           %a#show-hos{href: '#hos'}
-            %span #{@players.in_hos.count}
+            %span #{@players.in_hos.count(:all)}
             Hall of Stats Inductees
         - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
           %li
             %a{id: "show-#{position}", href: "##{position}"}
               - if position == 'p'
-                %span= @franchise.players.of_position(position).limit(200).count
+                %span= @franchise.players.of_position(position).limit(200).count(:all)
                 Best #{PlayerDecorator::POSITIONS[position].pluralize}
               - else
-                %span= @franchise.players.of_position(position).count
+                %span= @franchise.players.of_position(position).count(:all)
                 = PlayerDecorator::POSITIONS[position].pluralize
         %li
           %a#show-hof{href: '#hof'}
-            %span #{@players.in_hof.count}
+            %span #{@players.in_hof.count(:all)}
             Hall of Fame Inductees
         %li
           %a#show-hom{href: '#hom'}
-            %span #{@players.in_hom.count}
+            %span #{@players.in_hom.count(:all)}
             Hall of Merit Inductees
         %li
           %a#show-personal-hof{href: '#personal-hof'}
-            %span #{@players.in_personal_hof.count}
+            %span #{@players.in_personal_hof.count(:all)}
             Adam Darowski’s Personal Hall of Fame
         %li
           %a#show-ross-hof{href: '#ross-hof'}
-            %span #{@players.in_ross_hof.count}
+            %span #{@players.in_ross_hof.count(:all)}
             Ross Carey’s Personal Hall of Fame
         %li
           %a#show-bryan-hof{href: '#bryan-hof'}
-            %span #{@players.in_bryan_hof.count}
+            %span #{@players.in_bryan_hof.count(:all)}
             Bryan O’Connor’s Personal Hall of Fame
         %li
           %a#show-dalton-hof{href: '#dalton-hof'}
-            %span #{@players.in_dalton_hof.count}
+            %span #{@players.in_dalton_hof.count(:all)}
             Dalton Mack’s Personal Hall of Fame
         %li
           %a#show-dan-hof{href: '#dan-hof'}
-            %span #{@players.in_dan_hof.count}
+            %span #{@players.in_dan_hof.count(:all)}
             Dan McCloskey’s Personal Hall of Fame
 
     %ol#player-list

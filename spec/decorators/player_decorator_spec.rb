@@ -3,8 +3,8 @@ require 'spec_helper'
 describe PlayerDecorator do
   describe '#position_name' do
     it "converts the abbreviated position to words" do
-      PlayerDecorator.new(mock(position: 'c')).position_name.should == 'Catcher'
-      PlayerDecorator.new(mock(position: '2b')).position_name.should == 'Second Baseman'
+      expect(PlayerDecorator.new(double(position: 'c')).position_name).to eq 'Catcher'
+      expect(PlayerDecorator.new(double(position: '2b')).position_name).to eq 'Second Baseman'
     end
   end
 

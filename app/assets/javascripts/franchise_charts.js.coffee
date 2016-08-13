@@ -1,6 +1,6 @@
 $ ->
   drawChart = (my_data, div) ->
-    margin = { top: 32, right: 30, bottom: 30, left: 30 }
+    margin = { top: 31, right: 30, bottom: 30, left: 30 }
     height = 150 - margin.top - margin.bottom
     width = 750 - margin.left - margin.right
 
@@ -93,7 +93,7 @@ $ ->
         $(@).css('fill', 'none')
         $('.tooltip').hide()
       )
-  
+
   drawChart(my_data, 'svg#total')
   data = all_time_team_data
 

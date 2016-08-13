@@ -1,10 +1,10 @@
 class Article < ActiveRecord::Base
   paginates_per 10
 
-  attr_accessible :body, :published, :title, :slug, :published_at, as: :admin
+  #attr_accessible :body, :published, :title, :slug, :published_at, as: :admin
 
-  scope :published, where("published_at is not null")
-  scope :by_published_at, order("published_at desc")
+  scope :published, ->{ where("published_at is not null") }
+  scope :by_published_at, ->{ order("published_at desc") }
 
   before_save :set_associated_players
   before_save :set_published_at, if: :published?
