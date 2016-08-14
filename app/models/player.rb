@@ -110,178 +110,39 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, not_in_hof.in_personal_hof
 
+  scope :banned_from_mlb, not_in_hof.where("
+    id = 'jacksjo01' OR
+    id = 'rosepe01' OR
+    id = 'cicoted01'
+  ")
+
   scope :bbwaa_2017_returning, not_in_hof.where("
-    id = 'bondsba01' or
-    id = 'clemero02' or
-    id = 'schilcu01' or
-    id = 'bagweje01' or
-    id = 'mussimi01' or
-    id = 'walkela01' or
-    id = 'piazzmi01' or
-    id = 'martied01' or
-    id = 'raineti01' or
-    id = 'sosasa01' or
-    id = 'sheffga01' or
-    id = 'kentje01' or
-    id = 'mcgrifr01' or
-    id = 'hoffmtr01' or
+    id = 'bondsba01' OR
+    id = 'clemero02' OR
+    id = 'schilcu01' OR
+    id = 'bagweje01' OR
+    id = 'mussimi01' OR
+    id = 'walkela01' OR
+    id = 'piazzmi01' OR
+    id = 'martied01' OR
+    id = 'raineti01' OR
+    id = 'sosasa01' OR
+    id = 'sheffga01' OR
+    id = 'kentje01' OR
+    id = 'mcgrifr01' OR
+    id = 'hoffmtr01' OR
     id = 'smithle02'
   ")
-  scope :tg_era_2017, not_in_hof.where("
-    id = 'mcgwima01' or
-    id = 'saberbr01' or
-    id = 'clarkwi02' or
-    id = 'hershor01' or
-    id = 'violafr01' or
-    id = 'dykstle01' or
-    id = 'butlebr01' or
-    id = 'martide01' or
-    id = 'keyji01  ' or
-    id = 'darwida01' or
-    id = 'strawda01' or
-    id = 'phillto02' or
-    id = 'langsma01' or
-    id = 'candito01' or
-    id = 'hershor01' or
-    id = 'clarkwi02' or
-    id = 'whitede03' or
-    id = 'fernato01'
-  ")
-  scope :mb_era_2018, not_in_hof.where("
-    id = 'woodwi01' or
-    id = 'lolicmi01' or
-    id = 'whitero01' or
-    id = 'munsoth01' or
-    id = 'bandosa01' or
-    id = 'bondsbo01' or
-    id = 'tiantlu01' or
-    id = 'smithre06' or
-    id = 'kaatji01' or
-    id = 'campabe01' or
-    id = 'tenacge01' or
-    id = 'koosmje01' or
-    id = 'rogerst01' or
-    id = 'harrato01' or
-    id = 'fostege01' or
-    id = 'bluevi01' or
-    id = 'grichbo01' or
-    id = 'cedence01' or
-    id = 'porteda02' or
-    id = 'ceyro01' or
-    id = 'decindo01' or
-    id = 'nettlgr01' or
-    id = 'simmote01' or
-    id = 'cruzjo01' or
-    id = 'guidrro01' or
-    id = 'johnto01' or
-    id = 'evansda01' or
-    id = 'bellbu01' or
-    id = 'sundbji01' or
-    id = 'hernake01' or
-    id = 'lynnfr01' or
-    id = 'lemonch01' or
-    id = 'reuscri01' or
-    id = 'evansdw01' or
-    id = 'parkeda01' or
-    id = 'downibr01' or
-    id = 'randowi01' or
-    id = 'clarkja01' or
-    id = 'barfije01' or
-    id = 'tananfr01' or
-    id = 'candejo01' or
-    id = 'murphda05' or
-    id = 'wilsowi02' or
-    id = 'morrija02' or
-    id = 'welchbo01' or
-    id = 'whitalo01' or
-    id = 'parrila02' or
-    id = 'mattido01' or
-    id = 'trammal01' or
-    id = 'stiebda01' or
-    id = 'goodedw01'
-  ")
-  scope :tg_era_2019, not_in_hof.where("
-    id = 'rijojo01' or
-    id = 'finlech01' or
-    id = 'knoblch01' or
-    id = 'coneda01' or
-    id = 'willima04' or
-    id = 'gracema01'
-  ")
-  scope :mb_era_2020, not_in_hof.where("
-    id = 'raineti01'
-  ")
-  scope :gd_era_2021, not_in_hof.where("
-    id = 'dicksmu01' or
-    id = 'mcdougi01' or
-    id = 'garvene01' or
-    id = 'hodgegi01' or
-    id = 'piercbi02' or
-    id = 'jacksla01' or
-    id = 'colavro01' or
-    id = 'boyerke01' or
-    id = 'pascuca02' or
-    id = 'pappami01' or
-    id = 'cashno01' or
-    id = 'pinsova01' or
-    id = 'mcdowsa01' or
-    id = 'freehbi01' or
-    id = 'olivato01' or
-    id = 'wynnji01' or
-    id = 'allendi01' or
-    id = 'fregoji01' or
-    id = 'daviswi02' or
-    id = 'minosmi01'
-  ")
+
+  scope :tg_era_2017, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2001")
+  scope :mb_era_2018, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2001")
+  scope :tg_era_2019, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2003 AND last_year >= 2002")
+  scope :mb_era_2020, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2003 AND last_year >= 2002")
+  scope :gd_era_2021, not_in_hof.where("era_committee = 'golden_days'")
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball'")
-  scope :tg_era_2022, not_in_hof.where("
-    id = 'mcgrifr01' or
-    id = 'martied01' or
-    id = 'burksel01' or
-    id = 'venturo01' or
-    id = 'appieke01' or
-    id = 'palmera01' or
-    id = 'brownke01' or
-    id = 'leiteal01' or
-    id = 'walkela01' or
-    id = 'olerujo01' or
-    id = 'bagweje01' or
-    id = 'willibe02' or
-    id = 'radkebr01'
-  ")
-  scope :tg_era_2024, not_in_hof.where("
-    id = 'clemero02' or
-    id = 'bondsba01' or
-    id = 'wellsda01' or
-    id = 'schilcu01' or
-    id = 'sosasa01' or
-    id = 'finlest01' or
-    id = 'loftoke01' or
-    id = 'rogerke01' or
-    id = 'gonzalu01' or
-    id = 'mussimi01' or
-    id = 'kentje01'
-  ")
-  scope :tg_era_2027, not_in_hof.where("
-    id = 'sheffga01' or
-    id = 'delgaca01' or
-    id = 'gilesbr02' or
-    id = 'garcino01' or
-    id = 'edmonji01' or
-    id = 'kendaja01' or
-    id = 'vazquja01' or
-    id = 'rodriiv01' or
-    id = 'ramirma02' or
-    id = 'posadjo01' or
-    id = 'guerrvl01' or
-    id = 'drewj.01' or
-    id = 'camermi01'
-  ")
-  scope :bbwaa_2017_new, eligible_2017.where("hall_rating > 75")
-  scope :bbwaa_2018_new, eligible_2018.where("hall_rating > 75")
-  scope :bbwaa_2019_new, eligible_2019.where("hall_rating > 75")
-  scope :bbwaa_2020_new, eligible_2020.where("hall_rating > 75")
-  scope :bbwaa_2021_new, eligible_2021.where("hall_rating > 75")
+  scope :tg_era_2022, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2006 AND last_year >= 2004")
+  scope :tg_era_2024, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2008 AND last_year >= 2007")
+  scope :tg_era_2027, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009")
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
