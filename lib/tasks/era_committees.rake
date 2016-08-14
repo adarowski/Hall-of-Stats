@@ -2,6 +2,8 @@ namespace :era_committee do
   desc 'Populate the era committees for players'
   task populate: :environment do
     Player.connection.execute %{
+      UPDATE players SET era_committee = NULL;
+
       WITH era_stats AS (
         SELECT SUM(season_stats.hall_rating) AS rating,
         player_id,
@@ -10,7 +12,6 @@ namespace :era_committee do
           WHEN year > 1969 AND year <= 1987 THEN 'modern_baseball'
           ELSE 'todays_game'
           END AS era,
-
         CASE WHEN year <= 1949 THEN 1
           WHEN year > 1949 AND year <= 1969 THEN 2
           WHEN year > 1969 AND year <= 1987 THEN 3
@@ -20,6 +21,7 @@ namespace :era_committee do
         FROM season_stats
         JOIN players ON players.id = season_stats.player_id
         WHERE players.eligibility = 'eligible'
+        AND players.hof = false
         AND players.hall_rating > 20
 
         GROUP BY era, era_tiebreaker, player_id
