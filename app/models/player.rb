@@ -144,7 +144,11 @@ class Player < ActiveRecord::Base
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball'")
   scope :tg_era_2022, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2006 AND last_year >= 2004")
   scope :tg_era_2024, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2008 AND last_year >= 2007")
-  scope :tg_era_2027, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009")
+  scope :tg_era_2027, -> {
+    where("ID IN (?) OR ID IN (?)",
+      not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009"),
+      eligible_2017)
+  }
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'
