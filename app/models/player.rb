@@ -116,6 +116,8 @@ class Player < ActiveRecord::Base
     id = 'cicoted01'
   ")
 
+  scope :not_banned, -> { where("ID NOT IN (?)", banned_from_mlb) }
+
   scope :bbwaa_2017_returning, not_in_hof.where("
     id = 'bondsba01' OR
     id = 'clemero02' OR
