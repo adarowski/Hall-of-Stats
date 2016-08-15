@@ -61,6 +61,9 @@
         - if @player.alt_hof == 'nl'
           Major League
         player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+    - if @bbwaa_2017_returning
+      %dt.alt-hof Next Ballot
+      %dd.alt-hof #{@player.first_name} #{@player.last_name} is returning to the BBWAA ballot in 2017.
     - if @player.era_committee?
       %dt.alt-hof Next Ballot
       %dd.alt-hof

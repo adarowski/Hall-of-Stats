@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = PlayerDecorator.new(Player.find(params[:id]))
+    @bbwaa_2017_returning = Player.bbwaa_2017_returning
   end
 
   def autocomplete
