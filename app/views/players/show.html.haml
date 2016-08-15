@@ -64,7 +64,7 @@
     - if @bbwaa_2017_returning
       %dt.alt-hof Next Ballot
       %dd.alt-hof #{@player.first_name} #{@player.last_name} is returning to the BBWAA ballot in 2017.
-    - elsif @player.era_committee?
+    - elsif @player.era_committee
       %dt.alt-hof Next Ballot
       %dd.alt-hof
         Next eligible for the Hall of Fame via the #{@player.era_committee_name} Era Committee ballot
