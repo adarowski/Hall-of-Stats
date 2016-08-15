@@ -61,6 +61,16 @@
         - if @player.alt_hof == 'nl'
           Major League
         player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+    - if @player.era_committee?
+      %dt.alt-hof Next Ballot
+      %dd.alt-hof
+        Next eligible for the Hall of Fame via the #{@player.era_committee_name} Era Committee ballot
+        - if @player.era_committee == 'modern_baseball'
+          in 2018.
+        - elsif @player.era_committee == 'todays_game'
+          in 2017.
+        - else
+          in 2021.
 
   - if @player.has_photo?
     %figure.portrait

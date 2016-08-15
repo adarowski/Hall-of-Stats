@@ -26,6 +26,13 @@ class PlayerDecorator < Draper::Base
     'nl' => 'Negro League player'
   }
 
+  ERA_COMMITTEES = {
+    'early_baseball' => 'Early Baseball',
+    'golden_days' => 'Golden Days',
+    'modern_baseball' => 'Modern Baseball',
+    'todays_game' => 'Today’s Game'
+  }
+
  HOF_VIAS = {
     'bbwaa' => 'BBWAA',
     'veterans' => 'Veterans',
@@ -45,6 +52,10 @@ class PlayerDecorator < Draper::Base
 
   def alt_hof_name
     ALT_HOFS[player.alt_hof]
+  end
+
+  def era_committee_name
+    ERA_COMMITTEES[player.era_committee]
   end
 
   def hof_via_name
