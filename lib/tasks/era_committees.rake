@@ -23,6 +23,7 @@ namespace :era_committee do
         WHERE players.eligibility = 'eligible'
         AND players.hof = false
         AND players.hall_rating > 20
+        AND players.alt_hof is NULL
 
         GROUP BY era, era_tiebreaker, player_id
       ),
