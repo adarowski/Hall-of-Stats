@@ -55,19 +55,25 @@
       %dd.upcoming
         #{@player.first_name} #{@player.last_name} won’t be eligible for induction until #{@player.last_year + 6}, but he is Hall-worthy.
     - if @player.alt_hof?
-      %dt.alt-hof Induction Note
-      %dd.alt-hof
+      %dt.eligibility-note Induction Note
+      %dd.eligibility-note
         #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
         - if @player.alt_hof == 'nl'
           Major League
         player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+    - if @player.eligibility == "banned"
+      - if @player.hall_rating > 100
+        %dt.banned Banned
+      - else
+        %dt.eligibility-note Banned
+      %dd.eligibility-note #{@player.first_name} #{@player.last_name} isn’t eligible for the Hall of Fame or the Hall of Stats because he is banned from baseball.
     - if @bbwaa_2017_returning
-      %dt.alt-hof Next Ballot
-      %dd.alt-hof #{@player.first_name} #{@player.last_name} is returning to the BBWAA ballot in 2017.
+      %dt.eligibility-note Next Ballot
+      %dd.eligibility-note #{@player.first_name} #{@player.last_name} is returning to the BBWAA ballot in 2017.
     - elsif @player.era_committee
-      %dt.alt-hof Next Ballot
-      %dd.alt-hof
-        Next eligible for the Hall of Fame via the #{@player.era_committee_name} Era Committee ballot
+      %dt.eligibility-note Next Ballot
+      %dd.eligibility-note
+        #{@player.first_name} #{@player.last_name} is next eligible for the Hall of Fame via the #{@player.era_committee_name} Era Committee
         - if @player.era_committee == 'modern_baseball'
           - if @player.last_year >= 2001
             in 2020.

@@ -215,17 +215,17 @@ hr
       a
         +responsive_pill
         display: block
-    .hall-rating, dt.upcoming, dt.active
+    .hall-rating, dt.upcoming, dt.active, dt.banned
       margin: 10px 0
       +responsive_pill
     dt
-      &.position, &.years, &.alt-hof
+      &.position, &.years, &.eligibility-note
         +off_left
       &.hall-rating
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
-      &.hall-of-fame, &.hall-of-stats, &.hall-of-merit, &.upcoming, &.active
+      &.hall-of-fame, &.hall-of-stats, &.hall-of-merit, &.upcoming, &.active, &.banned
         background-color: fade_out($good_color, 0.2)
         +border_radius(5px)
         @media only screen and (max-width : 480px)
@@ -237,6 +237,8 @@ hr
           font-weight: normal
           font-size: 85%
           color: fade_out(white, .2)
+      &.banned
+        background-color: fade_out($bad_color, 0.2)
 
     dd
       margin: 0
@@ -261,7 +263,7 @@ hr
           margin-right: 10px
       &.hall-of-fame, &.hall-of-stats, &.hall-of-merit
         +off_left
-      &.alt-hof, &.upcoming, &.active
+      &.eligibility-note, &.upcoming, &.active
         padding-bottom: 20px
         font-size: 85%
         @media only screen and (max-width : 480px)

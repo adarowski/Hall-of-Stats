@@ -37,7 +37,7 @@
 
       There are #{Player.in_hos.count} players in the Hall of Fame based on their MLB careers. According to the Hall of Stats, Blyleven ranks #@blylebe01:ranking_hos among eligible players. He should have breezed into the Hall, but instead it took fourteen tries. @schilcu01 ranks #@schilcu01:ranking_hos. @bagweje01 ranks #@bagweje01:ranking_hos. @loftoke01—who received less than 5% of the vote—ranks #@loftoke01:ranking_hos. There’s no reason to keep these players out of the Hall of Fame… if you look at things objectively.
 
-      That’s what the Hall of Stats does. It ignores anything that happened off the field—PEDs, lifetime bans, MVP awards, etc. The Hall of Stats takes the current number of players in Cooperstown (#{Player.in_hos.count}), kicks everybody out, and re-populates itself with the top #{Player.in_hos.count} players according to Hall Rating. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
+      That’s what the Hall of Stats does. It ignores anything that happened off the field. The Hall of Stats takes the current number of players in Cooperstown (#{Player.in_hos.count}), kicks everybody out, and re-populates itself with the top #{Player.in_hos.count} players according to Hall Rating. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
 
       Hall Rating is based on Wins Above Replacement (WAR) and Wins Above Average (WAA) from [Baseball-Reference](http://baseball-reference.com). A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 so the Hall of Stats borderline is represented by a Hall Rating of 100.
 
@@ -153,8 +153,8 @@
       * All data is based on the [Baseball-Reference](http://baseball-reference.com) version of Wins Above Replacement (WAR). This version was originally created by Sean Smith (aka RallyMonkey) and made available at [BaseballProjection.com](http://baseballprojection.com).
       * I also utilized the [Sean Lahman Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/) for things not made available in Baseball-Reference’s WAR downloads.
       * The number of Hall of Stats inductees is kept consistent with the Hall of Fame (#{Player.in_hos.count} inducted as players). This is to show the difference in quality between the two Halls from top to bottom.
-      * The Hall of Stats ignores performance enhancing drugs. There’s just no reliable, complete data about it.
-      * The Hall of Stats ignores lifetime bans. This opens up the Hall of Stats to @rosepe01, @jacksjo01, and any other banned players.
+      * The Hall of Stats honors lifetime bans imposed by Major League Baseball so that both the Hall of Fame and Hall of Stats are pulling from the same pool of eligible players.
+      * The Hall of Stats ignores performance enhancing drugs. There’s just no reliable way to fairly account for them.
       * The Hall of Stats only has a “player” designation while the Hall of Fame has other designations. At one time, @spaldal01 was a Hall of Stats inductee while he is not considered a Hall of Fame *player* (he was inducted as a Pioneer/Executive).
       * How players are added to the Hall of Stats:
         * A player can be added as soon as he becomes eligible, as long as he is one of the best *x* eligible players by Hall Rating (where *x* is the number of players in the Hall of Fame). For example, when @maddugr01 becomes eligible, he simultaneously be voted into the Hall of Fame and added to the Hall of Stats.
