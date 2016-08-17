@@ -38,6 +38,11 @@ namespace :rankings do
     rank('ranking_hos', 'hos is true')
   end
 
+  desc 'Generate rankings for all players eligible for the Hall of Stats, based on hall_rating'
+  task :eligible => :environment do
+    rank('ranking_eligible', "eligibility = 'eligible'")
+  end
+
   desc 'Generate all rankings'
-  task :all => [:overall, :position, :hof, :hos]
+  task :all => [:overall, :position, :hof, :hos, :eligible]
 end

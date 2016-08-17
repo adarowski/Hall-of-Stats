@@ -136,18 +136,18 @@
       %strong= ordinalize_with_delimiter(@player.ranking_overall)
       All Time
       %em (#{overall_percentage(@player)}%)
+    - if @player.eligibility == "eligible"
+      %li
+        %strong= ordinalize_with_delimiter(@player.ranking_eligible)
+        among Eligible Players
+    - if @player.hof == true
+      %li
+        %strong= ordinalize_with_delimiter(@player.ranking_hof)
+        among Hall of Famers
     - unless ["npos", "of", "if"].include?(@player.position)
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_position)
         among #{@player.position_name.pluralize}
-    - if @player.hof == true
-      %li
-        %strong= ordinalize_with_delimiter(@player.ranking_hof)
-        among Hall of Fame
-    - if @player.hos == true
-      %li
-        %strong= ordinalize_with_delimiter(@player.ranking_hos)
-        among Hall of Stats
   
 %section#franchise-contributions
   %h3
