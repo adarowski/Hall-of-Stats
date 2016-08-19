@@ -75,6 +75,7 @@ class Player < ActiveRecord::Base
   scope :eligible_2021, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2015")
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
+  scope :banned, not_in_hos.where("eligibility = 'banned'")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
 
   scope :all_but_hof, not_in_hof.where("consensus = 7")
@@ -171,6 +172,10 @@ class Player < ActiveRecord::Base
 
   def active_and_close?
     !hos && (eligibility == 'active') && hall_rating.between?(75, 100.0)
+  end
+
+  def banned?
+    !hos && (eligibility == 'banned')
   end
 
   def near_miss?

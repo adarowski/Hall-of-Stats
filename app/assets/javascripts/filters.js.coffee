@@ -19,6 +19,7 @@ FILTERS =
     'eligible-2021': '.eligible-2021'
     'active-and-worthy': '.active-and-worthy.not-hos',
     'active-and-close': '.active-and-close',
+    'banned': '.banned',
     'near-misses': '.near-miss',
     'position': '.position',
   }

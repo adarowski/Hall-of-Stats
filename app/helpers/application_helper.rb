@@ -45,6 +45,7 @@ module ApplicationHelper
       eligible_2021:      'Eligible in 2021',
       active_and_worthy:  'Active and Hall-worthy',
       active_and_close:   'Active and Close',
+      banned:             'Banned',
       near_misses:        'Near Misses'
     }
   end
