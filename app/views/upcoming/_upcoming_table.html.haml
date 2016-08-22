@@ -10,8 +10,6 @@
         %abbr{title: "Hall of Stats"} HOS
       %th
         %abbr{title: "Hall of Merit"} HOM
-      %th
-        %abbr{title: "Adam Darowski’s Personal Hall of Fame"} AD
   %tbody
     - pool.each do |ballot_player|
       %tr
@@ -25,5 +23,3 @@
           %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.last_year > 2010 ? 'ineligible' : ballot_player.hos}= ballot_player.hos
         %td
           %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.last_year > 2010 ? 'ineligible' : ballot_player.hom}= ballot_player.hom
-        %td
-          %span{title: "AD: #{ballot_player.personal_hof}", class: ballot_player.last_year > 2010 ? 'ineligible' : ballot_player.personal_hof}= ballot_player.personal_hof
