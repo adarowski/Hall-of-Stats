@@ -11,12 +11,6 @@ FILTERS =
     'added': '.hos.not-hof'
     'removed': '.hof.not-hos'
     'upcoming': '.upcoming.not-hos'
-    'eligible-2016': '.eligible-2016'
-    'eligible-2017': '.eligible-2017'
-    'eligible-2018': '.eligible-2018'
-    'eligible-2019': '.eligible-2019'
-    'eligible-2020': '.eligible-2020'
-    'eligible-2021': '.eligible-2021'
     'active-and-worthy': '.active-and-worthy.not-hos',
     'active-and-close': '.active-and-close',
     'near-misses': '.near-miss',
