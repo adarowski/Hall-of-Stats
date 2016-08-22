@@ -1,0 +1,3 @@
+#{player.first_name} #{player.last_name} is next eligible for the Hall of Fame via the
+= succeed "." do
+  = link_to "#{player.era_committee_name} Era Committee in #{year}", "/upcoming##{player.era_committee}_#{year}"
