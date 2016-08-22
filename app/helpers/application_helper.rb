@@ -40,6 +40,7 @@ module ApplicationHelper
       upcoming:           'Not Yet Eligible but Hall-worthy',
       active_and_worthy:  'Active and Hall-worthy',
       active_and_close:   'Active and Close',
+      banned:             'Banned',
       near_misses:        'Near Misses'
     }
   end

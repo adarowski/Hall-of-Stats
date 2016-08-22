@@ -15,6 +15,7 @@ module PlayerFilter
       upcoming,
       active_and_worthy,
       active_and_close,
+      banned,
       near_miss
     ].compact
   end
@@ -67,6 +68,10 @@ module PlayerFilter
 
   def self.active_and_close
     'active-and-close' if @player.active_and_close?
+  end
+
+  def self.banned
+    'banned' if @player.banned?
   end
 
   def self.near_miss
