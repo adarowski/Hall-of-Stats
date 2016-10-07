@@ -108,7 +108,7 @@ class Franchise < ActiveHash::Base
   add id: 'kcc', name: 'Kansas City Cowboys', first_year: '1888', last_year: '1889'
   add id: 'kcn', name: 'Kansas City Cowboys', first_year: '1886', last_year: '1886'
   add id: 'kcp', name: 'Kansas City Packers', first_year: '1914', last_year: '1915'
-  add id: 'kcr', name: 'Kansas City Royals', active: true, img: 'darowno01', img_credit: 'https://twitter.com/baseballtwit/status/609148618285654017', player: 'Nolan Darowski', first_year: '1969', color: '#000572'
+  add id: 'kcr', name: 'Kansas City Royals', active: true, img: 'greinza01', img_credit: 'http://www.flickr.com/photos/keithallison/3770512483/', player: 'Zack Greinke', first_year: '1969', color: '#000572'
   add id: 'kcu', name: 'Kansas City Cowboys', first_year: '1884', last_year: '1884'
   add id: 'kek', name: 'Fort Wayne Kekiongas', first_year: '1871', last_year: '1871'
   add id: 'laa', name: 'Los Angeles Angels of Anaheim', active: true, img: 'troutmi01', img_credit: 'http://www.flickr.com/photos/keithallison/7458320456/', player: 'Mike Trout', first_year: '1961', note: 'Also played as Anaheim Angels, California Angels, and Los Angeles Angels.', color: '#CE1141'
