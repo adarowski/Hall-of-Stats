@@ -115,7 +115,6 @@ class Player < ActiveRecord::Base
     id = 'clemero02' OR
     id = 'schilcu01' OR
     id = 'mussimi01' OR
-    id = 'rodriiv01' OR
     id = 'walkela01' OR
     id = 'martied01' OR
     id = 'ramirma02' OR
