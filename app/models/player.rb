@@ -68,7 +68,6 @@ class Player < ActiveRecord::Base
   scope :added, not_in_hof.in_hos
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
-  scope :eligible_2017, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2011")
   scope :eligible_2018, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2012")
   scope :eligible_2019, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2013")
   scope :eligible_2020, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2014")
@@ -111,28 +110,27 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, not_in_hof.in_personal_hof
 
-  scope :bbwaa_2017_returning, not_in_hof.where("
+  scope :bbwaa_2018_returning, not_in_hof.where("
     id = 'bondsba01' OR
     id = 'clemero02' OR
     id = 'schilcu01' OR
-    id = 'bagweje01' OR
     id = 'mussimi01' OR
+    id = 'rodriiv01' OR
     id = 'walkela01' OR
-    id = 'piazzmi01' OR
     id = 'martied01' OR
-    id = 'raineti01' OR
+    id = 'ramirma02' OR
     id = 'sosasa01' OR
     id = 'sheffga01' OR
+    id = 'guerrvl01' OR
     id = 'kentje01' OR
     id = 'mcgrifr01' OR
+    id = 'posadjo01' OR
     id = 'wagnebi02' OR
-    id = 'hoffmtr01' OR
-    id = 'smithle02'
+    id = 'hoffmtr01'
   ")
 
-  scope :tg_era_2017, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2001 AND hall_rating > 50")
   scope :mb_era_2018, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2001 AND hall_rating > 50")
-  scope :tg_era_2019, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2003 AND last_year >= 2002 AND hall_rating > 50")
+  scope :tg_era_2019, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2003 AND hall_rating > 50")
   scope :mb_era_2020, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2003 AND last_year >= 2002 AND hall_rating > 50")
   scope :gd_era_2021, not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")
@@ -141,7 +139,7 @@ class Player < ActiveRecord::Base
   scope :tg_era_2027, -> {
     where("ID IN (?) OR ID IN (?)",
       not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009 AND hall_rating > 50"),
-      eligible_2017.where("hall_rating > 50"))
+      not_in_hof.where("hall_rating >= 50 AND last_year = 2011"))
   }
 
   has_and_belongs_to_many :articles

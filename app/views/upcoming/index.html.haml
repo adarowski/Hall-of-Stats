@@ -20,31 +20,15 @@
   %p
     The red and green icons indidate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
 
-  %h3 2017
+  %h3 2018
 
-  %p In 2017, fifteen players will return from the 2016 BBWAA ballot. The Today’s Game Era Committee will also meet for the first time, but <a href="/articles/eligible-for-todays-game-era-ballot">they won’t have a huge pool of players</a> to choose from.
+  %p 2018 features an impressive new crop of BBWAA candidates while sixteen players will return to the ballot. It also will be the first time the new Modern Baseball Era Committee meets. They’ll have their work cut out for them. The pool of players to choose from is <em>stacked</em>.
 
-  %h4#bbwaa_returning_2017
+  %h4#bbwaa_returning_2018
     BBWAA Ballot
     %span (All Returning Candidates)
 
-  = render 'upcoming_table', pool: @bbwaa_2017_returning
-
-  %h4#bbwaa_2017
-    BBWAA Ballot
-    %span (New Candidates with Hall Rating of 20+)
-
-  = render 'upcoming_table', pool: @eligible_2017
-
-  %h4#todays_game_2017
-    Today’s Game Era Ballot
-    %span (Candidates with Hall Rating of 50+)
-
-  = render 'upcoming_table', pool: @tg_era_2017
-
-  %h3 2018
-
-  %p 2018 features an impressive new crop of BBWAA candidates. It also will be the first time the new Modern Baseball Era Committee meets. They’ll have their work cut out for them. The pool of players to choose from is <em>stacked</em>.
+  = render 'upcoming_table', pool: @bbwaa_2018_returning
 
   %h4#bbwaa_2018
     BBWAA Ballot
@@ -60,7 +44,7 @@
 
   %h3 2019
 
-  %p 2019 features even more first-ballot Hall of Fame talent on the BBWAA ballot. There will also be a new wave of Today’s Game Era candidates who are newly eligible.
+  %p 2019 features even more first-ballot Hall of Fame talent on the BBWAA ballot. The Today’s Game Era will meet again, though the ballot will still be relatively thin.
 
   %h4#bbwaa_2019
     BBWAA Ballot
@@ -70,7 +54,7 @@
 
   %h4#todays_game_2019
     Today’s Game Era Ballot
-    %span (New Candidates with Hall Rating of 50+)
+    %span (Candidates with Hall Rating of 50+)
 
   = render 'upcoming_table', pool: @tg_era_2019
 
@@ -152,10 +136,26 @@
 
   %h3 2027
 
-  %p In this election cycle, the Today’s Game Era Committee will be able to consider players that are actually hitting the BBWAA ballot for the first time in 2017, which means we have now come full circle.
+  %p In this election cycle, the Today’s Game Era Committee will be able to consider players who hit the BBWAA ballot for the first time in 2017 but didn’t gain induction.
 
   %h4#todays_game_2027
     Today’s Game Era Ballot
     %span (New Candidates with Hall Rating of 50+)
 
   = render 'upcoming_table', pool: @tg_era_2027
+
+  %h3 2028
+
+  %p The Modern Baseball Era Committee meets again with no new candidates.
+
+  %h3 2029
+
+  %p The Today’s Game Era Committee will meet again and evaluate candidates who finished their careers from 2012 to 2014, landed on the BBWAA ballot from 2018 to 2020, and failed to be inducted.
+
+  %h3 2030
+
+  %p The Modern Baseball Era Committee meets again with no new candidates.
+
+  %h3 2031
+
+  %p The Golden Days Era and Early Baseball Era Committees will meet again. There will be no new candidates.

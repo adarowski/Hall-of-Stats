@@ -20,6 +20,6 @@
         %td
           #{ballot_player.first_year}–#{ballot_player.last_year}
         %td
-          %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.last_year > 2010 ? 'ineligible' : ballot_player.hos}= ballot_player.hos
+          %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.last_year > 2011 ? 'ineligible' : ballot_player.hos}= ballot_player.hos
         %td
-          %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.last_year > 2010 ? 'ineligible' : ballot_player.hom}= ballot_player.hom
+          %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.last_year > 2011 ? 'ineligible' : ballot_player.hom}= ballot_player.hom

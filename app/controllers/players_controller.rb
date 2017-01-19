@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = PlayerDecorator.new(Player.find(params[:id]))
-    @bbwaa_2017_returning = Player.bbwaa_2017_returning.where(id: params[:id]).exists?
+    @bbwaa_2018_returning = Player.bbwaa_2018_returning.where(id: params[:id]).exists?
   end
 
   def autocomplete
