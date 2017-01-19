@@ -135,9 +135,9 @@
               %span
                 •
                 = article.published_at.stamp("Jan 1, 2012")
-        - if @player.articles.published.by_published_at.each_with_index.count > 3
+        - if @player.articles.published.by_published_at.count > 3
           %li
-            %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.each_with_index.count} articles
+            %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
 
 %section#rankings
   %h3
