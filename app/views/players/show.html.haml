@@ -128,13 +128,16 @@
         Articles
         %small Mentioning #{@player.first_name} #{@player.last_name}
       %ul.article-list
-        - @player.articles.published.by_published_at.each do |article|
-          %li
+        - @player.articles.published.by_published_at.each_with_index do |article, i|
+          %li{:class => ("extra" if i > 2) }
             = link_to article_path(article) do
               = article.title
               %span
                 •
                 = article.published_at.stamp("Jan 1, 2012")
+        - if @player.articles.published.by_published_at.each_with_index.count > 3
+          %li
+            %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.each_with_index.count} articles
 
 %section#rankings
   %h3

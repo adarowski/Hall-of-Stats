@@ -32,6 +32,11 @@ $ ->
     $("#more-stats").slideToggle()
     $("#win-value tfoot").hide()
 
+  $("#show-more-articles").click (e) ->
+    e.preventDefault()
+    $("li.extra").show()
+    $(this).hide()
+
   $('input.autocomplete').autocomplete(
     html: true,
     source: (request, response) ->
