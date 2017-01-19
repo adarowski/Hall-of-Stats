@@ -123,7 +123,6 @@ class Player < ActiveRecord::Base
     id = 'guerrvl01' OR
     id = 'kentje01' OR
     id = 'mcgrifr01' OR
-    id = 'posadjo01' OR
     id = 'wagnebi02' OR
     id = 'hoffmtr01'
   ")
