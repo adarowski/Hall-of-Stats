@@ -364,6 +364,94 @@
               %td= ss.team_and_franchise
               %td= ss.waa_tot
               %td= ss.war_tot
+
+  %table#voting-results{ style: 'display: none;'}
+    %caption Hall of Fame Voting Results
+    %thead
+      %tr
+        %th Year
+        %th Percentage
+    %tbody
+      %tr{ class: "yr-1998"}
+        %th
+          %div.innerWrapper 1998
+        %td 17.5%
+      %tr{ class: "yr-1999"}
+        %th
+          %div.innerWrapper 1999
+        %td 14.1%
+      %tr{ class: "yr-2000"}
+        %th
+          %div.innerWrapper 2000
+        %td 17.4%
+      %tr{ class: "yr-2001"}
+        %th
+          %div.innerWrapper 2001
+        %td 23.5%
+      %tr{ class: "yr-2002"}
+        %th
+          %div.innerWrapper 2002
+        %td 26.3%
+      %tr{ class: "yr-2003"}
+        %th
+          %div.innerWrapper 2003
+        %td 29.2%
+      %tr{ class: "yr-2004"}
+        %th
+          %div.innerWrapper 2004
+        %td 35.4%
+      %tr{ class: "yr-2005"}
+        %th
+          %div.innerWrapper 2005
+        %td 40.9%
+      %tr{ class: "yr-2006"}
+        %th
+          %div.innerWrapper 2006
+        %td 53.3%
+      %tr{ class: "yr-2007"}
+        %th
+          %div.innerWrapper 2007
+        %td 47.7%
+      %tr{ class: "yr-2008"}
+        %th
+          %div.innerWrapper 2008
+        %td 61.9%
+      %tr{ class: "yr-2009"}
+        %th
+          %div.innerWrapper 2009
+        %td 62.7%
+      %tr{ class: "yr-2010"}
+        %th
+          %div.innerWrapper 2010
+        %td 74.2%
+      %tr{ class: "inducted yr-2011"}
+        %th
+          %div.innerWrapper 2011
+        %td 79.7%
+
+  %table#voting-results
+    %caption Hall of Fame Voting Results
+    %thead
+      %tr
+        %th Year
+        %th Percentage
+    %tbody
+      %tr{ class: "yr-2011"}
+        %th
+          %div.innerWrapper 2011
+        %td 11.0%
+      %tr{ class: "yr-2012"}
+        %th
+          %div.innerWrapper 2012
+        %td 12.6%
+      %tr{ class: "yr-2013"}
+        %th
+          %div.innerWrapper 2013
+        %td 8.8%
+      %tr{ class: "yr-2014 fell-off"}
+        %th
+          %div.innerWrapper 2014
+        %td 4.4%
       
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
