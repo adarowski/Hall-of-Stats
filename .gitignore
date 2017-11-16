@@ -17,5 +17,5 @@
 /tmp
 
 .DS_Store
-.ruby-version
 *.dump
+.envrc
