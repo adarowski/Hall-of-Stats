@@ -1,33 +1,32 @@
-%style{:type => 'text/css'}
-  :sass
-    $bad_color: #900
-    $max_width: 300
-    =border_radius($radius)
-      -moz-border-radius: $radius
-      -webkit-border-radius: $radius
-      border-radius: $radius
-    =year_bar($war, $waa)
-      .innerWrapper
-        &:before
-          @if $war > 0
-            $width: ($war / 20.0) * $max_width * 1%
-            width: $width
-          @else
-            $width: (abs($war) / 20.0) * $max_width * 1%
-            width: $width
-            left: 100% - $width
-            +border_radius(4px 0 0 4px)
-            background-color: fade_out($bad_color, .85)
-        &:after
-          @if $waa > 0
-            $width: ($waa / 20.0) * $max_width * 1%
-            width: $width
-          @else
-            $width: (abs($waa) / 20.0) * $max_width * 1%
-            width: $width
-            left: 100% - $width
-            +border_radius(4px 0 0 4px)
-            background-color: fade_out($bad_color, .85)
+:sass
+  $bad_color: #900
+  $max_width: 300
+  =border_radius($radius)
+    -moz-border-radius: $radius
+    -webkit-border-radius: $radius
+    border-radius: $radius
+  =year_bar($war, $waa)
+    .innerWrapper
+      &:before
+        @if $war > 0
+          $width: ($war / 20.0) * $max_width * 1%
+          width: $width
+        @else
+          $width: (abs($war) / 20.0) * $max_width * 1%
+          width: $width
+          left: 100% - $width
+          +border_radius(4px 0 0 4px)
+          background-color: fade_out($bad_color, .85)
+      &:after
+        @if $waa > 0
+          $width: ($waa / 20.0) * $max_width * 1%
+          width: $width
+        @else
+          $width: (abs($waa) / 20.0) * $max_width * 1%
+          width: $width
+          left: 100% - $width
+          +border_radius(4px 0 0 4px)
+          background-color: fade_out($bad_color, .85)
 
-    table#seasonal-stats .yr-#{season_stats.year}-#{season_stats.stint}
-      +year_bar(#{season_stats.war_tot}, #{season_stats.waa_tot})
+  table#seasonal-stats .yr-#{season_stats.year}-#{season_stats.stint}
+    +year_bar(#{season_stats.war_tot}, #{season_stats.waa_tot})
