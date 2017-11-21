@@ -41,12 +41,6 @@
         %a#show-hos{href: '#all'}
           %span #{Player.in_hos.of_position(@position).count}
           Hall of Stats Inductees
-      - non_position_filters.each do |key, text|
-        %li
-          - dash_key = key.to_s.gsub(/_/, '-')
-          %a{id: "show-#{dash_key}", href: "##{dash_key}"}
-            %span= Player.of_position(@position).send(key).count
-            = text
       %li
         %a#show-hof{href: '#hof'}
           %span #{Player.in_hof.of_position(@position).count}
@@ -55,26 +49,12 @@
         %a#show-hom{href: '#hom'}
           %span #{Player.in_hom.of_position(@position).count}
           Hall of Merit Inductees
-      %li
-        %a#show-personal-hof{href: '#personal-hof'}
-          %span #{@players.in_personal_hof.count}
-          Adam Darowski’s Personal Hall of Fame
-      %li
-        %a#show-ross-hof{href: '#ross-hof'}
-          %span #{@players.in_ross_hof.count}
-          Ross Carey’s Personal Hall of Fame
-      %li
-        %a#show-bryan-hof{href: '#bryan-hof'}
-          %span #{@players.in_bryan_hof.count}
-          Bryan O’Connor’s Personal Hall of Fame
-      %li
-        %a#show-dalton-hof{href: '#dalton-hof'}
-          %span #{@players.in_dalton_hof.count}
-          Dalton Mack’s Personal Hall of Fame
-      %li
-        %a#show-dan-hof{href: '#dan-hof'}
-          %span #{@players.in_dan_hof.count}
-          Dan McCloskey’s Personal Hall of Fame
+      - non_position_filters.each do |key, text|
+        %li
+          - dash_key = key.to_s.gsub(/_/, '-')
+          %a{id: "show-#{dash_key}", href: "##{dash_key}"}
+            %span= Player.of_position(@position).send(key).count
+            = text
 
   %ol#player-list
     - @players.each do |player|

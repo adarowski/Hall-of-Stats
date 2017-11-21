@@ -65,11 +65,6 @@ order by franchise_id,year
       when 'hof'          then @franchise.players.in_hof
       when 'hos'          then @franchise.players.in_hos
       when 'hom'          then @franchise.players.in_hom
-      when 'personal-hof' then @franchise.players.in_personal_hof
-      when 'ross-hof'     then @franchise.players.in_ross_hof
-      when 'bryan-hof'    then @franchise.players.in_bryan_hof
-      when 'dalton-hof'   then @franchise.players.in_dalton_hof
-      when 'dan-hof'      then @franchise.players.in_dan_hof
       when 'p'            then @franchise.players.of_position('p').limit(200)
       else                     @franchise.players.of_position(params[:filter_type])
     end
