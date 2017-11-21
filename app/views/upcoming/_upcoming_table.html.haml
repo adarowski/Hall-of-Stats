@@ -16,6 +16,8 @@
         %th
           %a{href: player_path(ballot_player)}= ballot_player.name
           %small (#{ballot_player.hall_rating_rounded})
+          - if ['jonesan01', 'jonesch06', 'matsuhi01', 'thomeji01', 'santajo02', 'vizquom01', 'carpech01', 'damonjo01', 'hernali01', 'hudsoor01', 'huffau01', 'isrinja01', 'leeca01', 'lidgebr01', 'millwke01', 'moyerja01', 'rolensc01', 'woodke02', 'zambrca01', 'garvest01', 'johnto01', 'mattido01', 'morrija02', 'murphda05', 'parkeda01', 'simmote01', 'tiantlu01', 'trammal01'].include?(ballot_player.id)
+            %em.on-ballot on ballot
         %td= ballot_player.position.upcase
         %td
           #{ballot_player.first_year}–#{ballot_player.last_year}
