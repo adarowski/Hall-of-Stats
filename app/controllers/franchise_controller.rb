@@ -1,7 +1,7 @@
 class FranchiseController < ApplicationController
   def index
   end
-  
+
   def show
     @franchise = Franchise.find(params[:id])
     @players = @franchise.players.limit(@franchise.num_displayed_players)
@@ -12,6 +12,8 @@ class FranchiseController < ApplicationController
     @all_time_team_data = franchise_all_time_team_data
     @franchise_top_five = @franchise.players.by_rank.limit(5)
     @franchise = FranchiseDecorator.new(@franchise)
+    @my_all_data ||= "{}"
+    @data ||= "{}"
   end
 
   def franchise_all_time_team_data
@@ -51,13 +53,13 @@ group by year,franchise_id
 order by franchise_id,year
     SQL
     @my_all_data = SeasonStats.find_by_sql(sql).map{|d| {range_year: d.range_year.to_i, sum: d.sum.to_f}}.to_json
-    [{ 
+    [{
       key: @franchise.name,
       color: @franchise.color || '#999999',
       values: SeasonStats.find_by_sql(sql).map{|d| [d.range_year.to_i, d.sum.to_f]}
     }].to_json
   end
-  
+
   def render_list
     @franchise = Franchise.find(params[:id])
     @players = case params[:filter_type]
@@ -81,13 +83,13 @@ select stats.franchise_id, range_year, coalesce(sum(ss.hall_rating), 0) as sum
 from generate_series(
   (select min(year) from season_stats),
   (select max(year) from season_stats),
-  1) as range_year 
+  1) as range_year
 cross join (
   select distinct(franchise_id) from season_stats
-) as stats 
-left join season_stats ss 
-on stats.franchise_id = ss.franchise_id and range_year = ss.year 
-group by range_year, stats.franchise_id 
+) as stats
+left join season_stats ss
+on stats.franchise_id = ss.franchise_id and range_year = ss.year
+group by range_year, stats.franchise_id
 order by stats.franchise_id, range_year
     SQL
     data = SeasonStats.find_by_sql(sql)
