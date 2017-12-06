@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2'
-gem 'rake', '~> 11.1'
 
 gem 'thin'
 
@@ -15,8 +14,6 @@ gem 'kaminari'
 
 gem 'activeadmin'
 gem 'active_hash'
-
-gem 'test-unit'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,12 +32,10 @@ gem 'stamp'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "touchpunch-rails",
-  git: "https://github.com/geothird/touchpunch-rails.git",
-  ref: "e43d17ca145362479073f31feade819c7733a648"
+gem 'touchpunch-rails'
 
 group :development, :test do
-  gem "rspec-rails", "~> 3.2"
+  gem "rspec-rails", "~> 2.0"
   gem 'quiet_assets'
 end
 
@@ -49,8 +44,6 @@ group :test do
   gem 'fuubar'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'listen'
+  gem 'listen', git: 'git://github.com/guard/listen.git'
   gem 'rb-fsevent'
 end
-
-ruby "2.3.3"
