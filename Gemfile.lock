@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/iblue/d3-rails.git
-  revision: d4a3148ab15ba88e638e1b7895883103e49a5b81
-  tag: v2.9.1
-  specs:
-    d3-rails (2.9.1)
-      railties (>= 3.1)
-
-GIT
   remote: https://github.com/geothird/touchpunch-rails.git
   revision: e43d17ca145362479073f31feade819c7733a648
   ref: e43d17ca145362479073f31feade819c7733a648
@@ -91,6 +83,8 @@ GEM
       sass-rails (< 5.1)
       sprockets (< 4.0)
     concurrent-ruby (1.0.5)
+    d3-rails (4.10.2)
+      railties (>= 3.1)
     daemons (1.2.5)
     devise (3.5.10)
       bcrypt (~> 3.0)
@@ -285,7 +279,7 @@ DEPENDENCIES
   activeadmin
   coffee-rails (~> 3.2.1)
   compass-rails
-  d3-rails!
+  d3-rails
   draper (= 0.17.0)
   factory_girl_rails
   fuubar

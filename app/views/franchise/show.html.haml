@@ -16,9 +16,9 @@
   :javascript
     var team_name = "#{@franchise.name}";
     var color = "#{@franchise.color || '#000000'}";
-    var my_data = #{@my_all_data.html_safe};
-    var json_data = #{@json_data.html_safe};
-    var all_time_team_data = #{@data.html_safe};
+    var my_data = #{@my_all_data};
+    var json_data = #{@json_data};
+    var all_time_team_data = #{@data};
   = javascript_include_tag 'franchise_charts'
 %header.title
   %h2
@@ -67,7 +67,7 @@
       %ul
         %li
           %a#show-franchise{href: '#franchise'}
-            %span #{@players.count}
+            %span #{@players.count} 
             Greatest #{@franchise.name}
 
         %li

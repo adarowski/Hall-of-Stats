@@ -29,7 +29,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'd3-rails', github: "iblue/d3-rails", tag: "v2.9.1"
+gem 'd3-rails'
 
 gem 'stamp'
 

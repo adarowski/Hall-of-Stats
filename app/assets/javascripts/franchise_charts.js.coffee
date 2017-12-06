@@ -93,7 +93,7 @@ $ ->
         $(@).css('fill', 'none')
         $('.tooltip').hide()
       )
-
+  
   drawChart(my_data, 'svg#total')
   data = all_time_team_data
 
