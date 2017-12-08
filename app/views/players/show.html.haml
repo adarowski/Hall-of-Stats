@@ -4,8 +4,9 @@
 - content_for :title, @player.name
 
 - content_for(:header_styles) do
-  = render 'player_specific_styles', player: @player
-  = render 'full_year_season_stat_styles', season_stats: @player.season_stat_totals_for_styling
+  %style{:type => 'text/css'}
+    = render 'player_specific_styles', player: @player
+    = render 'full_year_season_stat_styles', season_stats: @player.season_stat_totals_for_styling
 
 = render 'shared/header'
 
