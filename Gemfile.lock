@@ -84,7 +84,7 @@ GEM
       actionpack (~> 3.2)
       activesupport (~> 3.2)
     erubis (2.7.0)
-    eventmachine (1.0.0)
+    eventmachine (1.0.7)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -240,6 +240,7 @@ DEPENDENCIES
   compass-rails
   d3-rails
   draper (= 0.17.0)
+  eventmachine (= 1.0.7)
   factory_girl_rails
   fuubar
   guard
@@ -263,5 +264,8 @@ DEPENDENCIES
   touchpunch-rails
   uglifier (>= 1.0.3)
 
+RUBY VERSION
+   ruby 2.1.6p336
+
 BUNDLED WITH
-   1.11.2
+   1.16.0

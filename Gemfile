@@ -3,6 +3,7 @@ ruby "2.1.6"
 
 gem 'rails', '~> 3.2'
 
+gem 'eventmachine', '1.0.7'
 gem 'thin'
 
 gem 'pg'
