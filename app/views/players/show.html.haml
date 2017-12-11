@@ -84,10 +84,7 @@
       %dt.eligibility-note Next Ballot
       %dd.eligibility-note
         - if @player.era_committee == 'modern_baseball'
-          - if @player.last_year >= 2001
-            = render 'era_committee_link', player: @player, year: 2020
-          - else
-            = render 'era_committee_link', player: @player, year: 2018
+          = render 'era_committee_link', player: @player, year: 2020
         - elsif @player.era_committee == 'todays_game'
           - if @player.last_year <= 2003
             = render 'era_committee_link', player: @player, year: 2019
