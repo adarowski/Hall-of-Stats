@@ -1216,6 +1216,11 @@ article
     text-transform: uppercase
     color: $good_color
     font-size: 75%
+  @media only screen and (max-width: 480px)
+    th, td
+      &:nth-child(3)
+        display: none
+
 
 #article-50
   table
