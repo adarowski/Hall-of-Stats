@@ -68,7 +68,6 @@ class Player < ActiveRecord::Base
   scope :added, not_in_hof.in_hos
   scope :removed, in_hof.not_in_hos
   scope :upcoming, not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")
-  scope :eligible_2018, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2012")
   scope :eligible_2019, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2013")
   scope :eligible_2020, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2014")
   scope :eligible_2021, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2015")
@@ -111,7 +110,7 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, not_in_hof.in_personal_hof
 
-  scope :bbwaa_2018_returning, not_in_hof.where("
+  scope :bbwaa_2019_returning, not_in_hof.where("
     id = 'bondsba01' OR
     id = 'clemero02' OR
     id = 'schilcu01' OR
@@ -121,11 +120,12 @@ class Player < ActiveRecord::Base
     id = 'ramirma02' OR
     id = 'sosasa01' OR
     id = 'sheffga01' OR
-    id = 'guerrvl01' OR
     id = 'kentje01' OR
     id = 'mcgrifr01' OR
     id = 'wagnebi02' OR
-    id = 'hoffmtr01'
+    id = 'vizquom01' OR
+    id = 'rolensc01' OR
+    id = 'jonesan01'
   ")
 
   scope :tg_era_2019, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2003 AND hall_rating > 50")
