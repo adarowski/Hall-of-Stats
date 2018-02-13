@@ -52,6 +52,21 @@ FranchiseRating.transaction do
 end
 puts "Done creating franchise ratings"
 
+VotingResult.transaction do
+  puts "Creating VotingResults..."
+  CSV.parse(File.open("public/hall-of-stats-voting.csv"), headers: true).each_with_index do |row, idx|
+    puts idx if idx % 100 == 0
+
+    results = row.to_hash
+    results["inducted"] = (results["inducted"].try(:strip) == "1")
+    results["dropped"] = (results["dropped"].try(:strip) == "1")
+
+    result = VotingResult.new
+    result.update_attributes!(results, as: :admin)
+  end
+end
+puts "Done creating voting results"
+
 if AdminUser.where(email: 'admin@example.com').blank?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
