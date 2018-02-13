@@ -14,7 +14,8 @@
             background-color: fade_out($good_color, .85)
           @if $dropped
             background-color: fade_out($bad_color, .85)
-          width: ($pct / 100.0) * $max_width * 1%
+          $width: ($pct / 100.0) * $max_width * 1%
+          width: $width
 
-    table#voting-results .yr-#{vr.year}
+    table#voting-results .yr-#{vr.year}-#{vr.vote_type}
       +year_bar(#{vr.pct}, #{vr.inducted}, #{vr.dropped})

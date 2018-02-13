@@ -380,7 +380,12 @@
           %tr{ class: voting_result.display_classes }
             %th
               %div.innerWrapper= voting_result.year
-            %td= number_to_percentage(voting_result.pct, precision: 1)
+            %td
+              = number_to_percentage(voting_result.pct, precision: 1)
+              - if voting_result.irregular_vote_type?
+                %small= "(#{voting_result.humanized_vote_type})"
+
+
 
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
