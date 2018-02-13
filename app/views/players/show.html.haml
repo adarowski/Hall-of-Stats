@@ -375,6 +375,11 @@
         %tr
           %th Year
           %th Percentage
+      - if @player.hof == true && @player.hof_via_name != "BBWAA"
+        %tfoot
+          %tr
+            %td{ colspan: '2'}
+              Inducted to Hall of Fame in #{@player.hof_year} via #{@player.hof_via_name}
       %tbody
         - @voting_results.each do |voting_result|
           %tr{ class: voting_result.display_classes }
@@ -384,8 +389,6 @@
               = number_to_percentage(voting_result.pct, precision: 1)
               - if voting_result.irregular_vote_type?
                 %small= "(#{voting_result.humanized_vote_type})"
-
-
 
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
