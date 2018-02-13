@@ -3,7 +3,7 @@ class CreateVotingResultsTable < ActiveRecord::Migration
     create_table :voting_results do |t|
       t.string :player_id, null: false
       t.integer :year, null: false
-      t.string :type, null: false, default: "bbwaa"
+      t.string :vote_type, null: false, default: "bbwaa"
       t.integer :ballots, null: false
       t.integer :votes, null: false
       t.float :pct, null: false

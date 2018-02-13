@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(:version => 20180213185025) do
   create_table "voting_results", :force => true do |t|
     t.string   "player_id",                       :null => false
     t.integer  "year",                            :null => false
-    t.string   "type",       :default => "bbwaa", :null => false
+    t.string   "vote_type",  :default => "bbwaa", :null => false
     t.integer  "ballots",                         :null => false
     t.integer  "votes",                           :null => false
     t.float    "pct",                             :null => false
