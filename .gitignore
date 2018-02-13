@@ -10,6 +10,7 @@
 /config/database.yml
 
 /.env
+/.envrc
 /.powrc
 
 # Ignore all logfiles and tempfiles.
