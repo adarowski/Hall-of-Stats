@@ -3,4 +3,14 @@ class VotingResult < ActiveRecord::Base
     as: :admin
 
   belongs_to :player
+
+  scope :chronological, ->{ order(:year) }
+
+  def display_classes
+    [
+      "yr-#{self.year}",
+      (self.inducted? ? "inducted" : nil),
+      (self.dropped? ? "fell-off" : nil)
+    ].compact.join(" ")
+  end
 end

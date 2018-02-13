@@ -1,0 +1,20 @@
+- voting_results.each do |vr|
+  :sass
+    $bad_color: #900
+    $good_color: #060
+    $max_width: 300
+    =border_radius($radius)
+      -moz-border-radius: $radius
+      -webkit-border-radius: $radius
+      border-radius: $radius
+    =year_bar($pct, $inducted, $dropped)
+      .innerWrapper
+        &:before
+          @if $inducted
+            background-color: fade_out($good_color, .85)
+          @if $dropped
+            background-color: fade_out($bad_color, .85)
+          width: ($pct / 100.0) * $max_width * 1%
+
+    table#voting-results .yr-#{vr.year}
+      +year_bar(#{vr.pct}, #{vr.inducted}, #{vr.dropped})

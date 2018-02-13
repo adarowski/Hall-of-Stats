@@ -7,6 +7,7 @@
   %style{:type => 'text/css'}
     = render 'player_specific_styles', player: @player
     = render 'full_year_season_stat_styles', season_stats: @player.season_stat_totals_for_styling
+    = render 'full_voting_result_styles', voting_results: @voting_results
 
 = render 'shared/header'
 
@@ -155,7 +156,7 @@
       %li
         %strong= ordinalize_with_delimiter(@player.ranking_position)
         among #{@player.position_name.pluralize}
-  
+
 %section#franchise-contributions
   %h3
     Franchise Contributions
@@ -245,7 +246,7 @@
 
     %p
       Then, the <em>adj</em>WAR and <em>adj</em>WAA are combined, but with extra weighting given to <em>adj</em>WAA.
-      This gives #{@player.last_name} <strong>#{@player.wwar}</strong> wWAR. wWAR is then converted to Hall Rating. 
+      This gives #{@player.last_name} <strong>#{@player.wwar}</strong> wWAR. wWAR is then converted to Hall Rating.
       A Hall Rating of 100 represents the Hall of Stats borderline (similar to OPS+ or wRC+, where 100 represents league average).
     %p
       #{@player.first_name} #{@player.last_name} has a Hall Rating of
@@ -357,7 +358,7 @@
               %strong.faux-link= pluralize(season_stats.map(&:team).count, 'team')
             %td= "%0.1f" % season_stats.map(&:waa_tot).sum
             %td= "%0.1f" % season_stats.map(&:war_tot).sum
-          
+
           - season_stats.each do |ss|
             %tr{ class: "yr-#{ss.year}-#{ss.stint} partial-season-stat" }
               %th= ss.year
@@ -365,98 +366,22 @@
               %td= ss.waa_tot
               %td= ss.war_tot
 
-  %table#voting-results{ style: 'display: none;'}
-    %caption
-      %abbr{title: "Baseball Writers Association of America"} BBWAA
-      Voting Results
-    %thead
-      %tr
-        %th Year
-        %th Percentage
-    %tbody
-      %tr{ class: "yr-1998"}
-        %th
-          %div.innerWrapper 1998
-        %td 17.5%
-      %tr{ class: "yr-1999"}
-        %th
-          %div.innerWrapper 1999
-        %td 14.1%
-      %tr{ class: "yr-2000"}
-        %th
-          %div.innerWrapper 2000
-        %td 17.4%
-      %tr{ class: "yr-2001"}
-        %th
-          %div.innerWrapper 2001
-        %td 23.5%
-      %tr{ class: "yr-2002"}
-        %th
-          %div.innerWrapper 2002
-        %td 26.3%
-      %tr{ class: "yr-2003"}
-        %th
-          %div.innerWrapper 2003
-        %td 29.2%
-      %tr{ class: "yr-2004"}
-        %th
-          %div.innerWrapper 2004
-        %td 35.4%
-      %tr{ class: "yr-2005"}
-        %th
-          %div.innerWrapper 2005
-        %td 40.9%
-      %tr{ class: "yr-2006"}
-        %th
-          %div.innerWrapper 2006
-        %td 53.3%
-      %tr{ class: "yr-2007"}
-        %th
-          %div.innerWrapper 2007
-        %td 47.7%
-      %tr{ class: "yr-2008"}
-        %th
-          %div.innerWrapper 2008
-        %td 61.9%
-      %tr{ class: "yr-2009"}
-        %th
-          %div.innerWrapper 2009
-        %td 62.7%
-      %tr{ class: "yr-2010"}
-        %th
-          %div.innerWrapper 2010
-        %td 74.2%
-      %tr{ class: "inducted yr-2011"}
-        %th
-          %div.innerWrapper 2011
-        %td 79.7%
+  - if @voting_results.any?
+    %table#voting-results
+      %caption
+        %abbr{title: "Baseball Writers Association of America"} BBWAA
+        Voting Results
+      %thead
+        %tr
+          %th Year
+          %th Percentage
+      %tbody
+        - @voting_results.each do |voting_result|
+          %tr{ class: voting_result.display_classes }
+            %th
+              %div.innerWrapper= voting_result.year
+            %td= number_to_percentage(voting_result.pct, precision: 1)
 
-  %table#voting-results
-    %caption
-      %abbr{title: "Baseball Writers Association of America"} BBWAA
-      Voting Results
-    %thead
-      %tr
-        %th Year
-        %th Percentage
-    %tbody
-      %tr{ class: "yr-2011"}
-        %th
-          %div.innerWrapper 2011
-        %td 11.0%
-      %tr{ class: "yr-2012"}
-        %th
-          %div.innerWrapper 2012
-        %td 12.6%
-      %tr{ class: "yr-2013"}
-        %th
-          %div.innerWrapper 2013
-        %td 8.8%
-      %tr{ class: "yr-2014 fell-off"}
-        %th
-          %div.innerWrapper 2014
-        %td 4.4%
-      
 - if SimilarityScore.for_player(@player).any?
   %section#similar-players
     %table
