@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160817020356) do
+ActiveRecord::Schema.define(:version => 20180213185025) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -169,5 +169,20 @@ ActiveRecord::Schema.define(:version => 20160817020356) do
   add_index "similarity_scores", ["player1_id", "player2_id"], :name => "index_similarity_scores_on_player1_id_and_player2_id", :unique => true
   add_index "similarity_scores", ["player1_id"], :name => "index_similarity_scores_on_player1_id"
   add_index "similarity_scores", ["player2_id"], :name => "index_similarity_scores_on_player2_id"
+
+  create_table "voting_results", :force => true do |t|
+    t.string   "player_id",                       :null => false
+    t.integer  "year",                            :null => false
+    t.string   "type",       :default => "bbwaa", :null => false
+    t.integer  "ballots",                         :null => false
+    t.integer  "votes",                           :null => false
+    t.float    "pct",                             :null => false
+    t.boolean  "inducted",   :default => false
+    t.boolean  "dropped",    :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "voting_results", ["player_id"], :name => "index_voting_results_on_player_id"
 
 end
