@@ -32,6 +32,7 @@ class Player < ActiveRecord::Base
   scope :in_dalton_hof, where(dalton_hof: true)
   scope :not_in_hos, where('hos is not true')
   scope :not_in_hof, where('hof is not true')
+  scope :not_in_hom, where('hom is not true')
   scope :not_in_personal_hof, where('personal_hof is not true')
   scope :not_in_ross_hof, where('ross_hof is not true')
   scope :not_in_bryan_hof, where('bryan_hof is not true')

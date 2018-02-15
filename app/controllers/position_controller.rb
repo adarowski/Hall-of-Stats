@@ -9,6 +9,7 @@ class PositionController < ApplicationController
     @players = Player.of_position(@position).by_rank.limit(Position.find(@position).num_displayed_players)
     @best_not_included = Player.of_position(@position).not_in_hos.where(eligibility: 'eligible').by_rank.limit(5)
     @best_not_inducted = Player.of_position(@position).not_in_hof.where(eligibility: 'eligible').by_rank.limit(5)
+    @best_not_merit = Player.of_position(@position).not_in_hom.where(eligibility: 'eligible').by_rank.limit(5)
     @best_active = Player.of_position(@position).where(eligibility: 'active').by_rank.limit(5)
     @best_upcoming = Player.of_position(@position).where(eligibility: 'upcoming').by_rank.limit(5)
   end
