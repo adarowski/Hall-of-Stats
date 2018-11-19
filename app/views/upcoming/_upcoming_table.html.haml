@@ -16,7 +16,7 @@
         %th
           %a{href: player_path(ballot_player)}= ballot_player.name
           %small (#{ballot_player.hall_rating_rounded})
-          - if ['ankieri01','hallaro01','riverma01','heltoto01','bayja01','berkmla01','garcifr03','garlajo01','hafnetr01','lillyte01','lowede01','oliveda02','oswalro01','pettian01','pierrju01','polanpl01','tejadmi01','wellsve01','youklke01','youngmi002'].include?(ballot_player.id)
+          - if ['ankieri01','hallaro01','riverma01','heltoto01','bayja01','berkmla01','garcifr03','garlajo01','hafnetr01','lillyte01','lowede01','oliveda02','oswalro01','pettian01','pierrju01','polanpl01','tejadmi01','wellsve01','youklke01','youngmi02'].include?(ballot_player.id)
             %em.on-ballot on ballot
         %td= ballot_player.position.upcase
         %td
