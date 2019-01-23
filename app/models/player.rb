@@ -112,25 +112,24 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, not_in_hof.in_personal_hof
 
-  scope :bbwaa_2019_returning, not_in_hof.where("
+  scope :bbwaa_2020_returning, not_in_hof.where("
     id = 'bondsba01' OR
     id = 'clemero02' OR
     id = 'schilcu01' OR
     id = 'mussimi01' OR
     id = 'walkela01' OR
-    id = 'martied01' OR
     id = 'ramirma02' OR
     id = 'sosasa01' OR
     id = 'sheffga01' OR
     id = 'kentje01' OR
-    id = 'mcgrifr01' OR
     id = 'wagnebi02' OR
     id = 'vizquom01' OR
     id = 'rolensc01' OR
-    id = 'jonesan01'
+    id = 'jonesan01' OR
+    id = 'heltoto01' OR
+    id = 'pettian01'
   ")
 
-  scope :tg_era_2019, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2003 AND hall_rating > 50")
   scope :mb_era_2020, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2003 AND hall_rating > 50")
   scope :gd_era_2021, not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")

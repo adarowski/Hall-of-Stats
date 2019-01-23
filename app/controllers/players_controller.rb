@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = PlayerDecorator.new(Player.find(params[:id]))
-    @bbwaa_2019_returning = Player.bbwaa_2019_returning.where(id: params[:id]).exists?
+    @bbwaa_2020_returning = Player.bbwaa_2020_returning.where(id: params[:id]).exists?
     @voting_results = VotingResult.where(player_id: @player.id).chronological.by_vote_type
   end
 

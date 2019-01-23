@@ -16,12 +16,12 @@
         %th
           %a{href: player_path(ballot_player)}= ballot_player.name
           %small (#{ballot_player.hall_rating_rounded})
-          - if ['ankieri01','hallaro01','riverma01','heltoto01','bayja01','berkmla01','garcifr03','garlajo01','hafnetr01','lillyte01','lowede01','oliveda02','oswalro01','pettian01','pierrju01','polanpl01','tejadmi01','wellsve01','youklke01','youngmi02','baineha01','belleal01','cartejo01','clarkwi02','hershor01','smithle02'].include?(ballot_player.id)
+          - if [].include?(ballot_player.id)
             %em.on-ballot on ballot
         %td= ballot_player.position.upcase
         %td
           #{ballot_player.first_year}–#{ballot_player.last_year}
         %td
-          %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.last_year > 2012 ? 'ineligible' : ballot_player.hos}= ballot_player.hos
+          %span{title: "HOS: #{ballot_player.hos}", class: ballot_player.last_year > 2013 ? 'ineligible' : ballot_player.hos}= ballot_player.hos
         %td
-          %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.last_year > 2012 ? 'ineligible' : ballot_player.hom}= ballot_player.hom
+          %span{title: "HOM: #{ballot_player.hom}", class: ballot_player.last_year > 2013 ? 'ineligible' : ballot_player.hom}= ballot_player.hom

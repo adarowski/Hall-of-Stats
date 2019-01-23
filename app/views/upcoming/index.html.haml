@@ -16,7 +16,6 @@
 %nav.jump-menu
   %strong Jump to:
   %ol
-    %li= link_to "2019", "#year_2019"
     %li= link_to "2020", "#year_2020"
     %li= link_to "2021", "#year_2021"
     %li= link_to "2022", "#year_2022"
@@ -37,31 +36,15 @@
   %p
     The red and green icons indidate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
 
-  <h3 id="year_2019">2019 <a href="#top">Back to Top</a></h3>
+  <h3 id="year_2020">2020 <a href="#top">Back to Top</a></h3>
 
-  %p 2019 features fifteen returning candidates (a dozen of whom exceed the Hall of Stats borderline). They are joined by another first-ballot candidates who have Hall Ratings over 100. The Today’s Game Era will meet again, though the ballot will still be relatively thin.
+  %p Derek Jeter will headline a relatively thin class of newcomers in 2020. That should give the fifteen returning candidates (<em>thirteen</em> of whom exceed the Hall of Stats borderline) a good chance to make some gains. The Modern Baseball Era Committee will again meet.
 
-  %h4#bbwaa_returning_2019
+  %h4#bbwaa_returning_2020
     BBWAA Ballot
     %span (All Returning Candidates)
 
-  = render 'upcoming_table', pool: @bbwaa_2019_returning
-
-  %h4#bbwaa_2019
-    BBWAA Ballot
-    %span (New Candidates with Hall Rating of 20+)
-
-  = render 'upcoming_table', pool: @eligible_2019
-
-  %h4#todays_game_2019
-    Today’s Game Era Ballot
-    %span (Candidates with Hall Rating of 50+)
-
-  = render 'upcoming_table', pool: @tg_era_2019
-
-  <h3 id="year_2020">2020 <a href="#top">Back to Top</a></h3>
-
-  %p Derek Jeter will headline a relatively thin class of newcomers in 2020. The Modern Baseball Era Committee will again meet.
+  = render 'upcoming_table', pool: @bbwaa_2020_returning
 
   %h4#bbwaa_2020
     BBWAA Ballot
