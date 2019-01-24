@@ -87,9 +87,7 @@
         - if @player.era_committee == 'modern_baseball'
           = render 'era_committee_link', player: @player, year: 2020
         - elsif @player.era_committee == 'todays_game'
-          - if @player.last_year <= 2003
-            = render 'era_committee_link', player: @player, year: 2019
-          - elsif @player.last_year <= 2006
+          - if @player.last_year <= 2006
             = render 'era_committee_link', player: @player, year: 2022
           - elsif @player.last_year <= 2008
             = render 'era_committee_link', player: @player, year: 2024
