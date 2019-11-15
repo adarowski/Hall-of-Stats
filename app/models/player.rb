@@ -135,10 +135,11 @@ class Player < ActiveRecord::Base
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")
   scope :tg_era_2022, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2006 AND last_year >= 2004 AND hall_rating > 50")
   scope :tg_era_2024, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2008 AND last_year >= 2007 AND hall_rating > 50")
-  scope :tg_era_2027, -> {
+  scope :tg_era_2027, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009 AND hall_rating > 50")
+  scope :tg_era_2029, -> {
     where("ID IN (?) OR ID IN (?)",
-      not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009 AND hall_rating > 50"),
-      not_in_hof.where("hall_rating >= 50 AND last_year = 2011"))
+      not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2013 AND last_year >= 2012 AND hall_rating > 50"),
+      not_in_hof.where("hall_rating >= 50 AND last_year = 2013"))
   }
 
   has_and_belongs_to_many :articles

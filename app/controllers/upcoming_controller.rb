@@ -13,6 +13,7 @@ class UpcomingController < ApplicationController
     @tg_era_2022 = Player.tg_era_2022.by_rank
     @tg_era_2024 = Player.tg_era_2024.by_rank
     @tg_era_2027 = Player.tg_era_2027.by_rank
+    @tg_era_2029 = Player.tg_era_2029.by_rank
   end
 
 end
