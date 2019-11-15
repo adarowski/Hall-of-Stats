@@ -75,6 +75,7 @@ class Player < ActiveRecord::Base
   scope :eligible_2022, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2016")
   scope :eligible_2023, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2017")
   scope :eligible_2024, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2018")
+  scope :eligible_2025, not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2019")
   scope :active_and_worthy, not_in_hos.hall_worthy.where("eligibility = 'active'")
   scope :active_and_close, not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")
   scope :near_misses, not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")
