@@ -131,7 +131,7 @@ class Player < ActiveRecord::Base
     id = 'pettian01'
   ")
 
-  scope :mb_era_2020, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2003 AND hall_rating > 50")
+  scope :mb_era_2023, not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2006 AND hall_rating > 50")
   scope :gd_era_2021, not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")
   scope :eb_era_2021, not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")
   scope :tg_era_2022, not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2006 AND last_year >= 2004 AND hall_rating > 50")
