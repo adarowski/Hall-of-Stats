@@ -173,7 +173,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    pg (1.2.3)
+    pg (0.21.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.5)
@@ -288,7 +288,7 @@ DEPENDENCIES
   kaminari
   listen!
   nokogiri
-  pg
+  pg (~> 0.11)
   quiet_assets
   rails (~> 3.2)
   rake (< 11.0)
