@@ -3,7 +3,7 @@ Hos::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  match '/player/:id', to: 'players#show', as: :player, constraints: { id: /.*/ }
+  get '/player/:id', to: 'players#show', as: :player, constraints: { id: /.*/ }
   get '/franchise/render_list', to: 'franchise#render_list'
   post '/autocomplete', to: 'players#autocomplete'
   resources :about
