@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery-ui/all
+//= require jquery.ui.mouse
 //= require jquery-ui-autocomplete-html
 //= require jquery.ui.touch-punch
 //= require d3
