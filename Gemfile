@@ -8,6 +8,7 @@ gem 'eventmachine', '1.0.7'
 gem 'thin'
 
 gem 'pg'
+gem 'activerecord-postgresql-adapter'
 gem 'haml', "~> 4.0"
 gem 'redcarpet'
 
