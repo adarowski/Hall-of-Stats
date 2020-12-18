@@ -33,9 +33,9 @@ gem 'd3-rails'
 
 gem 'stamp'
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'touchpunch-rails'
+gem 'jquery-rails', '2.2.1'
+gem 'jquery-ui-rails', '4.0.1'
+gem 'touchpunch-rails', '1.0.0'
 
 group :development, :test do
   gem "rspec-rails", "~> 2.0"
