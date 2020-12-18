@@ -7,7 +7,7 @@ gem 'rake', '< 11.0'
 gem 'eventmachine', '1.0.7'
 gem 'thin'
 
-gem 'pg', '0.17.1'
+gem 'pg'
 gem 'haml', "~> 4.0"
 gem 'redcarpet'
 
