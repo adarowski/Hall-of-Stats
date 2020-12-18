@@ -47,7 +47,7 @@ module ApplicationHelper
   def title_or_default
     if content_for?(:title)
       "Hall of Stats: #{content_for(:title)}"
-    else 
+    else
       "Hall of Stats"
     end
   end

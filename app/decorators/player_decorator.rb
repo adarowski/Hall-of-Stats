@@ -3,6 +3,7 @@
 class PlayerDecorator < Draper::Decorator
   decorates :player
 
+  delegate_all
   delegate :name, to: :player
 
   POSITIONS = {

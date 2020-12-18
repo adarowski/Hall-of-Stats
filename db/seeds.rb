@@ -1,30 +1,30 @@
 require 'csv'
 
-Player.transaction do
-  puts "Creating Players..."
-  CSV.parse(File.open("public/hall-of-stats-new.csv", "r:ISO-8859-1"), headers: true).each_with_index do |row, idx|
+# Player.transaction do
+#   puts "Creating Players..."
+#   CSV.parse(File.open("public/hall-of-stats-new.csv", "r:ISO-8859-1"), headers: true).each_with_index do |row, idx|
 
-    puts idx if idx % 100 == 0
-    player = row.to_hash
+#     puts idx if idx % 100 == 0
+#     player = row.to_hash
 
-    player['id'] = player.delete('player_id')
+#     player['id'] = player.delete('player_id')
 
-    # normalize some data
-    player['hos'] = (player['hos'].try(:strip) == '1')
-    player['hof'] = (player['hof'].try(:strip) == '1')
-    player['hom'] = (player['hom'].try(:strip) == '1')
-    player['personal_hof'] = (player['personal_hof'].try(:strip) == '1')
-    player['ross_hof'] = (player['ross_hof'].try(:strip) == '1')
-    player['bryan_hof'] = (player['bryan_hof'].try(:strip) == '1')
+#     # normalize some data
+#     player['hos'] = (player['hos'].try(:strip) == '1')
+#     player['hof'] = (player['hof'].try(:strip) == '1')
+#     player['hom'] = (player['hom'].try(:strip) == '1')
+#     player['personal_hof'] = (player['personal_hof'].try(:strip) == '1')
+#     player['ross_hof'] = (player['ross_hof'].try(:strip) == '1')
+#     player['bryan_hof'] = (player['bryan_hof'].try(:strip) == '1')
 
-    player['position'] = 'p' if player['position'] == 'rp'
+#     player['position'] = 'p' if player['position'] == 'rp'
 
-    player.delete('image_url') if player['image_url'].blank?
+#     player.delete('image_url') if player['image_url'].blank?
 
-    record = Player.find_or_initialize_by_id(player['id'])
-    record.update_attributes!(player, as: :admin)
-  end
-end
+#     record = Player.find_or_initialize_by(id: player['id'])
+#     record.update_attributes!(player)#, as: :admin)
+#   end
+# end
 puts "Done creating players"
 
 SeasonStats.transaction do
@@ -34,7 +34,7 @@ SeasonStats.transaction do
     stats = row.to_hash
     stats.merge!(franchise_id: stats['franchise_id'].downcase)
     record = SeasonStats.new
-    record.update_attributes!(stats, as: :admin)
+    record.update_attributes!(stats)
   end
 end
 puts "Done creating season stats"
@@ -47,7 +47,7 @@ FranchiseRating.transaction do
     stats['franchise_id'] = stats['franchise_id'].downcase
     record = FranchiseRating.where(player_id: stats['player_id'],
                                    franchise_id: stats['franchise_id']).first_or_initialize
-    record.update_attributes!(stats, as: :admin)
+    record.update_attributes!(stats)
   end
 end
 puts "Done creating franchise ratings"
@@ -62,7 +62,7 @@ VotingResult.transaction do
     results["dropped"] = (results["dropped"].try(:strip) == "1")
 
     result = VotingResult.new
-    result.update_attributes!(results, as: :admin)
+    result.update_attributes!(results)
   end
 end
 puts "Done creating voting results"

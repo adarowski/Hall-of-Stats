@@ -1,6 +1,7 @@
 class FranchiseDecorator < Draper::Decorator
   decorates :franchise
 
+  delegate_all
   delegate :name, to: :franchise
 
   def keywords

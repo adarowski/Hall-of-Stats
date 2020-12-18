@@ -2,28 +2,28 @@
 
 class Franchise < ActiveHash::Base
   include ActiveHash::Associations
-  
+
   fields :name, :img, :img_credit, :player, :active, :first_year, :last_year, :note, :color
   field :color, default: '#000000'
   field :num_displayed_players, default: 200
   field :active, default: false
-  
+
   has_many :franchise_ratings, class_name: 'FranchiseRating'
-  
+
   def players
     Player.select('players.*, franchise_ratings.hall_rating::numeric as franchise_hall_rating').
       joins(:franchise_ratings).
       where('franchise_ratings.franchise_id = ?', self.id).
       order('franchise_ratings.hall_rating desc')
   end
-  
+
   def players_for_position(position)
     Player.select('players.*, franchise_ratings.hall_rating::numeric as franchise_hall_rating').
       joins(:franchise_ratings).
       where('franchise_ratings.franchise_id = ?', self.id).where('players.position = ?', position).
       order('franchise_ratings.hall_rating desc')
   end
-  
+
   def all_stars
     positions = %w{ 1b 2b 3b ss c cf lf rf p }
     Player.select('distinct on (players.position) players.*, franchise_ratings.hall_rating as franchise_hall_rating').
@@ -31,24 +31,24 @@ class Franchise < ActiveHash::Base
       where('franchise_ratings.franchise_id = ? and players.position in (?)', self.id, positions).
       order('players.position, franchise_hall_rating desc')
   end
-  
+
   def bench
     players.where('id not in (?) and position != ?',
                   all_stars.map(&:id), 'p').limit(7)
   end
-  
+
   def bullpen
     players_for_position('p').offset(1).limit(9)
   end
-  
+
   def self.active
     Franchise.all.select{|f| f.last_year.blank? }
   end
-  
+
   def self.past
     Franchise.all.reject{|f| f.last_year.blank? }
   end
-  
+
   def years_existed
     if last_year.blank?
       "since #{first_year}"
