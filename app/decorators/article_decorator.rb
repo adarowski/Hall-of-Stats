@@ -1,4 +1,4 @@
-class ArticleDecorator < Draper::Base
+class ArticleDecorator < Draper::Decorator
   decorates :article
 
   delegate :title, to: :article

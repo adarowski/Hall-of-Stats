@@ -1,4 +1,4 @@
-class FranchiseDecorator < Draper::Base
+class FranchiseDecorator < Draper::Decorator
   decorates :franchise
 
   delegate :name, to: :franchise
