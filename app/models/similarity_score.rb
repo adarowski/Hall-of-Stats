@@ -1,5 +1,5 @@
 class SimilarityScore < ActiveRecord::Base
-  attr_accessible :player1_id, :player2_id, :score
+  # attr_accessible :player1_id, :player2_id, :score
 
   has_and_belongs_to_many :player1s, class_name: 'Player'
   has_and_belongs_to_many :player2s, class_name: 'Player'
