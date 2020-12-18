@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 ruby "2.5.8"
 
 gem 'rails', '~> 3.2'
+gem 'rake', '< 11.0'
 
 gem 'eventmachine', '1.0.7'
 gem 'thin'
 
 gem 'pg'
-gem 'haml'
+gem 'haml', "~> 4.0"
 gem 'redcarpet'
 
 gem 'draper', '0.17.0'
