@@ -1,6 +1,7 @@
 class ArticleDecorator < Draper::Decorator
   decorates :article
 
+  delegate_all
   delegate :title, to: :article
 
   def keywords
