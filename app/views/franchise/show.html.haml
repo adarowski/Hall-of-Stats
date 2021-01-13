@@ -43,21 +43,6 @@
       %li= link_to "#{franchise.id.upcase}", franchise_path(franchise.id)
     %li= link_to "All Franchises", "/franchise"
 
-- if @franchise.active?
-  %section#chart-container
-    .tooltip
-      %strong.year
-      %span.player
-      %span.war
-    %h3
-      20 Greatest #{@franchise.name}
-      %small by Hall Rating
-    %svg#all-time
-    %h3
-      #{@franchise.name} Season-by-Season
-      %small by Wins Above Replacement
-    %svg#total
-
 - cache [ 'franchise', @franchise.id, 'players-with-rating'] do
   %section#players-with-rating.franchise-players{ 'data-franchise' => @franchise.id }
     %h2.franchise-player

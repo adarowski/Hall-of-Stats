@@ -1126,43 +1126,6 @@ article
   margin: 5px 0 0
   font-size: 85%
 
-#chart-container
-  @extend .section-padding
-
-  svg
-    margin-bottom: 20px
-
-  .tooltip
-    position: absolute
-    display: none
-    font-size: 75%
-    background: fade_out($default_color, 0.8)
-    padding: 2px 8px
-
-  h3
-    border-bottom: 1px solid fade_out($default_color, 0.9)
-    padding: 5px 0
-
-  .axis path, .axis line
-    fill: none
-    stroke: #666
-    shape-rendering: crispEdges
-
-  .axis text
-    font-size: 12px
-
-  path.area
-    opacity: 0.70
-
-  circle.data-point
-    fill: none
-    stroke: none
-    pointer-events: all
-    opacity: 0.5
-
-  .legend text
-    font-size: 12px
-
 #consensus-body
 
   @media only screen and (min-width: 640px)
