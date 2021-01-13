@@ -130,7 +130,7 @@ class Player < ActiveRecord::Base
 
   scope :gd_era_2022, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
   scope :eb_era_2022, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
-  scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND last_year >= 2004 AND hall_rating > 50")}
+  scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND hall_rating > 50")}
   scope :mb_era_2024, lambda{not_in_hof.where("era_committee = 'modern_baseball' AND hall_rating > 50")}
   scope :tg_era_2025, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
   scope :tg_era_2028, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2012 AND last_year >= 2010 AND hall_rating > 50")}
