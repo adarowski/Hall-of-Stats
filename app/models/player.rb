@@ -69,13 +69,11 @@ class Player < ActiveRecord::Base
   scope :added, lambda{not_in_hof.in_hos}
   scope :removed, lambda{in_hof.not_in_hos}
   scope :upcoming, lambda{not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")}
-  scope :eligible_2019, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2013")}
-  scope :eligible_2020, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2014")}
-  scope :eligible_2021, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2015")}
   scope :eligible_2022, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2016")}
   scope :eligible_2023, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2017")}
   scope :eligible_2024, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2018")}
   scope :eligible_2025, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2019")}
+  scope :eligible_2026, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2020")}
   scope :active_and_worthy, lambda{not_in_hos.hall_worthy.where("eligibility = 'active'")}
   scope :active_and_close, lambda{not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")}
   scope :near_misses, lambda{not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")}
@@ -113,12 +111,10 @@ class Player < ActiveRecord::Base
 
   scope :endorsements, lambda{not_in_hof.in_personal_hof}
 
-  scope :bbwaa_2020_returning, lambda{not_in_hof.where("
+  scope :bbwaa_2022_returning, lambda{not_in_hof.where("
     id = 'bondsba01' OR
     id = 'clemero02' OR
     id = 'schilcu01' OR
-    id = 'mussimi01' OR
-    id = 'walkela01' OR
     id = 'ramirma02' OR
     id = 'sosasa01' OR
     id = 'sheffga01' OR
@@ -128,20 +124,16 @@ class Player < ActiveRecord::Base
     id = 'rolensc01' OR
     id = 'jonesan01' OR
     id = 'heltoto01' OR
-    id = 'pettian01'
+    id = 'pettian01' OR
+    id = 'abreubo01'
   ")}
 
-  scope :mb_era_2023, lambda{not_in_hof.where("era_committee = 'modern_baseball' AND last_year <= 2006 AND hall_rating > 50")}
-  scope :gd_era_2021, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
-  scope :eb_era_2021, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
-  scope :tg_era_2022, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2006 AND last_year >= 2004 AND hall_rating > 50")}
-  scope :tg_era_2024, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2008 AND last_year >= 2007 AND hall_rating > 50")}
-  scope :tg_era_2027, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2011 AND last_year >= 2009 AND hall_rating > 50")}
-  scope :tg_era_2029, -> {
-    where("ID IN (?) OR ID IN (?)",
-      not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2013 AND last_year >= 2012 AND hall_rating > 50"),
-      not_in_hof.where("hall_rating >= 50 AND last_year = 2013"))
-  }
+  scope :gd_era_2022, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
+  scope :eb_era_2022, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
+  scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND last_year >= 2004 AND hall_rating > 50")}
+  scope :mb_era_2024, lambda{not_in_hof.where("era_committee = 'modern_baseball' AND hall_rating > 50")}
+  scope :tg_era_2025, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
+  scope :tg_era_2028, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2012 AND last_year >= 2010 AND hall_rating > 50")}
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'

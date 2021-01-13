@@ -8,7 +8,6 @@ namespace :era_committee do
         SELECT SUM(season_stats.hall_rating) AS rating,
         player_id,
         CASE WHEN year <= 1949 THEN 'early_baseball'
-          WHEN player_id = 'smithle02' THEN 'todays_game'
           WHEN year > 1949 AND year <= 1969 THEN 'golden_days'
           WHEN year > 1969 AND year <= 1987 THEN 'modern_baseball'
           ELSE 'todays_game'
