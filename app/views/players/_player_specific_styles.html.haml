@@ -1,4 +1,89 @@
 :sass
+  $bad_color: #900
+
+  =border_radius($radius)
+    -moz-border-radius: $radius
+    -webkit-border-radius: $radius
+    border-radius: $radius
+
+  table#run-value
+    margin-top: (#{player.runs_x.max.round}/2) + 20px
+    margin-bottom: (#{player.runs_x.min.abs.round}/2) + 20px
+    th
+      &.bat:before
+        @if #{player.runs_bat} < 0
+          background-color: fade_out($bad_color, 0.2)
+          height: (#{player.runs_bat.abs.round}/2) + px
+          top: 100%
+          bottom: auto
+          +border_radius(0 0 4px 4px)
+        @else
+          height: (#{player.runs_bat.round}/2) + px
+      &.run:before
+        @if #{player.runs_br} < 0
+          background-color: fade_out($bad_color, 0.2)
+          height: (#{player.runs_br.abs.round}/2) + px
+          top: 100%
+          bottom: auto
+          +border_radius(0 0 4px 4px)
+        @else
+          height: (#{player.runs_br.round}/2) + px
+      &.dp:before
+        @if #{player.runs_dp} < 0
+          background-color: fade_out($bad_color, 0.2)
+          height: (#{player.runs_dp.abs.round}/2) + px
+          top: 100%
+          bottom: auto
+          +border_radius(0 0 4px 4px)
+        @else
+          height: (#{player.runs_dp.round}/2) + px
+      &.fld:before
+        @if #{player.runs_defense} < 0
+          background-color: fade_out($bad_color, 0.2)
+          height: (#{player.runs_defense.abs.round}/2) + px
+          top: 100%
+          bottom: auto
+          +border_radius(0 0 4px 4px)
+        @else
+          height: (#{player.runs_defense.round}/2) + px
+      &.pos:before
+        @if #{player.runs_totalpos} < 0
+          background-color: fade_out($bad_color, 0.2)
+          height: (#{player.runs_totalpos.abs.round}/2) + px
+          top: 100%
+          bottom: auto
+          +border_radius(0 0 4px 4px)
+        @else
+          height: (#{player.runs_totalpos.round}/2) + px
+
+- if player.runs_pitch
+  :sass
+    $bad_color: #900
+    table#run-value
+      th
+        width: 16.7%
+        &:before
+          width: 15.7%
+        &.run:before
+          left: 17.2%
+        &.dp:before
+          left: 33.8%
+        &.fld:before
+          left: 50.5%
+        &.pos:before
+          left: 67.2%
+        &.pit:before
+          left: 83.8%
+        &.pit:before
+          @if #{player.runs_pitch} < 0
+            background-color: fade_out($bad_color, 0.2)
+            height: (#{player.runs_pitch.abs.round}/2) + px
+            top: 100%
+            bottom: auto
+          @else
+            @if #{player.runs_pitch} > 0
+              height: (#{player.runs_pitch.round}/2) + px
+
 - if player.peak_pct
   :sass
     .peak

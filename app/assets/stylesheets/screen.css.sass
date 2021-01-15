@@ -694,9 +694,28 @@ table
     tfoot
       font-size: 80%
   &#run-value
+    position: relative
     margin: 10px 0
     th
       width: 20%
+      &:before
+        content: ""
+        display: block
+        width: 19%
+        background-color: fade_out($good_color, 0.2)
+        position: absolute
+        bottom: 100%
+        +border_radius(3px 3px 0 0)
+      &:first-child:before
+        left: .5%
+      &:nth-child(2):before
+        left: 20.5%
+      &:nth-child(3):before
+        left: 40.5%
+      &:nth-child(4):before
+        left: 60.5%
+      &:nth-child(5):before
+        left: 80.5%
 
   &.data-align
     th, td
