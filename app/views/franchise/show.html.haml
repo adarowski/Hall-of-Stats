@@ -47,7 +47,35 @@
   %section#players-with-rating.franchise-players{ 'data-franchise' => @franchise.id }
     %h2.franchise-player
       %a#show-filters{href: '#'}
-        Greatest #{@franchise.name}
+        #{@players.size} Greatest #{@franchise.name}
+    #filters-ajax{style: 'display: none;'}
+      %ul
+        %li
+          %a#show-franchise{href: '#franchise'}
+            %span #{@players.size}
+            Greatest #{@franchise.name}
+
+        %li
+          %a#show-hos{href: '#hos'}
+            %span #{@players.in_hos.size}
+            Hall of Stats Inductees
+        %li
+          %a#show-hof{href: '#hof'}
+            %span #{@players.in_hof.size}
+            Hall of Fame Inductees
+        %li
+          %a#show-hom{href: '#hom'}
+            %span #{@players.in_hom.size}
+            Hall of Merit Inductees
+        - ['p', 'c', '1b', '2b', '3b', 'ss', 'lf', 'cf', 'rf', 'dh'].each do |position|
+          %li
+            %a{id: "show-#{position}", href: "##{position}"}
+              - if position == 'p'
+                %span= @franchise.players.of_position(position).limit(200).size
+                Best #{PlayerDecorator::POSITIONS[position].pluralize}
+              - else
+                %span= @franchise.players.of_position(position).size
+                = PlayerDecorator::POSITIONS[position].pluralize
 
     %ol#player-list
       = render @players
