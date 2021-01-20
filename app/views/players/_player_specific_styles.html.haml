@@ -1,11 +1,5 @@
 :sass
   $bad_color: #900
-
-  =border_radius($radius)
-    -moz-border-radius: $radius
-    -webkit-border-radius: $radius
-    border-radius: $radius
-
   table#run-value
     display: table
     th
@@ -15,7 +9,7 @@
           height: (#{player.runs_bat.abs.round}/2) + px
           top: 100%
           bottom: auto
-          +border_radius(0 0 4px 4px)
+          border-radius: 0 0 4px 4px
         @else
           height: (#{player.runs_bat.round}/2) + px
       &.run:before
@@ -24,7 +18,7 @@
           height: (#{player.runs_br.abs.round}/2) + px
           top: 100%
           bottom: auto
-          +border_radius(0 0 4px 4px)
+          border-radius: 0 0 4px 4px
         @else
           height: (#{player.runs_br.round}/2) + px
       &.dp:before
@@ -33,7 +27,7 @@
           height: (#{player.runs_dp.abs.round}/2) + px
           top: 100%
           bottom: auto
-          +border_radius(0 0 4px 4px)
+          border-radius: 0 0 4px 4px
         @else
           height: (#{player.runs_dp.round}/2) + px
       &.fld:before
@@ -42,7 +36,7 @@
           height: (#{player.runs_defense.abs.round}/2) + px
           top: 100%
           bottom: auto
-          +border_radius(0 0 4px 4px)
+          border-radius: 0 0 4px 4px
         @else
           height: (#{player.runs_defense.round}/2) + px
       &.pos:before
@@ -51,7 +45,7 @@
           height: (#{player.runs_totalpos.abs.round}/2) + px
           top: 100%
           bottom: auto
-          +border_radius(0 0 4px 4px)
+          border-radius: 0 0 4px 4px
         @else
           height: (#{player.runs_totalpos.round}/2) + px
 
@@ -88,4 +82,4 @@
     .peak
       width: #{player.peak_pct}%
     .longevity
-      width: #{player.longevity_pct}%
+      width: #{100 - player.peak_pct}%
