@@ -2,6 +2,7 @@ class SeasonStats < ActiveRecord::Base
   # attr_accessible :player_id, :waa_pos, :war_pos, :waa_p, :war_p, :waa_tot, :war_tot, :year,
   #   :team, :franchise_id, :stint, :lg, :hall_rating,
   #   as: :admin
+  self.primary_key = :player_id
 
   validates :player_id, uniqueness: { scope: [:year, :franchise_id] }
   belongs_to :player
