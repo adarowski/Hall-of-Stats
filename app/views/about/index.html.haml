@@ -25,25 +25,15 @@
       %li= link_to "More About the Project", "#more"
       %li= link_to "The Team", "#team"
       %li= link_to "The Tech", "#tech"
-      %li= link_to "Thank You", "#thanks"
 
   - content = capture_haml do
     :plain
-      The Hall of Stats was conceived because the Hall of Fame voting process has become a political nightmare. A massive backlog of worthy candidates is piling up—some because of association with PEDs (or simply suspicion), but some because voters just don’t realize how good they were. There seems to be a false perception of what the Hall of Fame actually is. It’s not all @ruthba01, @mathech01, @cobbty01, and @wagneho01. For every @johnswa01 in the Hall of Fame there’s a @haineje01. For every @aaronha01 there’s a @mccarto01.
 
-      Should each player better than Haines and McCarthy get in? No. But a player shouldn’t have to be Babe Ruth—or even @blylebe01—to get into Cooperstown.
+      <strong>They say, “It’s the Hall of Fame, not the Hall of Stats.”</strong>
 
-      The Hall of Stats uses a formula called Hall Rating to rank every player in baseball history. Hall Rating combines the value of a player’s peak and longevity into a single number that represents the quality of that player’s Hall of Fame case. It’s not perfect, but there’s a lot to be said for rating all players in history according to the same objective criteria.
+      But what if it were?
 
-      There are #{Player.in_hos.count} players in the Hall of Fame based on their MLB careers. According to the Hall of Stats, Blyleven ranks <span>#</span>@blylebe01:ranking_eligible among eligible players. He should have breezed into the Hall, but instead it took fourteen tries. @schilcu01 ranks <span>#</span>@schilcu01:ranking_eligible. @bagweje01 ranks #<span>@bagweje01:ranking_eligible</span>. @loftoke01—who received less than 5% of the vote—ranks #@loftoke01:ranking_eligible. There’s no reason to keep these players out of the Hall of Fame… if you look at things objectively.
-
-      That’s what the Hall of Stats does. It ignores anything that happened off the field. The Hall of Stats takes the current number of players in Cooperstown (#{Player.in_hos.count}), kicks everybody out, and re-populates itself with the top #{Player.in_hos.count} players according to Hall Rating. What you get is an objective Hall free of politics, grandstanding, and double jeopardy.
-
-      Hall Rating is based on Wins Above Replacement (WAR) and Wins Above Average (WAA) from [Baseball-Reference](http://baseball-reference.com). A series of adjustments are made to deal with shorter 19th century schedules, greater 19th century pitching workloads, the grueling act of catching, and more. The adjusted WAR component represents longevity while the adjusted WAA component represents peak. They are combined and indexed to 100 so the Hall of Stats borderline is represented by a Hall Rating of 100.
-
-      Babe Ruth has a Hall Rating of @ruthba01:hall_rating_rounded. Blyleven’s is @blylebe01:hall_rating_rounded. Lofton’s is a robust @loftoke01:hall_rating_rounded while Hall of Famer McCarthy’s is merely @mccarto01:hall_rating_rounded. Of the #{Player.in_hos.count} players in the Hall of Fame, #{Player.removed.count} (just about one third) are removed from the Hall of Stats.
-
-      The Hall of Stats aims to show how run- and win-value statistics can be used to measure a player’s Hall of Fame case. It evolves to reflect the best data currently available (players can be added and removed, meaning this Hall doesn’t cling to its mistakes). The Hall of Stats also visualizes what a “default Hall” would look like if it were populated simply by the numbers. Should numbers be the only arbiter of who gets into Cooperstown? Certainly not. The Hall of Stats is merely meant to serve as a conversation starter. That objective starting point is one thing that’s sorely lacking in the Hall of Fame voting process today.
+      The Hall of Stats shows us what the Hall of Fame would look like if we removed all #{Player.in_hos.count} inductees and replaced them with the top #{Player.in_hos.count} eligible players in history, according to a mathematical formula.
 
       <h3 id="formula">The Formula <a href="#top">Back to Top</a></h3>
 
@@ -89,12 +79,12 @@
       The Hall of Stats equally weighs a player’s career value (adjWAR) and peak value (adjWAA). These numbers, however, are on different scales. adjWAA is multiplied by 1.8 to adjust for this. To get 1.8, I collected all Hall of Fame inductees and divided their total adjWAR by their total adjWAA.
 
       #### More About Baseball-Reference’s WAR
-      
+
       If you are interested in what exactly goes into Baseball-Reference’s implementation of WAR, they have written about [the calculations in incredible detail](http://www.baseball-reference.com/about/war_explained.shtml).
 
       #### Known Limitations
 
-      * It pains me, but the Hall of Stats does not include Negro League players. The data simply isn’t reliable yet—but it is getting better. As soon as I figure out a way to do it, Negro League stars will be recognized by the Hall of Stats.
+      * The Hall of Stats does not yet include Negro League players. With the emergence of the [Seamheads Negro League Database](http://www.seamheads.com/NegroLgs/), we’ll be looking into how we can incorporate these players as soon as possible.
       * The Hall of Stats doesn’t adjust for time lost to military service. This is something I go back and forth on. I’d love to hear your feedback about this.
       * I’m also not happy yet with how the Hall of Stats handles relief pitchers. Your feedback is welcome here as well.
       * The Hall of Stats doesn’t recognize postseason performance (as the Hall of wWAR did). I’m thinking of a good way to do this, but again feedback is welcome.
@@ -163,19 +153,27 @@
 
       #### Adam Darowski
 
-      Ever since introducing the [Hall of wWAR](http://darowski.com/hall-of-wwar) in March of 2011, Adam Darowski has been obsessed with the idea of the Hall of Stats. He conceived the idea for the site, developed the formula, crunched the numbers, designed the site, and built the site’s front end. A product designer by day for [Dribbble](http://dribbble.com), he continues to modify the site and the formula while writing the articles. Adam lives in New Hampshire with his wife and three young children. He tweets about baseball at [@baseballtwit](http://twitter.com/baseballtwit) and everything else at [@adarowski](http://twitter.com/adarowski). He also runs the Hall of Stats [Twitter (@HallOfStats)](http://twitter.com/hallofstats) and [Facebook](http://facebook.com/hallofstats) accounts.
+      * Founder and creator of the Hall of Stats
+      * Visual design, front-end Code, and little bit of Rails
+      * By day, Head of User Experience for Sports Reference
+      * [@baseballtwit](http://twitter.com/baseballtwit) (for baseball), [@fussballtwit](http://twitter.com/fussballtwit) (for soccer), and [@adarowski](http://twitter.com/adarowski) (for everything else) on Twitter
+      * Also runs the [@hallofstats](http://twitter.com/hallofstats) Twitter account
 
       #### Jeffrey Chupp
 
-      Jeffrey, a software developer who also works for [Dribbble](http://dribbble.com), helped Adam get the Hall of Stats up and running by building many of the site’s original features. Adam and Jeffrey previously collaborated on the [Red Sox Hall of wWAR](http://redsox.hallofstats.com/), a [Baseball Hack Day](http://baseballhackday.com/) project. You can follow Jeffrey on Twitter at [@semanticart](http://twitter.com/semanticart).
+      * Built the backend of the Hall of Stats and most of the original features
+      * By day, Senior Software Engineer at Wistia
+      * [@semanticart](http://twitter.com/semanticart) on Twitter
 
       #### Michael Berkowitz
 
-      Michael, also a software developer, originally took on special projects like player search, similarity scores, and season stats. Since the original launch, he has built most of the new features like positional pages, player rankings, and franchise pages and charts. A former co-worker of Adam’s, Michael currently works at [MeYouHealth](https://www.meyouhealth.com/). In addition to writing code, he is a [singer/songwriter](http://www.reverbnation.com/michaelberkowitz) and linguist. You can follow Michael on Twitter at [@hal678](http://twitter.com/hal678).
+      * Built most of the post-launch Hall of Stats features
+      * By day, Senior Software Engineer at ezCater
+      * [@hal678](http://twitter.com/hal678) on Twitter
 
       <h3 id="tech">The Tech <a href="#top">Back to Top</a></h3>
 
-      The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), [CoffeeScript](http://coffeescript.org/), and [D3](http://d3js.org/) (for charting).
+      The site is built with [Ruby on Rails](http://rubyonrails.org/), [Haml](http://haml.info/), [Sass](http://sass-lang.com/), [jQuery](http://jquery.com/), and [CoffeeScript](http://coffeescript.org/).
 
       #### Open Source
 
@@ -187,9 +185,5 @@
 
       * [Player career totals](/hall-of-stats-new.csv)
       * [Single season totals](/hall-of-stats-franchise-seasons.csv)
-
-      <h3 id="thanks">Thank You <a href="#top">Back to Top</a></h3>
-
-      Thank You to my three favorite baseball Seans—**Sean Forman** [(@sean_forman)](http://twitter.com/sean_forman) of Baseball Reference, **Sean Smith** for originally creating this WAR framework, and **Sean Lahman** [(@seanlahman)](http://twitter.com/seanlahman) for his work on the Lahman Baseball Database. Also, thank you to **Dan McCloskey** [(@_LeftField)](http://twitter.com/_LeftField) and **Sky Kalkman** [(@Sky_Kalkman)](http://twitter.com/Sky_Kalkman) for letting me bounce ideas off them along the way. Thank you to the brilliant readers of [High Heat Stats](http://www.highheatstats.com/author/adam/) and [Beyond the Box Score](http://www.sbnation.com/users/adarowski/blog) for providing wonderful feedback ever since I introduced wWAR. Finally, a huge thank you to Jeffrey and Michael (and Tim!) for helping me build the site of my dreams.
 
   = raw BioFormatter.new(content)
