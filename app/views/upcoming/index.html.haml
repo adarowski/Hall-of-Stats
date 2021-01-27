@@ -32,19 +32,19 @@
   <h3 id="year_2022">2022 <a href="#top">Back to Top</a></h3>
 
   %p
-    The 2022 election cycle features the return of the Golden Days and Early Baseball Era Committee elections. After this cycle, the Golden Days Era Committee won’t meet again for five years and the Early Baseball Era Committee meets again in ten years. For fans of early baseball, this is a crucial election. The BBWAA ballot sees a pair of huge names hit the ballot—Alex Rodriguez and David Ortiz. It will also be the final chance for Barry Bonds and Roger Clemens (and Curt Schilling if he misses induction this month).
-
-  %h4#bbwaa_2022
-    BBWAA Ballot
-    %span (New Candidates with Hall Rating of 20+)
-
-  = render 'upcoming_table', pool: @eligible_2022
+    The 2022 election cycle features the return of the Golden Days and Early Baseball Era Committee elections. After this cycle, the Golden Days Era Committee won’t meet again for five years and the Early Baseball Era Committee meets again in ten years. For fans of early baseball, this is a crucial election. The BBWAA ballot sees a pair of huge names hit the ballot—Alex Rodriguez and David Ortiz. It will also be the final chance for Barry Bonds, Roger Clemens, Curt Schilling, and Sammy Sosa.
 
   %h4#bbwaa_2022_returning
     BBWAA Ballot
     %span (Returning Candidates)
 
   = render 'upcoming_table', pool: @bbwaa_2022_returning
+
+  %h4#bbwaa_2022
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 20+)
+
+  = render 'upcoming_table', pool: @eligible_2022
 
   %h4#golden_days_2022
     Golden Days Era Ballot
