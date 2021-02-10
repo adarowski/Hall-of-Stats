@@ -126,7 +126,8 @@ class Player < ActiveRecord::Base
     id = 'heltoto01' OR
     id = 'pettian01' OR
     id = 'abreubo01' OR
-    id = 'buehrma01'
+    id = 'buehrma01' OR
+    id = 'hudsoti01'
   ")}
 
   scope :gd_era_2022, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
