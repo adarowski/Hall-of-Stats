@@ -25,6 +25,10 @@ class Article < ActiveRecord::Base
     slug.present? ? slug : id
   end
 
+  def article_params
+    params.require(:article).permit(:body, :published, :title, :slug, :published_at)
+  end
+
   private
 
   def set_associated_players
