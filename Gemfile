@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.5.8"
 
 gem 'rails', '~> 4.2'
-gem 'rake', '< 11.0'
+gem 'rake', '< 14.0'
 
 gem 'eventmachine', '1.0.7'
 gem 'thin'
