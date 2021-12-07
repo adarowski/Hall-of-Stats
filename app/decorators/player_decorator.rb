@@ -41,7 +41,12 @@ class PlayerDecorator < Draper::Decorator
     'veterans' => 'Veterans',
     'old timers' => 'Old Timers',
     'run off' => 'Runoff',
-    'special election' => 'Special Election'
+    'special election' => 'Special Election',
+    'golden' => 'Golden',
+    'preintegration' => "Pre-Integration",
+    'modern baseball' => "Modern Baseball",
+    'todays game' => "Today’s Game",
+    'golden days' => "Golden Days"
   }
 
   # don't use the helper so that we can be called from PlayerLinker

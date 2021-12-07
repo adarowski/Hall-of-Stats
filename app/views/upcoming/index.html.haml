@@ -21,18 +21,63 @@
     %li= link_to "2024", "#year_2024"
     %li= link_to "2025", "#year_2025"
     %li= link_to "2026", "#year_2026"
+    %li= link_to "2027", "#year_2027"
+    %li= link_to "2028", "#year_2028"
+    %li= link_to "2029", "#year_2029"
+    %li= link_to "2030", "#year_2030"
+    %li= link_to "2031", "#year_2031"
+    %li= link_to "2032", "#year_2032"
 
 %article#upcoming-body.long-form
   %p
-    With <a href="/articles/changes-to-era-committees">the changes to the Hall of Fame’s Era Committees</a> in 2016, it can be difficult to know who is eligible for the Hall of Fame and when. I’ll do my best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating.
+    With <a href="/articles/changes-to-era-committees">the changes to the Hall of Fame’s Era Committees</a> in 2016, it can be difficult to know who is eligible for the Hall of Fame and when. I’ll do my best to clarify things for you. Please note that when a player played in multiple Eras, we’re grouping him in the Era in which he produced the highest Hall Rating. This has mostly served me well, with the exceptions being Lee Smith and Jim Kaat. In those cases (and any others in the future), I will use the Era the Hall of Fame assigns.
+
+  %p Please note that this current ten-year cycle ends with the 2027 induction. After that, the rules will most likely change.
+
+  %ul
+    %li
+      %strong= link_to "2022:", "#year_2022"
+      BBWAA, Early Baseball, and Golden Days
+    %li
+      %strong= link_to "2023:", "#year_2023"
+      BBWAA, Today’s Game (final season through 2007)
+    %li
+      %strong= link_to "2024:", "#year_2024"
+      BBWAA, Modern Baseball
+    %li
+      %strong= link_to "2025:", "#year_2025"
+      BBWAA, Today’s Game (final season 2008–2009)
+    %li
+      %strong= link_to "2026:", "#year_2026"
+      BBWAA, Modern Baseball
+    %li
+      %strong= link_to "2027:", "#year_2027"
+      BBWAA, Golden Days
+    %li
+      %strong Current Era Committee cycle ends. Anything below this is subject to change.
+    %li
+      %strong= link_to "2028:", "#year_2028"
+      BBWAA, Today’s Game (final season 2010–2012)
+    %li
+      %strong= link_to "2029:", "#year_2029"
+      BBWAA, Modern Baseball
+    %li
+      %strong= link_to "2030:", "#year_2030"
+      BBWAA, Today’s Game (final season 2013–2014)
+    %li
+      %strong= link_to "2031:", "#year_2031"
+      BBWAA, Modern Baseball
+    %li
+      %strong= link_to "2032:", "#year_2032"
+      BBWAA, Golden Days, Early Baseball
 
   %p
-    The red and green icons indidate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
+    The red and green icons indicate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
 
   <h3 id="year_2022">2022 <a href="#top">Back to Top</a></h3>
 
   %p
-    The 2022 election cycle features the return of the Golden Days and Early Baseball Era Committee elections. After this cycle, the Golden Days Era Committee won’t meet again for five years and the Early Baseball Era Committee meets again in ten years. For fans of early baseball, this is a crucial election. The BBWAA ballot sees a pair of huge names hit the ballot—Alex Rodriguez and David Ortiz. It will also be the final chance for Barry Bonds, Roger Clemens, Curt Schilling, and Sammy Sosa.
+    The 2022 election cycle featured the return of the Golden Days and Early Baseball Era Committee elections. An unpreciedented six selections were made by the Era Committees: four by the Golden Days Era (Minnie Miñoso, Gil Hodges, Tony Oliva, and Jim Kaat) and two from the Early Baseball Era (Buck O’Neil and Bud Fowler). The BBWAA ballot sees a pair of huge names hit the ballot—Alex Rodriguez and David Ortiz. It will also be the final chance for Barry Bonds, Roger Clemens, Curt Schilling, and Sammy Sosa.
 
   %h4#bbwaa_2022_returning
     BBWAA Ballot
@@ -45,18 +90,6 @@
     %span (New Candidates with Hall Rating of 20+)
 
   = render 'upcoming_table', pool: @eligible_2022
-
-  %h4#golden_days_2022
-    Golden Days Era Ballot
-    %span (Candidates with Hall Rating of 50+)
-
-  = render 'upcoming_table', pool: @gd_era_2022
-
-  %h4#early_baseball_2022
-    Early Baseball Era Ballot
-    %span (Candidates with Hall Rating of 50+)
-
-  = render 'upcoming_table', pool: @eb_era_2022
 
   <h3 id="year_2023">2023 <a href="#top">Back to Top</a></h3>
 
@@ -112,10 +145,65 @@
   <h3 id="year_2026">2026 <a href="#top">Back to Top</a></h3>
 
   %p
-    We don’t really know what this BBWAA ballot will look like because not all reitrements have been announced yet. The Modern Baseball Era Committee will meet again with the same group of candidates.
+    We don’t really know what this BBWAA ballot will look like because not all retirements have been announced yet. The Modern Baseball Era Committee will meet again with the same group of candidates.
 
   %h4#bbwaa_2026
     BBWAA Ballot
     %span (New Candidates with Hall Rating of 20+)
 
   = render 'upcoming_table', pool: @eligible_2026
+
+  <h3 id="year_2027">2027 <a href="#top">Back to Top</a></h3>
+
+  %p
+    We don’t really know what this BBWAA ballot will look like because not all retirements have been announced yet. The Golden Days Era Committee will meet again.
+
+  %h4#bbwaa_2027
+    BBWAA Ballot
+    %span (New Candidates with Hall Rating of 20+)
+
+  = render 'upcoming_table', pool: @eligible_2027
+
+  %h4#golden_days_2027
+    Golden Days Era Ballot
+    %span (Candidates with Hall Rating of 50+)
+
+  = render 'upcoming_table', pool: @gd_era_2027
+
+  <h3 id="year_2028">2028 <a href="#top">Back to Top</a></h3>
+
+  The current Era Committee cycle ends after the 2027 election. If they continue with the current rules (which they likely will not), the Today’s Game Era Committee would again meet this year.
+
+  %h4#todays_game_2028
+    Today’s Game Era Ballot
+    %span (Candidates with Hall Rating of 50+)
+
+  = render 'upcoming_table', pool: @tg_era_2028
+
+  <h3 id="year_2029">2029 <a href="#top">Back to Top</a></h3>
+
+  If they continue with the current Era Committee rules, the Modern Baseball Era Committee will meet again with the same group of candidates.
+
+  <h3 id="year_2030">2030 <a href="#top">Back to Top</a></h3>
+
+  If they continue with the current Era Committee rules, the Today’s Game Era Committee will meet again.
+
+  %h4#todays_game_2030
+    Today’s Game Era Ballot
+    %span (Candidates with Hall Rating of 50+)
+
+  = render 'upcoming_table', pool: @tg_era_2030
+
+  <h3 id="year_2031">2031 <a href="#top">Back to Top</a></h3>
+
+  If they continue with the current Era Committee rules, the Modern Baseball Era Committee will meet again with the same group of candidates.
+
+  <h3 id="year_2032">2032 <a href="#top">Back to Top</a></h3>
+
+  Given the current rules, this is the next time the Early Baseball Era Committee is scheduled to meet. However, the current cycle will be ending after the 2027 induction, so this could change. Given that 2022 was the first time Negro League candidates were considered since 2006, it would be a shame to close the book on them for another ten years. The Golden Days Era Committee would also meet (with the same candidates).
+
+  %h4#early_baseball_2032
+    Early Baseball Era Ballot
+    %span (Candidates with Hall Rating of 50+)
+
+  = render 'upcoming_table', pool: @eb_era_2032

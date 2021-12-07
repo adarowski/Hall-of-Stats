@@ -74,6 +74,7 @@ class Player < ActiveRecord::Base
   scope :eligible_2024, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2018")}
   scope :eligible_2025, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2019")}
   scope :eligible_2026, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2020")}
+  scope :eligible_2027, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2021")}
   scope :active_and_worthy, lambda{not_in_hos.hall_worthy.where("eligibility = 'active'")}
   scope :active_and_close, lambda{not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")}
   scope :near_misses, lambda{not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")}
@@ -130,12 +131,13 @@ class Player < ActiveRecord::Base
     id = 'hudsoti01'
   ")}
 
-  scope :gd_era_2022, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
-  scope :eb_era_2022, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
   scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND hall_rating > 50")}
   scope :mb_era_2024, lambda{not_in_hof.where("era_committee = 'modern_baseball' AND hall_rating > 50")}
   scope :tg_era_2025, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
+  scope :gd_era_2027, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
   scope :tg_era_2028, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2012 AND last_year >= 2010 AND hall_rating > 50")}
+  scope :tg_era_2030, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2014 AND last_year >= 2013 AND hall_rating > 50")}
+  scope :eb_era_2032, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'

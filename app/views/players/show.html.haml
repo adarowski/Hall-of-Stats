@@ -33,11 +33,12 @@
         = @player.hall_rating.round(1)
       - else
         = @player.hall_rating.round
-    - if @player.hof == true
+    - if @player.hof == true || @player.alt_hof == "nl"
       %dt.hall-of-fame
         = link_to "/#hof" do
           Hall of Fame
-          %span (#{@player.hof_year} via #{@player.hof_via_name})
+          - if @player.hof_via
+            %span (#{@player.hof_year} via #{@player.hof_via_name})
       %dd.hall-of-fame Inductee
     - if @player.hos == true
       %dt.hall-of-stats
@@ -62,10 +63,11 @@
     - if @player.alt_hof?
       %dt.eligibility-note Induction Note
       %dd.eligibility-note
-        #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
         - if @player.alt_hof == 'nl'
-          Major League
-        player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+          #{@player.first_name} #{@player.last_name} is in the Hall of Fame as Negro Leagues player.
+        - else
+          #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
+          player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
     - if @player.eligibility == "banned"
       - if @player.hall_rating > 100
         %dt.banned Banned
@@ -94,9 +96,9 @@
           - else
             = render 'era_committee_link', player: @player, year: 2028
         - elsif @player.era_committee == 'golden_days'
-          = render 'era_committee_link', player: @player, year: 2022
+          = render 'era_committee_link', player: @player, year: 2027
         - elsif @player.era_committee == 'early_baseball'
-          = render 'era_committee_link', player: @player, year: 2022
+          = render 'era_committee_link', player: @player, year: 2032
 
   - if @player.has_photo?
     %figure.portrait
@@ -112,26 +114,22 @@
       %dd.longevity
         #{@player.longevity_pct.round}%
 
-- if @player.bio? || @player.articles.published.any?
+- if @player.articles.published.any?
   %section#bio
-    - if @player.bio?
-      = raw BioFormatter.new(@player.bio, @player.id)
-
-    - if @player.articles.published.any?
-      %h3
-        Articles
-        %small Mentioning #{@player.first_name} #{@player.last_name}
-      %ul.article-list
-        - @player.articles.published.by_published_at.each_with_index do |article, i|
-          %li{:class => ("extra" if i > 2) }
-            = link_to article_path(article) do
-              = article.title
-              %span
-                •
-                = article.published_at.stamp("Jan 1, 2012")
-        - if @player.articles.published.by_published_at.count > 3
-          %li
-            %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
+    %h3
+      Articles
+      %small Mentioning #{@player.first_name} #{@player.last_name}
+    %ul.article-list
+      - @player.articles.published.by_published_at.each_with_index do |article, i|
+        %li{:class => ("extra" if i > 2) }
+          = link_to article_path(article) do
+            = article.title
+            %span
+              •
+              = article.published_at.stamp("Jan 1, 2012")
+      - if @player.articles.published.by_published_at.count > 3
+        %li
+          %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
 
 %section#rankings
   %h3
@@ -376,11 +374,6 @@
         %tr
           %th Year
           %th Percentage
-      - if @player.hof == true && @player.hof_via_name != "BBWAA"
-        %tfoot
-          %tr
-            %td{ colspan: '2'}
-              Inducted to Hall of Fame in #{@player.hof_year} via #{@player.hof_via_name}
       %tbody
         - @voting_results.each do |voting_result|
           %tr{ class: voting_result.display_classes }
