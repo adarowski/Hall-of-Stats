@@ -214,7 +214,7 @@ hr
       a
         +responsive_pill
         display: block
-    .hall-rating, dt.upcoming, dt.active, dt.banned
+    .hall-rating, .mle-hall-rating, dt.upcoming, dt.active, dt.banned
       margin: 10px 0
       +responsive_pill
     dt
@@ -224,6 +224,13 @@ hr
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
+      &.mle-hall-rating
+        background-color: fade_out($bad_color, 0.2)
+        border-radius: 5px 0 0 5px
+        @media only screen and (max-width : 480px)
+          margin-left: -10px
+          margin-top: 0
+          border-radius: 0
       &.hall-of-fame, &.hall-of-stats, &.hall-of-merit, &.upcoming, &.active, &.banned
         background-color: fade_out($good_color, 0.2)
         border-radius: 5px
@@ -260,6 +267,12 @@ hr
         border-radius: 0 5px 5px 0
         @media only screen and (max-width : 480px)
           margin-right: 10px
+      &.mle-hall-rating
+        background-color: fade_out($bad_color, 0.5)
+        border-radius: 0 5px 5px 0
+        @media only screen and (max-width : 480px)
+          margin-right: 10px
+          margin-top: 0
       &.hall-of-fame, &.hall-of-stats, &.hall-of-merit
         +off_left
       &.eligibility-note, &.upcoming, &.active
