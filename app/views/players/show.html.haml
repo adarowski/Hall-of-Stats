@@ -33,12 +33,14 @@
         = @player.hall_rating.round(1)
       - else
         = @player.hall_rating.round
-    - if @player.hof == true || @player.alt_hof == "nl"
+    = " "
+    %dt.mle-hall-rating MLEs Hall Rating
+    %dd.mle-hall-rating<>
+      = @player.hall_rating.round
+    = " "
+    - if @player.hof == true || @player.alt_hof
       %dt.hall-of-fame
-        = link_to "/#hof" do
-          Hall of Fame
-          - if @player.hof_via
-            %span (#{@player.hof_year} via #{@player.hof_via_name})
+        = link_to "Hall of Fame", "/#hof"
       %dd.hall-of-fame Inductee
     - if @player.hos == true
       %dt.hall-of-stats
@@ -60,14 +62,14 @@
           = link_to "BBWAA ballot in #{@player.last_year + 6}", "/upcoming#bbwaa_#{@player.last_year + 6}"
         - if @player.hall_rating > 100
           He is a future Hall of Stats inductee.
+    - if @player.hof_via
+      %dt.eligibility-note Induction Note
+      %dd.eligibility-note
+        Inducted into the Hall of Fame in #{@player.hof_year} via #{@player.hof_via_name}.
     - if @player.alt_hof?
       %dt.eligibility-note Induction Note
       %dd.eligibility-note
-        - if @player.alt_hof == 'nl'
-          #{@player.first_name} #{@player.last_name} is in the Hall of Fame as Negro Leagues player.
-        - else
-          #{@player.first_name} #{@player.last_name} is not in the Hall of Fame as a
-          player, but he is in the Hall of Fame as a #{@player.alt_hof_name}.
+        #{@player.first_name} #{@player.last_name} is in the Hall of Fame as a #{@player.alt_hof_name}.
     - if @player.eligibility == "banned"
       - if @player.hall_rating > 100
         %dt.banned Banned

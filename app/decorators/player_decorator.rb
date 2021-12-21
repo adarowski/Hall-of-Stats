@@ -26,7 +26,7 @@ class PlayerDecorator < Draper::Decorator
     'mgr' => 'Manager',
     'pioneer' => 'Pioneer/Executive',
     'ump' => 'Umpire',
-    'nl' => 'Negro League player'
+    'nl' => 'Negro Leagues player'
   }
 
   ERA_COMMITTEES = {
@@ -38,15 +38,15 @@ class PlayerDecorator < Draper::Decorator
 
  HOF_VIAS = {
     'bbwaa' => 'BBWAA',
-    'veterans' => 'Veterans',
-    'old timers' => 'Old Timers',
-    'run off' => 'Runoff',
+    'veterans' => 'Veterans Committee',
+    'old timers' => 'Old Timers Committee',
+    'run off' => 'Runoff Election',
     'special election' => 'Special Election',
     'golden' => 'Golden',
-    'preintegration' => "Pre-Integration",
-    'modern baseball' => "Modern Baseball",
-    'todays game' => "Today’s Game",
-    'golden days' => "Golden Days"
+    'preintegration' => "Pre-Integration Era Committee",
+    'modern baseball' => "Modern Baseball Era Committee",
+    'todays game' => "Today’s Game Era Committee",
+    'golden days' => "Golden Days Era Committee"
   }
 
   # don't use the helper so that we can be called from PlayerLinker
