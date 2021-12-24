@@ -2,7 +2,7 @@ require 'csv'
 
 Player.transaction do
   puts "Creating Players..."
-  CSV.parse(File.open("public/hall-of-stats-new.csv", "r:ISO-8859-1"), headers: true).each_with_index do |row, idx|
+  CSV.parse(File.open("public/hall-of-stats-new.csv", "r:UTF-8"), headers: true).each_with_index do |row, idx|
 
     puts idx if idx % 100 == 0
     player = row.to_hash
