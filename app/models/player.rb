@@ -151,7 +151,7 @@ class Player < ActiveRecord::Base
   end
 
   def years_played
-    [first_year, last_year].uniq.join('-')
+    [first_year, last_year].uniq.join('–')
   end
 
   def hall_worthy?
