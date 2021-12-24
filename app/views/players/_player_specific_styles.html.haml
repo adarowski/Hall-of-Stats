@@ -49,7 +49,7 @@
         @else
           height: (#{player.runs_totalpos.round}/2) + px
 
-- if player.runs_pitch
+- if player.ip_outs > 0
   :sass
     $bad_color: #900
     table#run-value

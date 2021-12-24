@@ -34,7 +34,7 @@
       - else
         = @player.hall_rating.round
     = " "
-    %dt.mle-hall-rating MLEs Hall Rating
+    %dt.mle-hall-rating MLE Hall Rating
     %dd.mle-hall-rating<>
       = @player.hall_rating.round
     = " "
@@ -133,27 +133,46 @@
         %li
           %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
 
-%section#rankings
-  %h3
-    Rankings
-    %small by Hall Rating
-  %ul
-    %li
-      %strong= ordinalize_with_delimiter(@player.ranking_overall)
-      All Time
-      %em (#{overall_percentage(@player)}%)
-    - if @player.hos == true
+- if @player.eligibility == "nlb"
+  %section#mles
+    %h3
+      Negro League MLEs
+      %small by Eric Chalek
+    %p
+      Due to the many differences between the Negro Leagues and the AL/NL, the Hall Rating of Negro League players
+      does not accurately reflect their Hall of Fame cases. When possible, the Hall of Stats uses Eric Chalek’s
+      Negro League MLEs to present an alternate Hall Rating for prominent Negro League and Black Baseball players.
+      #{@player.first_name} #{@player.last_name} has a <strong>170</strong> Hall Rating using these MLEs.
+      The rest of the stats on this page come from real game data, not MLEs.
+    %p
+      = link_to "The Hall of Stats and The Negro Leagues", "#"
+      •
+      = link_to "Negro League MLE Rankings", "#"
+      •
+      = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "#"
+
+- unless @player.eligibility == "nlb"
+  %section#rankings
+    %h3
+      Rankings
+      %small by Hall Rating
+    %ul
       %li
-        %strong= ordinalize_with_delimiter(@player.ranking_hos)
-        among Eligible Players
-    - if @player.hof == true
-      %li
-        %strong= ordinalize_with_delimiter(@player.ranking_hof)
-        among Hall of Famers
-    - unless ["npos", "of", "if"].include?(@player.position)
-      %li
-        %strong= ordinalize_with_delimiter(@player.ranking_position)
-        among #{@player.position_name.pluralize}
+        %strong= ordinalize_with_delimiter(@player.ranking_overall)
+        All Time
+        %em (#{overall_percentage(@player)}%)
+      - if @player.hos == true
+        %li
+          %strong= ordinalize_with_delimiter(@player.ranking_hos)
+          among Eligible Players
+      - if @player.hof == true
+        %li
+          %strong= ordinalize_with_delimiter(@player.ranking_hof)
+          among Hall of Famers
+      - unless ["npos", "of", "if"].include?(@player.position)
+        %li
+          %strong= ordinalize_with_delimiter(@player.ranking_position)
+          among #{@player.position_name.pluralize}
 
 %section#franchise-contributions
   %h3
@@ -170,7 +189,6 @@
 %section#stats-summary
 
   %h3 Career Statistics
-
   %table#win-value
     %caption Win-Value Statistics
     %thead
@@ -320,7 +338,7 @@
           %abbr{title: "WAR Fielding Runs"} Fld
         %th.pos
           %abbr{title: "WAR Position Runs"} Pos
-        - if @player.runs_pitch
+        - if @player.ip_outs > 0
           %th.pit
             %abbr{title: "WAR Pitching Runs"} Pit
     %tbody
@@ -330,7 +348,7 @@
         %td= @player.runs_dp.round
         %td= @player.runs_defense.round
         %td= @player.runs_totalpos.round
-        - if @player.runs_pitch
+        - if @player.ip_outs > 0
           %td= @player.runs_pitch.round
 
   %table#seasonal-stats

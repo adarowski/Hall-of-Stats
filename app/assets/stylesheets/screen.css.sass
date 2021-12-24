@@ -225,7 +225,7 @@ hr
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
       &.mle-hall-rating
-        background-color: fade_out($bad_color, 0.2)
+        background-color: fade_out($mle_color, 0.2)
         border-radius: 5px 0 0 5px
         @media only screen and (max-width : 480px)
           margin-left: -10px
@@ -268,7 +268,7 @@ hr
         @media only screen and (max-width : 480px)
           margin-right: 10px
       &.mle-hall-rating
-        background-color: fade_out($bad_color, 0.5)
+        background-color: fade_out($mle_color, 0.5)
         border-radius: 0 5px 5px 0
         @media only screen and (max-width : 480px)
           margin-right: 10px
@@ -331,6 +331,15 @@ hr
     +multi_paragraphs
     @media only screen and (max-width: 640px)
       font-size: 85%
+
+#mles
+  @extend .section-padding
+  border-bottom: 2px solid fade_out($default_color, .8)
+  p
+    font-size: 85%
+    margin: 0 0 10px
+    &:last-child
+      margin-bottom: 0
 
 #rankings
   @extend .section-padding
