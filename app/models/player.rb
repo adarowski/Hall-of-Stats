@@ -1,16 +1,6 @@
 class Player < ActiveRecord::Base
   self.primary_key = :id
 
-  # admins can do whatever they want
-  # attr_accessible :eligibility, :first_name, :nickname, :hall_rating, :hof, :hos, :hom, :id,
-  #   :last_name, :peak_pct, :position, :waa0_tot, :war162_tot, :wwar,
-  #   :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
-  #   :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
-  #   :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
-  #   :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
-  #   :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings,
-  #   as: :admin
-
   serialize :franchise_rankings, Hash
 
   scope :of_position, lambda{|position_abbrev|
