@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
   scope :for_similarity_test, ->{ where('pa > 1500 OR ip_outs > 1500')}
 
   scope :by_rank, ->{order("hall_rating desc")}
+  scope :by_mle_rank, ->{order("mle_rating desc")}
   scope :by_consensus, ->{order("consensus desc")}
 
   scope :in_hos, ->{where(hos: true) }
@@ -58,6 +59,8 @@ class Player < ActiveRecord::Base
   scope :hall_rating_above, lambda {|rating|
     where("hall_rating > :rating", rating: rating)
   }
+
+  scope :has_nlmle, lambda{where("mle_rating > 0")}
 
   scope :added, lambda{not_in_hof.in_hos}
   scope :removed, lambda{in_hof.not_in_hos}
@@ -169,6 +172,10 @@ class Player < ActiveRecord::Base
 
   def hall_rating_rounded
     hall_rating.round
+  end
+
+  def mle_rating_rounded
+    mle_rating.round
   end
 
   def peak_pct_rounded

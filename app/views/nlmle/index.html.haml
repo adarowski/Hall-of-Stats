@@ -16,3 +16,23 @@
 %article#upcoming-body.long-form
   %p
     Content to come
+
+
+  %table.mle-table
+    %thead
+      %tr
+        %th
+          Name
+        %th Position
+        %th Hall Rating
+        %th MLE Hall Rating
+    %tbody
+      - @has_nlmle.each do |mle_player|
+        %tr
+          %th
+            %a{href: player_path(mle_player)}= mle_player.name
+          %td= mle_player.position.upcase
+          %td
+            - if mle_player.hall_rating
+              = mle_player.hall_rating_rounded
+          %td= mle_player.mle_rating_rounded
