@@ -7,6 +7,8 @@ ActiveAdmin.register Player do
     :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
     :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings
 
+  config.filters = false
+
   controller do
     defaults finder: :find_by_compatibility_id
   end
