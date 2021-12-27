@@ -34,9 +34,10 @@
       - else
         = @player.hall_rating.round
     = " "
-    %dt.mle-hall-rating MLE Hall Rating
-    %dd.mle-hall-rating<>
-      = @player.hall_rating.round
+    - if @player.mle_rating
+      %dt.mle-hall-rating MLE Hall Rating
+      %dd.mle-hall-rating<>
+        = @player.mle_rating.round
     = " "
     - if @player.hof == true || @player.alt_hof
       %dt.hall-of-fame
@@ -147,9 +148,9 @@
     %p
       = link_to "The Hall of Stats and The Negro Leagues", "#"
       •
-      = link_to "Negro League MLE Rankings", "#"
+      = link_to "Negro League MLE Rankings", "/nlmle"
       •
-      = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "#"
+      = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "https://www.seamheads.com/NegroLgs/player.php?playerID=#{@player.seamheads_id}"
 
 - unless @player.eligibility == "nlb"
   %section#rankings
