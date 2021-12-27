@@ -25,9 +25,8 @@
         %dd.position= @player.position_name
       - else
         %dd.position= link_to @player.position_name, '/position/' + @player.position + "/#" + @player.id
-    - unless @player.only_mle
-      %dt.years Years
-      %dd.years #{@player.years_played}
+    %dt.years Years
+    %dd.years #{@player.years_played}
     - if @player.hall_rating
       %dt.hall-rating<> Hall Rating
       %dd.hall-rating
@@ -37,7 +36,7 @@
           = @player.hall_rating.round
       = " "
     - if @player.mle_rating
-      %dt.mle-hall-rating MLE Hall Rating
+      %dt.mle-hall-rating MLE Rating
       %dd.mle-hall-rating<>
         = @player.mle_rating.round
     = " "
@@ -119,23 +118,6 @@
       %dd.longevity
         #{@player.longevity_pct.round}%
 
-- if @player.articles.published.any?
-  %section#bio
-    %h3
-      Articles
-      %small Mentioning #{@player.first_name} #{@player.last_name}
-    %ul.article-list
-      - @player.articles.published.by_published_at.each_with_index do |article, i|
-        %li{:class => ("extra" if i > 2) }
-          = link_to article_path(article) do
-            = article.title
-            %span
-              •
-              = article.published_at.stamp("Jan 1, 2012")
-      - if @player.articles.published.by_published_at.count > 3
-        %li
-          %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
-
 - if @player.mle_rating
   %section#mles
     %h3
@@ -153,6 +135,23 @@
       = link_to "Negro League MLE Rankings", "/nlmle"
       •
       = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "https://www.seamheads.com/NegroLgs/player.php?playerID=#{@player.seamheads_id}"
+
+- if @player.articles.published.any?
+  %section#bio
+    %h3
+      Articles
+      %small Mentioning #{@player.first_name} #{@player.last_name}
+    %ul.article-list
+      - @player.articles.published.by_published_at.each_with_index do |article, i|
+        %li{:class => ("extra" if i > 2) }
+          = link_to article_path(article) do
+            = article.title
+            %span
+              •
+              = article.published_at.stamp("Jan 1, 2012")
+      - if @player.articles.published.by_published_at.count > 3
+        %li
+          %a#show-more-articles{href: '#'} Show all #{@player.articles.published.by_published_at.count} articles
 
 - unless @player.eligibility == "nlb"
   %section#rankings

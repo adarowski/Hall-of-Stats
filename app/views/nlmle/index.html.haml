@@ -1,5 +1,10 @@
 - content_for :title, "Negro League MLEs"
 
+- content_for(:header_styles) do
+  %style{:type => 'text/css'}
+    - @has_nlmle.each do |player|
+      = render partial: 'shared/mle_bar_width_style', locals: { player: player }
+
 = render 'shared/header'
 
 = render 'shared/search'
@@ -13,26 +18,29 @@
     That’s John Beckwith.
     %a{:href => "https://yogiberramuseum.org/visit/exhibits/discover-greatness/part3/"} Photo Credit
 
-%article#upcoming-body.long-form
+%section#mle-intro
   %p
-    Content to come
+    Due to the many differences between the Negro Leagues and the AL/NL, the Hall Rating
+    of Negro League players does not accurately reflect their Hall of Fame cases. When possible,
+    the Hall of Stats uses <strong>Eric Chalek’s Negro League MLEs</strong> to present an
+    alternate Hall Rating for prominent Negro League and Black Baseball players.
+  %p
+    More more detail at the blog post:
+    = link_to "The Hall of Stats and The Negro Leagues", "#"
 
+%section#players-with-rating
+  %h2 Negro League MLEs
 
-  %table.mle-table
-    %thead
-      %tr
-        %th
-          Name
-        %th Position
-        %th Hall Rating
-        %th MLE Hall Rating
-    %tbody
-      - @has_nlmle.each do |mle_player|
-        %tr
-          %th
-            %a{href: player_path(mle_player)}= mle_player.name
-          %td= mle_player.position.upcase
-          %td
-            - if mle_player.hall_rating
-              = mle_player.hall_rating_rounded
-          %td= mle_player.mle_rating_rounded
+  %ol#player-list
+    - @has_nlmle.each do |player|
+      %li{id: safe_id(player.id), class: "player-list-static-row"}
+        = link_to player_path(player) do
+          %strong
+            #{player.name}
+          %em
+            - unless player.position == "npos"
+              #{player.position},
+            - unless player.only_mle
+              #{player.years_played}
+          %span
+            = player.mle_rating.round

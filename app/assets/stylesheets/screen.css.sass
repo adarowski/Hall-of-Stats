@@ -174,7 +174,7 @@ hr
   padding: 0 10px 10px
   .photo &
     min-height: 170px
-    padding-right: 125px
+    padding-right: 110px
 
   .portrait
     position: absolute
@@ -442,6 +442,12 @@ hr
       font-weight: bold
   @media only screen and (max-width: 640px)
     border-top: 0
+
+#mle-intro
+  @extend .right-float
+  @extend .section-padding
+  p
+    +multi_paragraphs
 
 #franchise-rankings
   @extend .section-padding
@@ -889,6 +895,8 @@ footer
       margin: 0
       line-height: 1
       margin-bottom: 1px
+      &.player-list-static-row
+        display: block !important
       &:after, &:before
         content: ''
         position: absolute

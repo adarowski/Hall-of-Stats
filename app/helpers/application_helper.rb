@@ -74,4 +74,10 @@ module ApplicationHelper
 
     "width: #{width}%"
   end
+
+  def mle_bar_width(player, attribute=:mle_rating)
+    width = (player.public_send(attribute).to_f || 0) / MAX_HALL_RATING * 100
+
+    "width: #{width}%"
+  end
 end
