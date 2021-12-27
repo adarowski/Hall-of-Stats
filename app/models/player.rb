@@ -3,8 +3,10 @@ class Player < ActiveRecord::Base
 
   serialize :franchise_rankings, Hash
 
+  scope :not_nlb, ->{ where("eligibility <> 'nlb'") }
+
   scope :of_position, lambda{|position_abbrev|
-    where(position: position_abbrev)
+    not_nlb.where(position: position_abbrev)
   }
 
   scope :for_similarity_test, ->{ where('pa > 1500 OR ip_outs > 1500')}
@@ -35,7 +37,8 @@ class Player < ActiveRecord::Base
       where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name or nickname ilike :name", name: "%#{name}%")
   }
 
-  scope :front_page, lambda{where(%(
+  scope :front_page, lambda{
+    not_nlb.where(%(
     consensus > 0 or (hos is false and hall_rating > 100)
     -- near miss
     or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 100.0)
