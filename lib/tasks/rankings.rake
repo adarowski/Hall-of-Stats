@@ -4,7 +4,8 @@ create temp sequence player_ranking_seq increment by 1 minvalue 1;
 update players
 set #{column_to_update} = p.ranking
 from (select s.id, nextval('player_ranking_seq') as ranking
-  from (select * from players where #{where_clause} order by hall_rating desc, id) as s
+  from (select * from players where #{where_clause} and eligibility <> 'nlb'
+        order by hall_rating desc, id) as s
 ) as p
 where p.id = players.id;
 drop sequence player_ranking_seq;
