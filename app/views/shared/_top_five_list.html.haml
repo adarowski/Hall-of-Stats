@@ -1,6 +1,11 @@
 %h3
   = title
-  - if list == @players
+  - if list == @best_mle
+    %small
+      by #{link_to "Negro League MLE", "/nlmle"} Hall Rating
+      %br
+      %em Note: These players are not displayed in other rankings
+  - else
     %small by Hall Rating
 - player = list.first
 - if player.img_url.present?

@@ -73,6 +73,9 @@
               = player.hall_rating.round
 
 %section#top-five-lists
+
+  = top_five_list(@best_mle, "Greatest #{@position_name.pluralize}", 'best-mle')
+
   = top_five_list(@players, "Greatest #{@position_name.pluralize}", 'best-ever')
 
   = top_five_list(@best_not_inducted, "Not in the Hall of Fame", 'best-not-hof')
