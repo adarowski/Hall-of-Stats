@@ -24,7 +24,7 @@
     and various Personal Halls of Fame.
 
   %p I’ve included the Personal Halls of:
-  
+
   %ul
     %li <a href="/#personal-hof">Adam Darowski</a> (my own, published at this site)
     %li <a href="http://www.replacementlevelpodcast.com/2013/07/06/rethinking-the-hall-of-fame-part-one-position-players-2/">Ross Carey</a> (of the Replacement Level Podcast)
@@ -81,7 +81,8 @@
         %tr
           %th
             %a{href: player_path(hoc_player)}= hoc_player.name
-            %small (#{hoc_player.hall_rating_rounded})
+            - unless hoc_player.only_mle
+              %small (#{hoc_player.hall_rating_rounded})
           %td
             %span{title: "HOF: #{hoc_player.hof}", class: hoc_player.hof}= hoc_player.hof
           %td
