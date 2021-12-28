@@ -74,7 +74,8 @@
 
 %section#top-five-lists
 
-  = top_five_list(@best_mle, "Greatest #{@position_name.pluralize}", 'best-mle')
+  - unless @position == "p" || @position == "dh"
+    = top_five_list(@best_mle, "Greatest #{@position_name.pluralize}", 'best-mle')
 
   = top_five_list(@players, "Greatest #{@position_name.pluralize}", 'best-ever')
 

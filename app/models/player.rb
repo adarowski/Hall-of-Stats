@@ -9,6 +9,10 @@ class Player < ActiveRecord::Base
     not_nlb.where(position: position_abbrev)
   }
 
+  scope :of_mle_position, lambda{|position_abbrev|
+    has_nlmle.where(position: position_abbrev)
+  }
+
   scope :for_similarity_test, ->{ where('pa > 1500 OR ip_outs > 1500')}
 
   scope :by_rank, ->{order("hall_rating desc")}
