@@ -124,11 +124,13 @@
       Negro League MLEs
       %small by Eric Chalek
     %p
-      Due to the many differences between the Negro Leagues and the AL/NL, the Hall Rating of Negro League players
-      does not accurately reflect their Hall of Fame cases. When possible, the Hall of Stats uses Eric Chalek’s
-      Negro League MLEs to present an alternate Hall Rating for prominent Negro League and Black Baseball players.
+      Due to the different opportunities presented to Black and Latino players before integration, the
+      Hall Rating of these players does not accurately reflect their Hall of Fame cases. When possible,
+      the Hall of Stats uses <strong>Eric Chalek’s Negro League MLEs</strong> to present an
+      alternate Hall Rating for prominent early Black and Latino stars.
       #{@player.first_name} #{@player.last_name} has a <strong>#{@player.mle_rating.round}</strong> Hall Rating using these MLEs.
-      The rest of the stats on this page come from real game data, not MLEs.
+      - unless @player.only_mle
+        The rest of the stats on this page come from real game data, not MLEs.
     %p
       = link_to "The Hall of Stats and The Negro Leagues", "#"
       •
