@@ -1,0 +1,45 @@
+- content_for :title, "Negro League MLEs"
+
+- content_for(:header_styles) do
+  %style{:type => 'text/css'}
+    - @has_nlmle.each do |player|
+      = render partial: 'shared/mle_bar_width_style', locals: { player: player }
+
+= render 'shared/header'
+
+= render 'shared/search'
+
+%header.title
+  %h2 Negro League MLEs
+
+%figure.banner
+  %img{:src => "/assets/photos/beckwjo02.jpg"}
+  %figcaption
+    That’s John Beckwith.
+    %a{:href => "https://yogiberramuseum.org/visit/exhibits/discover-greatness/part3/"} Photo Credit
+
+%section#mle-intro
+  %p
+    Due to the different opportunities presented to Black and Latino players before integration, the
+    Hall Rating of these players does not accurately reflect their Hall of Fame cases. When possible,
+    the Hall of Stats uses <strong>Eric Chalek’s Negro League MLEs</strong> to present an
+    alternate Hall Rating for prominent early Black and Latino stars.
+  %p
+    More more detail at the blog post:
+    = link_to "The Hall of Stats and The Negro Leagues", "#"
+
+%section#players-with-rating
+  %h2 Negro League MLEs
+
+  %ol#player-list
+    - @has_nlmle.each do |player|
+      %li{id: safe_id(player.id), class: "player-list-static-row"}
+        = link_to player_path(player) do
+          %strong
+            #{player.name}
+          %em
+            - unless player.position == "npos"
+              #{player.position},
+            #{player.years_played}
+          %span
+            = player.mle_rating.round

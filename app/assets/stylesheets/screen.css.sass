@@ -174,7 +174,7 @@ hr
   padding: 0 10px 10px
   .photo &
     min-height: 170px
-    padding-right: 125px
+    padding-right: 110px
 
   .portrait
     position: absolute
@@ -214,7 +214,7 @@ hr
       a
         +responsive_pill
         display: block
-    .hall-rating, dt.upcoming, dt.active, dt.banned
+    .hall-rating, .mle-hall-rating, dt.upcoming, dt.active, dt.banned
       margin: 10px 0
       +responsive_pill
     dt
@@ -224,6 +224,13 @@ hr
         left: 0
         background-color: fade_out($default_color, 0.2)
         margin-left: -10px
+      &.mle-hall-rating
+        background-color: fade_out($mle_color, 0.2)
+        border-radius: 5px 0 0 5px
+        @media only screen and (max-width : 480px)
+          margin-left: -10px
+          margin-top: 0
+          border-radius: 0
       &.hall-of-fame, &.hall-of-stats, &.hall-of-merit, &.upcoming, &.active, &.banned
         background-color: fade_out($good_color, 0.2)
         border-radius: 5px
@@ -260,6 +267,12 @@ hr
         border-radius: 0 5px 5px 0
         @media only screen and (max-width : 480px)
           margin-right: 10px
+      &.mle-hall-rating
+        background-color: fade_out($mle_color, 0.5)
+        border-radius: 0 5px 5px 0
+        @media only screen and (max-width : 480px)
+          margin-right: 10px
+          margin-top: 0
       &.hall-of-fame, &.hall-of-stats, &.hall-of-merit
         +off_left
       &.eligibility-note, &.upcoming, &.active
@@ -318,6 +331,15 @@ hr
     +multi_paragraphs
     @media only screen and (max-width: 640px)
       font-size: 85%
+
+#mles
+  @extend .section-padding
+  border-bottom: 2px solid fade_out($default_color, .8)
+  p
+    font-size: 85%
+    margin: 0 0 10px
+    &:last-child
+      margin-bottom: 0
 
 #rankings
   @extend .section-padding
@@ -420,6 +442,12 @@ hr
       font-weight: bold
   @media only screen and (max-width: 640px)
     border-top: 0
+
+#mle-intro
+  @extend .right-float
+  @extend .section-padding
+  p
+    +multi_paragraphs
 
 #franchise-rankings
   @extend .section-padding
@@ -867,6 +895,8 @@ footer
       margin: 0
       line-height: 1
       margin-bottom: 1px
+      &.player-list-static-row
+        display: block !important
       &:after, &:before
         content: ''
         position: absolute
@@ -1199,6 +1229,10 @@ article
       &:nth-child(3)
         display: none
 
+.mle-table
+  th, td
+    &:first-child
+      text-align: left
 
 #article-50
   table
@@ -1225,3 +1259,7 @@ iframe.soundcloud
   margin:
     left: -10px
     right: -10px
+
+.home-update
+  padding: 8px 12px
+  background-color: #ffa

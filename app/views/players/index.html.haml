@@ -26,6 +26,10 @@
   %p
     The Hall of Stats shows us what the Hall of Fame would look like if we removed all #{Player.in_hos.count} inductees and replaced them with the top #{Player.in_hos.count} eligible players in history, according to a mathematical formula.
     %a{:href => "/about"} (more)
+  %p.home-update
+    %strong UPDATE:
+    = link_to "The Hall of Stats and The Negro Leagues", "/articles/the-hall-of-stats-and-the-negro-leagues"
+    (Dec 29, 2021)
 
 - cache 'ratings' do
   %section#players-with-rating

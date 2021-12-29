@@ -73,6 +73,10 @@
               = player.hall_rating.round
 
 %section#top-five-lists
+
+  - unless @position == "dh"
+    = top_five_list(@best_mle, "Greatest #{@position_name.pluralize}", 'best-mle')
+
   = top_five_list(@players, "Greatest #{@position_name.pluralize}", 'best-ever')
 
   = top_five_list(@best_not_inducted, "Not in the Hall of Fame", 'best-not-hof')
@@ -82,5 +86,5 @@
   = top_five_list(@best_not_merit, "Not in the Hall of Merit", 'best-not-hom')
 
   = top_five_list(@best_active, "Active #{@position_name.pluralize}", 'best-active')
-  
+
   = top_five_list(@best_upcoming, "Retired but Not Yet Eligible", 'best-retired')

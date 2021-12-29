@@ -12,5 +12,6 @@ class PositionController < ApplicationController
     @best_not_merit = Player.of_position(@position).not_in_hom.where(eligibility: 'eligible').by_rank.limit(5)
     @best_active = Player.of_position(@position).where(eligibility: 'active').by_rank.limit(5)
     @best_upcoming = Player.of_position(@position).where(eligibility: 'upcoming').by_rank.limit(5)
+    @best_mle = Player.of_mle_position(@position).has_nlmle.by_mle_rank.limit(5)
   end
 end

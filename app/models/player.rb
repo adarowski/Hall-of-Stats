@@ -1,25 +1,22 @@
 class Player < ActiveRecord::Base
   self.primary_key = :id
 
-  # admins can do whatever they want
-  # attr_accessible :eligibility, :first_name, :nickname, :hall_rating, :hof, :hos, :hom, :id,
-  #   :last_name, :peak_pct, :position, :waa0_tot, :war162_tot, :wwar,
-  #   :longevity_pct, :runs_bat, :runs_br, :runs_dp, :runs_defense,
-  #   :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
-  #   :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
-  #   :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
-  #   :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings,
-  #   as: :admin
-
   serialize :franchise_rankings, Hash
 
+  scope :not_nlb, ->{ where("eligibility <> 'nlb'") }
+
   scope :of_position, lambda{|position_abbrev|
-    where(position: position_abbrev)
+    not_nlb.where(position: position_abbrev)
+  }
+
+  scope :of_mle_position, lambda{|position_abbrev|
+    has_nlmle.where(position: position_abbrev)
   }
 
   scope :for_similarity_test, ->{ where('pa > 1500 OR ip_outs > 1500')}
 
   scope :by_rank, ->{order("hall_rating desc")}
+  scope :by_mle_rank, ->{order("mle_rating desc")}
   scope :by_consensus, ->{order("consensus desc")}
 
   scope :in_hos, ->{where(hos: true) }
@@ -45,7 +42,8 @@ class Player < ActiveRecord::Base
       where("first_name ilike :name or last_name ilike :name or concat(first_name, ' ', last_name) ilike :name or nickname ilike :name", name: "%#{name}%")
   }
 
-  scope :front_page, lambda{where(%(
+  scope :front_page, lambda{
+    not_nlb.where(%(
     consensus > 0 or (hos is false and hall_rating > 100)
     -- near miss
     or (hos is false and eligibility != 'active' and hall_rating >= 90 AND hall_rating <= 100.0)
@@ -65,6 +63,8 @@ class Player < ActiveRecord::Base
   scope :hall_rating_above, lambda {|rating|
     where("hall_rating > :rating", rating: rating)
   }
+
+  scope :has_nlmle, lambda{where("mle_rating > 0")}
 
   scope :added, lambda{not_in_hof.in_hos}
   scope :removed, lambda{in_hof.not_in_hos}
@@ -151,7 +151,7 @@ class Player < ActiveRecord::Base
   end
 
   def years_played
-    [first_year, last_year].uniq.join('-')
+    [first_year, last_year].uniq.join('–')
   end
 
   def hall_worthy?
@@ -176,6 +176,10 @@ class Player < ActiveRecord::Base
 
   def hall_rating_rounded
     hall_rating.round
+  end
+
+  def mle_rating_rounded
+    mle_rating.round
   end
 
   def peak_pct_rounded
