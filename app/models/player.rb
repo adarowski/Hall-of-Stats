@@ -190,8 +190,10 @@ class Player < ActiveRecord::Base
     longevity_pct.round
   end
 
-  has_and_belongs_to_many :similarity_scores, foreign_key: :player1_id
-  has_and_belongs_to_many :similarity_scores, foreign_key: :player2_id
+  has_and_belongs_to_many :similarity_scores,
+    class_name: "Player", join_table: "similarity_scores", foreign_key: :player1_id
+  has_and_belongs_to_many :similarity_scores,
+    class_name: "Player", join_table: "similarity_scores", foreign_key: :player2_id
 
   def self.most_mentioned(limit=10)
     ids = Article.find_by_sql(["select player_id from articles_players group by player_id order by count(*) desc limit ?", limit]).map(&:player_id)
