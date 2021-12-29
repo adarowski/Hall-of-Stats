@@ -26,7 +26,9 @@ class PlayerDecorator < Draper::Decorator
     'mgr' => 'Manager',
     'pioneer' => 'Pioneer/Executive',
     'ump' => 'Umpire',
-    'nl' => 'Negro Leagues player'
+    'nlbp' => 'Negro Leagues player',
+    'nlbm' => 'Negro Leagues manager',
+    'nlbe' => 'Negro Leagues pioneer/executive'
   }
 
   ERA_COMMITTEES = {

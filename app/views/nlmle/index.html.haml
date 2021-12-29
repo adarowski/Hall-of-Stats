@@ -40,7 +40,6 @@
           %em
             - unless player.position == "npos"
               #{player.position},
-            - unless player.only_mle
-              #{player.years_played}
+            #{player.years_played}
           %span
             = player.mle_rating.round
