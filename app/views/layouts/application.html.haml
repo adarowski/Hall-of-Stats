@@ -50,11 +50,12 @@
       - if @franchise
         %p
           %a{href: 'http://www.baseball-reference.com/teams/' + @franchise.id.upcase} #{@franchise.name}
-          on Baseball-Reference.
+          on Baseball Reference.
       - if @player
         %p
-          %a{href: 'http://www.baseball-reference.com/pl/player_search.cgi?search=' + @player.id} #{@player.first_name} #{@player.last_name}
-          on Baseball-Reference.
+          - unless @player.only_mle
+            %a{href: 'http://www.baseball-reference.com/pl/player_search.cgi?search=' + @player.id} #{@player.first_name} #{@player.last_name}
+            on Baseball Reference.
           - if @player.has_photo?
             #{@player.name}
             = succeed "." do
