@@ -1,10 +1,8 @@
 %h3
   = title
-  - if list == @best_mle
+  - if list == @best_mle || list == @best_mle_not_inducted
     %small
       by #{link_to "Negro League MLE", "/nlmle"} Hall Rating
-      %br
-      %em Note: These players are not displayed in other rankings
   - else
     %small by Hall Rating
 - player = list.first

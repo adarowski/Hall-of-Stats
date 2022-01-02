@@ -13,5 +13,6 @@ class PositionController < ApplicationController
     @best_active = Player.of_position(@position).where(eligibility: 'active').by_rank.limit(5)
     @best_upcoming = Player.of_position(@position).where(eligibility: 'upcoming').by_rank.limit(5)
     @best_mle = Player.of_mle_position(@position).has_nlmle.by_mle_rank.limit(5)
+    @best_mle_not_inducted = Player.of_mle_position(@position).has_nlmle.not_in_hof.where(alt_hof: NIL).by_mle_rank.limit(5)
   end
 end
