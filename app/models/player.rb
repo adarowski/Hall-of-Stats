@@ -22,19 +22,9 @@ class Player < ActiveRecord::Base
   scope :in_hos, ->{where(hos: true) }
   scope :in_hof, ->{where(hof: true) }
   scope :in_hom, ->{where(hom: true) }
-  scope :in_personal_hof, ->{where(personal_hof: true) }
-  scope :in_ross_hof, ->{where(ross_hof: true) }
-  scope :in_bryan_hof, ->{where(bryan_hof: true) }
-  scope :in_dan_hof, ->{where(dan_hof: true) }
-  scope :in_dalton_hof, ->{where(dalton_hof: true) }
   scope :not_in_hos, ->{where('hos is not true') }
   scope :not_in_hof, ->{where('hof is not true') }
   scope :not_in_hom, ->{where('hom is not true') }
-  scope :not_in_personal_hof, ->{where('personal_hof is not true') }
-  scope :not_in_ross_hof, ->{where('ross_hof is not true') }
-  scope :not_in_bryan_hof, ->{where('bryan_hof is not true') }
-  scope :not_in_dan_hof, ->{where('dan_hof is not true') }
-  scope :not_in_dalton_hof, ->{where('dalton_hof is not true') }
   scope :hall_worthy, ->{where("hall_rating > 100") }
 
   scope :name_like, lambda {|name|
@@ -53,10 +43,8 @@ class Player < ActiveRecord::Base
     or (hos is false and eligibility = 'upcoming' and hall_rating >= 20 and last_year >= 2008)
   ))}
 
-  scope :hall_of_consensus, lambda{in_hof.where("consensus = 8")}
-  scope :hof_hos_hom, lambda{in_hof.in_hos.in_hom}
-
-  scope :hall_of_consensus_list, lambda{where("consensus > 0")}
+  scope :hof_hos_hom, lambda{not_nlb.in_hof.in_hos.in_hom}
+  scope :hall_of_consensus_list, lambda{not_nlb.where("consensus > 0")}
 
   scope :cover_models, lambda{where('cover_model is true')}
 
@@ -79,38 +67,10 @@ class Player < ActiveRecord::Base
   scope :active_and_close, lambda{not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")}
   scope :near_misses, lambda{not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")}
 
-  scope :all_but_hof, lambda{not_in_hof.where("consensus = 7")}
-  scope :all_but_hos, lambda{not_in_hos.where("consensus = 7")}
-  scope :all_but_adam, lambda{not_in_personal_hof.where("consensus = 7")}
-  scope :all_but_ross, lambda{not_in_ross_hof.where("consensus = 7")}
-  scope :all_but_bryan, lambda{not_in_bryan_hof.where("consensus = 7")}
-  scope :all_but_dan, lambda{not_in_dan_hof.where("consensus = 7")}
-  scope :all_but_dalton, lambda{not_in_dalton_hof.where("consensus = 7")}
-  scope :only_hof, lambda{in_hof.where("consensus = 1")}
-  scope :only_hos, lambda{in_hos.where("consensus = 1")}
-  scope :only_hom, lambda{in_hom.where("consensus = 1")}
-  scope :only_adam, lambda{in_personal_hof.where("consensus = 1")}
-  scope :only_ross, lambda{in_ross_hof.where("consensus = 1")}
-  scope :only_bryan, lambda{in_bryan_hof.where("consensus = 1")}
-  scope :only_dan, lambda{in_dan_hof.where("consensus = 1")}
-  scope :only_dalton, lambda{in_dalton_hof.where("consensus = 1")}
-
-  scope :all_but_adam_personal, lambda{not_in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof.in_dan_hof}
-  scope :all_but_ross_personal, lambda{in_personal_hof.not_in_ross_hof.in_bryan_hof.in_dalton_hof.in_dan_hof}
-  scope :all_but_bryan_personal, lambda{in_personal_hof.in_ross_hof.not_in_bryan_hof.in_dalton_hof.in_dan_hof}
-  scope :all_but_dalton_personal, lambda{in_personal_hof.in_ross_hof.in_bryan_hof.not_in_dalton_hof.in_dan_hof}
-  scope :all_but_dan_personal, lambda{in_personal_hof.in_ross_hof.in_bryan_hof.in_dalton_hof.not_in_dan_hof}
-  scope :only_adam_personal, lambda{in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.not_in_dan_hof}
-  scope :only_ross_personal, lambda{not_in_personal_hof.in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.not_in_dan_hof}
-  scope :only_bryan_personal, lambda{not_in_personal_hof.not_in_ross_hof.in_bryan_hof.not_in_dalton_hof.not_in_dan_hof}
-  scope :only_dalton_personal, lambda{not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.in_dalton_hof.not_in_dan_hof}
-  scope :only_dan_personal, lambda{not_in_personal_hof.not_in_ross_hof.not_in_bryan_hof.not_in_dalton_hof.in_dan_hof}
-
-  scope :adam_and_hof, lambda{in_personal_hof.in_hof}
-  scope :adam_and_hos, lambda{in_personal_hof.in_hos}
-  scope :adam_and_hom, lambda{in_personal_hof.in_hom}
-
-  scope :endorsements, lambda{not_in_hof.in_personal_hof}
+  scope :only_hof, lambda{in_hof.not_nlb.where("consensus = 1")}
+  scope :only_hos, lambda{in_hos.not_nlb.where("consensus = 1")}
+  scope :only_hom, lambda{in_hom.not_nlb.where("consensus = 1")}
+  scope :hos_hom, lambda{in_hom.in_hos.not_in_hof.not_nlb}
 
   scope :bbwaa_2022_returning, lambda{not_in_hof.where("
     id = 'bondsba01' OR
