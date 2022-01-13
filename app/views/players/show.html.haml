@@ -135,8 +135,9 @@
       = link_to "The Hall of Stats and The Negro Leagues", "/articles/the-hall-of-stats-and-the-negro-leagues"
       •
       = link_to "Negro League MLE Rankings", "/nlmle"
-      •
-      = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "https://www.seamheads.com/NegroLgs/player.php?playerID=#{@player.seamheads_id}"
+      - if @player.seamheads_id
+        •
+        = link_to "#{@player.first_name} #{@player.last_name} at Seamheads", "https://www.seamheads.com/NegroLgs/player.php?playerID=#{@player.seamheads_id}"
 
 - if @player.articles.published.any?
   %section#bio
