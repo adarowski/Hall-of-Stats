@@ -57,7 +57,6 @@ class Player < ActiveRecord::Base
   scope :added, lambda{not_in_hof.in_hos}
   scope :removed, lambda{in_hof.not_in_hos}
   scope :upcoming, lambda{not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")}
-  scope :eligible_2022, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2016")}
   scope :eligible_2023, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2017")}
   scope :eligible_2024, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2018")}
   scope :eligible_2025, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2019")}
@@ -72,23 +71,21 @@ class Player < ActiveRecord::Base
   scope :only_hom, lambda{in_hom.not_nlb.where("consensus = 1")}
   scope :hos_hom, lambda{in_hom.in_hos.not_in_hof.not_nlb}
 
-  scope :bbwaa_2022_returning, lambda{not_in_hof.where("
-    id = 'bondsba01' OR
-    id = 'clemero02' OR
-    id = 'schilcu01' OR
-    id = 'ramirma02' OR
-    id = 'sosasa01' OR
-    id = 'sheffga01' OR
-    id = 'kentje01' OR
-    id = 'wagnebi02' OR
-    id = 'vizquom01' OR
+  scope :bbwaa_2023_returning, lambda{not_in_hof.where("
     id = 'rolensc01' OR
-    id = 'jonesan01' OR
     id = 'heltoto01' OR
+    id = 'wagnebi02' OR
+    id = 'jonesan01' OR
+    id = 'sheffga01' OR
+    id = 'rodrial01' OR
+    id = 'kentje01' OR
+    id = 'ramirma02' OR
+    id = 'vizquom01' OR
     id = 'pettian01' OR
+    id = 'rolliji01' OR
     id = 'abreubo01' OR
     id = 'buehrma01' OR
-    id = 'hudsoti01'
+    id = 'hunteto01'
   ")}
 
   scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND hall_rating > 50")}

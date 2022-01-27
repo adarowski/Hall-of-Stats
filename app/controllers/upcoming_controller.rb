@@ -1,8 +1,7 @@
 class UpcomingController < ApplicationController
 
   def index
-    @bbwaa_2022_returning = Player.bbwaa_2022_returning.by_rank
-    @eligible_2022 = Player.eligible_2022.by_rank
+    @bbwaa_2023_returning = Player.bbwaa_2023_returning.by_rank
     @eligible_2023 = Player.eligible_2023.by_rank
     @eligible_2024 = Player.eligible_2024.by_rank
     @eligible_2025 = Player.eligible_2025.by_rank

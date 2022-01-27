@@ -16,7 +16,6 @@
 %nav.jump-menu
   %strong Jump to:
   %ol
-    %li= link_to "2022", "#year_2022"
     %li= link_to "2023", "#year_2023"
     %li= link_to "2024", "#year_2024"
     %li= link_to "2025", "#year_2025"
@@ -35,9 +34,6 @@
   %p Please note that this current ten-year cycle ends with the 2027 induction. After that, the rules will most likely change.
 
   %ul
-    %li
-      %strong= link_to "2022:", "#year_2022"
-      BBWAA, Early Baseball, and Golden Days
     %li
       %strong= link_to "2023:", "#year_2023"
       BBWAA, Today’s Game (final season through 2007)
@@ -74,27 +70,16 @@
   %p
     The red and green icons indicate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
 
-  <h3 id="year_2022">2022 <a href="#top">Back to Top</a></h3>
-
-  %p
-    The 2022 election cycle featured the return of the Golden Days and Early Baseball Era Committee elections. An unpreciedented six selections were made by the Era Committees: four by the Golden Days Era (Minnie Miñoso, Gil Hodges, Tony Oliva, and Jim Kaat) and two from the Early Baseball Era (Buck O’Neil and Bud Fowler). The BBWAA ballot sees a pair of huge names hit the ballot—Alex Rodriguez and David Ortiz. It will also be the final chance for Barry Bonds, Roger Clemens, Curt Schilling, and Sammy Sosa.
-
-  %h4#bbwaa_2022_returning
-    BBWAA Ballot
-    %span (Returning Candidates)
-
-  = render 'upcoming_table', pool: @bbwaa_2022_returning
-
-  %h4#bbwaa_2022
-    BBWAA Ballot
-    %span (New Candidates with Hall Rating of 20+)
-
-  = render 'upcoming_table', pool: @eligible_2022
-
   <h3 id="year_2023">2023 <a href="#top">Back to Top</a></h3>
 
   %p
-    The biggest name on the 2023 is Carlos Beltran. If you thought we were done discussing Bonds and Clemens, they’re back on the Today’s Game Era ballot.
+    The biggest new name on the 2023 is Carlos Beltran. If you thought we were done discussing Bonds and Clemens, they’re back on the Today’s Game Era ballot. And if you thought the steroid discussion was fun, let’s add sign stealing scandals!
+
+  %h4#bbwaa_2023_returning
+    BBWAA Ballot
+    %span (Returning Candidates)
+
+  = render 'upcoming_table', pool: @bbwaa_2023_returning
 
   %h4#bbwaa_2023
     BBWAA Ballot
