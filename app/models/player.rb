@@ -46,7 +46,7 @@ class Player < ActiveRecord::Base
 
   scope :hof_hos_hom, lambda{not_nlb.in_hof.in_hos.in_hom}
   scope :hall_of_consensus_list, lambda{not_nlb.where("consensus > 0")}
-  scope :hall_of_consensus_nlb_list, lambda{is_nlb.where("consensus > 0 OR alt_hof = 'nlbp' OR mle_rating > 100")}
+  scope :hall_of_consensus_nlb_list, lambda{is_nlb.where("consensus > 0 OR alt_hof = 'nlbp' OR alt_hof = 'nlbm' OR alt_hof = 'nlbe' OR mle_rating > 100")}
 
   scope :cover_models, lambda{where('cover_model is true')}
 

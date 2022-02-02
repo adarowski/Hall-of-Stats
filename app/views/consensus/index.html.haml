@@ -68,6 +68,8 @@
     For more information about Eric Chalek’s Negro League MLEs, see
     = succeed "." do
       %a{:href => "/articles/the-hall-of-stats-and-the-negro-leagues"} our announcement
+  %p
+    %em Note: Negro League Hall of Famers Frank Grant and Bud Fowler are not included because they do not have MLE data.
 
   %table.consensus-table
     %thead
@@ -88,7 +90,7 @@
             %a{href: player_path(hoc_player)}= hoc_player.name
             %small (#{hoc_player.mle_rating_rounded})
           %td
-            - if hoc_player.alt_hof == "nlbp"
+            - if hoc_player.alt_hof
               %span{title: "HOF: true", class: true}= true
             - else
               %span{title: "HOF: false", class: false}= false
