@@ -4,6 +4,7 @@ class Player < ActiveRecord::Base
   serialize :franchise_rankings, Hash
 
   scope :not_nlb, ->{ where("eligibility <> 'nlb'") }
+  scope :is_nlb, ->{ where("eligibility = 'nlb'") }
 
   scope :of_position, lambda{|position_abbrev|
     not_nlb.where(position: position_abbrev)
@@ -45,6 +46,7 @@ class Player < ActiveRecord::Base
 
   scope :hof_hos_hom, lambda{not_nlb.in_hof.in_hos.in_hom}
   scope :hall_of_consensus_list, lambda{not_nlb.where("consensus > 0")}
+  scope :hall_of_consensus_nlb_list, lambda{is_nlb.where("consensus > 0 OR alt_hof = 'nlbp' OR mle_rating > 100")}
 
   scope :cover_models, lambda{where('cover_model is true')}
 
@@ -70,6 +72,10 @@ class Player < ActiveRecord::Base
   scope :only_hos, lambda{in_hos.not_nlb.where("consensus = 1")}
   scope :only_hom, lambda{in_hom.not_nlb.where("consensus = 1")}
   scope :hos_hom, lambda{in_hom.in_hos.not_in_hof.not_nlb}
+  scope :only_nlb_hof, lambda{is_nlb.not_in_hom.where("alt_hof = 'nlbp' AND mle_rating <= 100")}
+  scope :only_nlb_hos, lambda{is_nlb.not_in_hom.where("mle_rating >= 100 AND alt_hof is null")}
+  scope :only_nlb_hom, lambda{is_nlb.in_hom.where("mle_rating < 100 AND alt_hof is null")}
+  scope :hos_hom_nlb, lambda{is_nlb.in_hom.where("mle_rating >= 100 AND alt_hof is null")}
 
   scope :bbwaa_2023_returning, lambda{not_in_hof.where("
     id = 'rolensc01' OR

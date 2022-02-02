@@ -28,7 +28,7 @@
     %strong= Player.hof_hos_hom.count
     players who are in the Hall of Fame, Hall of Stats, and Hall of Merit.
   %p
-    %em Note that this page does not yet include Negro League players. This page also only considers if someone was inducted as a player.
+    %em Note: This first table only considers if someone was inducted as a player. The Negro Leagues table considers Hall of Famers of any classification.
 
   %table.consensus-table
     %thead
@@ -62,30 +62,108 @@
           %td
             %span{title: "HOM: #{hoc_player.hom}", class: hoc_player.hom}= hoc_player.hom
 
+
+  %h3 By Negro League MLEs
+  %p
+    For more information about Eric Chalek’s Negro League MLEs, see
+    = succeed "." do
+      %a{:href => "/articles/the-hall-of-stats-and-the-negro-leagues"} our announcement
+
+  %table.consensus-table
+    %thead
+      %tr
+        %th
+          Name
+          %small (MLE Hall Rating)
+        %th
+          %abbr{title: "Hall of Fame"} HOF
+        %th
+          %abbr{title: "Hall of Stats"} HOS
+        %th
+          %abbr{title: "Hall of Merit"} HOM
+    %tbody
+      - @hall_of_consensus_nlb_list.each do |hoc_player|
+        %tr
+          %th
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.mle_rating_rounded})
+          %td
+            - if hoc_player.alt_hof == "nlbp"
+              %span{title: "HOF: true", class: true}= true
+            - else
+              %span{title: "HOF: false", class: false}= false
+          %td
+            - if hoc_player.mle_rating > 100
+              %span{title: "HOF: true", class: true}= true
+            - else
+              %span{title: "HOF: false", class: false}= false
+          %td
+            %span{title: "HOM: #{hoc_player.hom}", class: hoc_player.hom}= hoc_player.hom
+
   %h3 Only in the Hall of Fame
-  %ol
-    - @only_hof.each do |hoc_player|
-      %li
-        %a{href: player_path(hoc_player)}= hoc_player.name
-        %small (#{hoc_player.hall_rating_rounded})
+  .two-columns
+    .column
+      %p By Hall Rating:
+      %ol
+        - @only_hof.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.hall_rating_rounded})
+    .column
+      %p By MLE Hall Rating:
+      %ol
+        - @only_nlb_hof.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.mle_rating_rounded})
 
   %h3 Only in the Hall of Stats
-  %ol
-    - @only_hos.each do |hoc_player|
-      %li
-        %a{href: player_path(hoc_player)}= hoc_player.name
-        %small (#{hoc_player.hall_rating_rounded})
+  .two-columns
+    .column
+      %p By Hall Rating:
+      %ol
+        - @only_hos.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.hall_rating_rounded})
+    .column
+      %p By MLE Hall Rating:
+      %ol
+        - @only_nlb_hos.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.mle_rating_rounded})
 
   %h3 Only in the Hall of Merit
-  %ol
-    - @only_hom.each do |hoc_player|
-      %li
-        %a{href: player_path(hoc_player)}= hoc_player.name
-        %small (#{hoc_player.hall_rating_rounded})
+  .two-columns
+    .column
+      %p By Hall Rating:
+      %ol
+        - @only_hom.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.hall_rating_rounded})
+    .column
+      %p By MLE Hall Rating:
+      %ol
+        - @only_nlb_hom.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.mle_rating_rounded})
 
   %h3 In the Hall of Stats and Hall of Merit, but not the Hall of Fame
-  %ol
-    - @hos_hom.each do |hoc_player|
-      %li
-        %a{href: player_path(hoc_player)}= hoc_player.name
-        %small (#{hoc_player.hall_rating_rounded})
+  .two-columns
+    .column
+      %p By Hall Rating:
+      %ol
+        - @hos_hom.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.hall_rating_rounded})
+    .column
+      %p By MLE Hall Rating:
+      %ol
+        - @hos_hom_nlb.each do |hoc_player|
+          %li
+            %a{href: player_path(hoc_player)}= hoc_player.name
+            %small (#{hoc_player.mle_rating_rounded})
