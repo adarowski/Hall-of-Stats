@@ -35,7 +35,9 @@ class PlayerDecorator < Draper::Decorator
     'early_baseball' => 'Early Baseball',
     'golden_days' => 'Golden Days',
     'modern_baseball' => 'Modern Baseball',
-    'todays_game' => 'Today’s Game'
+    'todays_game' => 'Today’s Game',
+    'classic_baseball' => 'Classic Baseball',
+    'contemporary_baseball' => 'Contemporary Baseball'
   }
 
  HOF_VIAS = {

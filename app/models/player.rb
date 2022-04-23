@@ -94,13 +94,10 @@ class Player < ActiveRecord::Base
     id = 'hunteto01'
   ")}
 
-  scope :tg_era_2023, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2007 AND hall_rating > 50")}
-  scope :mb_era_2024, lambda{not_in_hof.where("era_committee = 'modern_baseball' AND hall_rating > 50")}
-  scope :tg_era_2025, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
-  scope :gd_era_2027, lambda{not_in_hof.where("era_committee = 'golden_days' AND hall_rating > 50")}
-  scope :tg_era_2028, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2012 AND last_year >= 2010 AND hall_rating > 50")}
-  scope :tg_era_2030, lambda{not_in_hof.where("era_committee = 'todays_game' AND last_year <= 2014 AND last_year >= 2013 AND hall_rating > 50")}
-  scope :eb_era_2032, lambda{not_in_hof.where("era_committee = 'early_baseball' AND hall_rating > 50")}
+  scope :contemporary_era_2023, lambda{not_in_hof.where("era_committee = 'contemporary_baseball' AND last_year <= 2007 AND hall_rating > 50")}
+  scope :classic_era_2025, lambda{not_in_hof.where("era_committee = 'classic_baseball' AND hall_rating > 50")}
+  scope :classic_nlb_2025, lambda{is_nlb.where("mle_rating >= 50 AND alt_hof is null")}
+  scope :contemporary_era_2026, lambda{not_in_hof.where("era_committee = 'contemporary_baseball' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'

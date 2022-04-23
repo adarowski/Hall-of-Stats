@@ -5,7 +5,7 @@ ActiveAdmin.register Player do
     :runs_totalpos, :pa, :war_pos, :war162_pos, :waa_pos, :ip_outs, :war_p,
     :war162_p, :waa_p, :war_tot, :waa_tot, :bio, :first_year, :last_year, :runs_pitch,
     :img_url, :alt_hof, :hof_via, :hof_year, :personal_hof, :ross_hof, :dan_hof, :dalton_hof,
-    :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings
+    :bryan_hof, :consensus, :cover_model, :compatibility_id, :franchise_rankings, :era_committee
 
   config.filters = false
 
@@ -50,6 +50,7 @@ ActiveAdmin.register Player do
       f.input :first_year
       f.input :last_year
       f.input :eligibility
+      f.input :era_committee
       f.input :hof
       f.input :hos
       f.input :hom

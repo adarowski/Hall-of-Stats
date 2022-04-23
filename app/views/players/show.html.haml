@@ -86,23 +86,20 @@
       %dd.eligibility-note
         #{@player.first_name} #{@player.last_name} is returning to the
         = succeed "." do
-          = link_to "BBWAA ballot in 2023", "/upcoming#bbwaa_returning_2022"
+          = link_to "BBWAA ballot in 2023", "/upcoming#bbwaa_2023_returning"
     - elsif @player.era_committee
       %dt.eligibility-note Next Ballot
       %dd.eligibility-note
-        - if @player.era_committee == 'modern_baseball'
-          = render 'era_committee_link', player: @player, year: 2024
-        - elsif @player.era_committee == 'todays_game'
-          - if @player.last_year <= 2007
-            = render 'era_committee_link', player: @player, year: 2023
-          - elsif @player.last_year <= 2009
-            = render 'era_committee_link', player: @player, year: 2025
-          - else
-            = render 'era_committee_link', player: @player, year: 2028
-        - elsif @player.era_committee == 'golden_days'
-          = render 'era_committee_link', player: @player, year: 2027
-        - elsif @player.era_committee == 'early_baseball'
-          = render 'era_committee_link', player: @player, year: 2032
+        - if @player.era_committee == 'classic_baseball'
+          = render 'era_committee_link', player: @player, year: 2025
+        - else @player.era_committee == 'contemporary_baseball'
+          = render 'era_committee_link', player: @player, year: 2023
+    - if !@player.alt_hof && @player.hof == false && @player.eligibility == "nlb"
+      %dt.eligibility-note Next Ballot
+      %dd.eligibility-note
+        #{@player.first_name} #{@player.last_name} is eligible for the Hall of Fame via the
+        = succeed "." do
+          = link_to "Classic Baseball Era Committee in 2025", "/upcoming#classic_baseball_2025_nlb"
 
   - if @player.has_photo?
     %figure.portrait
