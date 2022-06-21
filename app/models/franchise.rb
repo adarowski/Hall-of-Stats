@@ -180,7 +180,7 @@ class Franchise < ActiveHash::Base
   add id: 'ab2', name: 'Indianapolis ABCs II', first_year: '1931', last_year: '1933'
   add id: 'abc', name: 'Indianapolis ABCs I', first_year: '1920', last_year: '1926'
   add id: 'ag', name: 'Akron Grays', first_year: '1933', last_year: '1933'
-  add id: 'bag', name: 'Bacharach Giants', first_year: '1923', last_year: '1929'
+  add id: 'ac', name: 'Bacharach Giants', first_year: '1923', last_year: '1929'
   add id: 'bbb', name: 'Birmingham Black Barons', first_year: '1924', last_year: '1948'
   add id: 'bbs', name: 'Baltimore Black Sox', first_year: '1923', last_year: '1934'
   add id: 'bca', name: 'Atlanta Black Crackers', first_year: '1932', last_year: '1939'
