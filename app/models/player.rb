@@ -98,6 +98,8 @@ class Player < ActiveRecord::Base
   scope :classic_era_2025, lambda{not_in_hof.where("era_committee = 'classic_baseball' AND hall_rating > 50")}
   scope :classic_nlb_2025, lambda{is_nlb.where("mle_rating >= 50 AND alt_hof is null")}
   scope :contemporary_era_2026, lambda{not_in_hof.where("era_committee = 'contemporary_baseball' AND last_year <= 2009 AND last_year >= 2008 AND hall_rating > 50")}
+  scope :contemporary_era_2029, lambda{not_in_hof.where("era_committee = 'contemporary_baseball' AND last_year <= 2012 AND last_year >= 2010 AND hall_rating > 50")}
+  scope :contemporary_era_2032, lambda{not_in_hof.where("era_committee = 'contemporary_baseball' AND last_year <= 2015 AND last_year >= 2013 AND hall_rating > 50")}
 
   has_and_belongs_to_many :articles
   has_many :season_stats, class_name: 'SeasonStats'

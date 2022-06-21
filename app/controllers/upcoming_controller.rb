@@ -11,6 +11,8 @@ class UpcomingController < ApplicationController
     @classic_era_2025 = Player.classic_era_2025.by_rank
     @classic_nlb_2025 = Player.classic_nlb_2025.by_mle_rank
     @contemporary_era_2026 = Player.contemporary_era_2026.by_rank
+    @contemporary_era_2029 = Player.contemporary_era_2029.by_rank
+    @contemporary_era_2032 = Player.contemporary_era_2032.by_rank
   end
 
 end
