@@ -4,7 +4,7 @@ class SeasonStats < ActiveRecord::Base
   #   as: :admin
   self.primary_key = :player_id
 
-  validates :player_id, uniqueness: { scope: [:year, :franchise_id] }
+  validates :player_id, uniqueness: { scope: [:year, :franchise_id, :team] }
   belongs_to :player
   belongs_to :franchise
 
