@@ -92,8 +92,15 @@
       %dd.eligibility-note
         - if @player.era_committee == 'classic_baseball'
           = render 'era_committee_link', player: @player, year: 2025
-        - else @player.era_committee == 'contemporary_baseball'
-          = render 'era_committee_link', player: @player, year: 2023
+        - elsif @player.era_committee == 'contemporary_baseball'
+          - if @player.last_year <= 2007
+            = render 'era_committee_link', player: @player, year: 2023
+          - elsif @player.last_year <= 2009
+            = render 'era_committee_link', player: @player, year: 2026
+          - elsif @player.last_year <= 2012
+            = render 'era_committee_link', player: @player, year: 2029
+          - else
+            = render 'era_committee_link', player: @player, year: 2032
     - if !@player.alt_hof && @player.hof == false && @player.eligibility == "nlb"
       %dt.eligibility-note Next Ballot
       %dd.eligibility-note
