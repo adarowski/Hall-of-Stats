@@ -14,7 +14,7 @@ class Player < ActiveRecord::Base
     has_nlmle.where(position: position_abbrev)
   }
 
-  scope :for_similarity_test, ->{ where('pa > 1500 OR ip_outs > 1500')}
+  scope :for_similarity_test, ->{ where('pa > 3000 OR ip_outs > 3000')}
 
   scope :by_rank, ->{order("hall_rating desc")}
   scope :by_mle_rank, ->{order("mle_rating desc")}
@@ -59,11 +59,11 @@ class Player < ActiveRecord::Base
   scope :added, lambda{not_in_hof.in_hos}
   scope :removed, lambda{in_hof.not_in_hos}
   scope :upcoming, lambda{not_in_hof.not_in_hos.hall_worthy.where("eligibility = 'upcoming'")}
-  scope :eligible_2023, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2017")}
   scope :eligible_2024, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2018")}
   scope :eligible_2025, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2019")}
   scope :eligible_2026, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2020")}
   scope :eligible_2027, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2021")}
+  scope :eligible_2028, lambda{not_in_hos.where("eligibility = 'upcoming' AND hall_rating >= 20 AND last_year = 2022")}
   scope :active_and_worthy, lambda{not_in_hos.hall_worthy.where("eligibility = 'active'")}
   scope :active_and_close, lambda{not_in_hos.where("eligibility = 'active' AND hall_rating >= 75 AND hall_rating <= 100.0")}
   scope :near_misses, lambda{not_in_hos.where("eligibility != 'active' AND hall_rating >= 90 AND hall_rating <= 100.0")}
@@ -77,20 +77,20 @@ class Player < ActiveRecord::Base
   scope :only_nlb_hom, lambda{is_nlb.in_hom.where("mle_rating < 100 AND alt_hof is null")}
   scope :hos_hom_nlb, lambda{is_nlb.in_hom.where("mle_rating >= 100 AND alt_hof is null")}
 
-  scope :bbwaa_2023_returning, lambda{not_in_hof.where("
-    id = 'rolensc01' OR
+  scope :bbwaa_2024_returning, lambda{not_in_hof.where("
     id = 'heltoto01' OR
     id = 'wagnebi02' OR
     id = 'jonesan01' OR
     id = 'sheffga01' OR
+    id = 'beltrca01' OR
     id = 'rodrial01' OR
-    id = 'kentje01' OR
     id = 'ramirma02' OR
     id = 'vizquom01' OR
     id = 'pettian01' OR
     id = 'rolliji01' OR
     id = 'abreubo01' OR
     id = 'buehrma01' OR
+    id = 'rodrifr03' OR
     id = 'hunteto01'
   ")}
 

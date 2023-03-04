@@ -15,7 +15,6 @@
 %nav.jump-menu
   %strong Jump to:
   %ol
-    %li= link_to "2023", "#year_2023"
     %li= link_to "2024", "#year_2024"
     %li= link_to "2025", "#year_2025"
     %li= link_to "2026", "#year_2026"
@@ -39,9 +38,6 @@
 
   %ul
     %li
-      %strong= link_to "2023:", "#year_2023"
-      BBWAA, Contemporary Baseball (final season through 2007)
-    %li
       %strong= link_to "2024:", "#year_2024"
       BBWAA, Contemporary Baseball (Managers, Executives, and Umpires)
     %li
@@ -49,41 +45,27 @@
       BBWAA, Classic Baseball
     %li
       %strong= link_to "2026:", "#year_2026"
-      BBWAA, Contemporary Baseball (final season through 2009)
+      BBWAA, Contemporary Baseball
     %li
       %strong= link_to "2027:", "#year_2027"
       BBWAA, Contemporary Baseball (Managers, Executives, and Umpires)
+    %li
+      %strong= link_to "2028:", "#year_2028"
+      BBWAA, Classic Baseball
 
   %p
     The red and green icons indicate whether or not the player is in the Hall of Stats (HOS) or Hall of Merit (HOM). If an icon is not present, the player is not yet eligible.
-
-  <h3 id="year_2023">2023 <a href="#top">Back to Top</a></h3>
-
-  %p
-    The biggest new name on the 2023 is Carlos Beltran. If you thought we were done discussing Bonds and Clemens, they’re back on the Contemporary Baseball Era ballot. And if you thought the steroid discussion was fun, let’s add sign stealing scandals!
-
-  %h4#bbwaa_2023_returning
-    BBWAA Ballot
-    %span (Returning Candidates)
-
-  = render 'upcoming_table', pool: @bbwaa_2023_returning
-
-  %h4#bbwaa_2023
-    BBWAA Ballot
-    %span (New Candidates with Hall Rating of 20+)
-
-  = render 'upcoming_table', pool: @eligible_2023
-
-  %h4#contemporary_baseball_2023
-    Contemporary Baseball Era Ballot
-    %span (Candidates with Hall Rating of 50+)
-
-  = render 'upcoming_table', pool: @contemporary_era_2023
 
   <h3 id="year_2024">2024 <a href="#top">Back to Top</a></h3>
 
   %p
     Finally, in Adrian Beltre, Chase Utley, and Joe Mauer we get three scandal-free candidates. The Contemporary Baseball Era ballot for Managers, Executives, and Umpires will meet.
+
+  %h4#bbwaa_2024_returning
+    BBWAA Ballot
+    %span (Returning Candidates)
+
+  = render 'upcoming_table', pool: @bbwaa_2024_returning
 
   %h4#bbwaa_2024
     BBWAA Ballot
@@ -99,7 +81,6 @@
 
   %ul
     %li Sandy Alderson
-    %li Bruce Bochy
     %li Davey Johnson
     %li Lou Piniella
     %li Brian Sabean

@@ -81,12 +81,12 @@
         #{@player.first_name} #{@player.last_name} isn’t eligible for the Hall of Fame because he is banned from baseball.
         - if @player.hall_rating > 100
           If he was eligible, he would be in the Hall of Stats.
-    - if @bbwaa_2023_returning
+    - if @bbwaa_2024_returning
       %dt.eligibility-note Next Ballot
       %dd.eligibility-note
         #{@player.first_name} #{@player.last_name} is returning to the
         = succeed "." do
-          = link_to "BBWAA ballot in 2023", "/upcoming#bbwaa_2023_returning"
+          = link_to "BBWAA ballot in 2024", "/upcoming#bbwaa_2024_returning"
     - elsif @player.era_committee
       %dt.eligibility-note Next Ballot
       %dd.eligibility-note

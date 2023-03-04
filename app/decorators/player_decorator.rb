@@ -46,11 +46,12 @@ class PlayerDecorator < Draper::Decorator
     'old timers' => 'Old Timers Committee',
     'run off' => 'Runoff Election',
     'special election' => 'Special Election',
-    'golden' => 'Golden',
+    'golden' => 'Golden Era Committee',
     'preintegration' => "Pre-Integration Era Committee",
     'modern baseball' => "Modern Baseball Era Committee",
     'todays game' => "Today’s Game Era Committee",
-    'golden days' => "Golden Days Era Committee"
+    'golden days' => "Golden Days Era Committee",
+    'contemporary' => "Contemporary Era Committee"
   }
 
   # don't use the helper so that we can be called from PlayerLinker
