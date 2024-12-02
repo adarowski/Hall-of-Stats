@@ -9,7 +9,7 @@ gem 'thin'
 
 gem 'pg', '~> 0.15'
 # gem 'activerecord-postgresql-adapter'
-gem 'haml', "~> 4.0"
+gem 'haml', "~> 5.2"
 gem 'redcarpet'
 
 gem 'draper'

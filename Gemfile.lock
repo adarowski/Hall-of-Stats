@@ -128,7 +128,8 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (4.0.7)
+    haml (5.2.1)
+      temple (>= 0.8.0)
       tilt
     has_scope (0.7.2)
       actionpack (>= 4.1)
@@ -265,6 +266,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     stamp (0.6.0)
+    temple (0.8.2)
     thin (1.8.0)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -297,7 +299,7 @@ DEPENDENCIES
   fuubar
   guard
   guard-rspec
-  haml (~> 4.0)
+  haml (~> 5.2)
   jquery-rails
   jquery-ui-rails
   kaminari
